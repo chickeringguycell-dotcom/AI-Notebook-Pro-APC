@@ -7,4 +7,124 @@ body {
   padding: 0;
   background-color: #090d16;
   color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
+
+/* Paper Ruling CSS Patterns */
+.ruling-lined {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    rgba(148, 163, 184, 0.18) 31px,
+    rgba(148, 163, 184, 0.18) 32px
+  );
+  background-size: 100% 32px;
+}
+
+.ruling-grid {
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ruling-dot-grid {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+/* Stationery Themes */
+.theme-dark-slate {
+  background: radial-gradient(circle at 50% 0%, #151f33 0%, #080c16 100%);
+  color: #f1f5f9;
+}
+
+.theme-obsidian-gold {
+  background: linear-gradient(145deg, #09090b 0%, #171614 50%, #0d0c09 100%);
+  color: #fef08a;
+  border-color: rgba(234, 179, 8, 0.25);
+}
+
+.theme-ivory-parchment {
+  background: #fbf7ee linear-gradient(to bottom right, #fcf9f2 0%, #f4ecdc 100%);
+  color: #292524;
+}
+
+.theme-aged-scroll {
+  background: #f2e3c6 linear-gradient(135deg, #eedcb8 0%, #d8be92 50%, #cca973 100%);
+  color: #3b2816;
+}
+
+.theme-emerald-royale {
+  background: radial-gradient(circle at 50% 10%, #064e3b 0%, #022c22 60%, #011913 100%);
+  color: #ecfdf5;
+}
+
+.theme-calacatta-marble {
+  background: #ffffff linear-gradient(135deg, #ffffff 0%, #f8fafc 40%, #e2e8f0 70%, #f1f5f9 100%);
+  color: #0f172a;
+}
+
+.theme-japanese-linen {
+  background-color: #faf5eb;
+  background-image: 
+    radial-gradient(rgba(180, 160, 130, 0.15) 1px, transparent 0),
+    radial-gradient(rgba(180, 160, 130, 0.15) 1px, transparent 0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  color: #2d261e;
+}
+
+.theme-blueprint-cyan {
+  background: #021a36 linear-gradient(to bottom, #022044 0%, #021428 100%);
+  color: #e0f2fe;
+}
+
+.theme-sakura-pastel {
+  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 50%, #fecdd3 100%);
+  color: #881337;
+}
+
+.theme-tokyo-rain {
+  background: linear-gradient(160deg, #090915 0%, #0e1726 45%, #180d28 100%);
+  color: #e0e7ff;
+}
+
+/* Print Formatting (Save to PDF / Print Note) */
+@media print {
+  body, html {
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  header, footer, .no-print, button, input[type="file"], .ai-bar, .action-bar {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .note-cell-container {
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    margin-bottom: 16px !important;
+  }
+
+  textarea {
+    color: #000000 !important;
+    background: transparent !important;
+    resize: none !important;
+  }
+}
+
