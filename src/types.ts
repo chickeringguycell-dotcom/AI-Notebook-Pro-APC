@@ -1,5 +1,15 @@
 export type CellType = 'code' | 'markdown' | 'ai' | 'photo';
-export type CellLanguage = 'python' | 'javascript' | 'typescript' | 'sql' | 'html' | 'cpp' | 'rust' | 'java';
+export type CellLanguage =
+  | 'aetherprime'
+  | 'air'
+  | 'python'
+  | 'javascript'
+  | 'typescript'
+  | 'sql'
+  | 'html'
+  | 'cpp'
+  | 'rust'
+  | 'java';
 
 export interface CellOutput {
   id: string;
@@ -23,19 +33,32 @@ export interface NotebookCell {
 }
 
 export type StationeryTheme =
-  | 'dark-slate'
+  | 'viper-obsidian'
   | 'obsidian-gold'
+  | 'cosmic-nebula'
+  | 'aurora-borealis'
+  | 'calacatta-marble'
   | 'ivory-parchment'
   | 'aged-scroll'
-  | 'emerald-royale'
-  | 'calacatta-marble'
   | 'japanese-linen'
+  | 'cognac-leather'
+  | 'emerald-royale'
+  | 'royal-sapphire'
   | 'blueprint-cyan'
   | 'sakura-pastel'
+  | 'botanical-sage'
+  | 'lavender-mist'
+  | 'rose-quartz'
   | 'tokyo-rain'
+  | 'cyber-synth'
+  | 'nordic-frost'
+  | 'terracotta-clay'
+  | 'espresso-kraft'
+  | 'amethyst-velvet'
+  | 'dark-slate'
   | 'custom-photo';
 
-export type PaperRuling = 'none' | 'lined' | 'grid' | 'dot-grid';
+export type PaperRuling = 'none' | 'lined' | 'grid' | 'dot-grid' | 'cornell';
 
 export interface NotebookDoc {
   id: string;
@@ -46,10 +69,10 @@ export interface NotebookDoc {
   theme: StationeryTheme;
   ruling: PaperRuling;
   customWallpaper?: string;
-  wallpaperOpacity?: number; // 0 to 100
+  wallpaperOpacity?: number; // 20 to 100
 }
 
-export type AIModelType = 'gemini-1.5-flash' | 'gemini-1.5-pro' | 'gpt-4o-mini';
+export type AIModelType = 'aether-sovereign' | 'gemini-1.5-flash' | 'gemini-1.5-pro';
 
 export type AIActionType = 'draft' | 'polish' | 'summarize' | 'brainstorm' | 'code' | 'fix' | 'translate';
 
@@ -58,5 +81,3 @@ export interface UserSubscription {
   dailyCreditsRemaining: number;
   lastCreditReset: number;
 }
-
-

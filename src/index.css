@@ -11,85 +11,238 @@ body {
   overflow: hidden;
 }
 
-/* Paper Ruling CSS Patterns */
-.ruling-lined {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 31px,
-    rgba(148, 163, 184, 0.18) 31px,
-    rgba(148, 163, 184, 0.18) 32px
-  );
-  background-size: 100% 32px;
+/* ============================================================================
+   5 PRECISION PAPER RULINGS (Adaptive to Dark & Light Luxury Stationery)
+   ============================================================================ */
+.ruling-lined-dark {
+  background-image:
+    linear-gradient(to right, transparent 28px, rgba(244, 63, 94, 0.28) 28px, rgba(244, 63, 94, 0.28) 29px, transparent 29px),
+    repeating-linear-gradient(to bottom, transparent, transparent 31px, rgba(148, 163, 184, 0.16) 31px, rgba(148, 163, 184, 0.16) 32px);
+  background-size: 100% 100%, 100% 32px;
 }
 
-.ruling-grid {
-  background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+.ruling-lined-light {
+  background-image:
+    linear-gradient(to right, transparent 28px, rgba(225, 29, 72, 0.32) 28px, rgba(225, 29, 72, 0.32) 29px, transparent 29px),
+    repeating-linear-gradient(to bottom, transparent, transparent 31px, rgba(59, 130, 246, 0.22) 31px, rgba(59, 130, 246, 0.22) 32px);
+  background-size: 100% 100%, 100% 32px;
+}
+
+.ruling-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.13) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-.ruling-dot-grid {
-  background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1.2px, transparent 1.2px);
+.ruling-grid-light {
+  background-image:
+    linear-gradient(to right, rgba(71, 85, 105, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(71, 85, 105, 0.14) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ruling-dot-grid-dark {
+  background-image: radial-gradient(rgba(203, 213, 225, 0.28) 1.25px, transparent 1.25px);
   background-size: 20px 20px;
 }
 
-/* Stationery Themes */
-.theme-dark-slate {
-  background: radial-gradient(circle at 50% 0%, #151f33 0%, #080c16 100%);
-  color: #f1f5f9;
+.ruling-dot-grid-light {
+  background-image: radial-gradient(rgba(51, 65, 85, 0.32) 1.25px, transparent 1.25px);
+  background-size: 20px 20px;
+}
+
+.ruling-cornell-dark {
+  background-image:
+    linear-gradient(to right, transparent 88px, rgba(251, 191, 36, 0.32) 88px, rgba(251, 191, 36, 0.32) 90px, transparent 90px),
+    repeating-linear-gradient(to bottom, transparent, transparent 31px, rgba(148, 163, 184, 0.14) 31px, rgba(148, 163, 184, 0.14) 32px);
+  background-size: 100% 100%, 100% 32px;
+}
+
+.ruling-cornell-light {
+  background-image:
+    linear-gradient(to right, transparent 88px, rgba(180, 83, 9, 0.35) 88px, rgba(180, 83, 9, 0.35) 90px, transparent 90px),
+    repeating-linear-gradient(to bottom, transparent, transparent 31px, rgba(71, 85, 105, 0.18) 31px, rgba(71, 85, 105, 0.18) 32px);
+  background-size: 100% 100%, 100% 32px;
+}
+
+/* ============================================================================
+   24 LUXURY STATIONERY SURFACES (Multi-Layer Woven & Marbled Artistry)
+   ============================================================================ */
+.theme-viper-obsidian {
+  background:
+    radial-gradient(circle at 85% 12%, rgba(234, 88, 12, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 15% 88%, rgba(249, 115, 22, 0.14) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 2px, transparent 2px, transparent 6px),
+    linear-gradient(160deg, #07090f 0%, #11131c 55%, #191210 100%);
+  color: #f8fafc;
 }
 
 .theme-obsidian-gold {
-  background: linear-gradient(145deg, #09090b 0%, #171614 50%, #0d0c09 100%);
-  color: #fef08a;
-  border-color: rgba(234, 179, 8, 0.25);
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(234, 179, 8, 0.20) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 100%, rgba(202, 138, 4, 0.15) 0%, transparent 50%),
+    linear-gradient(145deg, #09090b 0%, #171510 50%, #0b0a07 100%);
+  color: #fef9c3;
 }
 
-.theme-ivory-parchment {
-  background: #fbf7ee linear-gradient(to bottom right, #fcf9f2 0%, #f4ecdc 100%);
-  color: #292524;
+.theme-cosmic-nebula {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(56, 189, 248, 0.22) 0%, transparent 48%),
+    radial-gradient(rgba(255,255,255,0.55) 0.8px, transparent 1px),
+    linear-gradient(165deg, #050511 0%, #13112e 52%, #1d1033 100%);
+  background-size: 100% 100%, 100% 100%, 46px 46px, 100% 100%;
+  color: #f1f5f9;
 }
 
-.theme-aged-scroll {
-  background: #f2e3c6 linear-gradient(135deg, #eedcb8 0%, #d8be92 50%, #cca973 100%);
-  color: #3b2816;
+.theme-aurora-borealis {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(16, 185, 129, 0.32) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 35%, rgba(6, 182, 212, 0.24) 0%, transparent 50%),
+    linear-gradient(170deg, #03111a 0%, #05262d 50%, #071926 100%);
+  color: #ecfeff;
+}
+
+.theme-royal-sapphire {
+  background:
+    radial-gradient(circle at 75% 15%, rgba(59, 130, 246, 0.26) 0%, transparent 50%),
+    radial-gradient(circle at 20% 85%, rgba(99, 102, 241, 0.18) 0%, transparent 50%),
+    linear-gradient(155deg, #040b1e 0%, #0f1f47 55%, #071029 100%);
+  color: #eff6ff;
 }
 
 .theme-emerald-royale {
-  background: radial-gradient(circle at 50% 10%, #064e3b 0%, #022c22 60%, #011913 100%);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.25) 0%, transparent 52%),
+    linear-gradient(160deg, #021c15 0%, #063e2f 52%, #021711 100%);
   color: #ecfdf5;
 }
 
+.theme-cognac-leather {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.16) 0%, transparent 55%),
+    repeating-radial-gradient(circle at 0 0, rgba(255,255,255,0.016) 0, rgba(255,255,255,0.016) 2px, transparent 3px, transparent 7px),
+    linear-gradient(150deg, #1a0f08 0%, #2e1a0e 52%, #190d06 100%);
+  color: #ffedd5;
+}
+
+.theme-amethyst-velvet {
+  background:
+    radial-gradient(circle at 80% 15%, rgba(192, 132, 252, 0.24) 0%, transparent 48%),
+    linear-gradient(155deg, #11061c 0%, #290d42 55%, #140720 100%);
+  color: #faf5ff;
+}
+
+.theme-dark-slate {
+  background: radial-gradient(circle at 50% 0%, #17233a 0%, #080c16 100%);
+  color: #f1f5f9;
+}
+
+/* Light Fine Paper & Marble Surfaces */
 .theme-calacatta-marble {
-  background: #ffffff linear-gradient(135deg, #ffffff 0%, #f8fafc 40%, #e2e8f0 70%, #f1f5f9 100%);
+  background:
+    linear-gradient(122deg, transparent 38%, rgba(180, 153, 102, 0.18) 39.2%, transparent 40.5%),
+    linear-gradient(64deg, transparent 62%, rgba(148, 163, 184, 0.22) 63%, transparent 64.5%),
+    linear-gradient(155deg, #ffffff 0%, #f8fafc 48%, #edeae2 100%);
   color: #0f172a;
 }
 
-.theme-japanese-linen {
-  background-color: #faf5eb;
-  background-image: 
-    radial-gradient(rgba(180, 160, 130, 0.15) 1px, transparent 0),
-    radial-gradient(rgba(180, 160, 130, 0.15) 1px, transparent 0);
-  background-position: 0 0, 10px 10px;
-  background-size: 20px 20px;
-  color: #2d261e;
+.theme-ivory-parchment {
+  background:
+    radial-gradient(rgba(180, 145, 95, 0.08) 1px, transparent 0),
+    linear-gradient(145deg, #fffdf8 0%, #f7efe0 55%, #efe3cc 100%);
+  background-size: 18px 18px, 100% 100%;
+  color: #1c1917;
 }
 
-.theme-blueprint-cyan {
-  background: #021a36 linear-gradient(to bottom, #022044 0%, #021428 100%);
-  color: #e0f2fe;
+.theme-aged-scroll {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 55%, rgba(120, 75, 25, 0.22) 100%),
+    linear-gradient(135deg, #f6e7c8 0%, #e5cca0 55%, #d4b27c 100%);
+  color: #2e1d0e;
+}
+
+.theme-japanese-linen {
+  background-color: #fbf7ef;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(168, 148, 118, 0.07) 0px, rgba(168, 148, 118, 0.07) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(90deg, rgba(168, 148, 118, 0.07) 0px, rgba(168, 148, 118, 0.07) 1px, transparent 1px, transparent 5px);
+  color: #1f1a14;
+}
+
+.theme-botanical-sage {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(74, 124, 89, 0.15) 0%, transparent 48%),
+    linear-gradient(145deg, #f4f8f4 0%, #dfece1 55%, #d0e2d4 100%);
+  color: #14291b;
 }
 
 .theme-sakura-pastel {
-  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 50%, #fecdd3 100%);
-  color: #881337;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(244, 114, 182, 0.18) 0%, transparent 45%),
+    linear-gradient(135deg, #fff7f9 0%, #ffe4ec 55%, #fbd0de 100%);
+  color: #4c0519;
+}
+
+.theme-lavender-mist {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.14) 0%, transparent 50%),
+    linear-gradient(140deg, #faf8ff 0%, #ede9fe 55%, #ddd6fe 100%);
+  color: #1e1035;
+}
+
+.theme-rose-quartz {
+  background:
+    linear-gradient(125deg, transparent 44%, rgba(255, 255, 255, 0.65) 46%, transparent 48%),
+    linear-gradient(145deg, #fff5f5 0%, #ffe0e3 55%, #fecdd3 100%);
+  color: #450a0a;
+}
+
+.theme-nordic-frost {
+  background: linear-gradient(145deg, #f5fbff 0%, #e0f2fe 58%, #cce9fb 100%);
+  color: #0c2438;
+}
+
+.theme-terracotta-clay {
+  background: linear-gradient(145deg, #fdf4ee 0%, #f6dccb 55%, #ecc3a8 100%);
+  color: #36190c;
+}
+
+.theme-espresso-kraft {
+  background:
+    radial-gradient(rgba(92, 60, 28, 0.10) 1px, transparent 0),
+    linear-gradient(145deg, #ead8bc 0%, #d8be98 55%, #c7a77b 100%);
+  background-size: 14px 14px, 100% 100%;
+  color: #26170a;
+}
+
+/* Atmospheric & Technical Surfaces */
+.theme-blueprint-cyan {
+  background-color: #042042;
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: #e0f2fe;
 }
 
 .theme-tokyo-rain {
-  background: linear-gradient(160deg, #090915 0%, #0e1726 45%, #180d28 100%);
+  background:
+    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.20) 0%, transparent 45%),
+    linear-gradient(160deg, #070815 0%, #121733 50%, #1c0f2e 100%);
   color: #e0e7ff;
+}
+
+.theme-cyber-synth {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(236, 72, 153, 0.28) 0%, transparent 55%),
+    linear-gradient(to right, rgba(217, 70, 239, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(180deg, #0b031a 0%, #20073b 65%, #340847 100%);
+  background-size: 100% 100%, 26px 26px, 26px 26px, 100% 100%;
+  color: #fae8ff;
 }
 
 /* Print Formatting (Save to PDF / Print Note) */
@@ -100,7 +253,7 @@ body {
     overflow: visible !important;
     height: auto !important;
   }
-  
+
   header, footer, .no-print, button, input[type="file"], .ai-bar, .action-bar {
     display: none !important;
   }
@@ -127,4 +280,3 @@ body {
     resize: none !important;
   }
 }
-

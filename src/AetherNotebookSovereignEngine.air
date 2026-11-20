@@ -1,0 +1,19 @@
+; ============================================================================
+; AIR IR (.air) — Aether Intermediate Representation (SSA Form)
+; Module: @ViperStudios.AetherPrime.Notebook.AetherNotebookSovereignEngine
+; ============================================================================
+
+module @ViperStudios.AetherPrime.Notebook.AetherNotebookSovereignEngine {
+  meta !language = "AetherPrime-AIR-IR"
+  meta !version = "1.2.0"
+
+  func @select_fountain_ink_contrast(%is_light_paper: i1) -> i1 {
+  ^entry:
+    ret %is_light_paper
+  }
+
+  func @is_rtl_world_script(%is_rtl_code: i1) -> i1 {
+  ^entry:
+    ret %is_rtl_code
+  }
+}

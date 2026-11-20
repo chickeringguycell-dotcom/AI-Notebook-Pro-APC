@@ -1,0 +1,23 @@
+// ============================================================================
+// AetherPrime (.ae) — Viper Studios Sovereign Language Specification
+// Module: ViperStudios.AetherPrime.Notebook.AetherNotebookSovereignEngine
+// Purpose: Built-In 24/7 Aether Creative & Polyglot Assistant, 44-Country
+//          World Language Router, & 24-Surface Adaptive Luxury Stationery Engine
+// ============================================================================
+
+namespace ViperStudios.AetherPrime.Notebook.AetherNotebookSovereignEngine {
+
+  struct StationerySurfaceSpec {
+    id: str,
+    isLightPaper: bool,
+    supportsRulingOverlay: bool
+  }
+
+  fn shouldUseDarkFountainInk(isLightPaper: bool) -> bool {
+    return isLightPaper;
+  }
+
+  fn isRtlWorldScript(langCode: str) -> bool {
+    return langCode == "ar" || langCode == "he" || langCode == "fa" || langCode == "ur";
+  }
+}
