@@ -4,7 +4,7 @@ import { Sidebar } from "@/components/notepad/sidebar";
 import { Editor } from "@/components/notepad/editor";
 import { AiPanel } from "@/components/notepad/ai-panel";
 import { FirstLaunchOnboardingDialog } from "@/components/notepad/onboarding-dialog";
-import { ShipAnimation } from "@/components/ship-animation";
+import { WelcomeRobotVideo } from "@/components/welcome-robot-video";
 import { FileText } from "lucide-react";
 import { useLang } from "@/contexts/language-context";
 import { useCreateNote, getListNotesQueryKey } from "@workspace/api-client-react";
@@ -123,9 +123,9 @@ export function NotepadPage() {
         ) : (
           <div className="flex-1 flex flex-col items-center justify-start md:justify-center text-center px-8 pt-8 md:pt-0 pb-8">
 
-            {/* Exact 148px original ship size on mobile phone app; proportional 1.35x on wide desktop monitors */}
-            <div className="mb-6 md:mb-10 w-full max-w-sm md:scale-[1.35] md:origin-center">
-              <ShipAnimation />
+            {/* Welcome AI video & live switcher (ShipAnimation preserved inside switcher as backup) */}
+            <div className="mb-4 md:mb-6 w-full flex justify-center">
+              <WelcomeRobotVideo />
             </div>
 
             {/* Mobile: tap-here button — below the ship (exact original mobile layout) */}

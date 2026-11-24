@@ -56,6 +56,9 @@ export function FirstLaunchOnboardingDialog() {
     });
     clearOnboardingParam();
     setOpen(false);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("ainotebook:onboarding-complete"));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -1,0 +1,32 @@
+; Sovereign AIR IR (.air) — Rule 64 Mandatory Intermediate Representation
+meta !language = "AetherPrime-AIR-IR"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.WelcomeRobotVideo {
+  meta !source = "components/welcome-robot-video.tsx"
+  meta !video_asset = "/icons/aria-welcome.mp4"
+  meta !aria_muse_asset = "/icons/aria-muse-concept.jpg"
+  meta !mini_bot_asset = "/icons/happy-robot-scribe.jpg"
+  meta !ship_backup_asset = "/icons/ship.png"
+
+  func @render_welcome_scene(%scene_id: i32, %gesture_unlocked: i1) -> !air.status {
+  ^entry:
+    %is_video = air.cmp_eq %scene_id, 0 : i32
+    air.cond_br %is_video, ^video_branch, ^static_or_ship_branch
+
+  ^video_branch:
+    %zero = air.constant 0.0 : f64
+    air.cond_br %gesture_unlocked, ^unmuted_once, ^muted_loop
+
+  ^unmuted_once:
+    %s1 = air.call @dom.video_seek_and_play(%zero, false, false) : (f64, i1, i1) -> !air.status
+    air.return %s1 : !air.status
+
+  ^muted_loop:
+    %s2 = air.call @dom.video_seek_and_play(%zero, true, true) : (f64, i1, i1) -> !air.status
+    air.return %s2 : !air.status
+
+  ^static_or_ship_branch:
+    %s3 = air.call @dom.render_scene_variant(%scene_id) : (i32) -> !air.status
+    air.return %s3 : !air.status
+  }
+}

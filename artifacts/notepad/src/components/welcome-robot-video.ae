@@ -1,0 +1,39 @@
+// Sovereign AetherPrime Source (.ae) — Rule 64 Mandatory Native Implementation
+// Source: components/welcome-robot-video.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.WelcomeRobotVideo {
+  enum WelcomeSceneMode {
+    Video,
+    AriaMuse,
+    MiniBot,
+    ShipBackup
+  }
+
+  struct VideoPlaybackState {
+    scene: WelcomeSceneMode;
+    isMuted: bool;
+    needsSoundTap: bool;
+    endedWithSound: bool;
+    currentTimeSec: f64;
+  }
+
+  contract WelcomeRobotVideoContract {
+    video_asset: "/icons/aria-welcome.mp4";
+    aria_muse_asset: "/icons/aria-muse-concept.jpg";
+    mini_bot_asset: "/icons/happy-robot-scribe.jpg";
+    ship_backup_asset: "/icons/ship.png";
+
+    fn selectScene(mut state: VideoPlaybackState, next: WelcomeSceneMode) -> VideoPlaybackState {
+      state.scene = next;
+      return state;
+    }
+
+    fn playWithSoundFromStart(mut state: VideoPlaybackState) -> VideoPlaybackState {
+      state.endedWithSound = false;
+      state.currentTimeSec = 0.0;
+      state.isMuted = false;
+      state.needsSoundTap = false;
+      return state;
+    }
+  }
+}

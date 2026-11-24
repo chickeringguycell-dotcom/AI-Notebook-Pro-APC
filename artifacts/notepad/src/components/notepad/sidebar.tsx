@@ -415,14 +415,22 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
     <div className="flex flex-col h-full bg-sidebar text-sidebar-foreground border-r border-sidebar-border w-screen max-w-[22rem] md:w-72 md:max-w-none shrink-0">
       {/* Header */}
       <div className="px-4 py-3 flex items-center justify-between border-b border-sidebar-border">
-        <div className="flex items-center gap-2 font-serif text-base font-semibold">
+        <button
+          type="button"
+          onClick={() => {
+            setLocation("/");
+            onClose?.();
+          }}
+          title="Return to Welcome Screen"
+          className="flex items-center gap-2 font-serif text-base font-semibold hover:opacity-80 transition text-left"
+        >
           <img
-            src="/icons/icon-192.png?v=3"
+            src="/icons/icon-192.png?v=4"
             alt=""
             className="h-6 w-6 rounded-md shadow-sm"
           />
           {t.myNotepad}
-        </div>
+        </button>
         <div className="flex items-center gap-1">
           <Button
             size="icon"
