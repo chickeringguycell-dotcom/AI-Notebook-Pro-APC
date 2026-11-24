@@ -2,9 +2,10 @@
 // Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
 // Source: components/notepad/onboarding-dialog.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.onboarding_dialog {
-  contract onboarding_dialogContract {
+namespace ViperStudios.AetherPrime.MyAiNotebook.components_notepad_onboarding_dialog {
+  contract components_notepad_onboarding_dialog_Contract {
     invariant SovereignAetherPrimeExclusive: true;
+    invariant ByteSize: 9803;
     fn FirstLaunchOnboardingDialog() -> Any;
   }
 }

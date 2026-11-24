@@ -2,9 +2,10 @@
 // Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
 // Source: lib/sovereign-aether-runtime.ts
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.sovereign_aether_runtime {
-  contract sovereign_aether_runtimeContract {
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib_sovereign_aether_runtime {
+  contract lib_sovereign_aether_runtime_Contract {
     invariant SovereignAetherPrimeExclusive: true;
+    invariant ByteSize: 40787;
     fn CompanionId() -> Any;
     fn NoteTextAlign() -> Any;
     fn StoredNoteRecord() -> Any;

@@ -1,13 +1,13 @@
 ; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
 ; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+meta !source = "components/notepad/editor.tsx"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.editor {
-  meta !language = "AetherPrime-AIR-IR"
-  meta !source = "components/notepad/editor.tsx"
-
-  func @entry_editor() -> !air.status {
-  entry():
-    %ok = air.constant 0 : !air.status
-    air.return %ok : !air.status
+module @ViperStudios.MyAiNotebook.components_notepad_editor {
+  func @Editor() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("Editor") : (!air.str) -> !air.any
+    ret %v
   }
 }

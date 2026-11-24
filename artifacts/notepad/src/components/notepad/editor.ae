@@ -2,9 +2,10 @@
 // Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
 // Source: components/notepad/editor.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.editor {
-  contract editorContract {
+namespace ViperStudios.AetherPrime.MyAiNotebook.components_notepad_editor {
+  contract components_notepad_editor_Contract {
     invariant SovereignAetherPrimeExclusive: true;
+    invariant ByteSize: 59576;
     fn Editor() -> Any;
   }
 }

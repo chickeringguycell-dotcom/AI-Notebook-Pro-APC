@@ -82,6 +82,13 @@ export function useSpeechRecognition({
   const startListening = useCallback(() => {
     stopAetherVoicePlayback();
     try {
+      if (recognitionRef.current) {
+        const savedSpeechLang =
+          (typeof localStorage !== "undefined" && localStorage.getItem("notepad-speech-lang")) ||
+          (typeof navigator !== "undefined" && navigator.language) ||
+          "en-US";
+        recognitionRef.current.lang = savedSpeechLang;
+      }
       recognitionRef.current?.start();
       setIsListening(true);
     } catch {

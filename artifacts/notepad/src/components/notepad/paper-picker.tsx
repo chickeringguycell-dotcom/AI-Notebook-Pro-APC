@@ -1,4 +1,4 @@
-import { Palette, Lock, Check, Feather, Type } from "lucide-react";
+import { Palette, PaintBucket, Lock, Check, Feather, Type } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -152,19 +152,66 @@ export interface InkColorDef {
 }
 
 export const INK_COLORS: InkColorDef[] = [
-  { id: "auto",      name: "Auto",        value: "" },
-  { id: "black",     name: "Black",       value: "#1a1a1a" },
-  { id: "navy",      name: "Navy",        value: "#1e3a8a" },
-  { id: "royal",     name: "Royal Blue",  value: "#2563eb" },
-  { id: "teal",      name: "Teal",        value: "#0d9488" },
-  { id: "forest",    name: "Forest",      value: "#166534" },
-  { id: "crimson",   name: "Crimson",     value: "#dc2626" },
-  { id: "burgundy",  name: "Burgundy",    value: "#9f1239" },
-  { id: "purple",    name: "Purple",      value: "#7c3aed" },
-  { id: "sepia",     name: "Sepia",       value: "#92400e" },
-  { id: "gold",      name: "Gold",        value: "#d4a017" },
-  { id: "cyan",      name: "Cyan",        value: "#22d3ee" },
+  { id: "auto",       name: "Auto",         value: "" },
+  { id: "white",      name: "Pure White",   value: "#ffffff" },
+  { id: "ivory",      name: "Ivory Cream",  value: "#fff8dc" },
+  { id: "silver",     name: "Silver",       value: "#cbd5e1" },
+  { id: "black",      name: "Jet Black",    value: "#141414" },
+  { id: "brightgold", name: "Bright Gold",  value: "#f5c542" },
+  { id: "gold",       name: "Antique Gold", value: "#d4a017" },
+  { id: "coral",      name: "Coral",        value: "#fb923c" },
+  { id: "rose",       name: "Rose Pink",    value: "#ec4899" },
+  { id: "crimson",    name: "Crimson",      value: "#dc2626" },
+  { id: "burgundy",   name: "Burgundy",     value: "#9f1239" },
+  { id: "sky",        name: "Sky Ice",      value: "#7dd3fc" },
+  { id: "cyan",       name: "Cyan",         value: "#22d3ee" },
+  { id: "royal",      name: "Royal Blue",   value: "#2563eb" },
+  { id: "navy",       name: "Navy",         value: "#1e3a8a" },
+  { id: "mint",       name: "Mint",         value: "#34d399" },
+  { id: "teal",       name: "Teal",         value: "#0d9488" },
+  { id: "forest",     name: "Forest",       value: "#166534" },
+  { id: "lavender",   name: "Lavender",     value: "#c084fc" },
+  { id: "purple",     name: "Purple",       value: "#7c3aed" },
+  { id: "sepia",      name: "Sepia",        value: "#92400e" },
 ];
+
+export const PAGE_COLORS: InkColorDef[] = [
+  { id: "stationery", name: "Stationery",   value: "" },
+  { id: "white",      name: "Pure White",   value: "#ffffff" },
+  { id: "cream",      name: "Warm Cream",   value: "#fdf6ec" },
+  { id: "ivory",      name: "Soft Ivory",   value: "#faf3e0" },
+  { id: "black",      name: "Pitch Black",  value: "#0a0a0c" },
+  { id: "charcoal",   name: "Charcoal",     value: "#1e1e24" },
+  { id: "slate",      name: "Slate",        value: "#334155" },
+  { id: "midnight",   name: "Midnight",     value: "#0f172a" },
+  { id: "deepforest", name: "Deep Forest",  value: "#0d261a" },
+  { id: "wine",       name: "Wine",         value: "#3b0a18" },
+  { id: "plum",       name: "Royal Plum",   value: "#28103e" },
+  { id: "espresso",   name: "Espresso",     value: "#24160e" },
+  { id: "canary",     name: "Canary",       value: "#fef9c3" },
+  { id: "blush",      name: "Blush Pink",   value: "#fce7f3" },
+  { id: "lavender",   name: "Lavender",     value: "#f3e8ff" },
+  { id: "skymist",    name: "Sky Mist",     value: "#e0f2fe" },
+  { id: "mintsage",   name: "Mint Sage",    value: "#dcfce7" },
+  { id: "sand",       name: "Warm Sand",    value: "#e7dcc8" },
+  { id: "peach",      name: "Soft Peach",   value: "#ffedd5" },
+  { id: "tealnight",  name: "Deep Teal",    value: "#0a2629" },
+];
+
+export function isDarkHexColor(hex: string): boolean {
+  const clean = (hex || "").trim().replace(/^#/, "");
+  if (clean.length !== 3 && clean.length !== 6) return false;
+  const full =
+    clean.length === 3
+      ? clean.split("").map((c) => c + c).join("")
+      : clean;
+  const r = parseInt(full.slice(0, 2), 16);
+  const g = parseInt(full.slice(2, 4), 16);
+  const b = parseInt(full.slice(4, 6), 16);
+  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) return false;
+  const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  return lum < 0.45;
+}
 
 export const LINE_STYLES: { id: LineStyle; name: string; isPro: boolean }[] = [
   { id: "lined",  name: "Lined",  isPro: false },
@@ -407,6 +454,125 @@ export function PaperPicker({
   );
 }
 
+interface PageColorPickerProps {
+  pageColor: string;
+  isPro: boolean;
+  compact?: boolean;
+  onPageColorChange: (color: string) => void;
+  onLockedClick: () => void;
+}
+
+export function PageColorPicker({
+  pageColor,
+  isPro,
+  compact = false,
+  onPageColorChange,
+  onLockedClick,
+}: PageColorPickerProps) {
+  const handlePick = (c: InkColorDef) => {
+    if (!isPro && c.id !== "stationery") {
+      onLockedClick();
+      return;
+    }
+    onPageColorChange(c.value);
+  };
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className={`h-8 text-xs ${compact ? "px-1.5" : "gap-1.5"}`}
+          title="Solid page background color"
+          data-testid="button-page-color-picker"
+        >
+          <PaintBucket
+            className="h-3.5 w-3.5"
+            style={
+              pageColor
+                ? {
+                    color:
+                      pageColor.toLowerCase() === "#ffffff" ? "#64748b" : pageColor,
+                  }
+                : undefined
+            }
+          />
+          <span className={compact ? "hidden" : "hidden sm:inline"}>Page Color</span>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-72 p-3" align="end">
+        <div className="space-y-2.5">
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+              Page Color
+            </p>
+            {pageColor && (
+              <button
+                type="button"
+                onClick={() => onPageColorChange("")}
+                className="text-[11px] text-primary hover:underline font-medium"
+              >
+                Use Stationery
+              </button>
+            )}
+          </div>
+
+          <div className="grid grid-cols-5 gap-1.5">
+            {PAGE_COLORS.map((c) => {
+              const selected = (pageColor || "") === c.value;
+              const isDefault = c.id === "stationery";
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  onClick={() => handlePick(c)}
+                  title={c.name}
+                  data-testid={`page-color-${c.id}`}
+                  className={`relative h-10 rounded-md border-2 transition-all flex items-center justify-center overflow-hidden ${
+                    selected ? "border-primary ring-2 ring-primary/30" : "border-border hover:border-primary/50"
+                  }`}
+                  style={
+                    isDefault
+                      ? {
+                          background:
+                            "linear-gradient(135deg, #fdf6ec 0%, #fdf6ec 50%, #dbeafe 50%, #dbeafe 100%)",
+                        }
+                      : { backgroundColor: c.value }
+                  }
+                >
+                  {isDefault && (
+                    <span className="text-[9px] font-bold text-foreground/80 bg-white/75 px-1 rounded">
+                      Auto
+                    </span>
+                  )}
+                  {selected && (
+                    <div className="absolute bottom-0.5 right-0.5 bg-white rounded-full p-0.5 shadow border border-black/10">
+                      <Check className="h-2.5 w-2.5 text-primary" />
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Custom Any-Color Picker */}
+          <label className="flex items-center justify-between gap-2 pt-1.5 border-t border-border cursor-pointer text-xs text-muted-foreground hover:text-foreground">
+            <span>Custom page color…</span>
+            <input
+              type="color"
+              value={pageColor || "#0a0a0c"}
+              onChange={(e) => onPageColorChange(e.target.value)}
+              className="h-6 w-9 rounded border border-border cursor-pointer bg-transparent p-0"
+              data-testid="input-custom-page-color"
+            />
+          </label>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
 export function InkColorPicker({ inkColor, isPro, compact = false, onInkColorChange, onLockedClick }: InkColorPickerProps) {
   const handleInkPick = (c: InkColorDef) => {
     if (!isPro && c.id !== "auto") {
@@ -425,55 +591,97 @@ export function InkColorPicker({ inkColor, isPro, compact = false, onInkColorCha
           variant="ghost"
           size="sm"
           className={`h-8 text-xs ${compact ? "px-1.5" : "gap-1.5"}`}
-          title="Ink color"
+          title="Text / Ink color"
           data-testid="button-ink-picker"
         >
           <Feather
             className="h-3.5 w-3.5"
-            style={currentInk ? { color: currentInk } : undefined}
+            style={
+              currentInk
+                ? {
+                    color:
+                      currentInk.toLowerCase() === "#ffffff" ? "#94a3b8" : currentInk,
+                  }
+                : undefined
+            }
           />
           <span className={compact ? "hidden" : "hidden sm:inline"}>Ink</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-64 p-3" align="end">
-        <div className="space-y-2">
-          <div className="flex items-center justify-between mb-2">
+      <PopoverContent className="w-72 p-3" align="end">
+        <div className="space-y-2.5">
+          <div className="flex items-center justify-between">
             <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-              Ink Color
+              Text / Ink Color
             </p>
+            {inkColor && (
+              <button
+                type="button"
+                onClick={() => onInkColorChange("")}
+                className="text-[11px] text-primary hover:underline font-medium"
+              >
+                Reset Auto
+              </button>
+            )}
           </div>
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-5 gap-1.5">
             {INK_COLORS.map((c) => {
               const selected = (inkColor || "") === c.value;
               const locked = !isPro && c.id !== "auto";
               const isAuto = c.id === "auto";
+              const isWhite = c.id === "white";
               return (
                 <button
                   key={c.id}
+                  type="button"
                   onClick={() => handleInkPick(c)}
                   title={c.name}
                   data-testid={`ink-${c.id}`}
-                  className={`relative h-12 rounded-md border-2 transition-all flex items-center justify-center overflow-hidden ${
-                    selected ? "border-primary ring-2 ring-primary/30" : "border-border hover:border-primary/50"
-                  } ${isAuto ? "bg-background" : ""}`}
-                  style={isAuto ? undefined : { backgroundColor: c.value }}
+                  className={`relative h-10 rounded-md border-2 transition-all flex items-center justify-center overflow-hidden ${
+                    selected
+                      ? "border-primary ring-2 ring-primary/30"
+                      : isWhite
+                      ? "border-slate-300 hover:border-primary/60"
+                      : "border-border hover:border-primary/50"
+                  }`}
+                  style={
+                    isAuto
+                      ? {
+                          background:
+                            "linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #1e293b 50%, #1e293b 100%)",
+                        }
+                      : { backgroundColor: c.value }
+                  }
                 >
                   {isAuto && (
-                    <span className="text-[10px] font-semibold text-muted-foreground">Auto</span>
+                    <span className="text-[9px] font-bold text-foreground bg-white/85 px-1 rounded shadow-2xs">
+                      Auto
+                    </span>
+                  )}
+                  {isWhite && !selected && (
+                    <span className="text-[9px] font-semibold text-slate-500">White</span>
                   )}
                   {selected && !locked && (
-                    <div className="absolute bottom-0.5 right-0.5 bg-white rounded-full p-0.5 shadow">
+                    <div className="absolute bottom-0.5 right-0.5 bg-white rounded-full p-0.5 shadow border border-black/15">
                       <Check className="h-2.5 w-2.5 text-primary" />
                     </div>
                   )}
-                  <div className="absolute -bottom-4 left-0 right-0 text-[9px] text-center text-muted-foreground/70 font-medium truncate px-0.5">
-                    {c.name}
-                  </div>
                 </button>
               );
             })}
           </div>
-          <div className="h-4" />
+
+          {/* Custom Any-Color Picker */}
+          <label className="flex items-center justify-between gap-2 pt-1.5 border-t border-border cursor-pointer text-xs text-muted-foreground hover:text-foreground">
+            <span>Custom text color…</span>
+            <input
+              type="color"
+              value={inkColor || "#ffffff"}
+              onChange={(e) => onInkColorChange(e.target.value)}
+              className="h-6 w-9 rounded border border-border cursor-pointer bg-transparent p-0"
+              data-testid="input-custom-ink-color"
+            />
+          </label>
         </div>
       </PopoverContent>
     </Popover>

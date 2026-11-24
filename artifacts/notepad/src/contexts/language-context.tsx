@@ -25,44 +25,27 @@ import uk from "@/locales/uk";
 import ms from "@/locales/ms";
 import bn from "@/locales/bn";
 import sw from "@/locales/sw";
+import { WORLD_LANGUAGE_PACK, type WorldLanguageEntry } from "@/locales/world-languages-pack";
 
-export type LangCode =
-  | "en" | "zh" | "ru" | "es" | "fr" | "pt"
-  | "fil" | "no" | "ar" | "hi" | "de" | "ja"
-  | "ko" | "it" | "nl" | "id" | "tr" | "pl"
-  | "vi" | "th" | "sv" | "da" | "uk" | "ms"
-  | "bn" | "sw";
+export type LangCode = string;
 
-export const LANGUAGES: { code: LangCode; label: string; nativeLabel: string; flag: string }[] = [
-  { code: "en",  label: "English",    nativeLabel: "English",       flag: "🇺🇸" },
-  { code: "zh",  label: "Chinese",    nativeLabel: "中文",           flag: "🇨🇳" },
-  { code: "hi",  label: "Hindi",      nativeLabel: "हिन्दी",         flag: "🇮🇳" },
-  { code: "es",  label: "Spanish",    nativeLabel: "Español",        flag: "🇪🇸" },
-  { code: "ar",  label: "Arabic",     nativeLabel: "العربية",        flag: "🇸🇦" },
-  { code: "fr",  label: "French",     nativeLabel: "Français",       flag: "🇫🇷" },
-  { code: "bn",  label: "Bengali",    nativeLabel: "বাংলা",          flag: "🇧🇩" },
-  { code: "pt",  label: "Portuguese", nativeLabel: "Português",      flag: "🇧🇷" },
-  { code: "ru",  label: "Russian",    nativeLabel: "Русский",        flag: "🇷🇺" },
-  { code: "ja",  label: "Japanese",   nativeLabel: "日本語",          flag: "🇯🇵" },
-  { code: "de",  label: "German",     nativeLabel: "Deutsch",        flag: "🇩🇪" },
-  { code: "ko",  label: "Korean",     nativeLabel: "한국어",          flag: "🇰🇷" },
-  { code: "vi",  label: "Vietnamese", nativeLabel: "Tiếng Việt",    flag: "🇻🇳" },
-  { code: "it",  label: "Italian",    nativeLabel: "Italiano",       flag: "🇮🇹" },
-  { code: "th",  label: "Thai",       nativeLabel: "ภาษาไทย",        flag: "🇹🇭" },
-  { code: "fil", label: "Filipino",   nativeLabel: "Filipino",       flag: "🇵🇭" },
-  { code: "tr",  label: "Turkish",    nativeLabel: "Türkçe",         flag: "🇹🇷" },
-  { code: "pl",  label: "Polish",     nativeLabel: "Polski",         flag: "🇵🇱" },
-  { code: "nl",  label: "Dutch",      nativeLabel: "Nederlands",     flag: "🇳🇱" },
-  { code: "id",  label: "Indonesian", nativeLabel: "Bahasa Indonesia",flag: "🇮🇩" },
-  { code: "uk",  label: "Ukrainian",  nativeLabel: "Українська",     flag: "🇺🇦" },
-  { code: "ms",  label: "Malay",      nativeLabel: "Bahasa Melayu",  flag: "🇲🇾" },
-  { code: "no",  label: "Norwegian",  nativeLabel: "Norsk",          flag: "🇳🇴" },
-  { code: "sv",  label: "Swedish",    nativeLabel: "Svenska",        flag: "🇸🇪" },
-  { code: "da",  label: "Danish",     nativeLabel: "Dansk",          flag: "🇩🇰" },
-  { code: "sw",  label: "Swahili",    nativeLabel: "Kiswahili",      flag: "🇹🇿" },
-];
+export const LANGUAGES: {
+  code: LangCode;
+  label: string;
+  nativeLabel: string;
+  flag: string;
+  speechLang: string;
+  rtl: boolean;
+}[] = WORLD_LANGUAGE_PACK.map((entry) => ({
+  code: entry.code,
+  label: entry.label,
+  nativeLabel: entry.nativeLabel,
+  flag: entry.flag,
+  speechLang: entry.speechLang,
+  rtl: entry.rtl,
+}));
 
-const translations: Record<LangCode, typeof en> = {
+const legacyTranslations: Record<string, typeof en> = {
   en, zh, ru, es, fr, pt, fil, no, ar, hi, de, ja,
   ko, it, nl, id, tr, pl, vi, th, sv, da, uk, ms, bn, sw,
 };
@@ -73,23 +56,76 @@ interface LanguageContextValue {
   lang: LangCode;
   setLang: (lang: LangCode) => void;
   t: Translations;
+  worldEntry: WorldLanguageEntry;
+  isRtl: boolean;
+  speechLang: string;
   hasChosen: boolean;
   confirmChoice: () => void;
 }
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
+function findWorldEntry(code: string): WorldLanguageEntry {
+  return (
+    WORLD_LANGUAGE_PACK.find((l) => l.code === code) ||
+    WORLD_LANGUAGE_PACK.find((l) => l.code === code.split("-")[0]) ||
+    WORLD_LANGUAGE_PACK[0]
+  );
+}
+
+function buildFullTranslations(code: string, entry: WorldLanguageEntry): Translations {
+  const base = legacyTranslations[code] || legacyTranslations[code.split("-")[0]] || en;
+  return {
+    ...base,
+    myNotepad: entry.ui.myNotepad || base.myNotepad,
+    welcomeTitle: entry.ui.welcomeTitle || base.welcomeTitle,
+    welcomeSubtitle: entry.ui.welcomeSubtitle || base.welcomeSubtitle,
+    startWriting: entry.ui.startWriting || base.startWriting,
+    dictate: entry.ui.dictate || base.dictate,
+    listening: entry.ui.listening || base.listening,
+    saved: entry.ui.saved || base.saved,
+    createNewNote: entry.ui.createNewNote || base.createNewNote,
+    titleLabel: entry.ui.titleLabel || base.titleLabel,
+    sectionLabel: entry.ui.sectionLabel || base.sectionLabel,
+    createNote: entry.ui.createNote || base.createNote,
+    cancel: entry.ui.cancel || base.cancel,
+    delete: entry.ui.delete || base.delete,
+    section: `${entry.ui.sectionLabel}:`,
+  };
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<LangCode>(() => {
-    return (localStorage.getItem("notepad-lang") as LangCode) || "en";
+    const saved = localStorage.getItem("notepad-lang");
+    if (saved && WORLD_LANGUAGE_PACK.some((l) => l.code === saved)) return saved;
+    if (typeof navigator !== "undefined") {
+      const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
+      for (const raw of candidates) {
+        if (!raw) continue;
+        const exact = WORLD_LANGUAGE_PACK.find((l) => l.code.toLowerCase() === raw.toLowerCase());
+        if (exact) return exact.code;
+        if (raw.toLowerCase().startsWith("zh-tw") || raw.toLowerCase().startsWith("zh-hk")) return "zh-TW";
+        const prefix = raw.toLowerCase().split("-")[0];
+        if (prefix === "tl") return "fil";
+        if (prefix === "nb" || prefix === "nn") return "no";
+        if (prefix === "iw") return "he";
+        const byPrefix = WORLD_LANGUAGE_PACK.find((l) => l.code.toLowerCase() === prefix);
+        if (byPrefix) return byPrefix.code;
+      }
+    }
+    return "en";
   });
+
   const [hasChosen, setHasChosen] = useState(() => {
     return localStorage.getItem("notepad-lang-chosen") === "true";
   });
 
   const setLang = (code: LangCode) => {
-    setLangState(code);
-    localStorage.setItem("notepad-lang", code);
+    const entry = findWorldEntry(code);
+    setLangState(entry.code);
+    localStorage.setItem("notepad-lang", entry.code);
+    localStorage.setItem("notepad-speech-lang", entry.speechLang);
+    localStorage.setItem("notepad-lang-label", `${entry.nativeLabel} (${entry.label})`);
   };
 
   const confirmChoice = () => {
@@ -97,10 +133,22 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setHasChosen(true);
   };
 
-  const t = translations[lang];
+  const worldEntry = findWorldEntry(lang);
+  const t = buildFullTranslations(lang, worldEntry);
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t, hasChosen, confirmChoice }}>
+    <LanguageContext.Provider
+      value={{
+        lang: worldEntry.code,
+        setLang,
+        t,
+        worldEntry,
+        isRtl: worldEntry.rtl,
+        speechLang: worldEntry.speechLang,
+        hasChosen,
+        confirmChoice,
+      }}
+    >
       {children}
     </LanguageContext.Provider>
   );

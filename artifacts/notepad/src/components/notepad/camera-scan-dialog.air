@@ -1,0 +1,12 @@
+; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+
+module @ViperStudios.MyAiNotebook.CameraScanDialog {
+  func @captureAndScanFrame(%video: !air.media_stream) -> !air.str {
+  entry:
+    %jpeg_b64 = call @Canvas.captureJpeg92(%video) : (!air.media_stream) -> !air.str
+    ret %jpeg_b64
+  }
+}

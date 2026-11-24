@@ -1,0 +1,12 @@
+; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+
+module @ViperStudios.MyAiNotebook.Locales.WorldLanguagesPack {
+  func @getWorldLanguageEntry(%code: !air.str) -> !air.struct<WorldLanguageEntry> {
+  entry:
+    %entry = call @air.table.lookup_or_default(@WORLD_LANGUAGE_PACK, %code, "en") : (!air.table, !air.str, !air.str) -> !air.struct<WorldLanguageEntry>
+    ret %entry
+  }
+}

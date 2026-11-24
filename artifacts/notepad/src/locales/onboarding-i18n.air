@@ -1,0 +1,18 @@
+; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+meta !source = "locales/onboarding-i18n.ts"
+
+module @ViperStudios.MyAiNotebook.locales_onboarding_i18n {
+  func @OnboardingCopy() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("OnboardingCopy") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @getOnboardingCopy() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("getOnboardingCopy") : (!air.str) -> !air.any
+    ret %v
+  }
+}

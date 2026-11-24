@@ -3,8 +3,9 @@
 // Source: App.tsx
 
 namespace ViperStudios.AetherPrime.MyAiNotebook.App {
-  contract AppContract {
+  contract App_Contract {
     invariant SovereignAetherPrimeExclusive: true;
-    fn renderModule() -> Any;
+    invariant ByteSize: 2398;
+    fn defaultModule() -> Any;
   }
 }

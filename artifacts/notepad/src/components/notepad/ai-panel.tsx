@@ -24,6 +24,9 @@ import {
   type NoteTextAlign,
 } from "@/lib/sovereign-aether-runtime";
 
+import { useLang } from "@/contexts/language-context";
+import { getOnboardingCopy } from "@/locales/onboarding-i18n";
+
 interface AiPanelProps {
   noteId: number;
   onClose: () => void;
@@ -48,6 +51,8 @@ const REWRITE_ACTIVE_NOTE_ON_PAGE_RE =
 
 export function AiPanel({ noteId, onClose }: AiPanelProps) {
   const queryClient = useQueryClient();
+  const { lang, t } = useLang();
+  const uiCopy = getOnboardingCopy(lang);
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [companion, setCompanion] = useState<CompanionId>(() => {
     try {
@@ -320,14 +325,14 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
   const latestDraft = getLatestAssistantDraft();
 
   return (
-    <div className="fixed inset-y-0 right-0 z-40 md:relative md:z-auto flex flex-col h-full border-l bg-card text-card-foreground w-80 sm:w-96 shrink-0 no-print shadow-xl md:shadow-none">
+    <div className="fixed inset-y-0 right-0 z-40 md:relative md:z-auto flex flex-col h-full border-l border-sidebar-border bg-sidebar text-sidebar-foreground w-80 sm:w-96 shrink-0 no-print shadow-xl md:shadow-none">
       {/* Clean Header: Studio Title + Stop/Mute + Close */}
-      <div className="h-12 border-b flex items-center justify-between px-3 gap-1.5">
+      <div className="h-12 border-b border-sidebar-border flex items-center justify-between px-3 gap-1.5">
         <div className="flex items-center gap-2 font-semibold text-sm">
           <span className="text-primary font-bold text-base">
             {companion === "aria" ? "🌸" : "✦"}
           </span>
-          <span>{companion === "aria" ? "Aria Writing Studio" : "Sovereign Aether AI"}</span>
+          <span>{companion === "aria" ? uiCopy.ui.studioAria : uiCopy.ui.studioAether}</span>
         </div>
 
         <div className="flex items-center gap-1">
@@ -336,7 +341,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
               variant="destructive"
               size="sm"
               onClick={stopAetherVoicePlayback}
-              title="Stop speaking immediately"
+              title="Stop"
               className="h-7 px-2 text-[11px] gap-1"
               data-testid="button-stop-voice"
             >
@@ -351,8 +356,8 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
               setVoiceReplyOn(next);
               if (!next) stopAetherVoicePlayback();
             }}
-            title={voiceReplyOn ? "Voice replies ON (tap to mute)" : "Voice replies OFF (tap to enable)"}
-            className="h-8 w-8"
+            title={voiceReplyOn ? "Voice ON" : "Voice OFF"}
+            className="h-8 w-8 hover:bg-sidebar-accent"
           >
             {voiceReplyOn ? (
               <Volume2 className="h-4 w-4 text-primary" />
@@ -367,8 +372,8 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
               stopAetherVoicePlayback();
               onClose();
             }}
-            title="Close AI Work Pane"
-            className="h-8 w-8"
+            title={uiCopy.closeLabel}
+            className="h-8 w-8 hover:bg-sidebar-accent"
           >
             <X className="h-4 w-4" />
           </Button>
@@ -376,8 +381,8 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
       </div>
 
       {/* Dedicated Personality & Voice Toggle Bar (Aether vs. Aria ONLY — zero clutter!) */}
-      <div className="px-3 py-2 border-b bg-muted/40">
-        <div className="grid grid-cols-2 gap-1 bg-background p-1 rounded-xl border border-border shadow-2xs">
+      <div className="px-3 py-2 border-b border-sidebar-border bg-sidebar">
+        <div className="grid grid-cols-2 gap-1 bg-background/70 p-1 rounded-xl border border-sidebar-border shadow-2xs">
           <button
             type="button"
             onClick={() => handleCompanionSwitch("aether")}
@@ -388,7 +393,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
             }`}
             data-testid="companion-aether"
           >
-            <span>✦</span> Aether Voice
+            <span>✦</span> {uiCopy.ui.voiceAether}
           </button>
           <button
             type="button"
@@ -400,7 +405,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
             }`}
             data-testid="companion-aria"
           >
-            <span>🌸</span> Aria Voice
+            <span>🌸</span> {uiCopy.ui.voiceAria}
           </button>
         </div>
       </div>
@@ -419,12 +424,10 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
                   <Bot className="h-5 w-5 text-primary" />
                 </div>
                 <p className="text-sm font-medium text-foreground">
-                  Hi! I'm {companionName} — your Sovereign Writing Partner.
+                  {companionName} — {uiCopy.ui.partnerTag}
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Draft poems, letters, or ideas together right here—then tap{" "}
-                  <strong>Type onto Stationery</strong> (or just say{" "}
-                  <em>"Type that on my stationery"</em>) and I'll write the finished piece cleanly between the lines!
+                  {uiCopy.ui.studioHint}
                 </p>
               </div>
             )}
@@ -447,7 +450,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
                     className={`rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
                       msg.role === "user"
                         ? "bg-primary text-primary-foreground rounded-tr-sm"
-                        : "bg-muted text-foreground rounded-tl-sm"
+                        : "bg-background/85 border border-sidebar-border text-foreground rounded-tl-sm shadow-2xs"
                     }`}
                   >
                     {msg.content}
@@ -459,21 +462,21 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
                         onClick={() => dispatchTypeOntoStationery(msg.content, "replace")}
                         className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary hover:underline"
                       >
-                        <Feather className="h-3 w-3" /> Type onto Stationery
+                        <Feather className="h-3 w-3" /> {uiCopy.ui.typeOntoStationery}
                       </button>
                       <button
                         type="button"
                         onClick={() => dispatchTypeOntoStationery(msg.content, "append")}
                         className="inline-flex items-center gap-1 text-[11px] font-medium text-muted-foreground hover:text-primary"
                       >
-                        <PlusCircle className="h-3 w-3" /> Insert at cursor
+                        <PlusCircle className="h-3 w-3" /> {uiCopy.ui.insertAtCursor}
                       </button>
                       <button
                         type="button"
                         onClick={() => void speakAetherNotebookReply(msg.content, companion)}
                         className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground"
                       >
-                        <Volume2 className="h-3 w-3" /> Read aloud
+                        <Volume2 className="h-3 w-3" /> {uiCopy.ui.readAloud}
                       </button>
                     </div>
                   )}
@@ -492,7 +495,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
                     {companion === "aria" ? "🌸" : "✦"}
                   </span>
                 </div>
-                <div className="max-w-[86%] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap bg-muted text-foreground">
+                <div className="max-w-[86%] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap bg-background/85 border border-sidebar-border text-foreground shadow-2xs">
                   {streamingContent}
                   <span className="inline-block w-1 h-4 bg-primary ml-0.5 animate-pulse" />
                 </div>
@@ -505,7 +508,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
                     {companion === "aria" ? "🌸" : "✦"}
                   </span>
                 </div>
-                <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-2.5">
+                <div className="bg-background/85 border border-sidebar-border rounded-2xl rounded-tl-sm px-4 py-2.5">
                   <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                 </div>
               </div>
@@ -515,20 +518,26 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
         )}
       </div>
 
-      {/* Input & Half-Duplex Voice Mic */}
-      <div className="p-3 border-t">
+      {/* Input & Half-Duplex Voice Mic — ONLY the mic symbol turns bright red when active! */}
+      <div className="p-3 border-t border-sidebar-border bg-sidebar">
         <div className="flex gap-1.5 items-end">
           {isSupported && (
             <Button
               type="button"
-              variant={isListening ? "destructive" : "outline"}
+              variant="outline"
               size="icon"
               onClick={handleMicToggle}
-              title={isListening ? "Stop listening" : `Speak to ${companionName}`}
-              className="shrink-0 h-10 w-10"
+              title={isListening ? t.listening : t.dictate}
+              className={`shrink-0 h-10 w-10 bg-background/85 hover:bg-sidebar-accent transition-colors ${
+                isListening ? "border-red-500/60 ring-1 ring-red-500/30" : "border-sidebar-border"
+              }`}
               data-testid="button-ai-mic"
             >
-              <Mic className={`h-4 w-4 ${isListening ? "animate-pulse" : ""}`} />
+              <Mic
+                className={`h-4 w-4 transition-colors ${
+                  isListening ? "text-red-600 animate-pulse stroke-[2.5]" : "text-foreground"
+                }`}
+              />
             </Button>
           )}
           <textarea
@@ -537,12 +546,12 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
             onKeyDown={handleKeyDown}
             placeholder={
               isListening
-                ? `Listening… speak to ${companionName}`
-                : `Talk to ${companionName}, or say "Type that on the stationery"…`
+                ? `${t.listening} (${companionName})`
+                : uiCopy.ui.talkPlaceholder.replace("{name}", companionName)
             }
             disabled={isStreaming || !conversationId}
             rows={1}
-            className="flex-1 resize-none bg-muted border-none rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-primary max-h-32"
+            className="flex-1 resize-none bg-background/85 border border-sidebar-border rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-primary max-h-32"
             data-testid="input-ai-prompt"
           />
           <Button

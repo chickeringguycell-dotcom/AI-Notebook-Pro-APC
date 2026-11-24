@@ -1,0 +1,11 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/notepad/camera-scan-dialog.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.CameraScanDialog {
+  contract CameraScanDialogContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    invariant DirectCameraGetUserMediaFirst: true;
+    fn CameraScanDialog(props: CameraScanDialogProps) -> UIElement;
+  }
+}

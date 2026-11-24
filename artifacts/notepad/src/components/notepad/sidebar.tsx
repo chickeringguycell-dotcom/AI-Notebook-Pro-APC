@@ -2,6 +2,7 @@ import { useLocation } from "wouter";
 import { Plus, Trash2, FolderOpen, X, Globe, Lock, ChevronRight, Hash, Pin, PinOff, Download, Upload, Pencil, MoreVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLang, LANGUAGES } from "@/contexts/language-context";
+import { getOnboardingCopy } from "@/locales/onboarding-i18n";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { format } from "date-fns";
 import { useListNotes, useCreateNote, Note, useDeleteNote, useUpdateNote, getListNotesQueryKey } from "@workspace/api-client-react";
@@ -96,6 +97,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
   const deleteNote = useDeleteNote();
   const updateNote = useUpdateNote();
   const { t, lang, setLang } = useLang();
+  const uiCopy = getOnboardingCopy(lang);
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isImporting, setIsImporting] = useState(false);
@@ -537,7 +539,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                       }
                       <span className="text-sm font-medium font-serif truncate text-sidebar-foreground min-w-0 flex items-center gap-1">
                         {pinnedSections.has(section) && <Pin className="h-3 w-3 text-primary shrink-0 fill-primary" />}
-                        {section}
+                        {section === "General" ? uiCopy.ui.generalSection : section}
                       </span>
                       <span className="text-[10px] text-sidebar-foreground/40 shrink-0 ml-auto">
                         {sectionNotes.length}
@@ -571,7 +573,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                             data-testid={`menu-rename-section-${section}`}
                           >
                             <Pencil className="h-3.5 w-3.5 text-muted-foreground" />
-                            Rename Section
+                            {uiCopy.renameSection}
                           </button>
                         )}
                         <button
@@ -581,7 +583,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                           data-testid={`menu-new-subsection-${section}`}
                         >
                           <Plus className="h-3.5 w-3.5 text-muted-foreground" />
-                          New Subsection
+                          {uiCopy.newSubsection}
                         </button>
                         <button
                           type="button"
@@ -594,7 +596,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                           data-testid={`menu-new-section-from-${section}`}
                         >
                           <FolderOpen className="h-3.5 w-3.5 text-muted-foreground" />
-                          New Section
+                          {uiCopy.newSection}
                         </button>
                         {section !== "General" && (
                           <>
@@ -606,7 +608,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                               data-testid={`menu-delete-section-${section}`}
                             >
                               <Trash2 className="h-3.5 w-3.5" />
-                              Delete Section
+                              {uiCopy.deleteSection}
                             </button>
                           </>
                         )}
@@ -635,13 +637,20 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                     </button>
                   </div>
 
-                  {/* Notes under this section */}
+                  {/* Subsections under this section */}
                   {isExpanded && (
                     <div className="ml-6 mr-2 mb-2 space-y-0.5">
                       {sectionNotes.map((note: Note) => {
                         const isPinned = !!(note as { pinned?: boolean }).pinned;
                         return (
-                        <div key={note.id} className="relative group/note">
+                        <div
+                          key={note.id}
+                          className={`group/note flex items-center rounded-lg pr-1 transition-colors ${
+                            currentNoteId === note.id
+                              ? "bg-primary/15 text-primary"
+                              : "hover:bg-sidebar-accent/60 text-sidebar-foreground"
+                          }`}
+                        >
                           <button
                             onClick={() => {
                               if (longPressFired.current) {
@@ -661,14 +670,10 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                             onTouchCancel={cancelLongPress}
                             onContextMenu={(e) => { e.preventDefault(); cancelLongPress(); openRename(note); }}
                             style={{ touchAction: "manipulation", WebkitTouchCallout: "none", userSelect: "none" } as React.CSSProperties}
-                            className={`w-full text-left px-2 py-2 rounded-lg transition-colors ${
-                              currentNoteId === note.id
-                                ? "bg-primary/15 text-primary"
-                                : "hover:bg-sidebar-accent/60 text-sidebar-foreground"
-                            }`}
+                            className="flex-1 min-w-0 text-left px-2 py-2 rounded-lg"
                             data-testid={`note-item-${note.id}`}
                           >
-                            <p className="font-medium text-sm truncate font-serif leading-snug pr-20 flex items-center gap-1.5">
+                            <p className="font-medium text-sm truncate font-serif leading-snug flex items-center gap-1.5">
                               {isPinned && <Pin className="h-3 w-3 text-primary shrink-0 fill-primary" />}
                               <span className="truncate">{note.title || "Untitled"}</span>
                             </p>
@@ -676,32 +681,30 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                               {format(new Date(note.updatedAt), "MMM d, h:mm a")}
                             </span>
                           </button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className={`absolute right-7 top-1/2 -translate-y-1/2 h-6 w-6 ${
+                          <button
+                            type="button"
+                            className={`flex items-center justify-center h-6 w-6 rounded-md shrink-0 transition-colors ${
                               isPinned
                                 ? "opacity-100 text-primary hover:bg-primary/10"
-                                : "opacity-100 md:opacity-0 md:group-hover/note:opacity-100 text-sidebar-foreground/70 hover:text-primary hover:bg-primary/10"
+                                : "opacity-100 md:opacity-0 md:group-hover/note:opacity-100 text-sidebar-foreground/60 hover:text-primary hover:bg-primary/10"
                             }`}
                             onClick={(e) => { e.stopPropagation(); handleTogglePin(note); }}
                             title={isPinned ? "Unpin subsection" : "Pin subsection to top"}
                             data-testid={`button-pin-${note.id}`}
                           >
                             {isPinned ? <PinOff className="h-3 w-3" /> : <Pin className="h-3 w-3" />}
-                          </Button>
+                          </button>
                           <Popover>
                             <PopoverTrigger asChild>
-                              <Button
-                                variant="ghost"
-                                size="icon"
-                                className="absolute right-0.5 top-1/2 -translate-y-1/2 h-6 w-6 text-sidebar-foreground/70 hover:text-foreground hover:bg-sidebar-accent"
+                              <button
+                                type="button"
+                                className="flex items-center justify-center h-6 w-6 rounded-md shrink-0 text-sidebar-foreground/60 hover:text-foreground hover:bg-sidebar-accent transition-colors"
                                 onClick={(e) => e.stopPropagation()}
                                 title="Subsection options"
                                 data-testid={`button-menu-note-${note.id}`}
                               >
                                 <MoreVertical className="h-3.5 w-3.5" />
-                              </Button>
+                              </button>
                             </PopoverTrigger>
                             <PopoverContent
                               className="w-48 p-1.5"
@@ -715,7 +718,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                                 data-testid={`menu-rename-note-${note.id}`}
                               >
                                 <Pencil className="h-3.5 w-3.5 text-muted-foreground" />
-                                Rename Subsection
+                                {uiCopy.renameSubsection}
                               </button>
                               <button
                                 type="button"
@@ -723,7 +726,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                                 className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-foreground hover:bg-accent text-left transition-colors"
                               >
                                 <Plus className="h-3.5 w-3.5 text-muted-foreground" />
-                                New Subsection
+                                {uiCopy.newSubsection}
                               </button>
                               <div className="my-1 h-px bg-border" />
                               <button
@@ -733,7 +736,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                                 data-testid={`menu-delete-note-${note.id}`}
                               >
                                 <Trash2 className="h-3.5 w-3.5" />
-                                Delete
+                                {t.delete}
                               </button>
                             </PopoverContent>
                           </Popover>
@@ -759,7 +762,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
               data-testid="button-new-folder"
             >
               {isPro ? <Plus className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5" />}
-              New Section
+              {uiCopy.newSection}
               {!isPro && (
                 <span className="px-1 py-px rounded text-[9px] bg-primary/15 text-primary font-bold tracking-wide">PRO</span>
               )}
@@ -788,7 +791,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
           data-testid="button-import-notes"
         >
           <Upload className="h-3.5 w-3.5 shrink-0" />
-          {isImporting ? "Importing…" : "Import"}
+          {isImporting ? "…" : uiCopy.importBtn}
         </button>
         <button
           onClick={handleExport}
@@ -796,7 +799,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
           data-testid="button-export-notes"
         >
           <Download className="h-3.5 w-3.5 shrink-0" />
-          Export
+          {uiCopy.exportBtn}
         </button>
       </div>
 

@@ -1,13 +1,13 @@
 ; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
 ; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+meta !source = "components/notepad/settings-bug-dialog.tsx"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.settings_bug_dialog {
-  meta !language = "AetherPrime-AIR-IR"
-  meta !source = "components/notepad/settings-bug-dialog.tsx"
-
-  func @entry_settings_bug_dialog() -> !air.status {
-  entry():
-    %ok = air.constant 0 : !air.status
-    air.return %ok : !air.status
+module @ViperStudios.MyAiNotebook.components_notepad_settings_bug_dialog {
+  func @SettingsBugButton() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("SettingsBugButton") : (!air.str) -> !air.any
+    ret %v
   }
 }

@@ -1,13 +1,108 @@
 ; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
 ; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+meta !source = "lib/sovereign-aether-runtime.ts"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.sovereign_aether_runtime {
-  meta !language = "AetherPrime-AIR-IR"
-  meta !source = "lib/sovereign-aether-runtime.ts"
-
-  func @entry_sovereign_aether_runtime() -> !air.status {
-  entry():
-    %ok = air.constant 0 : !air.status
-    air.return %ok : !air.status
+module @ViperStudios.MyAiNotebook.lib_sovereign_aether_runtime {
+  func @CompanionId() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("CompanionId") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @NoteTextAlign() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("NoteTextAlign") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @StoredNoteRecord() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("StoredNoteRecord") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @StoredMessageRecord() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("StoredMessageRecord") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @StoredConversationRecord() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("StoredConversationRecord") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @stripHtmlForAiContext() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("stripHtmlForAiContext") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @getNoteSnapshotById() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("getNoteSnapshotById") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @handleSovereignLocalApi() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("handleSovereignLocalApi") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @extractCleanDraftForStationery() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("extractCleanDraftForStationery") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @getConversationMessages() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("getConversationMessages") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @appendConversationPair() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("appendConversationPair") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @CompanionUserProfile() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("CompanionUserProfile") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @getCompanionUserProfile() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("getCompanionUserProfile") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @saveCompanionUserProfile() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("saveCompanionUserProfile") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @extractAndRememberUserFacts() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("extractAndRememberUserFacts") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @registerLiveActiveNoteGetter() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("registerLiveActiveNoteGetter") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @renameActiveNoteRecord() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("renameActiveNoteRecord") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @moveActiveNoteToFolder() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("moveActiveNoteToFolder") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @organizeAllNotesUponRequest() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("organizeAllNotesUponRequest") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @streamAetherNotebookChat() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("streamAetherNotebookChat") : (!air.str) -> !air.any
+    ret %v
   }
 }

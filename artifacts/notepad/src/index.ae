@@ -3,8 +3,9 @@
 // Source: index.css
 
 namespace ViperStudios.AetherPrime.MyAiNotebook.index {
-  contract indexContract {
+  contract index_Contract {
     invariant SovereignAetherPrimeExclusive: true;
-    fn renderModule() -> Any;
+    invariant ByteSize: 42512;
+    fn defaultModule() -> Any;
   }
 }

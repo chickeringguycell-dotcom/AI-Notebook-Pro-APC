@@ -17,6 +17,8 @@ import {
   getCompanionUserProfile,
   saveCompanionUserProfile,
 } from "@/lib/sovereign-aether-runtime";
+import { useLang } from "@/contexts/language-context";
+import { getOnboardingCopy } from "@/locales/onboarding-i18n";
 
 const AETHER_ISSUE_ENDPOINT = "https://lds.viperstudiostechnologies.com/api/aether-bridge/lds-report-issue";
 
@@ -26,6 +28,8 @@ interface SettingsBugDialogProps {
 }
 
 export function SettingsBugButton({ activeContext, compactIconOnly = false }: SettingsBugDialogProps) {
+  const { lang } = useLang();
+  const uiCopy = getOnboardingCopy(lang);
   const [open, setOpen] = useState(false);
   const [preferredName, setPreferredName] = useState(() => getCompanionUserProfile().preferredName);
   const [category, setCategory] = useState<"platform_bug" | "suggestion" | "other">("platform_bug");
@@ -135,7 +139,7 @@ export function SettingsBugButton({ activeContext, compactIconOnly = false }: Se
           variant="ghost"
           size="sm"
           onClick={resetAndOpen}
-          title="Settings & Report a Problem"
+          title={uiCopy.settingsAndReport}
           className="h-8 px-1.5 text-xs"
           data-testid="button-settings-toolbar"
         >
@@ -150,7 +154,7 @@ export function SettingsBugButton({ activeContext, compactIconOnly = false }: Se
         >
           <Settings className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary shrink-0" />
           <span className="text-xs text-muted-foreground group-hover:text-foreground">
-            Settings & Report a Problem
+            {uiCopy.settingsAndReport}
           </span>
         </button>
       )}

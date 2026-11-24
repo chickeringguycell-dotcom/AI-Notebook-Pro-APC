@@ -1,13 +1,78 @@
 ; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
 ; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+meta !source = "components/notepad/paper-picker.tsx"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.paper_picker {
-  meta !language = "AetherPrime-AIR-IR"
-  meta !source = "components/notepad/paper-picker.tsx"
-
-  func @entry_paper_picker() -> !air.status {
-  entry():
-    %ok = air.constant 0 : !air.status
-    air.return %ok : !air.status
+module @ViperStudios.MyAiNotebook.components_notepad_paper_picker {
+  func @PaperTheme() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("PaperTheme") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @LineStyle() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("LineStyle") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @THEMES() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("THEMES") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @InkColorDef() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("InkColorDef") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @INK_COLORS() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("INK_COLORS") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @PAGE_COLORS() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("PAGE_COLORS") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @isDarkHexColor() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("isDarkHexColor") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @LINE_STYLES() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("LINE_STYLES") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @FontDef() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("FontDef") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @FONTS() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("FONTS") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @PaperPicker() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("PaperPicker") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @PageColorPicker() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("PageColorPicker") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @InkColorPicker() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("InkColorPicker") : (!air.str) -> !air.any
+    ret %v
+  }
+  func @FontPicker() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("FontPicker") : (!air.str) -> !air.any
+    ret %v
   }
 }

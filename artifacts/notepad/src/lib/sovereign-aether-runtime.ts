@@ -19,9 +19,14 @@ export interface StoredNoteRecord {
   content: string;
   category: string;
   paperTheme: string;
+  pageColor?: string;
   lineStyle: string;
   inkColor: string;
   font: string;
+  fontSizePt?: number;
+  textOnPhoto?: boolean;
+  photoOpacity?: number;
+  photoOverlayContrast?: "light" | "dark";
   textAlign?: NoteTextAlign;
   pinned: boolean;
   createdAt: string;
@@ -199,7 +204,17 @@ async function runLocalImageOcr(base64: string, mimeType: string): Promise<strin
     }
   }
   if (win.Tesseract) {
-    const out = await win.Tesseract.recognize(dataUrl, "eng");
+    const tessMap: Record<string, string> = {
+      en: "eng", es: "spa", "es-MX": "spa", fr: "fra", de: "deu", it: "ita", pt: "por",
+      ru: "rus", uk: "ukr", zh: "chi_sim", "zh-TW": "chi_tra", yue: "chi_tra",
+      ja: "jpn", ko: "kor", ar: "ara", hi: "hin", bn: "ben", vi: "vie", th: "tha",
+      tr: "tur", pl: "pol", nl: "nld", id: "ind", ms: "msa", no: "nor", sv: "swe",
+      da: "dan", sw: "swa", he: "heb", fa: "fas", ur: "urd", el: "ell", cs: "ces",
+      sk: "slk", hu: "hun", ro: "ron", bg: "bul", sr: "srp", hr: "hrv", fi: "fin",
+    };
+    const appLang = (typeof localStorage !== "undefined" && localStorage.getItem("notepad-lang")) || "en";
+    const ocrLang = tessMap[appLang] || "eng";
+    const out = await win.Tesseract.recognize(dataUrl, ocrLang);
     return String(out?.data?.text || "")
       .replace(/\r\n/g, "\n")
       .replace(/\n{3,}/g, "\n\n")
@@ -247,9 +262,14 @@ export async function handleSovereignLocalApi(
       content: String(bodyObj.content ?? ""),
       category: String(bodyObj.category || "General"),
       paperTheme: String(bodyObj.paperTheme || "classic"),
+      pageColor: String(bodyObj.pageColor || ""),
       lineStyle: String(bodyObj.lineStyle || "lined"),
       inkColor: String(bodyObj.inkColor || ""),
       font: String(bodyObj.font || ""),
+      fontSizePt: typeof bodyObj.fontSizePt === "number" ? bodyObj.fontSizePt : 14,
+      textOnPhoto: Boolean(bodyObj.textOnPhoto ?? false),
+      photoOpacity: typeof bodyObj.photoOpacity === "number" ? bodyObj.photoOpacity : 100,
+      photoOverlayContrast: bodyObj.photoOverlayContrast === "dark" ? "dark" : "light",
       textAlign: (bodyObj.textAlign as NoteTextAlign) || "left",
       pinned: Boolean(bodyObj.pinned ?? false),
       createdAt: now,
@@ -277,9 +297,16 @@ export async function handleSovereignLocalApi(
         ...(bodyObj.content !== undefined ? { content: String(bodyObj.content) } : {}),
         ...(bodyObj.category !== undefined ? { category: String(bodyObj.category || "General") } : {}),
         ...(bodyObj.paperTheme !== undefined ? { paperTheme: String(bodyObj.paperTheme) } : {}),
+        ...(bodyObj.pageColor !== undefined ? { pageColor: String(bodyObj.pageColor) } : {}),
         ...(bodyObj.lineStyle !== undefined ? { lineStyle: String(bodyObj.lineStyle) } : {}),
         ...(bodyObj.inkColor !== undefined ? { inkColor: String(bodyObj.inkColor) } : {}),
         ...(bodyObj.font !== undefined ? { font: String(bodyObj.font) } : {}),
+        ...(typeof bodyObj.fontSizePt === "number" ? { fontSizePt: bodyObj.fontSizePt } : {}),
+        ...(bodyObj.textOnPhoto !== undefined ? { textOnPhoto: Boolean(bodyObj.textOnPhoto) } : {}),
+        ...(typeof bodyObj.photoOpacity === "number" ? { photoOpacity: bodyObj.photoOpacity } : {}),
+        ...(bodyObj.photoOverlayContrast !== undefined
+          ? { photoOverlayContrast: bodyObj.photoOverlayContrast === "dark" ? "dark" : "light" }
+          : {}),
         ...(bodyObj.textAlign !== undefined ? { textAlign: bodyObj.textAlign as NoteTextAlign } : {}),
         ...(bodyObj.pinned !== undefined ? { pinned: Boolean(bodyObj.pinned) } : {}),
         updatedAt: new Date().toISOString(),
@@ -716,6 +743,17 @@ export async function streamAetherNotebookChat(opts: {
     .slice(-10);
 
   let fullReply = "";
+  const selectedLangCode =
+    (typeof localStorage !== "undefined" && localStorage.getItem("notepad-lang")) || "en";
+  const selectedLangLabel =
+    (typeof localStorage !== "undefined" && localStorage.getItem("notepad-lang-label")) || "English";
+  const contextualFacts =
+    selectedLangCode !== "en"
+      ? [
+          ...profile.rememberedFacts,
+          `User Preferred App Language: ${selectedLangLabel} — reply and write naturally in ${selectedLangLabel} unless the user asks for another language.`,
+        ]
+      : profile.rememberedFacts;
 
   // Primary Route: Dedicated Level-3 Notebook & ARPAbet Poetry Studio Endpoint (with 6-Pass Phonetic Hard-Gate QC!)
   for (const url of [
@@ -730,7 +768,7 @@ export async function streamAetherNotebookChat(opts: {
           action: "chat",
           companion,
           speakerName: profile.preferredName,
-          rememberedFacts: profile.rememberedFacts,
+          rememberedFacts: contextualFacts,
           userMessage,
           noteContext: noteContextBlock,
           history: prior.map((m) => ({ role: m.role, content: m.content })),

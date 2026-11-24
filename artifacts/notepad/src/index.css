@@ -766,6 +766,18 @@
   padding-top: 2px !important;
 }
 
+.line-style-lined.line-style-lined-double {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 63px,
+      var(--paper-rule, #a8c4d8) 63px,
+      var(--paper-rule, #a8c4d8) 64px
+    );
+  line-height: 64px !important;
+}
+
 .line-style-dotted {
   background-image:
     radial-gradient(
@@ -806,11 +818,53 @@
 .note-lines .tiptap-content ul,
 .note-lines .tiptap-content ol,
 .note-lines .tiptap-content blockquote {
-  line-height: 32px !important;
+  line-height: var(--note-line-step, 32px) !important;
+  font-size: var(--note-font-size, 14pt) !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+/* ── Solid Page Color Override (Black Page + White Text, Pastels, Dark Slate, Custom Hex) ── */
+.paper-page[data-solid-page="true"] {
+  background-image: none !important;
+  background-color: var(--solid-page-bg) !important;
+}
+
+/* ── Promote Text to Photo Overlay Mode ── */
+.photo-overlay-mode .tiptap-content img.note-image,
+.photo-overlay-mode .tiptap-content img {
+  display: none !important;
+}
+.photo-overlay-mode .tiptap-content,
+.photo-overlay-mode .tiptap-content p,
+.photo-overlay-mode .tiptap-content li,
+.photo-overlay-mode .tiptap-content ul,
+.photo-overlay-mode .tiptap-content ol,
+.photo-overlay-mode .tiptap-content blockquote {
+  font-size: var(--note-font-size, 15pt) !important;
+  line-height: 1.55 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.35em !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.75);
+}
+.paper-page .photo-overlay-light,
+.paper-page .photo-overlay-light .tiptap-content,
+.paper-page .photo-overlay-light .tiptap-content * {
+  color: #ffffff !important;
+  caret-color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.98) !important;
+}
+.paper-page .photo-overlay-light .tiptap-content p.is-editor-empty:first-child::before {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+.paper-page .photo-overlay-dark,
+.paper-page .photo-overlay-dark .tiptap-content,
+.paper-page .photo-overlay-dark .tiptap-content * {
+  color: #1c150e !important;
+  caret-color: #1c150e !important;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.95), 0 0 3px rgba(255, 255, 255, 1) !important;
 }
 
 /* ── Inline photos & Bullet / Numbered / Checklist Styling inside RichEditor ── */
@@ -853,8 +907,9 @@
   margin: 12px auto;
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  opacity: var(--note-photo-opacity, 1);
   cursor: zoom-in;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, opacity 0.12s ease;
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;

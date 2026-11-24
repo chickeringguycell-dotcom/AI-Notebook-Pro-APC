@@ -2,9 +2,10 @@
 // Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
 // Source: hooks/use-speech-recognition.ts
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.use_speech_recognition {
-  contract use_speech_recognitionContract {
+namespace ViperStudios.AetherPrime.MyAiNotebook.hooks_use_speech_recognition {
+  contract hooks_use_speech_recognition_Contract {
     invariant SovereignAetherPrimeExclusive: true;
+    invariant ByteSize: 3210;
     fn useSpeechRecognition() -> Any;
   }
 }

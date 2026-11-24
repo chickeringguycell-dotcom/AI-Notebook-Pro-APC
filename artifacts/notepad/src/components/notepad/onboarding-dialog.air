@@ -1,13 +1,13 @@
 ; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
 ; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+meta !source = "components/notepad/onboarding-dialog.tsx"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.onboarding_dialog {
-  meta !language = "AetherPrime-AIR-IR"
-  meta !source = "components/notepad/onboarding-dialog.tsx"
-
-  func @entry_onboarding_dialog() -> !air.status {
-  entry():
-    %ok = air.constant 0 : !air.status
-    air.return %ok : !air.status
+module @ViperStudios.MyAiNotebook.components_notepad_onboarding_dialog {
+  func @FirstLaunchOnboardingDialog() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("FirstLaunchOnboardingDialog") : (!air.str) -> !air.any
+    ret %v
   }
 }

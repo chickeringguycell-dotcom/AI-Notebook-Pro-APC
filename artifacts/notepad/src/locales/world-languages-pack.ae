@@ -1,0 +1,12 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: locales/world-languages-pack.ts
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.Locales.WorldLanguagesPack {
+  contract WorldLanguagesPackContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    invariant NativeScriptFirstForEveryLanguage: true;
+    invariant FullScreenUiAndOnboardingCoverage: true;
+    fn getWorldLanguagePack() -> Array<WorldLanguageEntry>;
+  }
+}

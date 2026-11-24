@@ -2,9 +2,10 @@
 // Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
 // Source: components/notepad/sidebar.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.sidebar {
-  contract sidebarContract {
+namespace ViperStudios.AetherPrime.MyAiNotebook.components_notepad_sidebar {
+  contract components_notepad_sidebar_Contract {
     invariant SovereignAetherPrimeExclusive: true;
+    invariant ByteSize: 43468;
     fn Sidebar() -> Any;
   }
 }

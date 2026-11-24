@@ -2,18 +2,22 @@
 // Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
 // Source: components/notepad/paper-picker.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.paper_picker {
-  contract paper_pickerContract {
+namespace ViperStudios.AetherPrime.MyAiNotebook.components_notepad_paper_picker {
+  contract components_notepad_paper_picker_Contract {
     invariant SovereignAetherPrimeExclusive: true;
+    invariant ByteSize: 33922;
     fn PaperTheme() -> Any;
     fn LineStyle() -> Any;
     fn THEMES() -> Any;
     fn InkColorDef() -> Any;
     fn INK_COLORS() -> Any;
+    fn PAGE_COLORS() -> Any;
+    fn isDarkHexColor() -> Any;
     fn LINE_STYLES() -> Any;
     fn FontDef() -> Any;
     fn FONTS() -> Any;
     fn PaperPicker() -> Any;
+    fn PageColorPicker() -> Any;
     fn InkColorPicker() -> Any;
     fn FontPicker() -> Any;
   }

@@ -1,13 +1,13 @@
 ; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
 ; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+meta !language = "AetherPrime-AIR-IR"
+meta !sovereign_owner = "Viper Studios Technologies"
+meta !source = "hooks/use-speech-recognition.ts"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.use_speech_recognition {
-  meta !language = "AetherPrime-AIR-IR"
-  meta !source = "hooks/use-speech-recognition.ts"
-
-  func @entry_use_speech_recognition() -> !air.status {
-  entry():
-    %ok = air.constant 0 : !air.status
-    air.return %ok : !air.status
+module @ViperStudios.MyAiNotebook.hooks_use_speech_recognition {
+  func @useSpeechRecognition() -> !air.any {
+  entry:
+    %v = call @air.exec.symbol("useSpeechRecognition") : (!air.str) -> !air.any
+    ret %v
   }
 }

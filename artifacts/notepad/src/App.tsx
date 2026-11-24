@@ -5,8 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { NotepadPage } from "@/pages/notepad-page";
 import NotFound from "@/pages/not-found";
-import { LanguageProvider, useLang } from "@/contexts/language-context";
-import { LanguageSelector } from "@/components/language-selector";
+import { LanguageProvider } from "@/contexts/language-context";
 import { track } from "@/lib/analytics";
 import { handleSovereignLocalApi } from "@/lib/sovereign-aether-runtime";
 
@@ -60,12 +59,6 @@ function Router() {
 }
 
 function AppInner() {
-  const { hasChosen } = useLang();
-
-  if (!hasChosen) {
-    return <LanguageSelector />;
-  }
-
   return (
     <WouterRouter base={basePath}>
       <QueryClientProvider client={queryClient}>
