@@ -444,6 +444,11 @@
   .paper-theme-bom-temple-hill > div    { padding-top: 86px !important;  padding-bottom: 240px !important; }
   .paper-theme-pioneer-wagon > div      { padding-top: 82px !important;  padding-bottom: 230px !important; }
   .paper-theme-scriptures-lantern > div { padding-top: 64px !important;  padding-left: 175px !important; padding-bottom: 260px !important; }
+  .paper-theme-kawaii-kitty-rainbow > div { padding-top: 128px !important; padding-bottom: 215px !important; }
+  .paper-theme-peach-ribbon-hibiscus > div { padding-top: 118px !important; padding-bottom: 195px !important; }
+  .paper-theme-anime-sakura-moon > div  { padding-top: 118px !important; padding-bottom: 225px !important; }
+  .paper-theme-blush-peony-frame > div  { padding-top: 125px !important; padding-bottom: 215px !important; }
+  .paper-theme-gothic-silver-skull > div { padding-top: 108px !important; padding-bottom: 185px !important; }
 }
 
 @media (max-width: 767px) {
