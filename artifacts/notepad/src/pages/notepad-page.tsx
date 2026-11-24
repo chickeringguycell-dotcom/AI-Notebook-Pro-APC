@@ -121,10 +121,10 @@ export function NotepadPage() {
             )}
           </div>
         ) : (
-          <div className="flex-1 flex flex-col items-center justify-start md:justify-center text-center px-8 pt-8 md:pt-0 pb-8">
+          <div className="flex-1 flex flex-col items-center justify-start text-center px-6 pt-6 md:pt-7 pb-6 overflow-y-auto">
 
-            {/* Welcome AI video & live switcher (ShipAnimation preserved inside switcher as backup) */}
-            <div className="mb-4 md:mb-6 w-full flex justify-center">
+            {/* Welcome AI video (ShipAnimation preserved in backups/classic_tall_ship) */}
+            <div className="mb-4 md:mb-5 w-full flex justify-center">
               <WelcomeRobotVideo />
             </div>
 
