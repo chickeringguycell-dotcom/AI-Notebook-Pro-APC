@@ -1,13 +1,22 @@
-; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
-; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+; Sovereign AIR IR (.air) — Rule 64 Mandatory Intermediate Representation
+meta !language = "AetherPrime-AIR-IR"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.pro_gate_modal {
-  meta !language = "AetherPrime-AIR-IR"
+module @ViperStudios.AetherPrime.MyAiNotebook.ProGateModal {
   meta !source = "components/pro-gate-modal.tsx"
+  meta !headline = "Why not purchase the whole year for half price at only $23.99?"
+  meta !yearly_sku = "ainotebook_pro_yearly"
+  meta !monthly_sku = "ainotebook_pro_monthly"
 
-  func @entry_pro_gate_modal() -> !air.status {
-  entry():
-    %ok = air.constant 0 : !air.status
-    air.return %ok : !air.status
+  func @trigger_subscription_checkout(%is_yearly: i1) -> !air.status {
+  ^entry:
+    air.cond_br %is_yearly, ^sub_yearly, ^sub_monthly
+
+  ^sub_yearly:
+    %s1 = air.call @billing.subscribe_sku("ainotebook_pro_yearly") : (!air.str) -> !air.status
+    air.return %s1 : !air.status
+
+  ^sub_monthly:
+    %s2 = air.call @billing.subscribe_sku("ainotebook_pro_monthly") : (!air.str) -> !air.status
+    air.return %s2 : !air.status
   }
 }

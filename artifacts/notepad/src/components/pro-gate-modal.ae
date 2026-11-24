@@ -1,10 +1,30 @@
-// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
-// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Sovereign AetherPrime Source (.ae) — Rule 64 Mandatory Native Implementation
 // Source: components/pro-gate-modal.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.pro_gate_modal {
-  contract pro_gate_modalContract {
-    invariant SovereignAetherPrimeExclusive: true;
-    fn ProGateModal() -> Any;
+namespace ViperStudios.AetherPrime.MyAiNotebook.ProGateModal {
+  enum PlanChoice {
+    YearlyHalfPrice,
+    MonthlyFlexible
+  }
+
+  struct ProGateDialogState {
+    open: bool;
+    selectedPlan: PlanChoice;
+    yearlyPriceDisplay: string;
+    monthlyPriceDisplay: string;
+    strikeYearlyDisplay: string;
+    showVipInput: bool;
+  }
+
+  contract ProGateModalContract {
+    headline_template: "Why not purchase the whole year for half price at only {yearlyPrice}?";
+    default_plan: PlanChoice::YearlyHalfPrice;
+    yearly_sku: "ainotebook_pro_yearly";
+    monthly_sku: "ainotebook_pro_monthly";
+
+    fn selectPlan(mut state: ProGateDialogState, plan: PlanChoice) -> ProGateDialogState {
+      state.selectedPlan = plan;
+      return state;
+    }
   }
 }

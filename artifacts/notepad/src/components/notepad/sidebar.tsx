@@ -35,13 +35,38 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { SettingsBugButton } from "@/components/notepad/settings-bug-dialog";
-function AccountBlock() {
+function AccountBlock({
+  isPro,
+  yearlyPrice,
+  onUpgradeClick,
+}: {
+  isPro: boolean;
+  yearlyPrice: string;
+  onUpgradeClick: () => void;
+}) {
   return (
     <div className="px-3 py-2 border-t border-sidebar-border">
-      <div className="flex items-center gap-2 px-2 py-1 text-xs text-muted-foreground">
-        <span className="text-primary font-bold">✦</span>
-        <span className="truncate">Powered by Sovereign Aether</span>
-      </div>
+      {isPro ? (
+        <div className="flex items-center gap-2 px-2 py-1 text-xs font-medium text-primary">
+          <span className="font-bold">✦</span>
+          <span className="truncate">My AI Notebook Pro · Active</span>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={onUpgradeClick}
+          className="w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg bg-amber-600/14 hover:bg-amber-600/22 border border-amber-700/30 text-xs font-semibold text-amber-950 transition-colors"
+          data-testid="button-sidebar-upgrade-pro"
+        >
+          <span className="inline-flex items-center gap-1.5 truncate">
+            <span className="text-amber-700 font-bold">✦</span>
+            <span className="truncate">Full Year Half Price</span>
+          </span>
+          <span className="shrink-0 px-1.5 py-0.5 rounded bg-amber-700 text-[#fffaf0] text-[10px] font-bold">
+            {yearlyPrice}/yr
+          </span>
+        </button>
+      )}
     </div>
   );
 }
@@ -102,7 +127,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isImporting, setIsImporting] = useState(false);
 
-  const { isPro } = useProStatus();
+  const { isPro, yearlyPrice } = useProStatus();
   const [proGateOpen, setProGateOpen] = useState(false);
   const [noteToDelete, setNoteToDelete] = useState<number | null>(null);
   const [noteToRename, setNoteToRename] = useState<Note | null>(null);
@@ -780,8 +805,12 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
       </ScrollArea>
 
 
-      {/* Account block */}
-      <AccountBlock />
+      {/* Account / Pro Upgrade block */}
+      <AccountBlock
+        isPro={isPro}
+        yearlyPrice={yearlyPrice}
+        onUpgradeClick={() => setProGateOpen(true)}
+      />
 
       {/* Import / Export */}
       <div className="px-3 py-2 border-t border-sidebar-border flex gap-2">

@@ -1,0 +1,29 @@
+// Sovereign AetherPrime Source (.ae) — Rule 64 Mandatory Native Implementation
+// Source: lib/play-billing.ts
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.PlayBilling {
+  struct SubscriptionCatalog {
+    yearlySku: string;
+    monthlySku: string;
+    yearlyFallbackUsd: f64;
+    monthlyFallbackUsd: f64;
+    freeAiLimit: i32;
+    freeScanLimit: i32;
+  }
+
+  contract PlayBillingContract {
+    yearly_sku: "ainotebook_pro_yearly";
+    monthly_sku: "ainotebook_pro_monthly";
+    yearly_price_usd: 23.99;
+    monthly_price_usd: 3.99;
+    free_ai_limit: 4;
+
+    fn computeTriesRemaining(isPro: bool, usedCount: i32) -> i32 {
+      if (isPro) {
+        return 999999;
+      }
+      let rem: i32 = 4 - usedCount;
+      return rem > 0 ? rem : 0;
+    }
+  }
+}

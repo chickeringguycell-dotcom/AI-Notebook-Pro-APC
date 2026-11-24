@@ -1,0 +1,22 @@
+; Sovereign AIR IR (.air) — Rule 64 Mandatory Intermediate Representation
+meta !language = "AetherPrime-AIR-IR"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.PlayBilling {
+  meta !source = "lib/play-billing.ts"
+  meta !yearly_sku = "ainotebook_pro_yearly"
+  meta !monthly_sku = "ainotebook_pro_monthly"
+
+  func @consume_free_ai_try(%is_pro: i1, %used: i32) -> i1 {
+  ^entry:
+    air.cond_br %is_pro, ^allow, ^check_quota
+
+  ^check_quota:
+    %limit = air.constant 4 : i32
+    %has_left = air.cmp_lt %used, %limit : i32
+    air.return %has_left : i1
+
+  ^allow:
+    %t = air.constant true : i1
+    air.return %t : i1
+  }
+}

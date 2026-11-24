@@ -235,12 +235,14 @@ export async function handleSovereignLocalApi(
       ? JSON.parse(rawBody)
       : {};
 
-  // 1. Pro Entitlement — 100% Unlocked (Paid App / Sovereign Edition)
+  // 1. Pro Entitlement — Bound to Google Play Subscription / VIP Entitlement v2
   if (cleanUrl.endsWith("/api/me") && m === "GET") {
-    return { isPro: true };
+    const active = typeof localStorage !== "undefined" && localStorage.getItem("ainotebook-pro-entitlement-v2") === "true";
+    return { isPro: active };
   }
   if (cleanUrl.endsWith("/api/pro/redeem") && m === "POST") {
-    return { isPro: true };
+    const active = typeof localStorage !== "undefined" && localStorage.getItem("ainotebook-pro-entitlement-v2") === "true";
+    return { isPro: active };
   }
   if (cleanUrl.endsWith("/api/events") && m === "POST") {
     return { ok: true };

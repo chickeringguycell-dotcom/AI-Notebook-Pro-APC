@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { Send, X, Bot, User, Loader2, Mic, Volume2, VolumeX, PlusCircle, Feather, Square } from "lucide-react";
+import { Send, X, Bot, User, Loader2, Mic, Volume2, VolumeX, PlusCircle, Feather, Square, Ban } from "lucide-react";
+import { useProStatus } from "@/hooks/use-pro-status";
+import { ProGateModal } from "@/components/pro-gate-modal";
 import { Button } from "@/components/ui/button";
 import {
   useGetAetherConversation,
@@ -53,6 +55,9 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
   const queryClient = useQueryClient();
   const { lang, t } = useLang();
   const uiCopy = getOnboardingCopy(lang);
+  const { isPro, aiTriesLeft, freeAiLimit, consumeAiTry, yearlyPrice } = useProStatus();
+  const [proGateOpen, setProGateOpen] = useState(false);
+  const outOfFreeAi = !isPro && aiTriesLeft <= 0;
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [companion, setCompanion] = useState<CompanionId>(() => {
     try {
@@ -182,15 +187,25 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
   };
 
   const handleSend = async (explicitText?: string) => {
+    if (!isPro && aiTriesLeft <= 0) {
+      setProGateOpen(true);
+      return;
+    }
     const msg = (explicitText ?? input).trim();
     if (!msg || isStreaming) return;
-    if (!explicitText) setInput("");
 
     // Stop voice immediately if user typed/said "stop"
     if (VOICE_STOP_RE.test(msg)) {
+      if (!explicitText) setInput("");
       stopAetherVoicePlayback();
       return;
     }
+
+    if (!isPro && !consumeAiTry()) {
+      setProGateOpen(true);
+      return;
+    }
+    if (!explicitText) setInput("");
 
     // Turn off open mic before AI responds so AI voice never overrides user input
     if (isListening) {
@@ -314,8 +329,11 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
   };
 
   const handleMicToggle = () => {
-    // Tapping mic ALWAYS silences active TTS first (instant barge-in)
     stopAetherVoicePlayback();
+    if (!isPro && aiTriesLeft <= 0) {
+      setProGateOpen(true);
+      return;
+    }
     pausedMicForSpeechRef.current = false;
     if (isListening) stopListening();
     else startListening();
@@ -519,7 +537,37 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
       </div>
 
       {/* Input & Half-Duplex Voice Mic — ONLY the mic symbol turns bright red when active! */}
-      <div className="p-3 border-t border-sidebar-border bg-sidebar">
+      <div className="p-3 border-t border-sidebar-border bg-sidebar space-y-2">
+        {!isPro && (
+          <button
+            type="button"
+            onClick={() => setProGateOpen(true)}
+            className={`w-full flex items-center justify-between px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors border ${
+              outOfFreeAi
+                ? "bg-red-500/10 border-red-500/35 text-red-800 hover:bg-red-500/15"
+                : "bg-amber-500/12 border-amber-700/25 text-amber-950 hover:bg-amber-500/20"
+            }`}
+          >
+            <span className="inline-flex items-center gap-1.5">
+              {outOfFreeAi ? (
+                <>
+                  <Ban className="h-3.5 w-3.5 text-red-600 stroke-[2.5]" />
+                  <span>Free AI tries used ({freeAiLimit}/{freeAiLimit})</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-primary font-bold">✦</span>
+                  <span>
+                    {aiTriesLeft} of {freeAiLimit} free AI {aiTriesLeft === 1 ? "try" : "tries"} left
+                  </span>
+                </>
+              )}
+            </span>
+            <span className="font-bold underline underline-offset-2">
+              50% Off Year ({yearlyPrice})
+            </span>
+          </button>
+        )}
         <div className="flex gap-1.5 items-end">
           {isSupported && (
             <Button
@@ -554,17 +602,37 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
             className="flex-1 resize-none bg-background/85 border border-sidebar-border rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-primary max-h-32"
             data-testid="input-ai-prompt"
           />
-          <Button
-            size="icon"
-            onClick={() => void handleSend()}
-            disabled={!input.trim() || isStreaming || !conversationId}
-            className="shrink-0 rounded-xl h-10 w-10"
-            data-testid="button-send-ai"
-          >
-            <Send className="h-4 w-4" />
-          </Button>
+          {outOfFreeAi ? (
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              onClick={() => setProGateOpen(true)}
+              title={`Free AI tries used — Get whole year half price (${yearlyPrice})`}
+              className="shrink-0 rounded-xl h-10 w-10 border-2 border-red-500/85 bg-red-50 hover:bg-red-100 cursor-not-allowed shadow-xs"
+              data-testid="button-send-ai"
+            >
+              <Ban className="h-5 w-5 text-red-600 stroke-[2.5]" />
+            </Button>
+          ) : (
+            <Button
+              size="icon"
+              onClick={() => void handleSend()}
+              disabled={!input.trim() || isStreaming || !conversationId}
+              className="shrink-0 rounded-xl h-10 w-10"
+              data-testid="button-send-ai"
+            >
+              <Send className="h-4 w-4" />
+            </Button>
+          )}
         </div>
       </div>
+
+      <ProGateModal
+        open={proGateOpen}
+        onOpenChange={setProGateOpen}
+        featureName="Unlimited Aria & Aether AI Studio"
+      />
     </div>
   );
 }

@@ -49,7 +49,7 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
   const { t, lang } = useLang();
   const uiCopy = getOnboardingCopy(lang);
 
-  const { isPro } = useProStatus();
+  const { isPro, consumeScanTry } = useProStatus();
   const [proGateOpen, setProGateOpen] = useState(false);
   const [proGateFeature, setProGateFeature] = useState("AI assistant");
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -624,8 +624,8 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
   };
 
   const handleScanButtonClick = () => {
-    if (!isPro) {
-      setProGateFeature("Scan to text");
+    if (!isPro && !consumeScanTry()) {
+      setProGateFeature("Unlimited Camera Book Scanner");
       setProGateOpen(true);
       return;
     }
@@ -637,8 +637,8 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
     const file = e.target.files?.[0];
     e.target.value = "";
     if (!file) return;
-    if (!isPro) {
-      setProGateFeature("Scan to text");
+    if (!isPro && !consumeScanTry()) {
+      setProGateFeature("Unlimited Camera Book Scanner");
       setProGateOpen(true);
       return;
     }
@@ -1113,7 +1113,6 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
             variant={isAiPanelOpen ? "default" : "outline"}
             size="sm"
             onClick={() => {
-              if (!isPro) { setProGateFeature("AI writing assistant"); setProGateOpen(true); return; }
               onToggleAiPanel();
             }}
             title="Toggle Sovereign Aether / Aria Studio"

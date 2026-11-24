@@ -8,6 +8,7 @@ import NotFound from "@/pages/not-found";
 import { LanguageProvider } from "@/contexts/language-context";
 import { track } from "@/lib/analytics";
 import { handleSovereignLocalApi } from "@/lib/sovereign-aether-runtime";
+import { initPlayBilling } from "@/lib/play-billing";
 
 if (typeof globalThis !== "undefined") {
   (
@@ -73,11 +74,7 @@ function AppInner() {
 
 function App() {
   useEffect(() => {
-    try {
-      localStorage.setItem("notepad-pro", "true");
-    } catch {
-      /* ignore */
-    }
+    void initPlayBilling();
     track("page_view");
   }, []);
 
