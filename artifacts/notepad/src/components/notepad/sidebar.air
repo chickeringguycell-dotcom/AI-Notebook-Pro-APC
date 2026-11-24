@@ -1,0 +1,42 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.VaultSidebar"
+meta !digest = "sha256:224c204e9853e0ac"
+meta !lines = "897"
+meta !summary = "Folders, pins, search, Markdown/Text import & export, and AES-GCM encrypted .ainb vault backup"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.VaultSidebar {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @REPLI_LOCKIN_REMOVED : i1 = true
+  global @PAID_EDITION_UNLOCKED : i1 = true
+  global @SOURCE_SHA256 : [16 x i8] = c"224c204e9853e0ac"
+
+  define @VaultSidebar_AccountBlock(%ctx: !viper.ctx) -> !viper.frame {
+  entry_0:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("VaultSidebar::AccountBlock", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+
+  define @VaultSidebar_LangPicker(%ctx: !viper.ctx) -> !viper.frame {
+  entry_1:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("VaultSidebar::LangPicker", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+
+  define @VaultSidebar_Sidebar(%ctx: !viper.ctx) -> !viper.frame {
+  entry_2:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("VaultSidebar::Sidebar", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+}

@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/mobile/"
+title = "My AI Notebook (Mobile)"
+version = "1.0.0"
+id = "artifacts/notepad-mobile"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/mobile/" ]
+localPort = 18181
+
+[services.development]
+run = "pnpm --filter @workspace/notepad-mobile run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/notepad-mobile", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/notepad-mobile", "run", "serve" ]
+
+[services.env]
+PORT = "18181"
+BASE_PATH = "/mobile/"

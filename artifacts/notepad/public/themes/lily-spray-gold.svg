@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <linearGradient id="goldPetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fce8a8"/>
+      <stop offset="40%" stop-color="#d4a84a"/>
+      <stop offset="100%" stop-color="#8a6720"/>
+    </linearGradient>
+    <linearGradient id="goldLeaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8c870"/>
+      <stop offset="100%" stop-color="#8a6720"/>
+    </linearGradient>
+    <linearGradient id="goldStem" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a84a"/>
+      <stop offset="100%" stop-color="#8a6720"/>
+    </linearGradient>
+    <g id="gpetal-lg"><path d="M0 0 C -7 -18, -14 -38, -16 -52 C -8 -45, -3 -32, 0 -25 C 3 -32, 8 -45, 16 -52 C 14 -38, 7 -18, 0 0 Z" fill="url(#goldPetal)" stroke="#8a6720" stroke-width="1" stroke-linejoin="round"/></g>
+    <g id="gpetal-md"><path d="M0 0 C -6 -15, -11 -32, -13 -42 C -6 -36, -2 -26, 0 -20 C 2 -26, 6 -36, 13 -42 C 11 -32, 6 -15, 0 0 Z" fill="url(#goldPetal)" stroke="#8a6720" stroke-width="0.9" stroke-linejoin="round"/></g>
+  </defs>
+  <g opacity="0.95">
+    <path d="M30 310 C 70 260, 95 235, 135 218 S 185 180, 205 138 C 220 108, 225 70, 218 32" stroke="url(#goldStem)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M135 218 C 100 200, 70 200, 50 222 C 42 240, 52 254, 72 250 C 88 246, 88 232, 78 226" stroke="url(#goldStem)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M205 138 C 235 128, 256 144, 254 170 C 250 188, 230 192, 222 178 C 218 168, 228 160, 236 164" stroke="url(#goldStem)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <path d="M218 60 C 244 46, 264 58, 270 80 C 270 100, 250 106, 244 94 C 240 84, 250 78, 258 82" stroke="url(#goldStem)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <path d="M75 285 C 50 280, 30 290, 28 312 C 50 296, 80 296, 96 282 Z" fill="url(#goldLeaf)"/>
+    <path d="M120 240 C 96 226, 70 234, 60 252 C 88 246, 110 250, 124 240 Z" fill="url(#goldLeaf)"/>
+    <path d="M158 195 C 178 175, 200 178, 218 196 C 190 190, 168 196, 158 206 Z" fill="url(#goldLeaf)"/>
+    <path d="M205 105 C 226 90, 250 96, 260 114 C 232 102, 215 110, 208 120 Z" fill="url(#goldLeaf)"/>
+    <path d="M222 32 C 240 18, 260 26, 264 44 C 246 32, 232 40, 224 50 Z" fill="url(#goldLeaf)"/>
+    <path d="M62 300 L 90 290" stroke="#fce8a8" stroke-width="0.7" opacity="0.8"/>
+    <path d="M88 248 L 116 244" stroke="#fce8a8" stroke-width="0.7" opacity="0.8"/>
+    <path d="M174 196 L 200 192" stroke="#fce8a8" stroke-width="0.7" opacity="0.8"/>
+    <g transform="translate(150 222)">
+      <use href="#gpetal-lg"/>
+      <use href="#gpetal-lg" transform="rotate(72)"/>
+      <use href="#gpetal-lg" transform="rotate(144)"/>
+      <use href="#gpetal-lg" transform="rotate(216)"/>
+      <use href="#gpetal-lg" transform="rotate(288)"/>
+      <line x1="0" y1="0" x2="0" y2="-15" stroke="#8a6720" stroke-width="1" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="-7" y2="-13" stroke="#8a6720" stroke-width="1" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="7" y2="-13" stroke="#8a6720" stroke-width="1" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="-4" y2="-15" stroke="#8a6720" stroke-width="1" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="4" y2="-15" stroke="#8a6720" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="0" cy="-15" r="1.6" fill="#fce8a8" stroke="#8a6720" stroke-width="0.4"/>
+      <circle cx="-7" cy="-13" r="1.5" fill="#fce8a8" stroke="#8a6720" stroke-width="0.4"/>
+      <circle cx="7" cy="-13" r="1.5" fill="#fce8a8" stroke="#8a6720" stroke-width="0.4"/>
+      <circle cx="-4" cy="-15" r="1.5" fill="#fce8a8" stroke="#8a6720" stroke-width="0.4"/>
+      <circle cx="4" cy="-15" r="1.5" fill="#fce8a8" stroke="#8a6720" stroke-width="0.4"/>
+      <circle cx="0" cy="0" r="4" fill="#fce8a8" stroke="#8a6720" stroke-width="0.5"/>
+    </g>
+    <g transform="translate(218 38) rotate(28)">
+      <use href="#gpetal-md"/>
+      <use href="#gpetal-md" transform="rotate(72)"/>
+      <use href="#gpetal-md" transform="rotate(144)"/>
+      <use href="#gpetal-md" transform="rotate(216)"/>
+      <use href="#gpetal-md" transform="rotate(288)"/>
+      <line x1="0" y1="0" x2="0" y2="-12" stroke="#8a6720" stroke-width="0.9" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="-5" y2="-11" stroke="#8a6720" stroke-width="0.9" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="5" y2="-11" stroke="#8a6720" stroke-width="0.9" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="3" fill="#fce8a8" stroke="#8a6720" stroke-width="0.5"/>
+    </g>
+    <g transform="translate(72 244) rotate(-15)">
+      <ellipse cx="0" cy="-2" rx="6" ry="14" fill="url(#goldPetal)" stroke="#8a6720" stroke-width="0.8" transform="rotate(-22)"/>
+      <ellipse cx="0" cy="-2" rx="6" ry="14" fill="url(#goldPetal)" stroke="#8a6720" stroke-width="0.8" transform="rotate(22)"/>
+      <ellipse cx="0" cy="-3" rx="4.2" ry="13" fill="url(#goldPetal)" stroke="#8a6720" stroke-width="0.7"/>
+    </g>
+  </g>
+</svg>

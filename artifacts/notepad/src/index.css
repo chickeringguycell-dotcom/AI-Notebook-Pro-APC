@@ -1,0 +1,895 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@400;500;600;700&display=swap');
+@layer theme, base, components, utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  /* Warm cream paper aesthetic */
+  --background: 43 33% 96%;
+  --foreground: 25 20% 20%;
+
+  --border: 43 15% 85%;
+  --input: 43 15% 85%;
+  --ring: 25 35% 45%;
+
+  --card: 43 33% 98%;
+  --card-foreground: 25 20% 20%;
+  --card-border: 43 15% 85%;
+
+  --sidebar: 43 25% 92%;
+  --sidebar-foreground: 25 20% 25%;
+  --sidebar-border: 43 15% 85%;
+  --sidebar-primary: 25 35% 45%;
+  --sidebar-primary-foreground: 43 33% 96%;
+  --sidebar-accent: 43 20% 88%;
+  --sidebar-accent-foreground: 25 20% 20%;
+  --sidebar-ring: 25 35% 45%;
+
+  --popover: 43 33% 98%;
+  --popover-foreground: 25 20% 20%;
+  --popover-border: 43 15% 85%;
+
+  --primary: 25 45% 40%;
+  --primary-foreground: 43 33% 96%;
+
+  --secondary: 43 20% 88%;
+  --secondary-foreground: 25 20% 20%;
+
+  --muted: 43 20% 88%;
+  --muted-foreground: 25 15% 45%;
+
+  --accent: 43 20% 88%;
+  --accent-foreground: 25 20% 20%;
+
+  --destructive: 0 60% 50%;
+  --destructive-foreground: 43 33% 96%;
+
+  --chart-1: 25 45% 40%;
+  --chart-2: 45 40% 50%;
+  --chart-3: 160 30% 40%;
+  --chart-4: 340 30% 45%;
+  --chart-5: 20 40% 60%;
+
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-serif: 'Fraunces', serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 25 20% 12%;
+  --foreground: 43 20% 90%;
+
+  --border: 25 15% 25%;
+  --input: 25 15% 25%;
+  --ring: 25 35% 45%;
+
+  --card: 25 20% 14%;
+  --card-foreground: 43 20% 90%;
+  --card-border: 25 15% 25%;
+
+  --sidebar: 25 20% 10%;
+  --sidebar-foreground: 43 20% 85%;
+  --sidebar-border: 25 15% 20%;
+  --sidebar-primary: 25 45% 40%;
+  --sidebar-primary-foreground: 43 33% 96%;
+  --sidebar-accent: 25 15% 18%;
+  --sidebar-accent-foreground: 43 20% 90%;
+  --sidebar-ring: 25 35% 45%;
+
+  --popover: 25 20% 14%;
+  --popover-foreground: 43 20% 90%;
+  --popover-border: 25 15% 25%;
+
+  --primary: 25 45% 40%;
+  --primary-foreground: 43 33% 96%;
+
+  --secondary: 25 15% 20%;
+  --secondary-foreground: 43 20% 90%;
+
+  --muted: 25 15% 20%;
+  --muted-foreground: 43 15% 65%;
+
+  --accent: 25 15% 20%;
+  --accent-foreground: 43 20% 90%;
+
+  --destructive: 0 60% 40%;
+  --destructive-foreground: 43 33% 96%;
+
+  --chart-1: 25 45% 40%;
+  --chart-2: 45 40% 50%;
+  --chart-3: 160 30% 40%;
+  --chart-4: 340 30% 45%;
+  --chart-5: 20 40% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Stationery themes ─────────────────────────────────────
+   Each theme controls TWO things:
+   1. .paper-page background (the page color/texture)
+   2. CSS custom properties used by .note-lines for the rules color & ink color
+   The line PATTERN itself is controlled by .line-style-* on the textarea. */
+
+.paper-page {
+  background-color: var(--paper-bg, #fdf6ec);
+  color: var(--paper-ink, inherit);
+  transition: background-color 0.25s ease;
+}
+
+/* ─── 1. Classic Lined (Default untouched standard lined paper) ─── */
+.paper-theme-classic {
+  --paper-bg: #fdf6ec;
+  --paper-rule: #a8c4d8;
+  --paper-ink: #2a2118;
+}
+
+/* ─── 2. Canary Legal Pad ─── */
+.paper-theme-legal-pad {
+  --paper-bg: #fff8d6;
+  --paper-rule: rgba(120, 165, 205, 0.55);
+  --paper-ink: #241d12;
+  background-image: linear-gradient(
+    to right,
+    transparent 0px,
+    transparent 42px,
+    rgba(220, 80, 80, 0.42) 42px,
+    rgba(220, 80, 80, 0.42) 44px,
+    transparent 44px
+  );
+  background-attachment: local;
+}
+
+/* ─── 3. College Crisp White ─── */
+.paper-theme-college-white {
+  --paper-bg: #ffffff;
+  --paper-rule: #a2c4e8;
+  --paper-ink: #18202c;
+}
+
+/* ─── 4. Blueprint Pad ─── */
+.paper-theme-graph {
+  --paper-bg: #f4f8fb;
+  --paper-rule: rgba(80, 130, 180, 0.42);
+  --paper-ink: #1a2840;
+}
+
+/* ─── Guy's 20 Custom Framed Portrait Stationery Sheets ───────────────────
+   Displayed at full uncropped portrait stationery proportion on wide screens
+   (centered on a warm desk mat) and full-screen edge-to-edge on mobile, so
+   top/bottom illustrations (Savior, Temple, Book of Mormon, Lambs, Lantern,
+   Peonies, Kitty, Skull, Cyberpunk hex, Pines) are NEVER chopped off! */
+.paper-theme-bom-lily-sunrise,
+.paper-theme-christus-temple,
+.paper-theme-shepherd-lambs,
+.paper-theme-scriptures-lantern,
+.paper-theme-risen-savior-olive,
+.paper-theme-salt-lake-temple,
+.paper-theme-pioneer-wagon,
+.paper-theme-bom-temple-hill,
+.paper-theme-blush-peony-frame,
+.paper-theme-sage-gold-leaves,
+.paper-theme-lavender-blossom-frame,
+.paper-theme-peach-ribbon-hibiscus,
+.paper-theme-vintage-hummingbird,
+.paper-theme-tropical-seashell,
+.paper-theme-kawaii-kitty-rainbow,
+.paper-theme-anime-sakura-moon,
+.paper-theme-obsidian-gold-crest,
+.paper-theme-mountain-river-pines,
+.paper-theme-cyberpunk-neon-hex,
+.paper-theme-gothic-silver-skull {
+  background-color: #e6ded0;
+}
+
+.dark .paper-theme-bom-lily-sunrise,
+.dark .paper-theme-christus-temple,
+.dark .paper-theme-shepherd-lambs,
+.dark .paper-theme-scriptures-lantern,
+.dark .paper-theme-risen-savior-olive,
+.dark .paper-theme-salt-lake-temple,
+.dark .paper-theme-pioneer-wagon,
+.dark .paper-theme-bom-temple-hill,
+.dark .paper-theme-blush-peony-frame,
+.dark .paper-theme-sage-gold-leaves,
+.dark .paper-theme-lavender-blossom-frame,
+.dark .paper-theme-peach-ribbon-hibiscus,
+.dark .paper-theme-vintage-hummingbird,
+.dark .paper-theme-tropical-seashell,
+.dark .paper-theme-kawaii-kitty-rainbow,
+.dark .paper-theme-anime-sakura-moon,
+.dark .paper-theme-obsidian-gold-crest,
+.dark .paper-theme-mountain-river-pines,
+.dark .paper-theme-cyberpunk-neon-hex,
+.dark .paper-theme-gothic-silver-skull {
+  background-color: #181411;
+}
+
+.paper-theme-bom-lily-sunrise > div,
+.paper-theme-christus-temple > div,
+.paper-theme-shepherd-lambs > div,
+.paper-theme-scriptures-lantern > div,
+.paper-theme-risen-savior-olive > div,
+.paper-theme-salt-lake-temple > div,
+.paper-theme-pioneer-wagon > div,
+.paper-theme-bom-temple-hill > div,
+.paper-theme-blush-peony-frame > div,
+.paper-theme-sage-gold-leaves > div,
+.paper-theme-lavender-blossom-frame > div,
+.paper-theme-peach-ribbon-hibiscus > div,
+.paper-theme-vintage-hummingbird > div,
+.paper-theme-tropical-seashell > div,
+.paper-theme-kawaii-kitty-rainbow > div,
+.paper-theme-anime-sakura-moon > div,
+.paper-theme-obsidian-gold-crest > div,
+.paper-theme-mountain-river-pines > div,
+.paper-theme-cyberpunk-neon-hex > div,
+.paper-theme-gothic-silver-skull > div {
+  background-image: var(--sheet-image);
+  background-color: var(--sheet-fill, #faf4ea);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top center;
+  min-height: calc(100dvh - 56px);
+  padding: 46px 34px 120px !important;
+}
+
+@media (min-width: 768px) {
+  .paper-theme-bom-lily-sunrise > div,
+  .paper-theme-christus-temple > div,
+  .paper-theme-shepherd-lambs > div,
+  .paper-theme-scriptures-lantern > div,
+  .paper-theme-risen-savior-olive > div,
+  .paper-theme-salt-lake-temple > div,
+  .paper-theme-pioneer-wagon > div,
+  .paper-theme-bom-temple-hill > div,
+  .paper-theme-blush-peony-frame > div,
+  .paper-theme-sage-gold-leaves > div,
+  .paper-theme-lavender-blossom-frame > div,
+  .paper-theme-peach-ribbon-hibiscus > div,
+  .paper-theme-vintage-hummingbird > div,
+  .paper-theme-tropical-seashell > div,
+  .paper-theme-kawaii-kitty-rainbow > div,
+  .paper-theme-anime-sakura-moon > div,
+  .paper-theme-obsidian-gold-crest > div,
+  .paper-theme-mountain-river-pines > div,
+  .paper-theme-cyberpunk-neon-hex > div,
+  .paper-theme-gothic-silver-skull > div {
+    max-width: 740px;
+    min-height: 980px;
+    margin: 20px auto 32px;
+    padding: 68px 72px 175px !important;
+    border-radius: 10px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+  }
+}
+
+/* Soften the harsh blue divider on ornate framed sheets */
+.paper-theme-bom-lily-sunrise .border-\[\#7ca8c4\],
+.paper-theme-christus-temple .border-\[\#7ca8c4\],
+.paper-theme-shepherd-lambs .border-\[\#7ca8c4\],
+.paper-theme-scriptures-lantern .border-\[\#7ca8c4\],
+.paper-theme-risen-savior-olive .border-\[\#7ca8c4\],
+.paper-theme-salt-lake-temple .border-\[\#7ca8c4\],
+.paper-theme-pioneer-wagon .border-\[\#7ca8c4\],
+.paper-theme-bom-temple-hill .border-\[\#7ca8c4\],
+.paper-theme-blush-peony-frame .border-\[\#7ca8c4\],
+.paper-theme-sage-gold-leaves .border-\[\#7ca8c4\],
+.paper-theme-lavender-blossom-frame .border-\[\#7ca8c4\],
+.paper-theme-peach-ribbon-hibiscus .border-\[\#7ca8c4\],
+.paper-theme-vintage-hummingbird .border-\[\#7ca8c4\],
+.paper-theme-tropical-seashell .border-\[\#7ca8c4\],
+.paper-theme-kawaii-kitty-rainbow .border-\[\#7ca8c4\],
+.paper-theme-anime-sakura-moon .border-\[\#7ca8c4\],
+.paper-theme-obsidian-gold-crest .border-\[\#7ca8c4\],
+.paper-theme-mountain-river-pines .border-\[\#7ca8c4\],
+.paper-theme-cyberpunk-neon-hex .border-\[\#7ca8c4\],
+.paper-theme-gothic-silver-skull .border-\[\#7ca8c4\] {
+  border-color: color-mix(in srgb, var(--paper-ink, #2a2118) 18%, transparent) !important;
+}
+
+/* Top-heavy header illustrations get extra top padding so note title sits cleanly in the ruled zone */
+@media (min-width: 768px) {
+  .paper-theme-christus-temple > div { padding-top: 340px !important; padding-bottom: 125px !important; }
+  .paper-theme-shepherd-lambs > div  { padding-top: 290px !important; padding-bottom: 150px !important; }
+  .paper-theme-risen-savior-olive > div { padding-top: 290px !important; padding-bottom: 110px !important; }
+  .paper-theme-salt-lake-temple > div   { padding-top: 300px !important; padding-bottom: 110px !important; }
+  .paper-theme-bom-lily-sunrise > div   { padding-top: 110px !important; padding-bottom: 250px !important; }
+  .paper-theme-bom-temple-hill > div    { padding-top: 86px !important;  padding-bottom: 240px !important; }
+  .paper-theme-pioneer-wagon > div      { padding-top: 82px !important;  padding-bottom: 230px !important; }
+  .paper-theme-scriptures-lantern > div { padding-top: 64px !important;  padding-left: 175px !important; padding-bottom: 260px !important; }
+}
+
+@media (max-width: 767px) {
+  .paper-theme-christus-temple > div { padding-top: 220px !important; padding-bottom: 90px !important; }
+  .paper-theme-shepherd-lambs > div  { padding-top: 190px !important; padding-bottom: 105px !important; }
+  .paper-theme-risen-savior-olive > div { padding-top: 185px !important; padding-bottom: 80px !important; }
+  .paper-theme-salt-lake-temple > div   { padding-top: 190px !important; padding-bottom: 80px !important; }
+  .paper-theme-bom-lily-sunrise > div   { padding-top: 76px !important;  padding-bottom: 175px !important; }
+  .paper-theme-bom-temple-hill > div    { padding-top: 64px !important;  padding-bottom: 170px !important; }
+  .paper-theme-pioneer-wagon > div      { padding-top: 60px !important;  padding-bottom: 165px !important; }
+  .paper-theme-scriptures-lantern > div { padding-top: 48px !important;  padding-left: 96px !important; padding-bottom: 185px !important; }
+}
+
+/* 19 pre-lined sheets already have painted lines in the artwork -> --paper-rule: transparent prevents double-line clash! */
+.paper-theme-bom-lily-sunrise       { --sheet-fill: #f7f3ec; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/bom-lily-sunrise.jpg"); }
+.paper-theme-christus-temple        { --sheet-fill: #faf4ea; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/christus-temple.jpg"); }
+.paper-theme-shepherd-lambs         { --sheet-fill: #faf4eb; --paper-rule: transparent; --paper-ink: #261b10; --sheet-image: url("/themes/shepherd-lambs.jpg"); }
+/* scriptures-lantern has clean unlined parchment in center -> uses warm sepia CSS rules! */
+.paper-theme-scriptures-lantern     { --sheet-fill: #f6efe2; --paper-rule: rgba(168, 134, 82, 0.36); --paper-ink: #281b0d; --sheet-image: url("/themes/scriptures-lantern.jpg"); }
+.paper-theme-risen-savior-olive     { --sheet-fill: #fbf5ec; --paper-rule: transparent; --paper-ink: #261b10; --sheet-image: url("/themes/risen-savior-olive.jpg"); }
+.paper-theme-salt-lake-temple       { --sheet-fill: #fbf5ec; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/salt-lake-temple.jpg"); }
+.paper-theme-pioneer-wagon          { --sheet-fill: #faf3e8; --paper-rule: transparent; --paper-ink: #281c10; --sheet-image: url("/themes/pioneer-wagon.jpg"); }
+.paper-theme-bom-temple-hill        { --sheet-fill: #f8f3ec; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/bom-temple-hill.jpg"); }
+
+.paper-theme-blush-peony-frame      { --sheet-fill: #fdf4f6; --paper-rule: transparent; --paper-ink: #3a1f28; --sheet-image: url("/themes/blush-peony-frame.jpg"); }
+.paper-theme-sage-gold-leaves       { --sheet-fill: #fcf9f2; --paper-rule: transparent; --paper-ink: #242e1e; --sheet-image: url("/themes/sage-gold-leaves.jpg"); }
+.paper-theme-lavender-blossom-frame { --sheet-fill: #f8f2fc; --paper-rule: transparent; --paper-ink: #2c1b42; --sheet-image: url("/themes/lavender-blossom-frame.jpg"); }
+.paper-theme-peach-ribbon-hibiscus  { --sheet-fill: #fdf7ef; --paper-rule: transparent; --paper-ink: #362118; --sheet-image: url("/themes/peach-ribbon-hibiscus.jpg"); }
+.paper-theme-vintage-hummingbird    { --sheet-fill: #f7ecd4; --paper-rule: transparent; --paper-ink: #2f1f0e; --sheet-image: url("/themes/vintage-hummingbird.jpg"); }
+.paper-theme-tropical-seashell      { --sheet-fill: #eefafe; --paper-rule: transparent; --paper-ink: #102d3d; --sheet-image: url("/themes/tropical-seashell.jpg"); }
+.paper-theme-kawaii-kitty-rainbow   { --sheet-fill: #fdf2fb; --paper-rule: transparent; --paper-ink: #381b44; --sheet-image: url("/themes/kawaii-kitty-rainbow.jpg"); }
+.paper-theme-anime-sakura-moon      { --sheet-fill: #fbf2fc; --paper-rule: transparent; --paper-ink: #2f1840; --sheet-image: url("/themes/anime-sakura-moon.jpg"); }
+
+.paper-theme-obsidian-gold-crest    { --sheet-fill: #f8eedc; --paper-rule: transparent; --paper-ink: #241a0c; --sheet-image: url("/themes/obsidian-gold-crest.jpg"); }
+.paper-theme-mountain-river-pines   { --sheet-fill: #faf3e3; --paper-rule: transparent; --paper-ink: #1c291c; --sheet-image: url("/themes/mountain-river-pines.jpg"); }
+.paper-theme-cyberpunk-neon-hex     { --sheet-fill: #f3eefc; --paper-rule: transparent; --paper-ink: #1a1436; --sheet-image: url("/themes/cyberpunk-neon-hex.jpg"); }
+.paper-theme-gothic-silver-skull    { --sheet-fill: #eceef2; --paper-rule: transparent; --paper-ink: #16181e; --sheet-image: url("/themes/gothic-silver-skull.jpg"); }
+
+/* ─── 13 Newly Uploaded Unlined-Center Framed Stationeries (8 Cyber/PCB + 5 Nautical/Explorer/Gothic) ─── */
+.paper-theme-circuit-cpu-blue,
+.paper-theme-circuit-cpu-gold,
+.paper-theme-circuit-cpu-green,
+.paper-theme-circuit-cpu-red {
+  background-color: #0f131a;
+}
+
+.paper-theme-circuit-paper-blue,
+.paper-theme-circuit-paper-purple,
+.paper-theme-circuit-paper-green,
+.paper-theme-circuit-paper-amber,
+.paper-theme-lily-blue-morpho,
+.paper-theme-lily-monarch-gold,
+.paper-theme-sunset-sailboats,
+.paper-theme-lakeside-lantern,
+.paper-theme-compass-voyage,
+.paper-theme-northstar-valley,
+.paper-theme-desert-skulls-parchment {
+  background-color: #e6ded0;
+}
+
+.dark .paper-theme-circuit-paper-blue,
+.dark .paper-theme-circuit-paper-purple,
+.dark .paper-theme-circuit-paper-green,
+.dark .paper-theme-circuit-paper-amber,
+.dark .paper-theme-lily-blue-morpho,
+.dark .paper-theme-lily-monarch-gold,
+.dark .paper-theme-sunset-sailboats,
+.dark .paper-theme-lakeside-lantern,
+.dark .paper-theme-compass-voyage,
+.dark .paper-theme-northstar-valley,
+.dark .paper-theme-desert-skulls-parchment {
+  background-color: #181411;
+}
+
+.paper-theme-circuit-cpu-blue > div,
+.paper-theme-circuit-cpu-gold > div,
+.paper-theme-circuit-cpu-green > div,
+.paper-theme-circuit-cpu-red > div,
+.paper-theme-circuit-paper-blue > div,
+.paper-theme-circuit-paper-purple > div,
+.paper-theme-circuit-paper-green > div,
+.paper-theme-circuit-paper-amber > div,
+.paper-theme-lily-blue-morpho > div,
+.paper-theme-lily-monarch-gold > div,
+.paper-theme-sunset-sailboats > div,
+.paper-theme-lakeside-lantern > div,
+.paper-theme-compass-voyage > div,
+.paper-theme-northstar-valley > div,
+.paper-theme-desert-skulls-parchment > div {
+  background-image: var(--sheet-image);
+  background-color: var(--sheet-fill, #faf4ea);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top center;
+  min-height: calc(100dvh - 56px);
+  padding: 58px 46px 130px !important;
+}
+
+@media (min-width: 768px) {
+  .paper-theme-circuit-cpu-blue > div,
+  .paper-theme-circuit-cpu-gold > div,
+  .paper-theme-circuit-cpu-green > div,
+  .paper-theme-circuit-cpu-red > div,
+  .paper-theme-circuit-paper-blue > div,
+  .paper-theme-circuit-paper-purple > div,
+  .paper-theme-circuit-paper-green > div,
+  .paper-theme-circuit-paper-amber > div,
+  .paper-theme-lily-blue-morpho > div,
+  .paper-theme-lily-monarch-gold > div,
+  .paper-theme-sunset-sailboats > div,
+  .paper-theme-lakeside-lantern > div,
+  .paper-theme-compass-voyage > div,
+  .paper-theme-northstar-valley > div,
+  .paper-theme-desert-skulls-parchment > div {
+    max-width: 740px;
+    min-height: 980px;
+    margin: 20px auto 32px;
+    padding: 84px 88px 185px !important;
+    border-radius: 10px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+  }
+  .paper-theme-lily-blue-morpho > div        { padding-bottom: 260px !important; }
+  .paper-theme-lily-monarch-gold > div       { padding-left: 140px !important; padding-bottom: 245px !important; }
+  .paper-theme-sunset-sailboats > div        { padding-bottom: 240px !important; }
+  .paper-theme-lakeside-lantern > div        { padding-bottom: 250px !important; }
+  .paper-theme-compass-voyage > div          { padding-top: 105px !important; padding-bottom: 240px !important; }
+  .paper-theme-northstar-valley > div        { padding-top: 140px !important; padding-bottom: 230px !important; }
+  .paper-theme-desert-skulls-parchment > div { padding-bottom: 240px !important; }
+}
+
+.paper-theme-circuit-cpu-blue .border-\[\#7ca8c4\],
+.paper-theme-circuit-cpu-gold .border-\[\#7ca8c4\],
+.paper-theme-circuit-cpu-green .border-\[\#7ca8c4\],
+.paper-theme-circuit-cpu-red .border-\[\#7ca8c4\],
+.paper-theme-circuit-paper-blue .border-\[\#7ca8c4\],
+.paper-theme-circuit-paper-purple .border-\[\#7ca8c4\],
+.paper-theme-circuit-paper-green .border-\[\#7ca8c4\],
+.paper-theme-circuit-paper-amber .border-\[\#7ca8c4\],
+.paper-theme-lily-blue-morpho .border-\[\#7ca8c4\],
+.paper-theme-lily-monarch-gold .border-\[\#7ca8c4\],
+.paper-theme-sunset-sailboats .border-\[\#7ca8c4\],
+.paper-theme-lakeside-lantern .border-\[\#7ca8c4\],
+.paper-theme-compass-voyage .border-\[\#7ca8c4\],
+.paper-theme-northstar-valley .border-\[\#7ca8c4\],
+.paper-theme-desert-skulls-parchment .border-\[\#7ca8c4\] {
+  border-color: color-mix(in srgb, var(--paper-ink, #2a2118) 22%, transparent) !important;
+}
+
+.paper-theme-circuit-cpu-blue        { --sheet-fill: #121a26; --paper-rule: rgba(64, 165, 255, 0.34);  --paper-ink: #eef6ff; --sheet-image: url("/themes/circuit-cpu-blue.jpg"); }
+.paper-theme-circuit-cpu-gold        { --sheet-fill: #191610; --paper-rule: rgba(235, 182, 58, 0.34);  --paper-ink: #fff8e6; --sheet-image: url("/themes/circuit-cpu-gold.jpg"); }
+.paper-theme-circuit-cpu-green       { --sheet-fill: #101c13; --paper-rule: rgba(60, 215, 98, 0.32);   --paper-ink: #ecfff0; --sheet-image: url("/themes/circuit-cpu-green.jpg"); }
+.paper-theme-circuit-cpu-red         { --sheet-fill: #1d1112; --paper-rule: rgba(235, 72, 72, 0.34);   --paper-ink: #fff0f0; --sheet-image: url("/themes/circuit-cpu-red.jpg"); }
+
+.paper-theme-circuit-paper-blue      { --sheet-fill: #faf5ea; --paper-rule: rgba(74, 136, 198, 0.36);  --paper-ink: #16263b; --sheet-image: url("/themes/circuit-paper-blue.jpg"); }
+.paper-theme-circuit-paper-purple    { --sheet-fill: #faf2e4; --paper-rule: rgba(140, 98, 184, 0.36);  --paper-ink: #241638; --sheet-image: url("/themes/circuit-paper-purple.jpg"); }
+.paper-theme-circuit-paper-green     { --sheet-fill: #f5f4ea; --paper-rule: rgba(76, 140, 100, 0.36);  --paper-ink: #162a1c; --sheet-image: url("/themes/circuit-paper-green.jpg"); }
+.paper-theme-circuit-paper-amber     { --sheet-fill: #fbf0df; --paper-rule: rgba(184, 130, 56, 0.36);  --paper-ink: #2c1b08; --sheet-image: url("/themes/circuit-paper-amber.jpg"); }
+
+.paper-theme-lily-blue-morpho        { --sheet-fill: #fffdf9; --paper-rule: rgba(186, 156, 98, 0.34);  --paper-ink: #262018; --sheet-image: url("/themes/lily-blue-morpho.jpg"); }
+.paper-theme-lily-monarch-gold       { --sheet-fill: #faf9f4; --paper-rule: rgba(178, 152, 92, 0.34);  --paper-ink: #242118; --sheet-image: url("/themes/lily-monarch-gold.jpg"); }
+.paper-theme-sunset-sailboats        { --sheet-fill: #f9f3ea; --paper-rule: rgba(125, 158, 192, 0.36); --paper-ink: #1d2838; --sheet-image: url("/themes/sunset-sailboats.jpg"); }
+.paper-theme-lakeside-lantern        { --sheet-fill: #f4eadc; --paper-rule: rgba(168, 134, 88, 0.36);  --paper-ink: #281c10; --sheet-image: url("/themes/lakeside-lantern.jpg"); }
+.paper-theme-compass-voyage          { --sheet-fill: #f7eedf; --paper-rule: rgba(164, 136, 92, 0.36);  --paper-ink: #281d10; --sheet-image: url("/themes/compass-voyage.jpg"); }
+.paper-theme-northstar-valley        { --sheet-fill: #f8f1e4; --paper-rule: rgba(164, 142, 102, 0.36); --paper-ink: #241d12; --sheet-image: url("/themes/northstar-valley.jpg"); }
+.paper-theme-desert-skulls-parchment { --sheet-fill: #f3e7d2; --paper-rule: rgba(158, 132, 92, 0.36);  --paper-ink: #2b1f12; --sheet-image: url("/themes/desert-skulls-parchment.jpg"); }
+
+/* ─── Full-bleed Textured Themes & Legacy Compatibility ─── */
+.paper-theme-blush-peony,
+.paper-theme-sakura-washi,
+.paper-theme-lavender,
+.paper-theme-wildflower,
+.paper-theme-watercolor,
+.paper-theme-rosegold-marble,
+.paper-theme-leather,
+.paper-theme-parchment,
+.paper-theme-mahogany,
+.paper-theme-titanium,
+.paper-theme-midnight,
+.paper-theme-nordic-forest {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.paper-theme-blush-peony     { --paper-bg: #fcf8f3; --paper-rule: rgba(205, 145, 158, 0.36); --paper-ink: #361f25; background-image: linear-gradient(rgba(255, 252, 248, 0.16), rgba(255, 252, 248, 0.16)), url("/themes/blush-peony.jpg"); }
+.paper-theme-sakura-washi    { --paper-bg: #f9f3ea; --paper-rule: rgba(205, 155, 168, 0.36); --paper-ink: #352126; background-image: linear-gradient(rgba(255, 252, 247, 0.14), rgba(255, 252, 247, 0.14)), url("/themes/sakura-washi.jpg"); }
+.paper-theme-lavender        { --paper-bg: #f7f4fb; --paper-rule: rgba(145, 115, 190, 0.36); --paper-ink: #2b1d45; background-image: linear-gradient(rgba(252, 250, 255, 0.22), rgba(252, 250, 255, 0.22)), url("/themes/lavender-botanical.jpg"); }
+.paper-theme-wildflower      { --paper-bg: #f8f6ef; --paper-rule: rgba(135, 165, 138, 0.38); --paper-ink: #252e22; background-image: linear-gradient(rgba(252, 250, 244, 0.20), rgba(252, 250, 244, 0.20)), url("/themes/wildflower-meadow.jpg"); }
+.paper-theme-watercolor      { --paper-bg: #fcfafd; --paper-rule: rgba(125, 150, 195, 0.36); --paper-ink: #26243b; background-image: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), url("/themes/pastel-watercolor.jpg"); }
+.paper-theme-rosegold-marble { --paper-bg: #faf8f6; --paper-rule: rgba(195, 155, 142, 0.38); --paper-ink: #2b201e; background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url("/themes/rosegold-marble.jpg"); }
+.paper-theme-leather         { --paper-bg: #291b12; --paper-rule: rgba(225, 185, 125, 0.34); --paper-ink: #f7ecd8; background-image: linear-gradient(rgba(18, 11, 7, 0.36), rgba(18, 11, 7, 0.36)), url("/themes/saddle-leather.jpg"); }
+.paper-theme-parchment       { --paper-bg: #ead3a8; --paper-rule: rgba(130, 88, 44, 0.36);   --paper-ink: #2b1a0c; background-image: linear-gradient(rgba(250, 236, 206, 0.22), rgba(250, 236, 206, 0.22)), url("/themes/nautical-parchment.jpg"); }
+.paper-theme-mahogany        { --paper-bg: #24130a; --paper-rule: rgba(218, 178, 108, 0.35); --paper-ink: #f8eedb; background-image: linear-gradient(rgba(16, 8, 4, 0.44), rgba(16, 8, 4, 0.44)), url("/themes/mahogany-brass.jpg"); }
+.paper-theme-titanium        { --paper-bg: #15181e; --paper-rule: rgba(130, 170, 208, 0.32); --paper-ink: #ecf2f9; background-image: linear-gradient(rgba(10, 12, 16, 0.26), rgba(10, 12, 16, 0.26)), url("/themes/brushed-titanium.jpg"); }
+.paper-theme-midnight        { --paper-bg: #0b101d; --paper-rule: rgba(135, 175, 232, 0.30); --paper-ink: #eef4fd; background-image: linear-gradient(rgba(6, 10, 20, 0.24), rgba(6, 10, 20, 0.24)), url("/themes/starfield-cosmos.jpg"); }
+.paper-theme-nordic-forest   { --paper-bg: #f2f4ee; --paper-rule: rgba(108, 145, 124, 0.36); --paper-ink: #1a2c22; background-image: linear-gradient(rgba(248, 250, 245, 0.24), rgba(248, 250, 245, 0.24)), url("/themes/nordic-forest.jpg"); }
+
+.paper-theme-rose { --paper-bg: #fbeef0; --paper-rule: rgba(200, 100, 130, 0.35); --paper-ink: #4a1f2e; }
+.paper-theme-mint { --paper-bg: #ebf6f0; --paper-rule: rgba(60, 150, 120, 0.35); --paper-ink: #1a3a2e; }
+.paper-theme-floral { --paper-bg: #fdf5f0; --paper-rule: rgba(180, 120, 100, 0.3); --paper-ink: #3e2818; }
+
+.paper-theme-lily-corner {
+  --paper-bg: #fdf9f1;
+  --paper-rule: rgba(170, 140, 110, 0.3);
+  --paper-ink: #3a2818;
+  background-image: url("/themes/lily-spray-sage.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 320px 320px;
+  background-attachment: local;
+}
+
+.paper-theme-circuit,
+.paper-theme-circuit-corners,
+.paper-theme-circuit-burst,
+.paper-theme-circuit-hex,
+.paper-theme-circuit-aura,
+.paper-theme-circuit-frame,
+.paper-theme-circuit-stars {
+  --paper-rule: rgba(160, 210, 240, 0.4);
+  --paper-ink: #e8f4fc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: local;
+}
+.paper-theme-circuit         { --paper-bg: #0a1830; background-image: linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url("/themes/circuit-board.jpg"); }
+.paper-theme-circuit-corners { --paper-bg: #0c2848; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-corners.jpg"); }
+.paper-theme-circuit-burst   { --paper-bg: #06122a; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-burst.jpg"); }
+.paper-theme-circuit-hex     { --paper-bg: #0a1c34; background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("/themes/circuit-hex.jpg"); }
+.paper-theme-circuit-aura    { --paper-bg: #06122a; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-aura.jpg"); }
+.paper-theme-circuit-frame   { --paper-bg: #0c2848; background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("/themes/circuit-frame.jpg"); }
+.paper-theme-circuit-stars   { --paper-bg: #0a1830; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-stars.jpg"); }
+
+.paper-theme-lily-gold-corner {
+  --paper-bg: #fbf4e2;
+  --paper-rule: rgba(160, 120, 60, 0.3);
+  --paper-ink: #3a2a14;
+  background-image: url("/themes/lily-spray-gold.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 320px 320px;
+  background-attachment: local;
+}
+
+.paper-theme-lily-gold-wrap {
+  --paper-bg: #fbf4e2;
+  --paper-rule: rgba(160, 120, 60, 0.3);
+  --paper-ink: #3a2a14;
+  background-image: url("/themes/lily-vine-gold.svg"), url("/themes/lily-vine-gold.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: 80px 100%, 80px 100%;
+  background-attachment: local;
+}
+
+.paper-theme-lily-wrap {
+  --paper-bg: #fdf9f1;
+  --paper-rule: rgba(170, 140, 110, 0.3);
+  --paper-ink: #3a2818;
+  background-image: url("/themes/lily-vine-sage.svg"), url("/themes/lily-vine-sage.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: 80px 100%, 80px 100%;
+  background-attachment: local;
+}
+
+/* ── Editor text + ink color follow theme ── */
+.paper-page .note-lines,
+.paper-page input[type="text"] {
+  color: var(--paper-ink) !important;
+  caret-color: var(--paper-ink);
+}
+.paper-page input[type="text"]::placeholder,
+.paper-page .note-lines::placeholder {
+  color: color-mix(in srgb, var(--paper-ink) 35%, transparent) !important;
+}
+
+/* ── Line style patterns (drawn on the textarea) ── */
+.line-style-lined {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 31px,
+      var(--paper-rule, #a8c4d8) 31px,
+      var(--paper-rule, #a8c4d8) 32px
+    );
+  background-attachment: local;
+  line-height: 32px !important;
+  padding-top: 4px !important;
+}
+
+.line-style-dotted {
+  background-image:
+    radial-gradient(
+      circle,
+      var(--paper-rule, #a8c4d8) 1px,
+      transparent 1.5px
+    );
+  background-size: 16px 32px;
+  background-attachment: local;
+  background-position: 0 28px;
+  line-height: 32px !important;
+  padding-top: 4px !important;
+}
+
+.line-style-blank {
+  background-image: none;
+  line-height: 32px !important;
+  padding-top: 4px !important;
+}
+
+/* Backwards compat — old .note-lines class still works as "lined classic" */
+.note-lines:not([class*="line-style-"]) {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 31px,
+      #a8c4d8 31px,
+      #a8c4d8 32px
+    );
+  background-attachment: local;
+  line-height: 32px !important;
+  padding-top: 4px !important;
+}
+
+/* ── Inline photos inside the rich editor ── */
+.tiptap-content {
+  outline: none;
+}
+.tiptap-content p.is-editor-empty:first-child::before {
+  color: color-mix(in srgb, var(--paper-ink, #1a1a1a) 30%, transparent);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.note-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 12px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  cursor: zoom-in;
+  transition: transform 0.15s ease;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Horizontally scrollable toolbar — hide scrollbar, keep scroll. */
+.toolbar-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+.toolbar-scroll::-webkit-scrollbar {
+  display: none;
+}
+.note-image:hover {
+  transform: scale(1.01);
+}
+.tiptap-content .ProseMirror-selectednode.note-image,
+.tiptap-content img.ProseMirror-selectednode {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Checklist (task list) styling */
+.tiptap-content ul.task-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.tiptap-content ul.task-list li.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0;
+}
+.tiptap-content ul.task-list li.task-item > label {
+  flex: 0 0 auto;
+  margin-top: 4px;
+  user-select: none;
+}
+.tiptap-content ul.task-list li.task-item > label > input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #6366f1;
+}
+.tiptap-content ul.task-list li.task-item > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.tiptap-content ul.task-list li.task-item[data-checked="true"] > div {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+@media print {
+  .note-image {
+    cursor: default;
+    box-shadow: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body, .print-container {
+    background: white !important;
+    color: black !important;
+  }
+  /* Let the whole app grow to its full height when printing so the note
+     isn't clipped to a single screen. The editor is normally a fixed-height
+     scroll area (h-screen / overflow-hidden / overflow-auto ancestors); those
+     constraints must be neutralized for print, or only page one comes out. */
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  #root,
+  #root * {
+    overflow: visible !important;
+  }
+  .print-container {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    /* Ensure photos and any note colors actually render on paper. */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .note-image {
+    max-width: 100% !important;
+  }
+}

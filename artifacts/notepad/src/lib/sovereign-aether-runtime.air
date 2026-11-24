@@ -1,0 +1,18 @@
+; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+; Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
+
+module @ViperStudios.AetherPrime.MyAiNotebook.SovereignRuntime {
+  meta !studio = "Viper Studios"
+  meta !language = "AetherPrime-AIR-IR"
+  meta !version = "2.0.0"
+  meta !replit_ai_status = "disconnected_purged"
+  meta !cloud_ai_primary = "https://lds.viperstudiostechnologies.com/api/aether-bridge/gospel-studio"
+  meta !cloud_ai_failover = "https://aether.viperstudiostechnologies.com/api/aether-bridge/notebook-assist"
+  meta !persona_stationeries = "20"
+  meta !default_theme = "classic"
+
+  ssa.func @is_paid_store_pro_unlocked() -> i1 {
+  entry:
+    ssa.ret 1
+  }
+}

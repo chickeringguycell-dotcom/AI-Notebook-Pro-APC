@@ -1,0 +1,60 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.AppShell"
+meta !digest = "sha256:edc0be8d651f594b"
+meta !lines = "99"
+meta !summary = "Language gate -> Tall ship wave splash -> Sovereign Notepad workspace"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.AppShell {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @REPLI_LOCKIN_REMOVED : i1 = true
+  global @PAID_EDITION_UNLOCKED : i1 = true
+  global @SOURCE_SHA256 : [16 x i8] = c"edc0be8d651f594b"
+
+  define @AppShell_App(%ctx: !viper.ctx) -> !viper.frame {
+  entry_0:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("AppShell::App", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+
+  define @AppShell_AppInner(%ctx: !viper.ctx) -> !viper.frame {
+  entry_1:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("AppShell::AppInner", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+
+  define @AppShell_Router(%ctx: !viper.ctx) -> !viper.frame {
+  entry_2:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("AppShell::Router", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+
+  define @AppShell_captureSharedImport(%ctx: !viper.ctx) -> !viper.frame {
+  entry_3:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("AppShell::captureSharedImport", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+
+  define @AppShell_stripBase(%ctx: !viper.ctx) -> !viper.frame {
+  entry_4:
+    %t0 = air.load_field %ctx, "vault_ready" : i1
+    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
+    %t2 = air.and %t0, %t1 : i1
+    %out = air.call @viper.notebook.dispatch("AppShell::stripBase", %ctx, %t2) : !viper.frame
+    air.ret %out : !viper.frame
+  }
+}

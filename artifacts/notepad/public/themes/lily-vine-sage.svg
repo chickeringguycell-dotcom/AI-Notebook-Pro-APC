@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 600" fill="none" preserveAspectRatio="xMidYMid meet">
+  <g opacity="0.55">
+    <!-- main S-curving vine -->
+    <path d="M40 0 C 60 40, 20 80, 40 120 C 60 160, 20 200, 40 240 C 60 280, 20 320, 40 360 C 60 400, 20 440, 40 480 C 55 520, 30 560, 40 600" stroke="#8aa67a" stroke-width="2" stroke-linecap="round"/>
+    <!-- alternating leaves -->
+    <path d="M48 30 C 65 24, 76 16, 76 4 C 62 14, 50 22, 48 30 Z" fill="#a8c498"/>
+    <path d="M28 70 C 12 64, 4 54, 4 42 C 16 52, 26 60, 28 70 Z" fill="#a8c498"/>
+    <path d="M52 110 C 70 104, 78 92, 76 80 C 62 92, 52 100, 52 110 Z" fill="#a8c498"/>
+    <path d="M28 150 C 10 144, 2 132, 4 120 C 18 132, 28 140, 28 150 Z" fill="#a8c498"/>
+    <path d="M50 195 C 68 190, 78 178, 76 165 C 62 178, 50 186, 50 195 Z" fill="#a8c498"/>
+    <path d="M30 235 C 12 230, 2 218, 4 205 C 18 218, 30 226, 30 235 Z" fill="#a8c498"/>
+    <path d="M50 280 C 68 275, 78 263, 76 250 C 62 263, 50 271, 50 280 Z" fill="#a8c498"/>
+    <path d="M28 320 C 10 315, 2 303, 4 290 C 18 303, 28 311, 28 320 Z" fill="#a8c498"/>
+    <path d="M52 365 C 70 360, 78 348, 76 335 C 62 348, 52 356, 52 365 Z" fill="#a8c498"/>
+    <path d="M28 410 C 10 405, 2 393, 4 380 C 18 393, 28 401, 28 410 Z" fill="#a8c498"/>
+    <path d="M50 450 C 68 445, 78 433, 76 420 C 62 433, 50 441, 50 450 Z" fill="#a8c498"/>
+    <path d="M30 490 C 12 485, 2 473, 4 460 C 18 473, 30 481, 30 490 Z" fill="#a8c498"/>
+    <path d="M52 535 C 70 530, 78 518, 76 505 C 62 518, 52 526, 52 535 Z" fill="#a8c498"/>
+    <path d="M28 575 C 10 570, 2 558, 4 545 C 18 558, 28 566, 28 575 Z" fill="#a8c498"/>
+    <!-- curl tendrils -->
+    <path d="M40 50 C 32 42, 44 34, 52 40 C 58 46, 50 52, 46 48" stroke="#8aa67a" stroke-width="1" stroke-linecap="round"/>
+    <path d="M40 215 C 32 207, 44 199, 52 205 C 58 211, 50 217, 46 213" stroke="#8aa67a" stroke-width="1" stroke-linecap="round"/>
+    <path d="M40 385 C 32 377, 44 369, 52 375 C 58 381, 50 387, 46 383" stroke="#8aa67a" stroke-width="1" stroke-linecap="round"/>
+    <path d="M40 555 C 32 547, 44 539, 52 545 C 58 551, 50 557, 46 553" stroke="#8aa67a" stroke-width="1" stroke-linecap="round"/>
+    <!-- small flower 1 -->
+    <g transform="translate(40 130)">
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="2" fill="#e8b850"/>
+    </g>
+    <!-- small flower 2 -->
+    <g transform="translate(40 470)">
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#fef8ee" stroke="#b89868" stroke-width="0.7" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="2" fill="#e8b850"/>
+    </g>
+    <!-- small flower 3 (mid-low) -->
+    <g transform="translate(40 300)">
+      <ellipse cx="0" cy="-6" rx="2.5" ry="5" fill="#fef8ee" stroke="#b89868" stroke-width="0.6"/>
+      <ellipse cx="0" cy="-6" rx="2.5" ry="5" fill="#fef8ee" stroke="#b89868" stroke-width="0.6" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-6" rx="2.5" ry="5" fill="#fef8ee" stroke="#b89868" stroke-width="0.6" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-6" rx="2.5" ry="5" fill="#fef8ee" stroke="#b89868" stroke-width="0.6" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-6" rx="2.5" ry="5" fill="#fef8ee" stroke="#b89868" stroke-width="0.6" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="1.6" fill="#e8b850"/>
+    </g>
+  </g>
+</svg>

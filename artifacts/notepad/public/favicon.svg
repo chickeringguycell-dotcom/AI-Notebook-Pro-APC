@@ -1,0 +1,15 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'>
+  <!-- Background -->
+  <rect width='512' height='512' rx='90' fill='#6b4c30'/>
+  <!-- Subtle lined paper texture -->
+  <rect x='70' y='148' width='372' height='5' rx='2.5' fill='#f5efe6' opacity='0.10'/>
+  <rect x='70' y='188' width='372' height='5' rx='2.5' fill='#f5efe6' opacity='0.10'/>
+  <rect x='70' y='228' width='372' height='5' rx='2.5' fill='#f5efe6' opacity='0.10'/>
+  <rect x='70' y='268' width='372' height='5' rx='2.5' fill='#f5efe6' opacity='0.10'/>
+  <rect x='70' y='308' width='372' height='5' rx='2.5' fill='#f5efe6' opacity='0.10'/>
+  <rect x='70' y='348' width='372' height='5' rx='2.5' fill='#f5efe6' opacity='0.10'/>
+  <!-- 2026 big on top -->
+  <text x='256' y='230' text-anchor='middle' font-size='168' fill='#f5efe6' font-family='Georgia, serif' font-weight='bold' letter-spacing='-4'>2026</text>
+  <!-- AI underneath, large and clear -->
+  <text x='256' y='390' text-anchor='middle' font-size='150' fill='#f5efe6' font-family='Georgia, serif' font-weight='bold' letter-spacing='8' opacity='0.90'>AI</text>
+</svg>

@@ -1,0 +1,29 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.SovereignRuntime {
+  module SovereignAetherNotebookRuntime {
+    const MODULE_VERSION: string = "2.0.0";
+    const REPLIT_AI_DISCONNECTED: bool = true;
+    const REPLIT_CLERK_LOCK_REMOVED: bool = true;
+    const ORACLE_CLOUD_AETHER_24_7_ENABLED: bool = true;
+    const PERSONA_STATIONERY_COUNT: i32 = 20;
+    const DEFAULT_PAPER_THEME: string = "classic";
+    const INLINE_PHOTO_MAX_DIMENSION_PX: i32 = 1440;
+
+    fn isPaidStoreProUnlocked() -> bool {
+      return true;
+    }
+
+    fn computeScaledPhotoDimension(origWidth: i32, origHeight: i32, maxDim: i32) -> i32 {
+      let larger: i32 = origWidth;
+      if (origHeight > larger) {
+        larger = origHeight;
+      }
+      if (larger <= maxDim) {
+        return origWidth;
+      }
+      return (origWidth * maxDim) / larger;
+    }
+  }
+}
