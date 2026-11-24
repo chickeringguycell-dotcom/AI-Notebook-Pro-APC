@@ -1,0 +1,31 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/breadcrumb.tsx (116 lines, 2712 bytes, sha256:c3d3dcb0d82fc5e9)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.breadcrumb {
+  use "@/lib/utils";
+  use "@radix-ui/react-slot";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/breadcrumb.tsx",
+    sourceLines: 116,
+    sourceBytes: 2712,
+    sha256: "c3d3dcb0d82fc5e91d8830bac7fead905686fe876f1f42c3ed872bb0a6b6584e",
+    vendorLockIn: 0
+  }
+
+  pub struct breadcrumbUnit { pub digest: u64 }
+
+  pub fn init_breadcrumb(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <ChevronRight>;
+    vnode <Comp>;
+    vnode <MoreHorizontal>;
+    vnode <li>;
+    vnode <nav>;
+    vnode <ol>;
+    vnode <span>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.breadcrumb::init_breadcrumb", 0xc3d3dcb0d82fc5e9);
+  }
+}

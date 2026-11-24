@@ -1,0 +1,21 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/index.ts (2 lines, 33 bytes, sha256:5c9e0525f7aa993c)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.index {
+  use "./generated/api";
+
+  meta {
+    sourcePath: "lib/api-zod/src/index.ts",
+    sourceLines: 2,
+    sourceBytes: 33,
+    sha256: "5c9e0525f7aa993c9f8adad9637a3f50b781259debba890811c9060f6430754d",
+    vendorLockIn: 0
+  }
+
+  pub struct indexUnit { pub digest: u64 }
+
+  pub fn init_index(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.index::init_index", 0x5c9e0525f7aa993c);
+  }
+}

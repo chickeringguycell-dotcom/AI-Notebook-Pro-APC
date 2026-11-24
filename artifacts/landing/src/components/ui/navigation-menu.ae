@@ -1,0 +1,35 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/navigation-menu.tsx (129 lines, 5124 bytes, sha256:a06d96a582ac207f)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.navigation_menu {
+  use "@/lib/utils";
+  use "@radix-ui/react-navigation-menu";
+  use "class-variance-authority";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/navigation-menu.tsx",
+    sourceLines: 129,
+    sourceBytes: 5124,
+    sha256: "a06d96a582ac207ffcd38445d773c05e841d646efb185b5e9b65f73e5bd388c7",
+    vendorLockIn: 0
+  }
+
+  pub struct navigation_menuUnit { pub digest: u64 }
+
+  pub fn init_navigation_menu(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <ChevronDown>;
+    vnode <NavigationMenuPrimitive.Content>;
+    vnode <NavigationMenuPrimitive.Indicator>;
+    vnode <NavigationMenuPrimitive.List>;
+    vnode <NavigationMenuPrimitive.Root>;
+    vnode <NavigationMenuPrimitive.Trigger>;
+    vnode <NavigationMenuPrimitive.Viewport>;
+    vnode <NavigationMenuViewport>;
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.navigation_menu::init_navigation_menu", 0xa06d96a582ac207f);
+  }
+}

@@ -1,0 +1,98 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api"
+meta !source = "lib/api-zod/src/generated/api.ts"
+meta !lines = "294"
+meta !sha256 = "bedafc0401970781779a67d62a30f9cf24ee31f3ed64e77c28fd30c8280d084a"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"bedafc0401970781"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @HealthCheckResponse(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "HealthCheckResponse" : !viper.ctx
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::HealthCheckResponse", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @ListNotesResponseItem(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "ListNotesResponseItem" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListNotesResponseItem", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+
+  define @ListNotesResponse(%arg0: !viper.ctx) -> !viper.frame {
+  bb_2:
+    %ctx_2 = air.frame.enter "ListNotesResponse" : !viper.ctx
+    %res_2 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListNotesResponse", %ctx_2) : !viper.frame
+    air.ret %res_2 : !viper.frame
+  }
+
+  define @CreateNoteBody(%arg0: !viper.ctx) -> !viper.frame {
+  bb_3:
+    %ctx_3 = air.frame.enter "CreateNoteBody" : !viper.ctx
+    %res_3 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::CreateNoteBody", %ctx_3) : !viper.frame
+    air.ret %res_3 : !viper.frame
+  }
+
+  define @GetNoteParams(%arg0: !viper.ctx) -> !viper.frame {
+  bb_4:
+    %ctx_4 = air.frame.enter "GetNoteParams" : !viper.ctx
+    %res_4 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::GetNoteParams", %ctx_4) : !viper.frame
+    air.ret %res_4 : !viper.frame
+  }
+
+  define @GetNoteResponse(%arg0: !viper.ctx) -> !viper.frame {
+  bb_5:
+    %ctx_5 = air.frame.enter "GetNoteResponse" : !viper.ctx
+    %res_5 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::GetNoteResponse", %ctx_5) : !viper.frame
+    air.ret %res_5 : !viper.frame
+  }
+
+  define @UpdateNoteParams(%arg0: !viper.ctx) -> !viper.frame {
+  bb_6:
+    %ctx_6 = air.frame.enter "UpdateNoteParams" : !viper.ctx
+    %res_6 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::UpdateNoteParams", %ctx_6) : !viper.frame
+    air.ret %res_6 : !viper.frame
+  }
+
+  define @UpdateNoteBody(%arg0: !viper.ctx) -> !viper.frame {
+  bb_7:
+    %ctx_7 = air.frame.enter "UpdateNoteBody" : !viper.ctx
+    %res_7 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::UpdateNoteBody", %ctx_7) : !viper.frame
+    air.ret %res_7 : !viper.frame
+  }
+
+  define @UpdateNoteResponse(%arg0: !viper.ctx) -> !viper.frame {
+  bb_8:
+    %ctx_8 = air.frame.enter "UpdateNoteResponse" : !viper.ctx
+    %res_8 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::UpdateNoteResponse", %ctx_8) : !viper.frame
+    air.ret %res_8 : !viper.frame
+  }
+
+  define @DeleteNoteParams(%arg0: !viper.ctx) -> !viper.frame {
+  bb_9:
+    %ctx_9 = air.frame.enter "DeleteNoteParams" : !viper.ctx
+    %res_9 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::DeleteNoteParams", %ctx_9) : !viper.frame
+    air.ret %res_9 : !viper.frame
+  }
+
+  define @ListAetherConversationsResponseItem(%arg0: !viper.ctx) -> !viper.frame {
+  bb_10:
+    %ctx_10 = air.frame.enter "ListAetherConversationsResponseItem" : !viper.ctx
+    %res_10 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListAetherConversationsResponseItem", %ctx_10) : !viper.frame
+    air.ret %res_10 : !viper.frame
+  }
+
+  define @ListAetherConversationsResponse(%arg0: !viper.ctx) -> !viper.frame {
+  bb_11:
+    %ctx_11 = air.frame.enter "ListAetherConversationsResponse" : !viper.ctx
+    %res_11 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListAetherConversationsResponse", %ctx_11) : !viper.frame
+    air.ret %res_11 : !viper.frame
+  }
+}

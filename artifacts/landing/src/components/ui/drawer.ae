@@ -1,0 +1,33 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/drawer.tsx (117 lines, 3007 bytes, sha256:47ff6248307a4ac0)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.drawer {
+  use "@/lib/utils";
+  use "react";
+  use "vaul";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/drawer.tsx",
+    sourceLines: 117,
+    sourceBytes: 3007,
+    sha256: "47ff6248307a4ac09bf7e00181a2a29f9f846691092e04cad03e15d749bc249b",
+    vendorLockIn: 0
+  }
+
+  pub struct drawerUnit { pub digest: u64 }
+
+  pub fn init_drawer(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <DrawerOverlay>;
+    vnode <DrawerPortal>;
+    vnode <DrawerPrimitive.Content>;
+    vnode <DrawerPrimitive.Description>;
+    vnode <DrawerPrimitive.Overlay>;
+    vnode <DrawerPrimitive.Root>;
+    vnode <DrawerPrimitive.Title>;
+    vnode <HTMLDivElement>;
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.drawer::init_drawer", 0x47ff6248307a4ac0);
+  }
+}

@@ -1,0 +1,21 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.collapsible"
+meta !source = "artifacts/landing/src/components/ui/collapsible.tsx"
+meta !lines = "12"
+meta !sha256 = "f4cdd104de29928bfcd40b865c7d08eed9157a537fbb8b5e6d0921f02b63cc04"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.collapsible {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"f4cdd104de29928b"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_collapsible(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_collapsible" : !viper.ctx
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.collapsible::init_collapsible", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

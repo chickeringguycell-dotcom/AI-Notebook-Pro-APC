@@ -1,0 +1,25 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/notepad/vite.config.ts (92 lines, 2408 bytes, sha256:0cc2ed78eb6708bb)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.vite_config {
+  use "@tailwindcss/vite";
+  use "@vitejs/plugin-react";
+  use "path";
+  use "vite";
+  use "vite-plugin-pwa";
+
+  meta {
+    sourcePath: "artifacts/notepad/vite.config.ts",
+    sourceLines: 92,
+    sourceBytes: 2408,
+    sha256: "0cc2ed78eb6708bb1708dd317370b2f763e5010ed40dce90aae9f9b504be6bb4",
+    vendorLockIn: 0
+  }
+
+  pub struct vite_configUnit { pub digest: u64 }
+
+  pub fn init_vite_config(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.vite_config::init_vite_config", 0x0cc2ed78eb6708bb);
+  }
+}

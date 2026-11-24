@@ -1,0 +1,21 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/aspect-ratio.tsx (6 lines, 140 bytes, sha256:08b0aa0b05efc573)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.aspect_ratio {
+  use "@radix-ui/react-aspect-ratio";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/aspect-ratio.tsx",
+    sourceLines: 6,
+    sourceBytes: 140,
+    sha256: "08b0aa0b05efc573c7d63363c03e83d4b101bfeb54140764e96ddea30659cfcc",
+    vendorLockIn: 0
+  }
+
+  pub struct aspect_ratioUnit { pub digest: u64 }
+
+  pub fn init_aspect_ratio(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.aspect_ratio::init_aspect_ratio", 0x08b0aa0b05efc573);
+  }
+}

@@ -1,0 +1,22 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.hover_card"
+meta !source = "artifacts/landing/src/components/ui/hover-card.tsx"
+meta !lines = "28"
+meta !sha256 = "00f9086b1412843e04e01d31d2fab00a25d65d789d1a382e41f01b1f3c167c3b"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.hover_card {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"00f9086b1412843e"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_hover_card(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_hover_card" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 2 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.hover_card::init_hover_card", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

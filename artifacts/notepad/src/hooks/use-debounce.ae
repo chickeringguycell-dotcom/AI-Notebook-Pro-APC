@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: hooks/use-debounce.ts
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.use_debounce {
+  contract use_debounceContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn useDebounce() -> Any;
+  }
+}

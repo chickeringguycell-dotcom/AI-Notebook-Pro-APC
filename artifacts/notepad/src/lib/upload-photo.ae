@@ -1,36 +1,11 @@
-// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
-// Sovereign Module: OnDevicePhotoCompressor
-// Source Digest: sha256:585d8fbcbecd4593 (15 lines)
-// Architectural Contract: Local Canvas JPEG compression & inline data-URL persistence replacing Replit GCS
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: lib/upload-photo.ts
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.OnDevicePhotoCompressor {
-
-  meta {
-    product: "My AI Notebook: Voice & Notes (com.ainotebook.mobile)",
-    architecture: "Sovereign-OnDevice-IndexedDB + Oracle-Cloud-24x7-Aether",
-    replitDependencies: 0,
-    thirdPartyLockIn: 0,
-    sourceDigest: "585d8fbcbecd4593",
-    sourceLines: 15
-  }
-
-  pub const MODULE_ID: SymbolRef = SymbolRef("OnDevicePhotoCompressor");
-
-  struct UploadResult { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-
-  pub const SOVEREIGN_ENDPOINTS: &[str] = &[
-    "indexeddb://viper_my_ai_notebook_vault_v1",
-  ];
-
-  contract OnDevicePhotoCompressorPipeline {
-    pub fn uploadPhoto(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-
-    pub fn verifySovereignInvariants(state: &SovereignNotebookContext) -> bool {
-      assert!(state.replitAiDisconnected == true);
-      assert!(state.oracleAetherConnected == true);
-      assert!(state.uiLayoutPreserved == true);
-      return state.integrityDigest == 0x585d8fbcbecd4593;
-    }
+namespace ViperStudios.AetherPrime.MyAiNotebook.upload_photo {
+  contract upload_photoContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn UploadResult() -> Any;
+    fn uploadPhoto() -> Any;
   }
 }

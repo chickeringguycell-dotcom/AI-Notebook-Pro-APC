@@ -1,0 +1,72 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/field.tsx (245 lines, 6044 bytes, sha256:e463611ab049c5e9)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field {
+  use "@/components/ui/label";
+  use "@/components/ui/separator";
+  use "@/lib/utils";
+  use "class-variance-authority";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/field.tsx",
+    sourceLines: 245,
+    sourceBytes: 6044,
+    sha256: "e463611ab049c5e9b1c61691d239e05970ead7b577a191b3f80aa6f8ffccada9",
+    vendorLockIn: 0
+  }
+
+  pub struct fieldUnit { pub digest: u64 }
+
+  pub fn FieldSet(/* { className, ...props }: React.ComponentProps<'fieldset'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useMemo;
+    vnode <Label>;
+    vnode <Separator>;
+    vnode <div>;
+    vnode <fieldset>;
+    vnode <legend>;
+    vnode <li>;
+    vnode <p>;
+    vnode <span>;
+    vnode <typeof>;
+    vnode <ul>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldSet", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldLegend(/* { className, variant = 'legend', ...props }: React.ComponentProps<'legend'> & { variant?:  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldLegend", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldGroup(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldGroup", 0xe463611ab049c5e9);
+  }
+
+  pub fn Field(/* { className, orientation = 'vertical', ...props }: React.ComponentProps<'div'> & VariantPr */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::Field", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldContent(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldContent", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldLabel(/* { className, ...props }: React.ComponentProps<typeof Label> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldLabel", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldTitle(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldTitle", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldDescription(/* { className, ...props }: React.ComponentProps<'p'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldDescription", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldSeparator(/* { children, className, ...props }: React.ComponentProps<'div'> & { children?: React.ReactN */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldSeparator", 0xe463611ab049c5e9);
+  }
+
+  pub fn FieldError(/* { className, children, errors, ...props }: React.ComponentProps<'div'> & { errors?: Array< */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldError", 0xe463611ab049c5e9);
+  }
+}

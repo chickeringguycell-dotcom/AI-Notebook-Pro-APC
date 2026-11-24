@@ -1,0 +1,206 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api"
+meta !source = "lib/api-client-react/src/generated/api.ts"
+meta !lines = "1629"
+meta !sha256 = "1881daa64f7890bc6f0c56397d272b3e8c6b0d792468003c7dcd175476fbe249"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"1881daa64f7890bc"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @getHealthCheckUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "getHealthCheckUrl" : !viper.ctx
+    %hk_0 = air.hook.invoke @useMutation(%ctx_0) : !viper.val
+    %hk_1 = air.hook.invoke @useQuery(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 31 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getHealthCheckUrl", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @getHealthCheckQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "getHealthCheckQueryKey" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getHealthCheckQueryKey", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+
+  define @getListNotesUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_2:
+    %ctx_2 = air.frame.enter "getListNotesUrl" : !viper.ctx
+    %res_2 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListNotesUrl", %ctx_2) : !viper.frame
+    air.ret %res_2 : !viper.frame
+  }
+
+  define @getListNotesQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_3:
+    %ctx_3 = air.frame.enter "getListNotesQueryKey" : !viper.ctx
+    %res_3 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListNotesQueryKey", %ctx_3) : !viper.frame
+    air.ret %res_3 : !viper.frame
+  }
+
+  define @getCreateNoteUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_4:
+    %ctx_4 = air.frame.enter "getCreateNoteUrl" : !viper.ctx
+    %res_4 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getCreateNoteUrl", %ctx_4) : !viper.frame
+    air.ret %res_4 : !viper.frame
+  }
+
+  define @getGetNoteUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_5:
+    %ctx_5 = air.frame.enter "getGetNoteUrl" : !viper.ctx
+    %res_5 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetNoteUrl", %ctx_5) : !viper.frame
+    air.ret %res_5 : !viper.frame
+  }
+
+  define @getGetNoteQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_6:
+    %ctx_6 = air.frame.enter "getGetNoteQueryKey" : !viper.ctx
+    %res_6 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetNoteQueryKey", %ctx_6) : !viper.frame
+    air.ret %res_6 : !viper.frame
+  }
+
+  define @getUpdateNoteUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_7:
+    %ctx_7 = air.frame.enter "getUpdateNoteUrl" : !viper.ctx
+    %res_7 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getUpdateNoteUrl", %ctx_7) : !viper.frame
+    air.ret %res_7 : !viper.frame
+  }
+
+  define @getDeleteNoteUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_8:
+    %ctx_8 = air.frame.enter "getDeleteNoteUrl" : !viper.ctx
+    %res_8 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getDeleteNoteUrl", %ctx_8) : !viper.frame
+    air.ret %res_8 : !viper.frame
+  }
+
+  define @getListAetherConversationsUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_9:
+    %ctx_9 = air.frame.enter "getListAetherConversationsUrl" : !viper.ctx
+    %res_9 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherConversationsUrl", %ctx_9) : !viper.frame
+    air.ret %res_9 : !viper.frame
+  }
+
+  define @getListAetherConversationsQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_10:
+    %ctx_10 = air.frame.enter "getListAetherConversationsQueryKey" : !viper.ctx
+    %res_10 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherConversationsQueryKey", %ctx_10) : !viper.frame
+    air.ret %res_10 : !viper.frame
+  }
+
+  define @getCreateAetherConversationUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_11:
+    %ctx_11 = air.frame.enter "getCreateAetherConversationUrl" : !viper.ctx
+    %res_11 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getCreateAetherConversationUrl", %ctx_11) : !viper.frame
+    air.ret %res_11 : !viper.frame
+  }
+
+  define @getGetAetherConversationUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_12:
+    %ctx_12 = air.frame.enter "getGetAetherConversationUrl" : !viper.ctx
+    %res_12 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetAetherConversationUrl", %ctx_12) : !viper.frame
+    air.ret %res_12 : !viper.frame
+  }
+
+  define @getGetAetherConversationQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_13:
+    %ctx_13 = air.frame.enter "getGetAetherConversationQueryKey" : !viper.ctx
+    %res_13 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetAetherConversationQueryKey", %ctx_13) : !viper.frame
+    air.ret %res_13 : !viper.frame
+  }
+
+  define @getDeleteAetherConversationUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_14:
+    %ctx_14 = air.frame.enter "getDeleteAetherConversationUrl" : !viper.ctx
+    %res_14 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getDeleteAetherConversationUrl", %ctx_14) : !viper.frame
+    air.ret %res_14 : !viper.frame
+  }
+
+  define @getListAetherMessagesUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_15:
+    %ctx_15 = air.frame.enter "getListAetherMessagesUrl" : !viper.ctx
+    %res_15 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherMessagesUrl", %ctx_15) : !viper.frame
+    air.ret %res_15 : !viper.frame
+  }
+
+  define @getListAetherMessagesQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_16:
+    %ctx_16 = air.frame.enter "getListAetherMessagesQueryKey" : !viper.ctx
+    %res_16 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherMessagesQueryKey", %ctx_16) : !viper.frame
+    air.ret %res_16 : !viper.frame
+  }
+
+  define @getSendAetherMessageUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_17:
+    %ctx_17 = air.frame.enter "getSendAetherMessageUrl" : !viper.ctx
+    %res_17 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getSendAetherMessageUrl", %ctx_17) : !viper.frame
+    air.ret %res_17 : !viper.frame
+  }
+
+  define @getScanImageTextUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_18:
+    %ctx_18 = air.frame.enter "getScanImageTextUrl" : !viper.ctx
+    %res_18 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getScanImageTextUrl", %ctx_18) : !viper.frame
+    air.ret %res_18 : !viper.frame
+  }
+
+  define @getPolishTextUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_19:
+    %ctx_19 = air.frame.enter "getPolishTextUrl" : !viper.ctx
+    %res_19 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getPolishTextUrl", %ctx_19) : !viper.frame
+    air.ret %res_19 : !viper.frame
+  }
+
+  define @getSendAetherVoiceMessageUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_20:
+    %ctx_20 = air.frame.enter "getSendAetherVoiceMessageUrl" : !viper.ctx
+    %res_20 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getSendAetherVoiceMessageUrl", %ctx_20) : !viper.frame
+    air.ret %res_20 : !viper.frame
+  }
+
+  define @getRequestUploadUrlUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_21:
+    %ctx_21 = air.frame.enter "getRequestUploadUrlUrl" : !viper.ctx
+    %res_21 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getRequestUploadUrlUrl", %ctx_21) : !viper.frame
+    air.ret %res_21 : !viper.frame
+  }
+
+  define @getGetStorageObjectUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_22:
+    %ctx_22 = air.frame.enter "getGetStorageObjectUrl" : !viper.ctx
+    %res_22 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetStorageObjectUrl", %ctx_22) : !viper.frame
+    air.ret %res_22 : !viper.frame
+  }
+
+  define @getGetStorageObjectQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_23:
+    %ctx_23 = air.frame.enter "getGetStorageObjectQueryKey" : !viper.ctx
+    %res_23 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetStorageObjectQueryKey", %ctx_23) : !viper.frame
+    air.ret %res_23 : !viper.frame
+  }
+
+  define @getGetMeUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_24:
+    %ctx_24 = air.frame.enter "getGetMeUrl" : !viper.ctx
+    %res_24 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetMeUrl", %ctx_24) : !viper.frame
+    air.ret %res_24 : !viper.frame
+  }
+
+  define @getGetMeQueryKey(%arg0: !viper.ctx) -> !viper.frame {
+  bb_25:
+    %ctx_25 = air.frame.enter "getGetMeQueryKey" : !viper.ctx
+    %res_25 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetMeQueryKey", %ctx_25) : !viper.frame
+    air.ret %res_25 : !viper.frame
+  }
+
+  define @getRedeemProUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_26:
+    %ctx_26 = air.frame.enter "getRedeemProUrl" : !viper.ctx
+    %res_26 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getRedeemProUrl", %ctx_26) : !viper.frame
+    air.ret %res_26 : !viper.frame
+  }
+}

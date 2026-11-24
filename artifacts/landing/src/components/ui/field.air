@@ -1,0 +1,86 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field"
+meta !source = "artifacts/landing/src/components/ui/field.tsx"
+meta !lines = "245"
+meta !sha256 = "e463611ab049c5e9b1c61691d239e05970ead7b577a191b3f80aa6f8ffccada9"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"e463611ab049c5e9"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @FieldSet(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "FieldSet" : !viper.ctx
+    %hk_0 = air.hook.invoke @useMemo(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 10 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldSet", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @FieldLegend(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "FieldLegend" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldLegend", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+
+  define @FieldGroup(%arg0: !viper.ctx) -> !viper.frame {
+  bb_2:
+    %ctx_2 = air.frame.enter "FieldGroup" : !viper.ctx
+    %res_2 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldGroup", %ctx_2) : !viper.frame
+    air.ret %res_2 : !viper.frame
+  }
+
+  define @Field(%arg0: !viper.ctx) -> !viper.frame {
+  bb_3:
+    %ctx_3 = air.frame.enter "Field" : !viper.ctx
+    %res_3 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::Field", %ctx_3) : !viper.frame
+    air.ret %res_3 : !viper.frame
+  }
+
+  define @FieldContent(%arg0: !viper.ctx) -> !viper.frame {
+  bb_4:
+    %ctx_4 = air.frame.enter "FieldContent" : !viper.ctx
+    %res_4 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldContent", %ctx_4) : !viper.frame
+    air.ret %res_4 : !viper.frame
+  }
+
+  define @FieldLabel(%arg0: !viper.ctx) -> !viper.frame {
+  bb_5:
+    %ctx_5 = air.frame.enter "FieldLabel" : !viper.ctx
+    %res_5 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldLabel", %ctx_5) : !viper.frame
+    air.ret %res_5 : !viper.frame
+  }
+
+  define @FieldTitle(%arg0: !viper.ctx) -> !viper.frame {
+  bb_6:
+    %ctx_6 = air.frame.enter "FieldTitle" : !viper.ctx
+    %res_6 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldTitle", %ctx_6) : !viper.frame
+    air.ret %res_6 : !viper.frame
+  }
+
+  define @FieldDescription(%arg0: !viper.ctx) -> !viper.frame {
+  bb_7:
+    %ctx_7 = air.frame.enter "FieldDescription" : !viper.ctx
+    %res_7 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldDescription", %ctx_7) : !viper.frame
+    air.ret %res_7 : !viper.frame
+  }
+
+  define @FieldSeparator(%arg0: !viper.ctx) -> !viper.frame {
+  bb_8:
+    %ctx_8 = air.frame.enter "FieldSeparator" : !viper.ctx
+    %res_8 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldSeparator", %ctx_8) : !viper.frame
+    air.ret %res_8 : !viper.frame
+  }
+
+  define @FieldError(%arg0: !viper.ctx) -> !viper.frame {
+  bb_9:
+    %ctx_9 = air.frame.enter "FieldError" : !viper.ctx
+    %res_9 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field::FieldError", %ctx_9) : !viper.frame
+    air.ret %res_9 : !viper.frame
+  }
+}

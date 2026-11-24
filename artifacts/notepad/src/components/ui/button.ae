@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/ui/button.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.button {
+  contract buttonContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn ButtonProps() -> Any;
+  }
+}

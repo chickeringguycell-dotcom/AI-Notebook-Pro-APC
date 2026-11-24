@@ -1,61 +1,108 @@
 // Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
-// Sovereign Module: SovereignVaultInterceptor
-// Source Digest: sha256:ffafa63bdea3e19f (387 lines)
-// Architectural Contract: Intercepts all /api/* CRUD & AI routes locally into IndexedDB + Oracle Cloud Sovereign Aether
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-client-react/src/custom-fetch.ts (387 lines, 11874 bytes, sha256:ffafa63bdea3e19f)
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.SovereignVaultInterceptor {
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch {
+  use "viper://core/runtime";
 
   meta {
-    product: "My AI Notebook: Voice & Notes (com.ainotebook.mobile)",
-    architecture: "Sovereign-OnDevice-IndexedDB + Oracle-Cloud-24x7-Aether",
-    replitDependencies: 0,
-    thirdPartyLockIn: 0,
-    sourceDigest: "ffafa63bdea3e19f",
-    sourceLines: 387
+    sourcePath: "lib/api-client-react/src/custom-fetch.ts",
+    sourceLines: 387,
+    sourceBytes: 11874,
+    sha256: "ffafa63bdea3e19fca29dd5a022e22412130ccd03420e7c04740912d8cb76339",
+    vendorLockIn: 0
   }
 
-  pub const MODULE_ID: SymbolRef = SymbolRef("SovereignVaultInterceptor");
+  pub type CustomFetchOptions = SovereignTypeExpr<"RequestInit & { responseType?: 'json' | 'text' | 'blob' | 'auto'">;
 
-  struct AuthTokenGetter { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct BodyType { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct CustomFetchOptions { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct ErrorType { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
+  pub type AuthTokenGetter = SovereignTypeExpr<"() => Promise<string | null> | string | null">;
 
-  pub const SOVEREIGN_ENDPOINTS: &[str] = &[
-    "indexeddb://viper_my_ai_notebook_vault_v1",
-  ];
+  pub fn setBaseUrl(/* url: string | null */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <HeadersInit>;
+    vnode <T>;
+    vnode <string>;
+    vnode <token>;
+    vnode <unknown>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::setBaseUrl", 0xffafa63bdea3e19f);
+  }
 
-  contract SovereignVaultInterceptorPipeline {
-    pub fn applyBaseUrl(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn buildErrorMessage(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn customFetch(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn getMediaType(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn getStringField(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn hasNoBody(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn inferResponseType(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn isJsonMediaType(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn isRequest(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn isTextMediaType(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn isUrl(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn looksLikeJson(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn mergeHeaders(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn parseErrorBody(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn parseJsonBody(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn parseSuccessBody(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn resolveMethod(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn resolveUrl(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn setAuthTokenGetter(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn setBaseUrl(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn should(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn stripBom(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn truncate(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
+  pub fn setAuthTokenGetter(/* getter: AuthTokenGetter | null */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::setAuthTokenGetter", 0xffafa63bdea3e19f);
+  }
 
-    pub fn verifySovereignInvariants(state: &SovereignNotebookContext) -> bool {
-      assert!(state.replitAiDisconnected == true);
-      assert!(state.oracleAetherConnected == true);
-      assert!(state.uiLayoutPreserved == true);
-      return state.integrityDigest == 0xffafa63bdea3e19f;
-    }
+  pub fn isRequest(/* input: RequestInfo | URL */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isRequest", 0xffafa63bdea3e19f);
+  }
+
+  pub fn resolveMethod(/* input: RequestInfo | URL, explicitMethod?: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::resolveMethod", 0xffafa63bdea3e19f);
+  }
+
+  pub fn isUrl(/* input: RequestInfo | URL */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isUrl", 0xffafa63bdea3e19f);
+  }
+
+  pub fn applyBaseUrl(/* input: RequestInfo | URL */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::applyBaseUrl", 0xffafa63bdea3e19f);
+  }
+
+  pub fn resolveUrl(/* input: RequestInfo | URL */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::resolveUrl", 0xffafa63bdea3e19f);
+  }
+
+  pub fn mergeHeaders(/* ...sources: Array<HeadersInit | undefined> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::mergeHeaders", 0xffafa63bdea3e19f);
+  }
+
+  pub fn getMediaType(/* headers: Headers */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::getMediaType", 0xffafa63bdea3e19f);
+  }
+
+  pub fn isJsonMediaType(/* mediaType: string | null */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isJsonMediaType", 0xffafa63bdea3e19f);
+  }
+
+  pub fn isTextMediaType(/* mediaType: string | null */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isTextMediaType", 0xffafa63bdea3e19f);
+  }
+
+  pub fn hasNoBody(/* response: Response, method: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::hasNoBody", 0xffafa63bdea3e19f);
+  }
+
+  pub fn stripBom(/* text: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::stripBom", 0xffafa63bdea3e19f);
+  }
+
+  pub fn looksLikeJson(/* text: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::looksLikeJson", 0xffafa63bdea3e19f);
+  }
+
+  pub fn getStringField(/* value: unknown, key: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::getStringField", 0xffafa63bdea3e19f);
+  }
+
+  pub fn truncate(/* text: string, maxLength = 300 */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::truncate", 0xffafa63bdea3e19f);
+  }
+
+  pub fn buildErrorMessage(/* response: Response, data: unknown */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::buildErrorMessage", 0xffafa63bdea3e19f);
+  }
+
+  pub fn parseJsonBody(/* response: Response, requestInfo: { method: string; url: string }, */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::parseJsonBody", 0xffafa63bdea3e19f);
+  }
+
+  pub fn parseErrorBody(/* response: Response, method: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::parseErrorBody", 0xffafa63bdea3e19f);
+  }
+
+  pub fn inferResponseType(/* response: Response */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::inferResponseType", 0xffafa63bdea3e19f);
+  }
+
+  pub fn parseSuccessBody(/* response: Response, responseType: 'json' | 'text' | 'blob' | 'auto', requestInfo: { method */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::parseSuccessBody", 0xffafa63bdea3e19f);
   }
 }

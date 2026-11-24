@@ -1,0 +1,36 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/dialog.tsx (121 lines, 3835 bytes, sha256:f9c982ed8114c253)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.dialog {
+  use "@/lib/utils";
+  use "@radix-ui/react-dialog";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/dialog.tsx",
+    sourceLines: 121,
+    sourceBytes: 3835,
+    sha256: "f9c982ed8114c253c6ca738043d3f455e89c6d65569e90c9415776d6b4d6be14",
+    vendorLockIn: 0
+  }
+
+  pub struct dialogUnit { pub digest: u64 }
+
+  pub fn init_dialog(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <DialogOverlay>;
+    vnode <DialogPortal>;
+    vnode <DialogPrimitive.Close>;
+    vnode <DialogPrimitive.Content>;
+    vnode <DialogPrimitive.Description>;
+    vnode <DialogPrimitive.Overlay>;
+    vnode <DialogPrimitive.Title>;
+    vnode <HTMLDivElement>;
+    vnode <X>;
+    vnode <div>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.dialog::init_dialog", 0xf9c982ed8114c253);
+  }
+}

@@ -1,40 +1,10 @@
-// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
-// Sovereign Module: AppShell
-// Source Digest: sha256:edc0be8d651f594b (99 lines)
-// Architectural Contract: Language gate -> Tall ship wave splash -> Sovereign Notepad workspace
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: App.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.AppShell {
-
-  meta {
-    product: "My AI Notebook: Voice & Notes (com.ainotebook.mobile)",
-    architecture: "Sovereign-OnDevice-IndexedDB + Oracle-Cloud-24x7-Aether",
-    replitDependencies: 0,
-    thirdPartyLockIn: 0,
-    sourceDigest: "edc0be8d651f594b",
-    sourceLines: 99
-  }
-
-  pub const MODULE_ID: SymbolRef = SymbolRef("AppShell");
-
-  struct AppShellState { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-
-  pub const SOVEREIGN_ENDPOINTS: &[str] = &[
-    "indexeddb://viper_my_ai_notebook_vault_v1",
-  ];
-
-  contract AppShellPipeline {
-    pub fn App(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn AppInner(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn Router(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn captureSharedImport(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn stripBase(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-
-    pub fn verifySovereignInvariants(state: &SovereignNotebookContext) -> bool {
-      assert!(state.replitAiDisconnected == true);
-      assert!(state.oracleAetherConnected == true);
-      assert!(state.uiLayoutPreserved == true);
-      return state.integrityDigest == 0xedc0be8d651f594b;
-    }
+namespace ViperStudios.AetherPrime.MyAiNotebook.App {
+  contract AppContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn renderModule() -> Any;
   }
 }

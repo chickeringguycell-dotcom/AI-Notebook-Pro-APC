@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/textarea.tsx (23 lines, 649 bytes, sha256:ec7c92aaed80f692)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.textarea {
+  use "@/lib/utils";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/textarea.tsx",
+    sourceLines: 23,
+    sourceBytes: 649,
+    sha256: "ec7c92aaed80f6923a7caa4bfe4eead395b50a7001504fd7fbb0b9381804dae9",
+    vendorLockIn: 0
+  }
+
+  pub struct textareaUnit { pub digest: u64 }
+
+  pub fn init_textarea(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <textarea>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.textarea::init_textarea", 0xec7c92aaed80f692);
+  }
+}

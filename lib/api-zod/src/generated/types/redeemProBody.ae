@@ -1,0 +1,24 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/types/redeemProBody.ts (15 lines, 319 bytes, sha256:c4b4c188d8f36f66)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.redeemProBody {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/types/redeemProBody.ts",
+    sourceLines: 15,
+    sourceBytes: 319,
+    sha256: "c4b4c188d8f36f66c8b70819b8a8383adbbbe2dacc08411e1461f29b7dc5f401",
+    vendorLockIn: 0
+  }
+
+  pub struct RedeemProBody {
+    pub code: AetherType<"string">,
+    pub legacy: AetherType<"boolean">,
+  }
+
+  pub fn init_redeemProBody(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.redeemProBody::init_redeemProBody", 0xc4b4c188d8f36f66);
+  }
+}

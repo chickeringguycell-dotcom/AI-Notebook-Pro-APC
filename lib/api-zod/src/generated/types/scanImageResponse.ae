@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/types/scanImageResponse.ts (12 lines, 182 bytes, sha256:6a92b30f3489d1c2)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.scanImageResponse {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/types/scanImageResponse.ts",
+    sourceLines: 12,
+    sourceBytes: 182,
+    sha256: "6a92b30f3489d1c251ff5bf54fe87ff69e30b4adf041826a9348148fc791a954",
+    vendorLockIn: 0
+  }
+
+  pub struct ScanImageResponse {
+    pub text: AetherType<"string">,
+  }
+
+  pub fn init_scanImageResponse(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.scanImageResponse::init_scanImageResponse", 0x6a92b30f3489d1c2);
+  }
+}

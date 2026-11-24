@@ -1,0 +1,35 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/pagination.tsx (118 lines, 2751 bytes, sha256:9506dbd19ddd0c28)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.pagination {
+  use "@/components/ui/button";
+  use "@/lib/utils";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/pagination.tsx",
+    sourceLines: 118,
+    sourceBytes: 2751,
+    sha256: "9506dbd19ddd0c2810d1c9668a3f01606e39d9bf33ddc43329523c03bf629012",
+    vendorLockIn: 0
+  }
+
+  pub struct paginationUnit { pub digest: u64 }
+
+  pub fn init_pagination(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <ButtonProps>;
+    vnode <ChevronLeft>;
+    vnode <ChevronRight>;
+    vnode <MoreHorizontal>;
+    vnode <PaginationLink>;
+    vnode <a>;
+    vnode <li>;
+    vnode <nav>;
+    vnode <span>;
+    vnode <typeof>;
+    vnode <ul>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.pagination::init_pagination", 0x9506dbd19ddd0c28);
+  }
+}

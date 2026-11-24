@@ -1,0 +1,26 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/popover.tsx (32 lines, 1342 bytes, sha256:04cf38bf94abd3fe)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.popover {
+  use "@/lib/utils";
+  use "@radix-ui/react-popover";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/popover.tsx",
+    sourceLines: 32,
+    sourceBytes: 1342,
+    sha256: "04cf38bf94abd3fe1b51e90227e6e235ca74776f6fc6af718bfc149e7424f582",
+    vendorLockIn: 0
+  }
+
+  pub struct popoverUnit { pub digest: u64 }
+
+  pub fn init_popover(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <PopoverPrimitive.Content>;
+    vnode <PopoverPrimitive.Portal>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.popover::init_popover", 0x04cf38bf94abd3fe);
+  }
+}

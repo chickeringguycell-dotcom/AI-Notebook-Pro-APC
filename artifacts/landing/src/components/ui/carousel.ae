@@ -1,0 +1,41 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/carousel.tsx (261 lines, 6210 bytes, sha256:5a4ff73c804e86c8)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.carousel {
+  use "@/components/ui/button";
+  use "@/lib/utils";
+  use "embla-carousel-react";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/carousel.tsx",
+    sourceLines: 261,
+    sourceBytes: 6210,
+    sha256: "5a4ff73c804e86c873382da80c453f1399006326ef042fb984c24162ec86666e",
+    vendorLockIn: 0
+  }
+
+  pub struct carouselUnit { pub digest: u64 }
+
+  pub fn useCarousel(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useCallback;
+    bind_hook @useCarousel;
+    bind_hook @useContext;
+    bind_hook @useEffect;
+    bind_hook @useEmblaCarousel;
+    bind_hook @useState;
+    vnode <ArrowLeft>;
+    vnode <ArrowRight>;
+    vnode <Button>;
+    vnode <Carousel>;
+    vnode <CarouselContext.Provider>;
+    vnode <CarouselContextProps>;
+    vnode <HTMLDivElement>;
+    vnode <div>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.carousel::useCarousel", 0x5a4ff73c804e86c8);
+  }
+}

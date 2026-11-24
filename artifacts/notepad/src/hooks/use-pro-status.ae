@@ -1,37 +1,10 @@
-// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
-// Sovereign Module: SovereignPaidEntitlement
-// Source Digest: sha256:7296e2193e564b66 (33 lines)
-// Architectural Contract: 100% unlocked upfront paid Play Store entitlement with zero internal paywalls
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: hooks/use-pro-status.ts
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.SovereignPaidEntitlement {
-
-  meta {
-    product: "My AI Notebook: Voice & Notes (com.ainotebook.mobile)",
-    architecture: "Sovereign-OnDevice-IndexedDB + Oracle-Cloud-24x7-Aether",
-    replitDependencies: 0,
-    thirdPartyLockIn: 0,
-    sourceDigest: "7296e2193e564b66",
-    sourceLines: 33
-  }
-
-  pub const MODULE_ID: SymbolRef = SymbolRef("SovereignPaidEntitlement");
-
-  struct SovereignPaidEntitlementState { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-
-  pub const SOVEREIGN_ENDPOINTS: &[str] = &[
-    "indexeddb://viper_my_ai_notebook_vault_v1",
-  ];
-
-  contract SovereignPaidEntitlementPipeline {
-    pub fn useProStatus(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn writeLocalPro(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-
-    pub fn verifySovereignInvariants(state: &SovereignNotebookContext) -> bool {
-      assert!(state.replitAiDisconnected == true);
-      assert!(state.oracleAetherConnected == true);
-      assert!(state.uiLayoutPreserved == true);
-      return state.integrityDigest == 0x7296e2193e564b66;
-    }
+namespace ViperStudios.AetherPrime.MyAiNotebook.use_pro_status {
+  contract use_pro_statusContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn useProStatus() -> Any;
   }
 }

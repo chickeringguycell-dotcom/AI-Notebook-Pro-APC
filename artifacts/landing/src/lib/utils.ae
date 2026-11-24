@@ -1,0 +1,22 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/lib/utils.ts (7 lines, 166 bytes, sha256:7c8c3dfc0cdd370d)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.utils {
+  use "clsx";
+  use "tailwind-merge";
+
+  meta {
+    sourcePath: "artifacts/landing/src/lib/utils.ts",
+    sourceLines: 7,
+    sourceBytes: 166,
+    sha256: "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d",
+    vendorLockIn: 0
+  }
+
+  pub struct utilsUnit { pub digest: u64 }
+
+  pub fn cn(/* ...inputs: ClassValue[] */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.utils::cn", 0x7c8c3dfc0cdd370d);
+  }
+}

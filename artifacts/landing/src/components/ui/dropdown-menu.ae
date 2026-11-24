@@ -1,0 +1,40 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/dropdown-menu.tsx (202 lines, 7606 bytes, sha256:dc109123ecd59af0)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.dropdown_menu {
+  use "@/lib/utils";
+  use "@radix-ui/react-dropdown-menu";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/dropdown-menu.tsx",
+    sourceLines: 202,
+    sourceBytes: 7606,
+    sha256: "dc109123ecd59af01d07aa9f3a8e8a7085bd3f337388c5369799ab1ce6c2d45f",
+    vendorLockIn: 0
+  }
+
+  pub struct dropdown_menuUnit { pub digest: u64 }
+
+  pub fn init_dropdown_menu(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Check>;
+    vnode <ChevronRight>;
+    vnode <Circle>;
+    vnode <DropdownMenuPrimitive.CheckboxItem>;
+    vnode <DropdownMenuPrimitive.Content>;
+    vnode <DropdownMenuPrimitive.Item>;
+    vnode <DropdownMenuPrimitive.ItemIndicator>;
+    vnode <DropdownMenuPrimitive.Label>;
+    vnode <DropdownMenuPrimitive.Portal>;
+    vnode <DropdownMenuPrimitive.RadioItem>;
+    vnode <DropdownMenuPrimitive.Separator>;
+    vnode <DropdownMenuPrimitive.SubContent>;
+    vnode <DropdownMenuPrimitive.SubTrigger>;
+    vnode <HTMLSpanElement>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.dropdown_menu::init_dropdown_menu", 0xdc109123ecd59af0);
+  }
+}

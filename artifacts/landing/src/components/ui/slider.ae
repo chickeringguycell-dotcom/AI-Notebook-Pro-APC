@@ -1,0 +1,28 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/slider.tsx (27 lines, 1037 bytes, sha256:234e38fef59169bd)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.slider {
+  use "@/lib/utils";
+  use "@radix-ui/react-slider";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/slider.tsx",
+    sourceLines: 27,
+    sourceBytes: 1037,
+    sha256: "234e38fef59169bd02d8f5b56ca02e5ec13a0bd6846c328927b924e1299f7fb0",
+    vendorLockIn: 0
+  }
+
+  pub struct sliderUnit { pub digest: u64 }
+
+  pub fn init_slider(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <SliderPrimitive.Range>;
+    vnode <SliderPrimitive.Root>;
+    vnode <SliderPrimitive.Thumb>;
+    vnode <SliderPrimitive.Track>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.slider::init_slider", 0x234e38fef59169bd);
+  }
+}

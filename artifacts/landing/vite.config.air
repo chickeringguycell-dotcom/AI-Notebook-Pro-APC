@@ -1,0 +1,21 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.vite_config"
+meta !source = "artifacts/landing/vite.config.ts"
+meta !lines = "21"
+meta !sha256 = "6a55f12000e51d4371bd8452211034870fa5e6f077c8297607e07a71c733e1a3"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.vite_config {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"6a55f12000e51d43"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_vite_config(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_vite_config" : !viper.ctx
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.vite_config::init_vite_config", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

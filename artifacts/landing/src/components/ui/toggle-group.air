@@ -1,0 +1,23 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toggle_group"
+meta !source = "artifacts/landing/src/components/ui/toggle-group.tsx"
+meta !lines = "62"
+meta !sha256 = "dba95ead40d163af6959198ded9853a2cc9282b2cb534980f99937a65edf4e2d"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toggle_group {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"dba95ead40d163af"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_toggle_group(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_toggle_group" : !viper.ctx
+    %hk_0 = air.hook.invoke @useContext(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 4 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toggle_group::init_toggle_group", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

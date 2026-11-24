@@ -1,24 +1,13 @@
-; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-; Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
-meta !language = "AetherPrime-AIR-IR"
-meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.SovereignAiStreamHook"
-meta !digest = "sha256:58d7a1515a8e36c1"
-meta !lines = "80"
-meta !summary = "NDJSON streaming hook bound to lds.viperstudiostechnologies.com & aether.viperstudiostechnologies.com"
+; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
 
-module @ViperStudios.AetherPrime.MyAiNotebook.SovereignAiStreamHook {
-  target triple = "wasm32-viper-aether-sovereign"
+module @ViperStudios.AetherPrime.MyAiNotebook.use_ai_chat {
+  meta !language = "AetherPrime-AIR-IR"
+  meta !source = "hooks/use-ai-chat.ts"
 
-  global @REPLI_LOCKIN_REMOVED : i1 = true
-  global @PAID_EDITION_UNLOCKED : i1 = true
-  global @SOURCE_SHA256 : [16 x i8] = c"58d7a1515a8e36c1"
-
-  define @SovereignAiStreamHook_useAiChat(%ctx: !viper.ctx) -> !viper.frame {
-  entry_0:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignAiStreamHook::useAiChat", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  func @entry_use_ai_chat() -> !air.status {
+  entry():
+    %ok = air.constant 0 : !air.status
+    air.return %ok : !air.status
   }
 }

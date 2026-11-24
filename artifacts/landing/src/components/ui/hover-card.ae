@@ -1,0 +1,25 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/hover-card.tsx (28 lines, 1237 bytes, sha256:00f9086b1412843e)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.hover_card {
+  use "@/lib/utils";
+  use "@radix-ui/react-hover-card";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/hover-card.tsx",
+    sourceLines: 28,
+    sourceBytes: 1237,
+    sha256: "00f9086b1412843e04e01d31d2fab00a25d65d789d1a382e41f01b1f3c167c3b",
+    vendorLockIn: 0
+  }
+
+  pub struct hover_cardUnit { pub digest: u64 }
+
+  pub fn init_hover_card(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <HoverCardPrimitive.Content>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.hover_card::init_hover_card", 0x00f9086b1412843e);
+  }
+}

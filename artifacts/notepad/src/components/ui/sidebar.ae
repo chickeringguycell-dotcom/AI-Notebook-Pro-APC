@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/ui/sidebar.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.sidebar {
+  contract sidebarContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn renderModule() -> Any;
+  }
+}

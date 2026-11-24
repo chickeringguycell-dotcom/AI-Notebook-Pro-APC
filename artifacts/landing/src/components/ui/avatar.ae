@@ -1,0 +1,27 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/avatar.tsx (51 lines, 1419 bytes, sha256:e78b35ed76c67d8f)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.avatar {
+  use "@/lib/utils";
+  use "@radix-ui/react-avatar";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/avatar.tsx",
+    sourceLines: 51,
+    sourceBytes: 1419,
+    sha256: "e78b35ed76c67d8ff50603fbe0dfa4fe600097bd860d89e65beea3e16683dad8",
+    vendorLockIn: 0
+  }
+
+  pub struct avatarUnit { pub digest: u64 }
+
+  pub fn init_avatar(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <AvatarPrimitive.Fallback>;
+    vnode <AvatarPrimitive.Image>;
+    vnode <AvatarPrimitive.Root>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.avatar::init_avatar", 0xe78b35ed76c67d8f);
+  }
+}

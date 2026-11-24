@@ -1,0 +1,143 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-client-react/src/generated/api.schemas.ts (159 lines, 2731 bytes, sha256:cd4743226c58e5a1)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api_schemas {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-client-react/src/generated/api.schemas.ts",
+    sourceLines: 159,
+    sourceBytes: 2731,
+    sha256: "cd4743226c58e5a174da563b1e814c88bd60a8fdcbac9333ccc31ae44d6efa88",
+    vendorLockIn: 0
+  }
+
+  pub struct HealthStatus {
+    pub status: AetherType<"string">,
+  }
+
+  pub struct Note {
+    pub id: AetherType<"number">,
+    pub title: AetherType<"string">,
+    pub content: AetherType<"string">,
+    pub category: AetherType<"string">,
+    pub paperTheme: AetherType<"string">,
+    pub lineStyle: AetherType<"string">,
+    pub inkColor: AetherType<"string">,
+    pub font: AetherType<"string">,
+    pub pinned: AetherType<"boolean">,
+    pub createdAt: AetherType<"string">,
+    pub updatedAt: AetherType<"string">,
+  }
+
+  pub struct CreateNoteBody {
+    pub title: AetherType<"string">,
+    pub content: AetherType<"string">,
+    pub category: AetherType<"string">,
+    pub paperTheme: AetherType<"string">,
+    pub lineStyle: AetherType<"string">,
+    pub inkColor: AetherType<"string">,
+    pub font: AetherType<"string">,
+    pub pinned: AetherType<"boolean">,
+  }
+
+  pub struct UpdateNoteBody {
+    pub title: AetherType<"string">,
+    pub content: AetherType<"string">,
+    pub category: AetherType<"string">,
+    pub paperTheme: AetherType<"string">,
+    pub lineStyle: AetherType<"string">,
+    pub inkColor: AetherType<"string">,
+    pub font: AetherType<"string">,
+    pub pinned: AetherType<"boolean">,
+  }
+
+  pub struct ErrorResponse {
+    pub error: AetherType<"string">,
+  }
+
+  pub struct AetherConversation {
+    pub id: AetherType<"number">,
+    pub title: AetherType<"string">,
+    pub createdAt: AetherType<"string">,
+  }
+
+  pub struct AetherMessage {
+    pub id: AetherType<"number">,
+    pub conversationId: AetherType<"number">,
+    pub role: AetherType<"string">,
+    pub content: AetherType<"string">,
+    pub createdAt: AetherType<"string">,
+  }
+
+  pub struct CreateAetherConversationBody {
+    pub title: AetherType<"string">,
+  }
+
+  pub struct SendAetherMessageBody {
+    pub content: AetherType<"string">,
+  }
+
+  pub struct ScanImageBody {
+    pub image: AetherType<"string">,
+    pub contentType: AetherType<"string">,
+  }
+
+  pub struct ScanImageResponse {
+    pub text: AetherType<"string">,
+  }
+
+  pub struct PolishTextBody {
+    pub text: AetherType<"string">,
+    pub context: AetherType<"string">,
+  }
+
+  pub struct PolishTextResponse {
+    pub text: AetherType<"string">,
+  }
+
+  pub struct SendAetherVoiceMessageBody {
+    pub audio: AetherType<"string">,
+  }
+
+  pub struct AetherConversationWithMessages {
+    pub id: AetherType<"number">,
+    pub title: AetherType<"string">,
+    pub createdAt: AetherType<"string">,
+    pub messages: AetherType<"AetherMessage[]">,
+  }
+
+  pub struct AetherError {
+    pub error: AetherType<"string">,
+  }
+
+  pub struct UploadUrlRequest {
+    pub name: AetherType<"string">,
+    pub size: AetherType<"number">,
+    pub contentType: AetherType<"string">,
+  }
+
+  pub struct UploadUrlResponse {
+    pub uploadURL: AetherType<"string">,
+    pub objectPath: AetherType<"string">,
+    pub metadata: AetherType<"UploadUrlRequest">,
+  }
+
+  pub struct StorageError {
+    pub error: AetherType<"string">,
+  }
+
+  pub struct MeResponse {
+    pub isPro: AetherType<"boolean">,
+  }
+
+  pub struct RedeemProBody {
+    pub code: AetherType<"string">,
+    pub legacy: AetherType<"boolean">,
+  }
+
+  pub fn init_api_schemas(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api_schemas::init_api_schemas", 0xcd4743226c58e5a1);
+  }
+}

@@ -1,0 +1,29 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd"
+meta !source = "artifacts/landing/src/components/ui/kbd.tsx"
+meta !lines = "29"
+meta !sha256 = "0c025e7736d435f563bfb44105e562629672799eb1f35cbf194148d06cd1a9f7"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"0c025e7736d435f5"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @Kbd(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "Kbd" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 1 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd::Kbd", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @KbdGroup(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "KbdGroup" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd::KbdGroup", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+}

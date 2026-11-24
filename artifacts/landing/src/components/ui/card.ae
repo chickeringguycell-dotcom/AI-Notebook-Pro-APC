@@ -1,0 +1,24 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/card.tsx (77 lines, 1828 bytes, sha256:525c4bb2c051987b)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.card {
+  use "@/lib/utils";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/card.tsx",
+    sourceLines: 77,
+    sourceBytes: 1828,
+    sha256: "525c4bb2c051987be64df0e92e1d90174912b219bf541e24ffbc4a3406de49e8",
+    vendorLockIn: 0
+  }
+
+  pub struct cardUnit { pub digest: u64 }
+
+  pub fn init_card(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <HTMLDivElement>;
+    vnode <div>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.card::init_card", 0x525c4bb2c051987b);
+  }
+}

@@ -1,18 +1,13 @@
 ; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
-; Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
+; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
 
-module @ViperStudios.AetherPrime.MyAiNotebook.SovereignRuntime {
-  meta !studio = "Viper Studios"
+module @ViperStudios.AetherPrime.MyAiNotebook.sovereign_aether_runtime {
   meta !language = "AetherPrime-AIR-IR"
-  meta !version = "2.0.0"
-  meta !replit_ai_status = "disconnected_purged"
-  meta !cloud_ai_primary = "https://lds.viperstudiostechnologies.com/api/aether-bridge/gospel-studio"
-  meta !cloud_ai_failover = "https://aether.viperstudiostechnologies.com/api/aether-bridge/notebook-assist"
-  meta !persona_stationeries = "20"
-  meta !default_theme = "classic"
+  meta !source = "lib/sovereign-aether-runtime.ts"
 
-  ssa.func @is_paid_store_pro_unlocked() -> i1 {
-  entry:
-    ssa.ret 1
+  func @entry_sovereign_aether_runtime() -> !air.status {
+  entry():
+    %ok = air.constant 0 : !air.status
+    air.return %ok : !air.status
   }
 }

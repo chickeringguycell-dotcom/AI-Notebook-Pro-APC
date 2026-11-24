@@ -1,0 +1,30 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/types/updateNoteBody.ts (19 lines, 325 bytes, sha256:c1a3c39ab88e9a77)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.updateNoteBody {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/types/updateNoteBody.ts",
+    sourceLines: 19,
+    sourceBytes: 325,
+    sha256: "c1a3c39ab88e9a77979024075bc58cf7b24873d10279eb4fd3d602189087558c",
+    vendorLockIn: 0
+  }
+
+  pub struct UpdateNoteBody {
+    pub title: AetherType<"string">,
+    pub content: AetherType<"string">,
+    pub category: AetherType<"string">,
+    pub paperTheme: AetherType<"string">,
+    pub lineStyle: AetherType<"string">,
+    pub inkColor: AetherType<"string">,
+    pub font: AetherType<"string">,
+    pub pinned: AetherType<"boolean">,
+  }
+
+  pub fn init_updateNoteBody(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.updateNoteBody::init_updateNoteBody", 0xc1a3c39ab88e9a77);
+  }
+}

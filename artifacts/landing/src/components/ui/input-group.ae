@@ -1,0 +1,53 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/input-group.tsx (169 lines, 4971 bytes, sha256:e9dad28bc940ca29)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group {
+  use "@/components/ui/button";
+  use "@/components/ui/input";
+  use "@/components/ui/textarea";
+  use "@/lib/utils";
+  use "class-variance-authority";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/input-group.tsx",
+    sourceLines: 169,
+    sourceBytes: 4971,
+    sha256: "e9dad28bc940ca29714312d6c75d83bfe63f0cf7f9a384d2a2969a00a1d79700",
+    vendorLockIn: 0
+  }
+
+  pub struct input_groupUnit { pub digest: u64 }
+
+  pub fn InputGroup(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Button>;
+    vnode <Input>;
+    vnode <React.ComponentProps>;
+    vnode <Textarea>;
+    vnode <div>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroup", 0xe9dad28bc940ca29);
+  }
+
+  pub fn InputGroupAddon(/* { className, align = 'inline-start', ...props }: React.ComponentProps<'div'> & VariantProp */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupAddon", 0xe9dad28bc940ca29);
+  }
+
+  pub fn InputGroupButton(/* { className, type = 'button', variant = 'ghost', size = 'xs', ...props }: Omit<React.Compo */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupButton", 0xe9dad28bc940ca29);
+  }
+
+  pub fn InputGroupText(/* { className, ...props }: React.ComponentProps<'span'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupText", 0xe9dad28bc940ca29);
+  }
+
+  pub fn InputGroupInput(/* { className, ...props }: React.ComponentProps<'input'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupInput", 0xe9dad28bc940ca29);
+  }
+
+  pub fn InputGroupTextarea(/* { className, ...props }: React.ComponentProps<'textarea'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupTextarea", 0xe9dad28bc940ca29);
+  }
+}

@@ -1,0 +1,26 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/tooltip.tsx (33 lines, 1267 bytes, sha256:ce6afa34fb9dae51)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.tooltip {
+  use "@/lib/utils";
+  use "@radix-ui/react-tooltip";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/tooltip.tsx",
+    sourceLines: 33,
+    sourceBytes: 1267,
+    sha256: "ce6afa34fb9dae51053a863b4c3f7c6e55f3da23b00149f31a8e4402bc963be0",
+    vendorLockIn: 0
+  }
+
+  pub struct tooltipUnit { pub digest: u64 }
+
+  pub fn init_tooltip(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <TooltipPrimitive.Content>;
+    vnode <TooltipPrimitive.Portal>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.tooltip::init_tooltip", 0xce6afa34fb9dae51);
+  }
+}

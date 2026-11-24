@@ -1,0 +1,41 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/command.tsx (154 lines, 4887 bytes, sha256:5a57ebc119f2357b)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.command {
+  use "@/components/ui/dialog";
+  use "@/lib/utils";
+  use "@radix-ui/react-dialog";
+  use "cmdk";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/command.tsx",
+    sourceLines: 154,
+    sourceBytes: 4887,
+    sha256: "5a57ebc119f2357b097098d22865d45de8fda623ee88fe98b99999838c13633b",
+    vendorLockIn: 0
+  }
+
+  pub struct commandUnit { pub digest: u64 }
+
+  pub fn init_command(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Command>;
+    vnode <CommandPrimitive>;
+    vnode <CommandPrimitive.Empty>;
+    vnode <CommandPrimitive.Group>;
+    vnode <CommandPrimitive.Input>;
+    vnode <CommandPrimitive.Item>;
+    vnode <CommandPrimitive.List>;
+    vnode <CommandPrimitive.Separator>;
+    vnode <Dialog>;
+    vnode <DialogContent>;
+    vnode <HTMLSpanElement>;
+    vnode <Search>;
+    vnode <div>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.command::init_command", 0x5a57ebc119f2357b);
+  }
+}

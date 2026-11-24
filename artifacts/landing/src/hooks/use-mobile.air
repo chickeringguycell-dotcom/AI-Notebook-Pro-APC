@@ -1,0 +1,24 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.hooks.use_mobile"
+meta !source = "artifacts/landing/src/hooks/use-mobile.tsx"
+meta !lines = "20"
+meta !sha256 = "ad0936f84f1df79d3697bfbff9c18f8ad58431c1cbaf2359c6a853b0fcc9f28b"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.hooks.use_mobile {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"ad0936f84f1df79d"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @useIsMobile(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "useIsMobile" : !viper.ctx
+    %hk_0 = air.hook.invoke @useEffect(%ctx_0) : !viper.val
+    %hk_1 = air.hook.invoke @useIsMobile(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 1 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.hooks.use_mobile::useIsMobile", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

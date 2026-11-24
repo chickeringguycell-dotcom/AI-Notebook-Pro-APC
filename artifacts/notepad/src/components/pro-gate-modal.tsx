@@ -11,10 +11,10 @@ import { Input } from "@/components/ui/input";
 import { useProStatus } from "@/hooks/use-pro-status";
 
 const PRO_FEATURES = [
-  "Custom tabs & sections",
-  "AI writing assistant (GPT-4)",
-  "Voice dictation",
-  "Shareable note links",
+  "Unlimited custom sections & pages (Recipes, Religion, Poems & more)",
+  "Aria & Aether AI Writing, Storytelling & Poetry Studio",
+  "All 42 custom stationeries, 9 fonts & ink colors",
+  "Voice dictation & companion neural voices",
 ];
 
 interface ProGateModalProps {

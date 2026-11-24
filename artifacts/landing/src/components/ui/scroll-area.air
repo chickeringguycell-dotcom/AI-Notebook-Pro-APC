@@ -1,0 +1,22 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.scroll_area"
+meta !source = "artifacts/landing/src/components/ui/scroll-area.tsx"
+meta !lines = "47"
+meta !sha256 = "d7d02600effca55d0dcadce8c09c97ebddda3a19c5fa1d52dc9f6f727b26c6b1"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.scroll_area {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"d7d02600effca55d"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_scroll_area(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_scroll_area" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 7 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.scroll_area::init_scroll_area", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

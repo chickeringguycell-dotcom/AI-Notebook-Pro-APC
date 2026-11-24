@@ -1,0 +1,45 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/chart.tsx (368 lines, 10763 bytes, sha256:b40d1236f168c746)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart {
+  use "@/lib/utils";
+  use "react";
+  use "recharts";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/chart.tsx",
+    sourceLines: 368,
+    sourceBytes: 10763,
+    sha256: "b40d1236f168c746b228adec6bc4e9d196ea362a7910878f161d3c359a013b89",
+    vendorLockIn: 0
+  }
+
+  pub type ChartConfig = SovereignTypeExpr<"{ [k in string]: { label?: React.ReactNode icon?: React.ComponentType } & ( | { color?: string">;
+
+  pub type ChartContextProps = SovereignTypeExpr<"{ config: ChartConfig } const ChartContext = React.createContext<ChartContextProps | null>(null) function useChart() { c">;
+
+  pub fn useChart(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useChart;
+    bind_hook @useContext;
+    bind_hook @useId;
+    bind_hook @useMemo;
+    vnode <ChartContainer>;
+    vnode <ChartContext.Provider>;
+    vnode <ChartContextProps>;
+    vnode <ChartStyle>;
+    vnode <RechartsPrimitive.LegendProps>;
+    vnode <RechartsPrimitive.ResponsiveContainer>;
+    vnode <div>;
+    vnode <itemConfig.icon>;
+    vnode <keyof>;
+    vnode <span>;
+    vnode <style>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart::useChart", 0xb40d1236f168c746);
+  }
+
+  pub fn getPayloadConfigFromPayload(/* config: ChartConfig, payload: unknown, key: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart::getPayloadConfigFromPayload", 0xb40d1236f168c746);
+  }
+}

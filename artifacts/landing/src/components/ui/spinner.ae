@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/spinner.tsx (17 lines, 331 bytes, sha256:3e6e6e8d37fb4069)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.spinner {
+  use "@/lib/utils";
+  use "lucide-react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/spinner.tsx",
+    sourceLines: 17,
+    sourceBytes: 331,
+    sha256: "3e6e6e8d37fb4069f8e43e55318f8db06fbc36e6c8be0096da3c9337c1c798b9",
+    vendorLockIn: 0
+  }
+
+  pub struct spinnerUnit { pub digest: u64 }
+
+  pub fn Spinner(/* { className, ...props }: React.ComponentProps<'svg'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Loader2Icon>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.spinner::Spinner", 0x3e6e6e8d37fb4069);
+  }
+}

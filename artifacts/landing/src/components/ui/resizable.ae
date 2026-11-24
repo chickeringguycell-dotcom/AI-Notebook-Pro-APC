@@ -1,0 +1,28 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/resizable.tsx (46 lines, 1723 bytes, sha256:70d1e35a5fb0897a)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.resizable {
+  use "@/lib/utils";
+  use "lucide-react";
+  use "react-resizable-panels";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/resizable.tsx",
+    sourceLines: 46,
+    sourceBytes: 1723,
+    sha256: "70d1e35a5fb0897af7063cdd841d8ed636e1c332ef7ea6469f0f175a5a93dddf",
+    vendorLockIn: 0
+  }
+
+  pub struct resizableUnit { pub digest: u64 }
+
+  pub fn init_resizable(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <GripVertical>;
+    vnode <ResizablePrimitive.PanelGroup>;
+    vnode <ResizablePrimitive.PanelResizeHandle>;
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.resizable::init_resizable", 0x70d1e35a5fb0897a);
+  }
+}

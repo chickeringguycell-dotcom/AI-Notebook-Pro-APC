@@ -1,16 +1,27 @@
 import { useState, useRef, useEffect } from "react";
-import { Send, X, Bot, User, Loader2, Mic, Volume2, VolumeX, PlusCircle } from "lucide-react";
+import { Send, X, Bot, User, Loader2, Mic, Volume2, VolumeX, PlusCircle, Feather, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  useGetOpenaiConversation,
-  useCreateOpenaiConversation,
-  getGetOpenaiConversationQueryKey,
+  useGetAetherConversation,
+  useCreateAetherConversation,
+  getGetAetherConversationQueryKey,
+  getListNotesQueryKey,
+  getGetNoteQueryKey,
 } from "@workspace/api-client-react";
 import { useAiChat } from "@/hooks/use-ai-chat";
 import { useSpeechRecognition } from "@/hooks/use-speech-recognition";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   speakAetherNotebookReply,
   stopAetherVoicePlayback,
+  subscribeSovereignVoiceSpeaking,
+  extractCleanDraftForStationery,
+  appendConversationPair,
+  renameActiveNoteRecord,
+  moveActiveNoteToFolder,
+  organizeAllNotesUponRequest,
+  type CompanionId,
+  type NoteTextAlign,
 } from "@/lib/sovereign-aether-runtime";
 
 interface AiPanelProps {
@@ -18,20 +29,47 @@ interface AiPanelProps {
   onClose: () => void;
 }
 
+const VOICE_STOP_RE = /^(stop|stop talking|stop speaking|pause|quiet|mute|hold on|be quiet|hush)[.!?\s]*$/i;
+
+const WRITE_PREVIOUS_DRAFT_TO_STATIONERY_RE =
+  /\b(type|write|put|place|copy|move|transfer|send|draft)\b[\s\S]{0,45}\b(that|it|this|the poem|the letter|the note|the draft|what we (?:drafted|wrote|made))\b[\s\S]{0,45}\b(on|onto|into|in|to)\b[\s\S]{0,25}\b(stationery|stationary|page|paper|note)\b|\b(?:on|onto)\s+(?:the\s+|my\s+)?(?:stationery|stationary)\b/i;
+
+const RENAME_NOTE_RE =
+  /\b(?:rename|retitle|change\s+the\s+(?:title|name)\s+of)\s+(?:this\s+|my\s+)?note\s+to\s+["']?([^"'.!?\n]{2,80})["']?/i;
+
+const MOVE_NOTE_TO_FOLDER_RE =
+  /\b(?:move|put|file)\s+(?:this\s+|my\s+)?note\s+(?:into|in|to|under)\s+(?:the\s+|my\s+)?["']?([A-Za-z0-9 &'-]{2,40}?)["']?(?:\s+(?:folder|section|tab|category))?[.!?\s]*$/i;
+
+const ORGANIZE_ALL_NOTES_RE =
+  /\b(?:organize|sort|categorize|tidy\s+up)\s+(?:all\s+)?(?:my\s+|our\s+|the\s+)?notes\b/i;
+
+const REWRITE_ACTIVE_NOTE_ON_PAGE_RE =
+  /\b(?:rewrite|polish\s+up|fix\s+the\s+grammar\s+(?:in|on))\s+(?:this\s+|my\s+)(?:note|page|stationery)\b/i;
+
 export function AiPanel({ noteId, onClose }: AiPanelProps) {
+  const queryClient = useQueryClient();
   const [conversationId, setConversationId] = useState<number | null>(null);
+  const [companion, setCompanion] = useState<CompanionId>(() => {
+    try {
+      return localStorage.getItem("viper_notebook_companion") === "aria" ? "aria" : "aether";
+    } catch {
+      return "aether";
+    }
+  });
   const [input, setInput] = useState("");
   const [voiceReplyOn, setVoiceReplyOn] = useState(true);
-  const createConversation = useCreateOpenaiConversation();
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const createConversation = useCreateAetherConversation();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const autoStartedRef = useRef<number | null>(null);
+  const pausedMicForSpeechRef = useRef(false);
 
-  const { data: conversation, isLoading } = useGetOpenaiConversation(
+  const { data: conversation, isLoading } = useGetAetherConversation(
     conversationId ?? 0,
     {
       query: {
         enabled: !!conversationId,
-        queryKey: getGetOpenaiConversationQueryKey(conversationId ?? 0),
+        queryKey: getGetAetherConversationQueryKey(conversationId ?? 0),
       },
     },
   );
@@ -40,17 +78,50 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
     conversationId,
     noteId,
     voiceReplyOn,
+    companion,
   );
 
-  const { isListening, isSupported, toggleListening } = useSpeechRecognition({
+  const { isListening, isSupported, startListening, stopListening } = useSpeechRecognition({
     onResult: (spoken) => {
       const text = spoken.trim();
       if (!text) return;
+      // Ignore any stray recognition event if speaker is active (half-duplex protection)
+      if (isSpeaking) return;
+      if (VOICE_STOP_RE.test(text)) {
+        stopAetherVoicePlayback();
+        return;
+      }
       setInput((prev) => (prev ? `${prev} ${text}` : text));
     },
   });
 
-  // Automatically open/resume the Aether writing chat for this note immediately
+  // Strict Half-Duplex Lock (ported from Religious App `lds-15-minute-talks`):
+  // Whenever Aether or Aria speaks, pause the microphone so the speaker NEVER feeds back into the mic!
+  useEffect(() => {
+    return subscribeSovereignVoiceSpeaking((speaking) => {
+      setIsSpeaking(speaking);
+      if (speaking && isListening) {
+        pausedMicForSpeechRef.current = true;
+        stopListening();
+      } else if (!speaking && pausedMicForSpeechRef.current) {
+        pausedMicForSpeechRef.current = false;
+        setTimeout(() => {
+          startListening();
+        }, 360);
+      }
+    });
+  }, [isListening, startListening, stopListening]);
+
+  const handleCompanionSwitch = (next: CompanionId) => {
+    stopAetherVoicePlayback();
+    setCompanion(next);
+    try {
+      localStorage.setItem("viper_notebook_companion", next);
+    } catch {
+      /* ignore */
+    }
+  };
+
   useEffect(() => {
     if (autoStartedRef.current === noteId) return;
     autoStartedRef.current = noteId;
@@ -74,11 +145,160 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
     };
   }, []);
 
+  const dispatchTypeOntoStationery = (
+    rawText: string,
+    mode: "replace" | "append" = "replace",
+    explicitAlign?: NoteTextAlign,
+  ) => {
+    const extracted = extractCleanDraftForStationery(rawText);
+    if (!extracted.body) return;
+    const align: NoteTextAlign | undefined =
+      explicitAlign ?? (extracted.isLikelyPoem ? "center" : undefined);
+    window.dispatchEvent(
+      new CustomEvent("aether-type-onto-stationery", {
+        detail: {
+          title: extracted.title,
+          text: extracted.body,
+          mode,
+          align,
+        },
+      }),
+    );
+  };
+
+  const getLatestAssistantDraft = (): string | null => {
+    const msgs = conversation?.messages ?? [];
+    for (let i = msgs.length - 1; i >= 0; i--) {
+      if (msgs[i].role === "assistant" && msgs[i].content.trim().length > 20) {
+        return msgs[i].content;
+      }
+    }
+    return null;
+  };
+
   const handleSend = async (explicitText?: string) => {
     const msg = (explicitText ?? input).trim();
     if (!msg || isStreaming) return;
     if (!explicitText) setInput("");
-    await sendMessage(msg);
+
+    // Stop voice immediately if user typed/said "stop"
+    if (VOICE_STOP_RE.test(msg)) {
+      stopAetherVoicePlayback();
+      return;
+    }
+
+    // Turn off open mic before AI responds so AI voice never overrides user input
+    if (isListening) {
+      pausedMicForSpeechRef.current = false;
+      stopListening();
+    }
+    stopAetherVoicePlayback();
+
+    // Explicit Action A: Rename Note Upon Request ("Rename this note to Cherry Pie Recipe")
+    const renameMatch = msg.match(RENAME_NOTE_RE);
+    if (renameMatch && renameMatch[1] && conversationId) {
+      const nextTitle = renameMatch[1].trim();
+      await renameActiveNoteRecord(noteId, nextTitle);
+      window.dispatchEvent(new CustomEvent("aether-update-note-meta", { detail: { title: nextTitle } }));
+      await queryClient.invalidateQueries({ queryKey: getListNotesQueryKey() });
+      await queryClient.invalidateQueries({ queryKey: getGetNoteQueryKey(noteId) });
+      const ack =
+        companion === "aria"
+          ? `Done! I renamed this note to "${nextTitle}" for you.`
+          : `Done—I renamed this note to "${nextTitle}".`;
+      await appendConversationPair(conversationId, msg, ack);
+      await queryClient.invalidateQueries({ queryKey: getGetAetherConversationQueryKey(conversationId) });
+      if (voiceReplyOn) void speakAetherNotebookReply(ack, companion);
+      return;
+    }
+
+    // Explicit Action B: Move Note to Folder Upon Request ("Move this note to Recipes")
+    const moveFolderMatch = msg.match(MOVE_NOTE_TO_FOLDER_RE);
+    if (
+      moveFolderMatch &&
+      moveFolderMatch[1] &&
+      !/^(?:stationery|stationary|page|paper)$/i.test(moveFolderMatch[1].trim()) &&
+      conversationId
+    ) {
+      const folderName = moveFolderMatch[1].trim();
+      await moveActiveNoteToFolder(noteId, folderName);
+      window.dispatchEvent(new CustomEvent("aether-update-note-meta", { detail: { category: folderName } }));
+      await queryClient.invalidateQueries({ queryKey: getListNotesQueryKey() });
+      await queryClient.invalidateQueries({ queryKey: getGetNoteQueryKey(noteId) });
+      const ack =
+        companion === "aria"
+          ? `All set! I moved this note into your "${folderName}" folder.`
+          : `Done—I filed this note inside your "${folderName}" folder.`;
+      await appendConversationPair(conversationId, msg, ack);
+      await queryClient.invalidateQueries({ queryKey: getGetAetherConversationQueryKey(conversationId) });
+      if (voiceReplyOn) void speakAetherNotebookReply(ack, companion);
+      return;
+    }
+
+    // Explicit Action C: Organize All Notes Into Folders Upon Request ("Organize my notes")
+    if (ORGANIZE_ALL_NOTES_RE.test(msg) && conversationId) {
+      const org = await organizeAllNotesUponRequest();
+      await queryClient.invalidateQueries({ queryKey: getListNotesQueryKey() });
+      await queryClient.invalidateQueries({ queryKey: getGetNoteQueryKey(noteId) });
+      const ack =
+        org.movedCount > 0
+          ? `I organized ${org.movedCount} note${org.movedCount === 1 ? "" : "s"} into clean folders for you:\n\n${org.summaryLines.join("\n")}`
+          : `Your notes are already neatly sorted into folders:\n\n${org.summaryLines.join("\n")}`;
+      await appendConversationPair(conversationId, msg, ack);
+      await queryClient.invalidateQueries({ queryKey: getGetAetherConversationQueryKey(conversationId) });
+      if (voiceReplyOn) {
+        void speakAetherNotebookReply(
+          org.movedCount > 0
+            ? `All done! I organized ${org.movedCount} of your notes into clean folders in your sidebar.`
+            : "Your notes are already neatly organized in your folders!",
+          companion
+        );
+      }
+      return;
+    }
+
+    const wantsCenter = /\bcenter(?:ed)?\b/i.test(msg);
+    const wantsRight = /\bright[- ]align|\bright column\b/i.test(msg);
+    const explicitAlign: NoteTextAlign | undefined = wantsCenter
+      ? "center"
+      : wantsRight
+        ? "right"
+        : undefined;
+
+    // Case 1: User says "Hey, can you type on the stationery the poem we drafted together?"
+    const latestDraft = getLatestAssistantDraft();
+    const isTransferOfExistingDraft =
+      WRITE_PREVIOUS_DRAFT_TO_STATIONERY_RE.test(msg) &&
+      !!latestDraft &&
+      !/\b(change|rewrite|add a|make it|about|longer|shorter|new poem|new letter)\b/i.test(msg);
+
+    if (isTransferOfExistingDraft && latestDraft && conversationId) {
+      const ack =
+        companion === "aria"
+          ? "Certainly! Typing our draft right onto your stationery now."
+          : "Certainly. Typing our draft directly onto your stationery now.";
+      await appendConversationPair(conversationId, msg, ack);
+      await queryClient.invalidateQueries({
+        queryKey: getGetAetherConversationQueryKey(conversationId),
+      });
+      if (voiceReplyOn) {
+        void speakAetherNotebookReply(ack, companion);
+      }
+      dispatchTypeOntoStationery(latestDraft, "replace", explicitAlign);
+      return;
+    }
+
+    // Case 2: User explicitly asks to rewrite their note OR write directly onto the stationery
+    const shouldAutoTypeResultToStationery =
+      WRITE_PREVIOUS_DRAFT_TO_STATIONERY_RE.test(msg) || REWRITE_ACTIVE_NOTE_ON_PAGE_RE.test(msg);
+    const promptForModel = shouldAutoTypeResultToStationery
+      ? `${msg}\n\n(Output ONLY the clean finished piece—with optional 'Title: ...' on line 1—ready to be typed directly onto the user's stationery with zero extra commentary.)`
+      : msg;
+
+    const reply = await sendMessage(promptForModel);
+    if (shouldAutoTypeResultToStationery && reply) {
+      dispatchTypeOntoStationery(reply, "replace", explicitAlign);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -88,20 +308,41 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
     }
   };
 
-  const handleInsertIntoNote = (text: string) => {
-    window.dispatchEvent(
-      new CustomEvent("aether-insert-into-note", { detail: { text } }),
-    );
+  const handleMicToggle = () => {
+    // Tapping mic ALWAYS silences active TTS first (instant barge-in)
+    stopAetherVoicePlayback();
+    pausedMicForSpeechRef.current = false;
+    if (isListening) stopListening();
+    else startListening();
   };
+
+  const companionName = companion === "aria" ? "Aria" : "Aether";
+  const latestDraft = getLatestAssistantDraft();
 
   return (
     <div className="fixed inset-y-0 right-0 z-40 md:relative md:z-auto flex flex-col h-full border-l bg-card text-card-foreground w-80 sm:w-96 shrink-0 no-print shadow-xl md:shadow-none">
-      <div className="h-14 border-b flex items-center justify-between px-3">
-        <div className="flex items-center gap-2 font-medium text-sm">
-          <span className="text-primary font-bold text-base">✦</span>
-          <span>Aether Writing Assistant</span>
+      {/* Clean Header: Studio Title + Stop/Mute + Close */}
+      <div className="h-12 border-b flex items-center justify-between px-3 gap-1.5">
+        <div className="flex items-center gap-2 font-semibold text-sm">
+          <span className="text-primary font-bold text-base">
+            {companion === "aria" ? "🌸" : "✦"}
+          </span>
+          <span>{companion === "aria" ? "Aria Writing Studio" : "Sovereign Aether AI"}</span>
         </div>
+
         <div className="flex items-center gap-1">
+          {isSpeaking && (
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={stopAetherVoicePlayback}
+              title="Stop speaking immediately"
+              className="h-7 px-2 text-[11px] gap-1"
+              data-testid="button-stop-voice"
+            >
+              <Square className="h-3 w-3 fill-current" /> Stop
+            </Button>
+          )}
           <Button
             variant="ghost"
             size="icon"
@@ -110,7 +351,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
               setVoiceReplyOn(next);
               if (!next) stopAetherVoicePlayback();
             }}
-            title={voiceReplyOn ? "Voice replies ON (tap to mute)" : "Voice replies OFF (tap to speak aloud)"}
+            title={voiceReplyOn ? "Voice replies ON (tap to mute)" : "Voice replies OFF (tap to enable)"}
             className="h-8 w-8"
           >
             {voiceReplyOn ? (
@@ -126,6 +367,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
               stopAetherVoicePlayback();
               onClose();
             }}
+            title="Close AI Work Pane"
             className="h-8 w-8"
           >
             <X className="h-4 w-4" />
@@ -133,26 +375,37 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
         </div>
       </div>
 
-      {/* Quick 1-Tap Writing Helper Prompts */}
-      <div className="px-3 py-2 border-b bg-muted/40 flex gap-1.5 overflow-x-auto no-scrollbar">
-        {[
-          { label: "✨ Polish note", prompt: "Please polish and improve the clarity and flow of my current note while keeping my voice." },
-          { label: "✍️ Continue writing", prompt: "Help me write the next paragraph naturally continuing from what I wrote in my note." },
-          { label: "💡 Brainstorm", prompt: "Give me 5 creative ideas or outline points to expand this note." },
-          { label: "📝 Summarize", prompt: "Give me a crisp summary of the key points in my note." },
-        ].map((q) => (
+      {/* Dedicated Personality & Voice Toggle Bar (Aether vs. Aria ONLY — zero clutter!) */}
+      <div className="px-3 py-2 border-b bg-muted/40">
+        <div className="grid grid-cols-2 gap-1 bg-background p-1 rounded-xl border border-border shadow-2xs">
           <button
-            key={q.label}
             type="button"
-            disabled={isStreaming || !conversationId}
-            onClick={() => void handleSend(q.prompt)}
-            className="shrink-0 text-[11px] font-medium px-2.5 py-1 rounded-full bg-background border border-border hover:border-primary/50 hover:text-primary transition-colors disabled:opacity-50"
+            onClick={() => handleCompanionSwitch("aether")}
+            className={`py-1.5 px-3 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+              companion === "aether"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+            data-testid="companion-aether"
           >
-            {q.label}
+            <span>✦</span> Aether Voice
           </button>
-        ))}
+          <button
+            type="button"
+            onClick={() => handleCompanionSwitch("aria")}
+            className={`py-1.5 px-3 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+              companion === "aria"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+            data-testid="companion-aria"
+          >
+            <span>🌸</span> Aria Voice
+          </button>
+        </div>
       </div>
 
+      {/* Work Pane Conversation Area */}
       <div className="flex-1 overflow-auto p-4 space-y-4">
         {isLoading || !conversationId ? (
           <div className="flex items-center justify-center h-full">
@@ -166,10 +419,12 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
                   <Bot className="h-5 w-5 text-primary" />
                 </div>
                 <p className="text-sm font-medium text-foreground">
-                  Hi! I'm Aether — ready to help you write.
+                  Hi! I'm {companionName} — your Sovereign Writing Partner.
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Tap the <strong>🎤 mic</strong> to talk to me aloud, pick a quick helper above, or ask anything about your open note.
+                  Draft poems, letters, or ideas together right here—then tap{" "}
+                  <strong>Type onto Stationery</strong> (or just say{" "}
+                  <em>"Type that on my stationery"</em>) and I'll write the finished piece cleanly between the lines!
                 </p>
               </div>
             )}
@@ -182,10 +437,12 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
               >
                 {msg.role === "assistant" && (
                   <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
-                    <span className="text-xs font-bold text-primary">✦</span>
+                    <span className="text-xs font-bold text-primary">
+                      {companion === "aria" ? "🌸" : "✦"}
+                    </span>
                   </div>
                 )}
-                <div className="max-w-[85%] space-y-1">
+                <div className="max-w-[86%] space-y-1.5">
                   <div
                     className={`rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
                       msg.role === "user"
@@ -196,17 +453,24 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
                     {msg.content}
                   </div>
                   {msg.role === "assistant" && (
-                    <div className="flex items-center gap-2 pl-1">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pl-1">
                       <button
                         type="button"
-                        onClick={() => handleInsertIntoNote(msg.content)}
-                        className="inline-flex items-center gap-1 text-[11px] font-medium text-primary hover:underline"
+                        onClick={() => dispatchTypeOntoStationery(msg.content, "replace")}
+                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary hover:underline"
                       >
-                        <PlusCircle className="h-3 w-3" /> Insert into note
+                        <Feather className="h-3 w-3" /> Type onto Stationery
                       </button>
                       <button
                         type="button"
-                        onClick={() => void speakAetherNotebookReply(msg.content, "aria")}
+                        onClick={() => dispatchTypeOntoStationery(msg.content, "append")}
+                        className="inline-flex items-center gap-1 text-[11px] font-medium text-muted-foreground hover:text-primary"
+                      >
+                        <PlusCircle className="h-3 w-3" /> Insert at cursor
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => void speakAetherNotebookReply(msg.content, companion)}
                         className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground"
                       >
                         <Volume2 className="h-3 w-3" /> Read aloud
@@ -224,9 +488,11 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
             {isStreaming && streamingContent && (
               <div className="flex gap-2.5 justify-start">
                 <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
-                  <span className="text-xs font-bold text-primary">✦</span>
+                  <span className="text-xs font-bold text-primary">
+                    {companion === "aria" ? "🌸" : "✦"}
+                  </span>
                 </div>
-                <div className="max-w-[85%] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap bg-muted text-foreground">
+                <div className="max-w-[86%] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap bg-muted text-foreground">
                   {streamingContent}
                   <span className="inline-block w-1 h-4 bg-primary ml-0.5 animate-pulse" />
                 </div>
@@ -235,7 +501,9 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
             {isStreaming && !streamingContent && (
               <div className="flex gap-2.5">
                 <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="text-xs font-bold text-primary">✦</span>
+                  <span className="text-xs font-bold text-primary">
+                    {companion === "aria" ? "🌸" : "✦"}
+                  </span>
                 </div>
                 <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-2.5">
                   <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
@@ -247,6 +515,7 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
         )}
       </div>
 
+      {/* Input & Half-Duplex Voice Mic */}
       <div className="p-3 border-t">
         <div className="flex gap-1.5 items-end">
           {isSupported && (
@@ -254,9 +523,10 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
               type="button"
               variant={isListening ? "destructive" : "outline"}
               size="icon"
-              onClick={toggleListening}
-              title={isListening ? "Stop listening" : "Speak to Aether aloud"}
+              onClick={handleMicToggle}
+              title={isListening ? "Stop listening" : `Speak to ${companionName}`}
               className="shrink-0 h-10 w-10"
+              data-testid="button-ai-mic"
             >
               <Mic className={`h-4 w-4 ${isListening ? "animate-pulse" : ""}`} />
             </Button>
@@ -265,22 +535,24 @@ export function AiPanel({ noteId, onClose }: AiPanelProps) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={isListening ? "Listening… speak naturally" : "Talk or type to Aether…"}
-            className="flex-1 resize-none text-sm bg-muted rounded-xl px-3 py-2 border-none outline-none focus:ring-1 focus:ring-primary min-h-[40px] max-h-[120px] leading-relaxed"
+            placeholder={
+              isListening
+                ? `Listening… speak to ${companionName}`
+                : `Talk to ${companionName}, or say "Type that on the stationery"…`
+            }
+            disabled={isStreaming || !conversationId}
             rows={1}
-            disabled={isStreaming}
+            className="flex-1 resize-none bg-muted border-none rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-primary max-h-32"
+            data-testid="input-ai-prompt"
           />
           <Button
             size="icon"
             onClick={() => void handleSend()}
-            disabled={!input.trim() || isStreaming}
-            className="shrink-0 h-10 w-10"
+            disabled={!input.trim() || isStreaming || !conversationId}
+            className="shrink-0 rounded-xl h-10 w-10"
+            data-testid="button-send-ai"
           >
-            {isStreaming ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Send className="h-4 w-4" />
-            )}
+            <Send className="h-4 w-4" />
           </Button>
         </div>
       </div>

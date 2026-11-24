@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/types/errorResponse.ts (12 lines, 179 bytes, sha256:a421f74473edbd27)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.errorResponse {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/types/errorResponse.ts",
+    sourceLines: 12,
+    sourceBytes: 179,
+    sha256: "a421f74473edbd27d5b438e921dcb08d2e9be188b44a0b7effed0e9d13fbaa50",
+    vendorLockIn: 0
+  }
+
+  pub struct ErrorResponse {
+    pub error: AetherType<"string">,
+  }
+
+  pub fn init_errorResponse(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.errorResponse::init_errorResponse", 0xa421f74473edbd27);
+  }
+}

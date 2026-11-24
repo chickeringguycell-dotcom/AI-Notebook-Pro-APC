@@ -195,6 +195,7 @@ interface PaperPickerProps {
   theme: PaperTheme;
   lineStyle: LineStyle;
   isPro: boolean;
+  compact?: boolean;
   onThemeChange: (theme: PaperTheme) => void;
   onLineStyleChange: (style: LineStyle) => void;
   onLockedClick: () => void;
@@ -203,6 +204,7 @@ interface PaperPickerProps {
 interface InkColorPickerProps {
   inkColor: string;
   isPro: boolean;
+  compact?: boolean;
   onInkColorChange: (color: string) => void;
   onLockedClick: () => void;
 }
@@ -234,7 +236,7 @@ function ThemeSwatch({
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `url("${theme.swatchImg}")`,
+              backgroundImage: `url("${theme.swatchImg}?v=3")`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -282,6 +284,7 @@ export function PaperPicker({
   theme,
   lineStyle,
   isPro,
+  compact = false,
   onThemeChange,
   onLineStyleChange,
   onLockedClick,
@@ -316,12 +319,12 @@ export function PaperPicker({
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 text-xs gap-1.5"
+          className={`h-8 text-xs ${compact ? "px-1.5" : "gap-1.5"}`}
           title="Paper style"
           data-testid="button-paper-picker"
         >
           <Palette className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">Paper</span>
+          <span className={compact ? "hidden" : "hidden sm:inline"}>Paper</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-84 max-h-[82vh] overflow-y-auto p-3" align="end">
@@ -404,7 +407,7 @@ export function PaperPicker({
   );
 }
 
-export function InkColorPicker({ inkColor, isPro, onInkColorChange, onLockedClick }: InkColorPickerProps) {
+export function InkColorPicker({ inkColor, isPro, compact = false, onInkColorChange, onLockedClick }: InkColorPickerProps) {
   const handleInkPick = (c: InkColorDef) => {
     if (!isPro && c.id !== "auto") {
       onLockedClick();
@@ -421,7 +424,7 @@ export function InkColorPicker({ inkColor, isPro, onInkColorChange, onLockedClic
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 text-xs gap-1.5"
+          className={`h-8 text-xs ${compact ? "px-1.5" : "gap-1.5"}`}
           title="Ink color"
           data-testid="button-ink-picker"
         >
@@ -429,7 +432,7 @@ export function InkColorPicker({ inkColor, isPro, onInkColorChange, onLockedClic
             className="h-3.5 w-3.5"
             style={currentInk ? { color: currentInk } : undefined}
           />
-          <span className="hidden sm:inline">Ink</span>
+          <span className={compact ? "hidden" : "hidden sm:inline"}>Ink</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-64 p-3" align="end">
@@ -480,11 +483,12 @@ export function InkColorPicker({ inkColor, isPro, onInkColorChange, onLockedClic
 interface FontPickerProps {
   font: string;
   isPro: boolean;
+  compact?: boolean;
   onFontChange: (stack: string) => void;
   onLockedClick: () => void;
 }
 
-export function FontPicker({ font, isPro, onFontChange, onLockedClick }: FontPickerProps) {
+export function FontPicker({ font, isPro, compact = false, onFontChange, onLockedClick }: FontPickerProps) {
   const handleFontPick = (f: FontDef) => {
     if (f.isPro && !isPro) {
       onLockedClick();
@@ -499,12 +503,12 @@ export function FontPicker({ font, isPro, onFontChange, onLockedClick }: FontPic
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 text-xs gap-1.5"
+          className={`h-8 text-xs ${compact ? "px-1.5" : "gap-1.5"}`}
           title="Font"
           data-testid="button-font-picker"
         >
           <Type className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">Font</span>
+          <span className={compact ? "hidden" : "hidden sm:inline"}>Font</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-72 p-3" align="end">

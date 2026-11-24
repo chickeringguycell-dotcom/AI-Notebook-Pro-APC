@@ -1,0 +1,50 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar"
+meta !source = "artifacts/landing/src/components/ui/menubar.tsx"
+meta !lines = "255"
+meta !sha256 = "def61eb2c47c9ec319423471f4ca20045e99549958211cacf832e4ede769e484"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"def61eb2c47c9ec3"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @MenubarMenu(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "MenubarMenu" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 22 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarMenu", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @MenubarGroup(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "MenubarGroup" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarGroup", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+
+  define @MenubarPortal(%arg0: !viper.ctx) -> !viper.frame {
+  bb_2:
+    %ctx_2 = air.frame.enter "MenubarPortal" : !viper.ctx
+    %res_2 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarPortal", %ctx_2) : !viper.frame
+    air.ret %res_2 : !viper.frame
+  }
+
+  define @MenubarRadioGroup(%arg0: !viper.ctx) -> !viper.frame {
+  bb_3:
+    %ctx_3 = air.frame.enter "MenubarRadioGroup" : !viper.ctx
+    %res_3 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarRadioGroup", %ctx_3) : !viper.frame
+    air.ret %res_3 : !viper.frame
+  }
+
+  define @MenubarSub(%arg0: !viper.ctx) -> !viper.frame {
+  bb_4:
+    %ctx_4 = air.frame.enter "MenubarSub" : !viper.ctx
+    %res_4 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarSub", %ctx_4) : !viper.frame
+    air.ret %res_4 : !viper.frame
+  }
+}

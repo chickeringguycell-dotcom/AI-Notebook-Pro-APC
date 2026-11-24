@@ -1,37 +1,10 @@
-// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
-// Sovereign Module: SovereignAetherPanel
-// Source Digest: sha256:a78587646cb68b5a (290 lines)
-// Architectural Contract: Oracle Cloud 24/7 Sovereign Aether writing assistant + speech mic + Aria/Aether neural voice TTS + 1-tap Insert into Note
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/notepad/ai-panel.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.SovereignAetherPanel {
-
-  meta {
-    product: "My AI Notebook: Voice & Notes (com.ainotebook.mobile)",
-    architecture: "Sovereign-OnDevice-IndexedDB + Oracle-Cloud-24x7-Aether",
-    replitDependencies: 0,
-    thirdPartyLockIn: 0,
-    sourceDigest: "a78587646cb68b5a",
-    sourceLines: 290
-  }
-
-  pub const MODULE_ID: SymbolRef = SymbolRef("SovereignAetherPanel");
-
-  struct AiPanelProps { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct to { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-
-  pub const SOVEREIGN_ENDPOINTS: &[str] = &[
-    "indexeddb://viper_my_ai_notebook_vault_v1",
-  ];
-
-  contract SovereignAetherPanelPipeline {
-    pub fn AiPanel(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-
-    pub fn verifySovereignInvariants(state: &SovereignNotebookContext) -> bool {
-      assert!(state.replitAiDisconnected == true);
-      assert!(state.oracleAetherConnected == true);
-      assert!(state.uiLayoutPreserved == true);
-      return state.integrityDigest == 0xa78587646cb68b5a;
-    }
+namespace ViperStudios.AetherPrime.MyAiNotebook.ai_panel {
+  contract ai_panelContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn AiPanel() -> Any;
   }
 }

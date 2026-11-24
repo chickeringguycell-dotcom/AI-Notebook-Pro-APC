@@ -1,0 +1,22 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.checkbox"
+meta !source = "artifacts/landing/src/components/ui/checkbox.tsx"
+meta !lines = "29"
+meta !sha256 = "ac389a574651c8bedffc10f80674c5fc2f02ab81291a5f4ad9c587d1f775fdce"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.checkbox {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"ac389a574651c8be"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_checkbox(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_checkbox" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 4 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.checkbox::init_checkbox", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

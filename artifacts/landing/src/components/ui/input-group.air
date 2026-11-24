@@ -1,0 +1,57 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group"
+meta !source = "artifacts/landing/src/components/ui/input-group.tsx"
+meta !lines = "169"
+meta !sha256 = "e9dad28bc940ca29714312d6c75d83bfe63f0cf7f9a384d2a2969a00a1d79700"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"e9dad28bc940ca29"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @InputGroup(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "InputGroup" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 7 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroup", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @InputGroupAddon(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "InputGroupAddon" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupAddon", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+
+  define @InputGroupButton(%arg0: !viper.ctx) -> !viper.frame {
+  bb_2:
+    %ctx_2 = air.frame.enter "InputGroupButton" : !viper.ctx
+    %res_2 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupButton", %ctx_2) : !viper.frame
+    air.ret %res_2 : !viper.frame
+  }
+
+  define @InputGroupText(%arg0: !viper.ctx) -> !viper.frame {
+  bb_3:
+    %ctx_3 = air.frame.enter "InputGroupText" : !viper.ctx
+    %res_3 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupText", %ctx_3) : !viper.frame
+    air.ret %res_3 : !viper.frame
+  }
+
+  define @InputGroupInput(%arg0: !viper.ctx) -> !viper.frame {
+  bb_4:
+    %ctx_4 = air.frame.enter "InputGroupInput" : !viper.ctx
+    %res_4 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupInput", %ctx_4) : !viper.frame
+    air.ret %res_4 : !viper.frame
+  }
+
+  define @InputGroupTextarea(%arg0: !viper.ctx) -> !viper.frame {
+  bb_5:
+    %ctx_5 = air.frame.enter "InputGroupTextarea" : !viper.ctx
+    %res_5 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group::InputGroupTextarea", %ctx_5) : !viper.frame
+    air.ret %res_5 : !viper.frame
+  }
+}

@@ -1,0 +1,62 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/menubar.tsx (255 lines, 8608 bytes, sha256:def61eb2c47c9ec3)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar {
+  use "@/lib/utils";
+  use "@radix-ui/react-menubar";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/menubar.tsx",
+    sourceLines: 255,
+    sourceBytes: 8608,
+    sha256: "def61eb2c47c9ec319423471f4ca20045e99549958211cacf832e4ede769e484",
+    vendorLockIn: 0
+  }
+
+  pub struct menubarUnit { pub digest: u64 }
+
+  pub fn MenubarMenu(/* { ...props }: React.ComponentProps<typeof MenubarPrimitive.Menu> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Check>;
+    vnode <ChevronRight>;
+    vnode <Circle>;
+    vnode <HTMLSpanElement>;
+    vnode <MenubarPrimitive.CheckboxItem>;
+    vnode <MenubarPrimitive.Content>;
+    vnode <MenubarPrimitive.Group>;
+    vnode <MenubarPrimitive.Item>;
+    vnode <MenubarPrimitive.ItemIndicator>;
+    vnode <MenubarPrimitive.Label>;
+    vnode <MenubarPrimitive.Menu>;
+    vnode <MenubarPrimitive.Portal>;
+    vnode <MenubarPrimitive.RadioGroup>;
+    vnode <MenubarPrimitive.RadioItem>;
+    vnode <MenubarPrimitive.Root>;
+    vnode <MenubarPrimitive.Separator>;
+    vnode <MenubarPrimitive.Sub>;
+    vnode <MenubarPrimitive.SubContent>;
+    vnode <MenubarPrimitive.SubTrigger>;
+    vnode <MenubarPrimitive.Trigger>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarMenu", 0xdef61eb2c47c9ec3);
+  }
+
+  pub fn MenubarGroup(/* { ...props }: React.ComponentProps<typeof MenubarPrimitive.Group> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarGroup", 0xdef61eb2c47c9ec3);
+  }
+
+  pub fn MenubarPortal(/* { ...props }: React.ComponentProps<typeof MenubarPrimitive.Portal> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarPortal", 0xdef61eb2c47c9ec3);
+  }
+
+  pub fn MenubarRadioGroup(/* { ...props }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarRadioGroup", 0xdef61eb2c47c9ec3);
+  }
+
+  pub fn MenubarSub(/* { ...props }: React.ComponentProps<typeof MenubarPrimitive.Sub> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar::MenubarSub", 0xdef61eb2c47c9ec3);
+  }
+}

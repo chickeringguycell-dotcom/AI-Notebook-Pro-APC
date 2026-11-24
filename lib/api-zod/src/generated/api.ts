@@ -110,30 +110,30 @@ export const DeleteNoteParams = zod.object({
 /**
  * @summary List all conversations
  */
-export const ListOpenaiConversationsResponseItem = zod.object({
+export const ListAetherConversationsResponseItem = zod.object({
   id: zod.number(),
   title: zod.string(),
   createdAt: zod.coerce.date(),
 });
-export const ListOpenaiConversationsResponse = zod.array(
-  ListOpenaiConversationsResponseItem,
+export const ListAetherConversationsResponse = zod.array(
+  ListAetherConversationsResponseItem,
 );
 
 /**
  * @summary Create a new conversation
  */
-export const CreateOpenaiConversationBody = zod.object({
+export const CreateAetherConversationBody = zod.object({
   title: zod.string(),
 });
 
 /**
  * @summary Get conversation with messages
  */
-export const GetOpenaiConversationParams = zod.object({
+export const GetAetherConversationParams = zod.object({
   id: zod.coerce.number(),
 });
 
-export const GetOpenaiConversationResponse = zod.object({
+export const GetAetherConversationResponse = zod.object({
   id: zod.number(),
   title: zod.string(),
   createdAt: zod.coerce.date(),
@@ -151,36 +151,36 @@ export const GetOpenaiConversationResponse = zod.object({
 /**
  * @summary Delete a conversation
  */
-export const DeleteOpenaiConversationParams = zod.object({
+export const DeleteAetherConversationParams = zod.object({
   id: zod.coerce.number(),
 });
 
 /**
  * @summary List messages in a conversation
  */
-export const ListOpenaiMessagesParams = zod.object({
+export const ListAetherMessagesParams = zod.object({
   id: zod.coerce.number(),
 });
 
-export const ListOpenaiMessagesResponseItem = zod.object({
+export const ListAetherMessagesResponseItem = zod.object({
   id: zod.number(),
   conversationId: zod.number(),
   role: zod.string(),
   content: zod.string(),
   createdAt: zod.coerce.date(),
 });
-export const ListOpenaiMessagesResponse = zod.array(
-  ListOpenaiMessagesResponseItem,
+export const ListAetherMessagesResponse = zod.array(
+  ListAetherMessagesResponseItem,
 );
 
 /**
  * @summary Send a text message and receive a streaming text response
  */
-export const SendOpenaiMessageParams = zod.object({
+export const SendAetherMessageParams = zod.object({
   id: zod.coerce.number(),
 });
 
-export const SendOpenaiMessageBody = zod.object({
+export const SendAetherMessageBody = zod.object({
   content: zod.string(),
 });
 
@@ -226,11 +226,11 @@ export const PolishTextResponse = zod.object({
 /**
  * @summary Send audio and receive a streaming voice response
  */
-export const SendOpenaiVoiceMessageParams = zod.object({
+export const SendAetherVoiceMessageParams = zod.object({
   id: zod.coerce.number(),
 });
 
-export const SendOpenaiVoiceMessageBody = zod.object({
+export const SendAetherVoiceMessageBody = zod.object({
   audio: zod.string().describe("Base64-encoded audio data"),
 });
 

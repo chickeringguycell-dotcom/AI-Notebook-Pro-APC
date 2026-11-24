@@ -1,0 +1,43 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/select.tsx (160 lines, 5745 bytes, sha256:3d93ae07a8f3fe12)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.select {
+  use "@/lib/utils";
+  use "@radix-ui/react-select";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/select.tsx",
+    sourceLines: 160,
+    sourceBytes: 5745,
+    sha256: "3d93ae07a8f3fe121ba60f4439e26bd7859f247eb8bfcafcf4b4a8a069888eec",
+    vendorLockIn: 0
+  }
+
+  pub struct selectUnit { pub digest: u64 }
+
+  pub fn init_select(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Check>;
+    vnode <ChevronDown>;
+    vnode <ChevronUp>;
+    vnode <SelectPrimitive.Content>;
+    vnode <SelectPrimitive.Icon>;
+    vnode <SelectPrimitive.Item>;
+    vnode <SelectPrimitive.ItemIndicator>;
+    vnode <SelectPrimitive.ItemText>;
+    vnode <SelectPrimitive.Label>;
+    vnode <SelectPrimitive.Portal>;
+    vnode <SelectPrimitive.ScrollDownButton>;
+    vnode <SelectPrimitive.ScrollUpButton>;
+    vnode <SelectPrimitive.Separator>;
+    vnode <SelectPrimitive.Trigger>;
+    vnode <SelectPrimitive.Viewport>;
+    vnode <SelectScrollDownButton>;
+    vnode <SelectScrollUpButton>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.select::init_select", 0x3d93ae07a8f3fe12);
+  }
+}

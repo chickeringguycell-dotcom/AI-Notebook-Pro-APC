@@ -1,0 +1,40 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/context-menu.tsx (199 lines, 7406 bytes, sha256:5369fc82c51df067)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.context_menu {
+  use "@/lib/utils";
+  use "@radix-ui/react-context-menu";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/context-menu.tsx",
+    sourceLines: 199,
+    sourceBytes: 7406,
+    sha256: "5369fc82c51df067aec2934f5e711aaf9e3f745ed7baadd7ba4b77397dee2a1b",
+    vendorLockIn: 0
+  }
+
+  pub struct context_menuUnit { pub digest: u64 }
+
+  pub fn init_context_menu(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Check>;
+    vnode <ChevronRight>;
+    vnode <Circle>;
+    vnode <ContextMenuPrimitive.CheckboxItem>;
+    vnode <ContextMenuPrimitive.Content>;
+    vnode <ContextMenuPrimitive.Item>;
+    vnode <ContextMenuPrimitive.ItemIndicator>;
+    vnode <ContextMenuPrimitive.Label>;
+    vnode <ContextMenuPrimitive.Portal>;
+    vnode <ContextMenuPrimitive.RadioItem>;
+    vnode <ContextMenuPrimitive.Separator>;
+    vnode <ContextMenuPrimitive.SubContent>;
+    vnode <ContextMenuPrimitive.SubTrigger>;
+    vnode <HTMLSpanElement>;
+    vnode <span>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.context_menu::init_context_menu", 0x5369fc82c51df067);
+  }
+}

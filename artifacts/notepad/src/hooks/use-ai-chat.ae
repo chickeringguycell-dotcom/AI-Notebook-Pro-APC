@@ -1,36 +1,10 @@
-// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
-// Sovereign Module: SovereignAiStreamHook
-// Source Digest: sha256:58d7a1515a8e36c1 (80 lines)
-// Architectural Contract: NDJSON streaming hook bound to lds.viperstudiostechnologies.com & aether.viperstudiostechnologies.com
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: hooks/use-ai-chat.ts
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.SovereignAiStreamHook {
-
-  meta {
-    product: "My AI Notebook: Voice & Notes (com.ainotebook.mobile)",
-    architecture: "Sovereign-OnDevice-IndexedDB + Oracle-Cloud-24x7-Aether",
-    replitDependencies: 0,
-    thirdPartyLockIn: 0,
-    sourceDigest: "58d7a1515a8e36c1",
-    sourceLines: 80
-  }
-
-  pub const MODULE_ID: SymbolRef = SymbolRef("SovereignAiStreamHook");
-
-  struct SovereignAiStreamHookState { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-
-  pub const SOVEREIGN_ENDPOINTS: &[str] = &[
-    "indexeddb://viper_my_ai_notebook_vault_v1",
-  ];
-
-  contract SovereignAiStreamHookPipeline {
-    pub fn useAiChat(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-
-    pub fn verifySovereignInvariants(state: &SovereignNotebookContext) -> bool {
-      assert!(state.replitAiDisconnected == true);
-      assert!(state.oracleAetherConnected == true);
-      assert!(state.uiLayoutPreserved == true);
-      return state.integrityDigest == 0x58d7a1515a8e36c1;
-    }
+namespace ViperStudios.AetherPrime.MyAiNotebook.use_ai_chat {
+  contract use_ai_chatContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn useAiChat() -> Any;
   }
 }

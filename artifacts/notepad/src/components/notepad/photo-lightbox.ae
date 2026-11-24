@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/notepad/photo-lightbox.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.photo_lightbox {
+  contract photo_lightboxContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn PhotoLightbox() -> Any;
+  }
+}

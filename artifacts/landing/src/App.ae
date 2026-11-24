@@ -1,0 +1,40 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/App.tsx (39 lines, 980 bytes, sha256:2688c6f9186e51be)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App {
+  use "@/components/ui/toaster";
+  use "@/components/ui/tooltip";
+  use "@/lib/analytics";
+  use "@/pages/landing-page";
+  use "@/pages/not-found";
+  use "@tanstack/react-query";
+  use "react";
+  use "wouter";
+
+  meta {
+    sourcePath: "artifacts/landing/src/App.tsx",
+    sourceLines: 39,
+    sourceBytes: 980,
+    sha256: "2688c6f9186e51be4af606a4c99ddcf7dc0ab7c13be5716c2cd83210e5ef1790",
+    vendorLockIn: 0
+  }
+
+  pub struct AppUnit { pub digest: u64 }
+
+  pub fn Router(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useEffect;
+    vnode <QueryClientProvider>;
+    vnode <Route>;
+    vnode <Router>;
+    vnode <Switch>;
+    vnode <Toaster>;
+    vnode <TooltipProvider>;
+    vnode <WouterRouter>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App::Router", 0x2688c6f9186e51be);
+  }
+
+  pub fn App(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App::App", 0x2688c6f9186e51be);
+  }
+}

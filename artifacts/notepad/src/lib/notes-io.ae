@@ -1,0 +1,15 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: lib/notes-io.ts
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.notes_io {
+  contract notes_ioContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn ImportedNote() -> Any;
+    fn htmlToPlainText() -> Any;
+    fn plainTextToHtml() -> Any;
+    fn notesToMarkdown() -> Any;
+    fn parseImportFile() -> Any;
+    fn downloadTextFile() -> Any;
+  }
+}

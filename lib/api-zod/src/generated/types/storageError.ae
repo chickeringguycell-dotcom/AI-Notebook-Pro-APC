@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/types/storageError.ts (12 lines, 178 bytes, sha256:d630eaa1ee57ee1b)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.storageError {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/types/storageError.ts",
+    sourceLines: 12,
+    sourceBytes: 178,
+    sha256: "d630eaa1ee57ee1b978d882544105d652fbb98ba77a45c02788c086261b28a14",
+    vendorLockIn: 0
+  }
+
+  pub struct StorageError {
+    pub error: AetherType<"string">,
+  }
+
+  pub fn init_storageError(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.storageError::init_storageError", 0xd630eaa1ee57ee1b);
+  }
+}

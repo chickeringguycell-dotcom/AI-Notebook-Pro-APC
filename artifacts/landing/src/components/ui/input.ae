@@ -1,0 +1,24 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/input.tsx (23 lines, 768 bytes, sha256:6299a6a387dc55e5)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input {
+  use "@/lib/utils";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/input.tsx",
+    sourceLines: 23,
+    sourceBytes: 768,
+    sha256: "6299a6a387dc55e528aec4342deaea0b83f1ea3a365c135a31a18ee55334f441",
+    vendorLockIn: 0
+  }
+
+  pub struct inputUnit { pub digest: u64 }
+
+  pub fn init_input(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <HTMLInputElement>;
+    vnode <input>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input::init_input", 0x6299a6a387dc55e5);
+  }
+}

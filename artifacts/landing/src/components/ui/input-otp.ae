@@ -1,0 +1,29 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/input-otp.tsx (70 lines, 2143 bytes, sha256:7c4799e3597f2780)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_otp {
+  use "@/lib/utils";
+  use "input-otp";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/input-otp.tsx",
+    sourceLines: 70,
+    sourceBytes: 2143,
+    sha256: "7c4799e3597f2780c09a39a1391b921fa16eaedd0476457492af734f58e2ec98",
+    vendorLockIn: 0
+  }
+
+  pub struct input_otpUnit { pub digest: u64 }
+
+  pub fn init_input_otp(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useContext;
+    vnode <Minus>;
+    vnode <OTPInput>;
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_otp::init_input_otp", 0x7c4799e3597f2780);
+  }
+}

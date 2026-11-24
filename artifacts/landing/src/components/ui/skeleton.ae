@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/skeleton.tsx (16 lines, 266 bytes, sha256:87608e7cc815ad3d)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.skeleton {
+  use "@/lib/utils";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/skeleton.tsx",
+    sourceLines: 16,
+    sourceBytes: 266,
+    sha256: "87608e7cc815ad3d88e0b9de6c402bb37b58ea1b38636cf69709da1baff6e334",
+    vendorLockIn: 0
+  }
+
+  pub struct skeletonUnit { pub digest: u64 }
+
+  pub fn Skeleton(/* { className, ...props }: React.HTMLAttributes<HTMLDivElement> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <HTMLDivElement>;
+    vnode <div>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.skeleton::Skeleton", 0x87608e7cc815ad3d);
+  }
+}

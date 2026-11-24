@@ -4,7 +4,7 @@ import { useGetNote, useUpdateNote, useListNotes, useDeleteNote, useScanImageTex
 import { useQueryClient } from "@tanstack/react-query";
 import { useDebounce } from "@/hooks/use-debounce";
 import {
-  Mic, Printer, CheckCircle2, Hash, Menu, Lock, Share2, Trash2, Copy, Check, ImagePlus, Loader2, ScanLine, List, ListOrdered, ListChecks
+  Mic, Printer, CheckCircle2, Hash, Menu, Lock, Share2, Trash2, Copy, Check, ImagePlus, Loader2, ScanLine, List, ListOrdered, ListChecks, AlignLeft, AlignCenter, AlignRight, Undo2
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,13 @@ import { ProGateModal } from "@/components/pro-gate-modal";
 import { PaperPicker, InkColorPicker, FontPicker, type PaperTheme, type LineStyle } from "@/components/notepad/paper-picker";
 import { RichEditor, type RichEditorHandle, type ImageTarget } from "@/components/notepad/rich-editor";
 import { PhotoLightbox } from "@/components/notepad/photo-lightbox";
+import { SettingsBugButton } from "@/components/notepad/settings-bug-dialog";
 import { uploadPhoto } from "@/lib/upload-photo";
+import {
+  registerLiveActiveNoteGetter,
+  stripHtmlForAiContext,
+  type NoteTextAlign,
+} from "@/lib/sovereign-aether-runtime";
 
 interface EditorProps {
   noteId: number;
@@ -55,6 +61,8 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
   const [lineStyle, setLineStyle] = useState<LineStyle>("lined");
   const [inkColor, setInkColor] = useState<string>("");
   const [font, setFont] = useState<string>("");
+  const [textAlign, setTextAlign] = useState<NoteTextAlign>("left");
+  const [undoAiSnapshot, setUndoAiSnapshot] = useState<{ title: string; content: string; textAlign: NoteTextAlign } | null>(null);
   const [customCat, setCustomCat] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
@@ -66,10 +74,13 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
   const debouncedLineStyle = useDebounce(lineStyle, 400);
   const debouncedInkColor = useDebounce(inkColor, 400);
   const debouncedFont = useDebounce(font, 400);
+  const debouncedTextAlign = useDebounce(textAlign, 400);
 
   const initializedForId = useRef<number | null>(null);
-  const lastSaved = useRef({ title: "", content: "", category: "", paperTheme: "classic", lineStyle: "lined", inkColor: "", font: "" });
+  const lastSaved = useRef({ title: "", content: "", category: "", paperTheme: "classic", lineStyle: "lined", inkColor: "", font: "", textAlign: "left" as NoteTextAlign });
   const editorRef = useRef<RichEditorHandle>(null);
+  const paperScrollRef = useRef<HTMLDivElement>(null);
+  const typewriterTimerRef = useRef<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const scanInputRef = useRef<HTMLInputElement>(null);
   const mutateFnRef = useRef(updateNote.mutate);
@@ -95,10 +106,13 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
       const lstyle = ((note as { lineStyle?: string }).lineStyle ?? "lined") as LineStyle;
       const ink = (note as { inkColor?: string }).inkColor ?? "";
       const fnt = (note as { font?: string }).font ?? "";
+      const align = ((note as { textAlign?: NoteTextAlign }).textAlign ?? "left") as NoteTextAlign;
       setPaperTheme(theme);
       setLineStyle(lstyle);
       setInkColor(ink);
       setFont(fnt);
+      setTextAlign(align);
+      setUndoAiSnapshot(null);
       lastSaved.current = {
         title: note.title,
         content: note.content,
@@ -107,32 +121,130 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
         lineStyle: lstyle,
         inkColor: ink,
         font: fnt,
+        textAlign: align,
       };
     }
   }, [note, noteId]);
 
   useEffect(() => {
-    const onInsert = (ev: Event) => {
+    const plainToCleanHtml = (txt: string) => {
+      const esc = (s: string) =>
+        s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const blocks = txt.split(/\n\n+/);
+      return blocks
+        .map((b) => `<p>${esc(b).replace(/\n/g, "<br>")}</p>`)
+        .join("");
+    };
+
+    const onTypeOntoStationery = (ev: Event) => {
+      const custom = ev as CustomEvent<{
+        title?: string;
+        text?: string;
+        mode?: "replace" | "append";
+        align?: NoteTextAlign;
+      }>;
+      const incomingText = custom.detail?.text?.trim();
+      if (!incomingText) return;
+
+      if (typewriterTimerRef.current) {
+        window.clearInterval(typewriterTimerRef.current);
+        typewriterTimerRef.current = null;
+      }
+
+      // Save undo snapshot before Aether types onto the stationery
+      setUndoAiSnapshot({ title, content, textAlign });
+
+      if (custom.detail?.align) {
+        setTextAlign(custom.detail.align);
+      }
+      if (custom.detail?.title && custom.detail.mode !== "append") {
+        setTitle(custom.detail.title);
+      }
+
+      paperScrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+
+      if (custom.detail?.mode === "append") {
+        if (editorRef.current) {
+          editorRef.current.focus();
+          editorRef.current.insertText(`\n${incomingText}\n`);
+        } else {
+          setContent((prev) => (prev ? `${prev}\n\n${incomingText}` : incomingText));
+        }
+        toast({ title: "Added to stationery", description: "Inserted cleanly between the lines." });
+        return;
+      }
+
+      // Smooth live word-by-word typewriter directly onto the stationery!
+      const tokens = incomingText.match(/\S+\s*/g) || [incomingText];
+      let idx = 0;
+      const step = Math.max(1, Math.ceil(tokens.length / 45));
+
+      typewriterTimerRef.current = window.setInterval(() => {
+        idx = Math.min(tokens.length, idx + step);
+        const partial = tokens.slice(0, idx).join("");
+        const html = plainToCleanHtml(partial);
+        editorRef.current?.setHtmlContent(html);
+        setContent(html);
+        if (idx >= tokens.length && typewriterTimerRef.current) {
+          window.clearInterval(typewriterTimerRef.current);
+          typewriterTimerRef.current = null;
+        }
+      }, 32);
+
+      toast({
+        title: "Writing onto stationery",
+        description: "Drafting cleanly between the lines of your page.",
+      });
+    };
+
+    const onLegacyInsert = (ev: Event) => {
       const custom = ev as CustomEvent<{ text?: string }>;
       const text = custom.detail?.text?.trim();
       if (!text) return;
-      if (editorRef.current) {
-        editorRef.current.focus();
-        editorRef.current.insertText(`\n${text}\n`);
-      } else {
-        setContent((prev) => (prev ? `${prev}\n\n${text}` : text));
-      }
-      toast({ title: "Inserted into note", description: "Added Aether's text to your page." });
+      editorRef.current?.focus();
+      editorRef.current?.insertText(`\n${text}\n`);
     };
-    window.addEventListener("aether-insert-into-note", onInsert);
-    return () => window.removeEventListener("aether-insert-into-note", onInsert);
-  }, []);
+
+    const onUpdateMeta = (ev: Event) => {
+      const custom = ev as CustomEvent<{ title?: string; category?: string }>;
+      if (typeof custom.detail?.title === "string") {
+        setUndoAiSnapshot({ title, content, textAlign });
+        setTitle(custom.detail.title);
+      }
+      if (typeof custom.detail?.category === "string") {
+        setCategory(custom.detail.category);
+        setCustomCat("");
+      }
+    };
+
+    window.addEventListener("aether-type-onto-stationery", onTypeOntoStationery);
+    window.addEventListener("aether-insert-into-note", onLegacyInsert);
+    window.addEventListener("aether-update-note-meta", onUpdateMeta);
+    return () => {
+      window.removeEventListener("aether-type-onto-stationery", onTypeOntoStationery);
+      window.removeEventListener("aether-insert-into-note", onLegacyInsert);
+      window.removeEventListener("aether-update-note-meta", onUpdateMeta);
+    };
+  }, [title, content, textAlign]);
+
+  useEffect(() => {
+    registerLiveActiveNoteGetter(() => ({
+      id: noteId,
+      title,
+      category,
+      paperTheme,
+      plainText: editorRef.current?.getText()?.trim() || stripHtmlForAiContext(content),
+    }));
+    return () => {
+      registerLiveActiveNoteGetter(null);
+    };
+  }, [noteId, title, category, paperTheme, content]);
 
   const saveNote = useCallback(
-    (t: string, c: string, cat: string, theme: string, lstyle: string, ink: string, fnt: string) => {
+    (t: string, c: string, cat: string, theme: string, lstyle: string, ink: string, fnt: string, align: NoteTextAlign) => {
       setIsSaving(true);
       mutateFnRef.current(
-        { id: noteId, data: { title: t, content: c, category: cat, paperTheme: theme, lineStyle: lstyle, inkColor: ink, font: fnt } },
+        { id: noteId, data: { title: t, content: c, category: cat, paperTheme: theme, lineStyle: lstyle, inkColor: ink, font: fnt, ...( { textAlign: align } as Record<string, unknown> ) } },
         {
           onSuccess: (data) => {
             queryClient.setQueryData(getGetNoteQueryKey(noteId), () => data);
@@ -150,8 +262,6 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
 
   useEffect(() => {
     if (initializedForId.current !== noteId) return;
-    // Only autosave once the debouncer has caught up with current live state.
-    // Prevents stale values from a previously open note being PATCHed onto the new note.
     if (
       debouncedTitle !== title ||
       debouncedContent !== content ||
@@ -159,7 +269,8 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
       debouncedPaperTheme !== paperTheme ||
       debouncedLineStyle !== lineStyle ||
       debouncedInkColor !== inkColor ||
-      debouncedFont !== font
+      debouncedFont !== font ||
+      debouncedTextAlign !== textAlign
     ) {
       return;
     }
@@ -170,9 +281,10 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
       debouncedPaperTheme !== lastSaved.current.paperTheme ||
       debouncedLineStyle !== lastSaved.current.lineStyle ||
       debouncedInkColor !== lastSaved.current.inkColor ||
-      debouncedFont !== lastSaved.current.font
+      debouncedFont !== lastSaved.current.font ||
+      debouncedTextAlign !== lastSaved.current.textAlign
     ) {
-      saveNote(debouncedTitle, debouncedContent, debouncedCategory, debouncedPaperTheme, debouncedLineStyle, debouncedInkColor, debouncedFont);
+      saveNote(debouncedTitle, debouncedContent, debouncedCategory, debouncedPaperTheme, debouncedLineStyle, debouncedInkColor, debouncedFont, debouncedTextAlign);
       lastSaved.current = {
         title: debouncedTitle,
         content: debouncedContent,
@@ -181,9 +293,10 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
         lineStyle: debouncedLineStyle,
         inkColor: debouncedInkColor,
         font: debouncedFont,
+        textAlign: debouncedTextAlign,
       };
     }
-  }, [debouncedTitle, debouncedContent, debouncedCategory, debouncedPaperTheme, debouncedLineStyle, debouncedInkColor, debouncedFont, title, content, category, paperTheme, lineStyle, inkColor, font, noteId, saveNote]);
+  }, [debouncedTitle, debouncedContent, debouncedCategory, debouncedPaperTheme, debouncedLineStyle, debouncedInkColor, debouncedFont, debouncedTextAlign, title, content, category, paperTheme, lineStyle, inkColor, font, textAlign, noteId, saveNote]);
 
   const handleSpeechResult = useCallback((text: string) => {
     const chunk = text + " ";
@@ -484,17 +597,22 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
             </PopoverContent>
           </Popover>
 
-          <span className="text-xs text-muted-foreground hidden sm:inline">
-            {isSaving ? t.saving : showSaved ? (
-              <span className="flex items-center gap-1 text-primary">
-                <CheckCircle2 className="h-3 w-3" /> {t.saved}
-              </span>
-            ) : t.autoSaved}
-          </span>
+          {!isAiPanelOpen && (
+            <span className="text-xs text-muted-foreground hidden sm:inline">
+              {isSaving ? t.saving : showSaved ? (
+                <span className="flex items-center gap-1 text-primary">
+                  <CheckCircle2 className="h-3 w-3" /> {t.saved}
+                </span>
+              ) : t.autoSaved}
+            </span>
+          )}
         </div>
 
-        <div className="flex-1 min-w-0 overflow-x-auto overflow-y-hidden toolbar-scroll">
-          <div className="flex items-center gap-1 w-max ml-auto pl-2 pr-1">
+        <div
+          className="flex-1 min-w-0 overflow-x-auto overflow-y-hidden toolbar-scroll"
+          data-ai-open={isAiPanelOpen ? "true" : undefined}
+        >
+          <div className={`flex items-center ${isAiPanelOpen ? "gap-0.5" : "gap-1"} w-max mr-auto pl-2 pr-1`}>
           {isSupported && (
             <Button
               variant={isListening ? "destructive" : "ghost"}
@@ -503,12 +621,12 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
                 if (!isPro) { setProGateFeature("Voice dictation"); setProGateOpen(true); return; }
                 toggleListening();
               }}
-              className={`text-xs h-8 px-2 ${isListening ? "animate-pulse" : ""}`}
-              title={isPro ? "Voice Dictation" : "Voice Dictation (Pro)"}
+              className={`text-xs h-8 ${isAiPanelOpen ? "px-1.5" : "px-2"} ${isListening ? "animate-pulse" : ""}`}
+              title="Voice Dictation"
               data-testid="button-dictate"
             >
-              {isPro ? <Mic className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5 opacity-60" />}
-              <span className="hidden sm:inline ml-1">{isListening ? t.listening : t.dictate}</span>
+              <Mic className="h-3.5 w-3.5" />
+              <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline ml-1"}>{isListening ? t.listening : t.dictate}</span>
             </Button>
           )}
           {isPolishing && (
@@ -518,82 +636,123 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
               data-testid="status-polishing"
             >
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              <span className="hidden sm:inline">Polishing…</span>
+              {!isAiPanelOpen && <span className="hidden sm:inline">Polishing…</span>}
             </span>
           )}
           <Button
             variant="ghost"
             size="sm"
+            onMouseDown={(e) => e.preventDefault()}
             onClick={() => editorRef.current?.toggleBulletList()}
             title="Bullet list"
-            className="h-8 text-xs gap-1.5"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-1.5" : "gap-1.5"}`}
             data-testid="button-bullet-list"
           >
             <List className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Bullets</span>
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>Bullets</span>
           </Button>
           <Button
             variant="ghost"
             size="sm"
+            onMouseDown={(e) => e.preventDefault()}
             onClick={() => editorRef.current?.toggleOrderedList()}
             title="Numbered list"
-            className="h-8 text-xs gap-1.5"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-1.5" : "gap-1.5"}`}
             data-testid="button-ordered-list"
           >
             <ListOrdered className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Numbered</span>
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>Numbered</span>
           </Button>
           <Button
             variant="ghost"
             size="sm"
+            onMouseDown={(e) => e.preventDefault()}
             onClick={() => editorRef.current?.toggleTaskList()}
             title="Checklist"
-            className="h-8 text-xs gap-1.5"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-1.5" : "gap-1.5"}`}
             data-testid="button-task-list"
           >
             <ListChecks className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Checklist</span>
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>Checklist</span>
           </Button>
+
+          {/* Left / Center / Right Text Alignment Group */}
+          <div className="inline-flex items-center rounded-md border border-border/70 bg-muted/30 p-0.5 h-8">
+            <button
+              type="button"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => setTextAlign("left")}
+              title="Align Left (Letters & Notes)"
+              className={`h-6 w-6 rounded flex items-center justify-center transition-colors ${
+                textAlign === "left" ? "bg-primary text-primary-foreground shadow-2xs" : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="button-align-left"
+            >
+              <AlignLeft className="h-3.5 w-3.5" />
+            </button>
+            <button
+              type="button"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => setTextAlign("center")}
+              title="Align Center (Poems & Tributes)"
+              className={`h-6 w-6 rounded flex items-center justify-center transition-colors ${
+                textAlign === "center" ? "bg-primary text-primary-foreground shadow-2xs" : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="button-align-center"
+            >
+              <AlignCenter className="h-3.5 w-3.5" />
+            </button>
+            <button
+              type="button"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => setTextAlign("right")}
+              title="Align Right"
+              className={`h-6 w-6 rounded flex items-center justify-center transition-colors ${
+                textAlign === "right" ? "bg-primary text-primary-foreground shadow-2xs" : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="button-align-right"
+            >
+              <AlignRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+
           <Button
             variant="ghost"
             size="sm"
             onClick={handleCopyAll}
             title="Copy all text"
-            className="h-8 text-xs gap-1.5"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-1.5" : "gap-1.5"}`}
+            data-testid="button-copy-all"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-green-600" /> : <Copy className="h-3.5 w-3.5" />}
-            <span className="hidden sm:inline">{copied ? "Copied!" : "Copy"}</span>
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>{copied ? "Copied!" : "Copy"}</span>
           </Button>
           <Button
             variant="ghost"
             size="sm"
             onClick={handleShare}
             title="Share note"
-            className="h-8 text-xs gap-1.5"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-1.5" : "gap-1.5"}`}
+            data-testid="button-share"
           >
             <Share2 className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Share</span>
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>Share</span>
           </Button>
           <Button
             variant="ghost"
             size="sm"
             onClick={handlePhotoButtonClick}
             disabled={isUploadingPhoto}
-            title={isPro ? "Insert photo at cursor" : "Insert photo (Pro)"}
-            className="h-8 text-xs gap-1.5"
+            title="Insert photo at cursor"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-1.5" : "gap-1.5"}`}
             data-testid="button-insert-photo"
           >
             {isUploadingPhoto ? (
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
-            ) : isPro ? (
-              <ImagePlus className="h-3.5 w-3.5" />
             ) : (
-              <Lock className="h-3.5 w-3.5 opacity-60" />
+              <ImagePlus className="h-3.5 w-3.5" />
             )}
-            <span className="hidden sm:inline">Photo</span>
-            {!isPro && (
-              <span className="text-[9px] bg-primary/15 text-primary px-1 rounded font-bold">PRO</span>
-            )}
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>Photo</span>
           </Button>
           <input
             ref={fileInputRef}
@@ -608,21 +767,16 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
             size="sm"
             onClick={handleScanButtonClick}
             disabled={isScanning}
-            title={isPro ? "Scan text from a photo" : "Scan to text (Pro)"}
-            className="h-8 text-xs gap-1.5"
+            title="Scan text from a photo"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-1.5" : "gap-1.5"}`}
             data-testid="button-scan-text"
           >
             {isScanning ? (
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
-            ) : isPro ? (
-              <ScanLine className="h-3.5 w-3.5" />
             ) : (
-              <Lock className="h-3.5 w-3.5 opacity-60" />
+              <ScanLine className="h-3.5 w-3.5" />
             )}
-            <span className="hidden sm:inline">Scan</span>
-            {!isPro && (
-              <span className="text-[9px] bg-primary/15 text-primary px-1 rounded font-bold">PRO</span>
-            )}
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>Scan</span>
           </Button>
           <input
             ref={scanInputRef}
@@ -637,6 +791,7 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
             theme={paperTheme}
             lineStyle={lineStyle}
             isPro={isPro}
+            compact={isAiPanelOpen}
             onThemeChange={setPaperTheme}
             onLineStyleChange={setLineStyle}
             onLockedClick={() => { setProGateFeature("Stationery themes"); setProGateOpen(true); }}
@@ -644,12 +799,14 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
           <InkColorPicker
             inkColor={inkColor}
             isPro={isPro}
+            compact={isAiPanelOpen}
             onInkColorChange={setInkColor}
             onLockedClick={() => { setProGateFeature("Ink colors"); setProGateOpen(true); }}
           />
           <FontPicker
             font={font}
             isPro={isPro}
+            compact={isAiPanelOpen}
             onFontChange={setFont}
             onLockedClick={() => { setProGateFeature("Fonts"); setProGateOpen(true); }}
           />
@@ -658,11 +815,11 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
             size="sm"
             onClick={() => window.print()}
             title={t.print}
-            className="h-8 text-xs gap-1.5"
+            className={`h-8 text-xs ${isAiPanelOpen ? "px-2" : "gap-1.5"}`}
             data-testid="button-print"
           >
             <Printer className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">{t.print}</span>
+            <span className={isAiPanelOpen ? "hidden" : "hidden sm:inline"}>{t.print}</span>
           </Button>
           <Button
             variant={isAiPanelOpen ? "default" : "outline"}
@@ -671,29 +828,31 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
               if (!isPro) { setProGateFeature("AI writing assistant"); setProGateOpen(true); return; }
               onToggleAiPanel();
             }}
-            title={isPro ? "Toggle AI Assistant" : "AI Assistant (Pro)"}
-            className="h-8 gap-1.5 text-xs font-bold tracking-wide"
+            title="Toggle Sovereign Aether / Aria Studio"
+            className={`h-8 ${isAiPanelOpen ? "px-2 gap-1" : "gap-1.5"} text-xs font-bold tracking-wide`}
             data-testid="button-ai-panel"
           >
-            {isPro ? <span className="text-sm">✦</span> : <Lock className="h-3.5 w-3.5 opacity-60" />}
+            <span className="text-sm">✦</span>
             AI
-            {!isPro && (
-              <span className="text-[9px] bg-primary/15 text-primary px-1 rounded font-bold">PRO</span>
-            )}
           </Button>
+          <SettingsBugButton
+            compactIconOnly
+            activeContext={`Note #${noteId} | Theme: ${paperTheme} | Align: ${textAlign}`}
+          />
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setShowDeleteConfirm(true)}
             title="Delete this note"
-            className="h-8 text-xs gap-1.5 text-muted-foreground hover:text-destructive"
+            className="h-8 px-1.5 text-xs text-muted-foreground hover:text-destructive"
+            data-testid="button-delete-note"
           >
             <Trash2 className="h-3.5 w-3.5" />
           </Button>
           </div>
         </div>
 
-        {/* Pro gate modal — also mounted at editor level for AI/voice */}
+        {/* Pro gate modal */}
         <ProGateModal
           open={proGateOpen}
           onOpenChange={setProGateOpen}
@@ -719,10 +878,13 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
 
       {/* Writing area with lined paper */}
       <div
+        ref={paperScrollRef}
         className={`flex-1 overflow-auto paper-page print-container paper-theme-${paperTheme}`}
+        data-custom-font={font ? "true" : undefined}
+        data-text-align={textAlign}
         style={{
           ...(inkColor ? ({ "--paper-ink": inkColor } as Record<string, string>) : {}),
-          ...(font ? { fontFamily: font } : {}),
+          ...(font ? ({ "--note-font": font, fontFamily: font } as Record<string, string>) : {}),
         }}
       >
         <div className="px-6 md:px-16 py-8">
@@ -732,14 +894,17 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder={t.noteTitlePlaceholder}
-            className="w-full text-2xl md:text-3xl font-serif font-bold bg-transparent border-none outline-none mb-2 text-foreground placeholder:text-muted-foreground/40 focus:ring-0"
-            style={font ? { fontFamily: font } : undefined}
+            className={`w-full text-2xl md:text-3xl ${font ? "" : "font-serif"} font-bold bg-transparent border-none outline-none mb-2 text-foreground placeholder:text-muted-foreground/40 focus:ring-0`}
+            style={{
+              ...(font ? { fontFamily: font } : {}),
+              textAlign,
+            }}
             data-testid="input-note-title"
           />
 
-          {/* Section row — clearly visible below title */}
-          <div className="flex items-center gap-2 mb-2 no-print">
-            <span className="text-xs text-muted-foreground font-medium">{t.section}</span>
+          {/* Section + On-Page Alignment & Undo Row */}
+          <div className="flex flex-wrap items-center gap-2 mb-2 no-print">
+            <span className="text-xs text-muted-foreground font-medium">Section:</span>
             <Popover>
               <PopoverTrigger asChild>
                 <button
@@ -752,7 +917,7 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
                 </button>
               </PopoverTrigger>
               <PopoverContent className="w-64 p-3" align="start">
-                <p className="text-xs font-semibold text-muted-foreground mb-2">{t.moveToSection}</p>
+                <p className="text-xs font-semibold text-muted-foreground mb-2">Move Page to Section</p>
                 <div className="flex flex-wrap gap-1.5 mb-2">
                   <button
                     onClick={() => handleCategorySelect("General")}
@@ -770,24 +935,53 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
                     >{cat}</button>
                   ))}
                 </div>
-                {isPro ? (
-                  <Input
-                    placeholder="New custom section..."
-                    value={customCat}
-                    onChange={(e) => {
-                      setCustomCat(e.target.value);
-                      if (e.target.value) setCategory(e.target.value);
-                    }}
-                    className="text-xs h-7"
-                  />
-                ) : (
-                  <button onClick={() => { setProGateFeature("Custom tabs"); setProGateOpen(true); }} className="w-full flex items-center gap-1.5 px-2 py-1.5 rounded border border-dashed border-primary/30 text-xs text-muted-foreground hover:text-primary">
-                    <Lock className="h-3 w-3 text-primary/60" /> Custom section... <span className="ml-auto text-[9px] bg-primary/15 text-primary px-1 rounded font-bold">PRO</span>
-                  </button>
-                )}
+                <Input
+                  placeholder="New Section (e.g., Recipes, Religion)..."
+                  value={customCat}
+                  onChange={(e) => {
+                    setCustomCat(e.target.value);
+                    if (e.target.value) setCategory(e.target.value);
+                  }}
+                  className="text-xs h-7"
+                />
               </PopoverContent>
             </Popover>
-            <span className="text-xs text-muted-foreground/50 italic">{t.tapToChange}</span>
+
+            {/* Quick On-Stationery Left / Center / Right Selector */}
+            <div className="ml-auto inline-flex items-center gap-0.5 rounded-full bg-background/50 backdrop-blur-2xs border border-border/60 p-0.5">
+              {(["left", "center", "right"] as const).map((al) => (
+                <button
+                  key={al}
+                  type="button"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => setTextAlign(al)}
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-semibold capitalize transition-colors ${
+                    textAlign === al
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {al}
+                </button>
+              ))}
+            </div>
+
+            {undoAiSnapshot && (
+              <button
+                type="button"
+                onClick={() => {
+                  setTitle(undoAiSnapshot.title);
+                  setContent(undoAiSnapshot.content);
+                  setTextAlign(undoAiSnapshot.textAlign);
+                  editorRef.current?.setHtmlContent(undoAiSnapshot.content);
+                  setUndoAiSnapshot(null);
+                }}
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-background/80 border border-border hover:border-primary text-foreground"
+                title="Undo last AI write onto stationery"
+              >
+                <Undo2 className="h-3 w-3" /> Undo AI
+              </button>
+            )}
           </div>
 
           <div className="border-b-2 border-[#7ca8c4] mb-0 w-full" />
@@ -805,7 +999,7 @@ export function Editor({ noteId, onToggleAiPanel, isAiPanelOpen, onOpenSidebar, 
             content={content}
             onChange={setContent}
             placeholder={t.startWriting}
-            className={`line-style-${lineStyle} note-lines w-full min-h-[calc(100vh-220px)] bg-transparent text-base md:text-lg font-serif`}
+            className={`line-style-${lineStyle} note-lines w-full min-h-[calc(100vh-220px)] bg-transparent text-base md:text-lg ${font ? "" : "font-serif"}`}
             onImageClick={(target) => setLightboxTarget(target)}
           />
         </div>

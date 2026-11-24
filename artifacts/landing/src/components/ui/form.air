@@ -1,0 +1,26 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.form"
+meta !source = "artifacts/landing/src/components/ui/form.tsx"
+meta !lines = "177"
+meta !sha256 = "d50adf86568f76246f0f319c9e1e858627475563f6c1e38f5df7d4ee23958559"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.form {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"d50adf86568f7624"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_form(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_form" : !viper.ctx
+    %hk_0 = air.hook.invoke @useContext(%ctx_0) : !viper.val
+    %hk_1 = air.hook.invoke @useFormContext(%ctx_0) : !viper.val
+    %hk_2 = air.hook.invoke @useFormField(%ctx_0) : !viper.val
+    %hk_3 = air.hook.invoke @useId(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 15 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.form::init_form", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

@@ -1,79 +1,65 @@
 import { useState, useCallback } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { getGetOpenaiConversationQueryKey } from "@workspace/api-client-react";
-import { track } from "@/lib/analytics";
+import { getGetAetherConversationQueryKey } from "@workspace/api-client-react";
 import {
   streamAetherNotebookChat,
   speakAetherNotebookReply,
+  type CompanionId,
 } from "@/lib/sovereign-aether-runtime";
 
 export function useAiChat(
   conversationId: number | null,
   noteId?: number,
-  voiceReplyEnabled = false,
+  autoSpeakReply = true,
+  companion: CompanionId = "aether",
 ) {
+  const queryClient = useQueryClient();
   const [isStreaming, setIsStreaming] = useState(false);
   const [streamingContent, setStreamingContent] = useState("");
-  const queryClient = useQueryClient();
+  const [error, setError] = useState<string | null>(null);
 
   const sendMessage = useCallback(
-    async (content: string) => {
-      if (!conversationId) return;
+    async (content: string): Promise<string | null> => {
+      if (!conversationId || !content.trim()) return null;
 
       setIsStreaming(true);
       setStreamingContent("");
-      track("ai_message_sent");
-
-      queryClient.setQueryData(
-        getGetOpenaiConversationQueryKey(conversationId),
-        (old: any) => {
-          if (!old) return old;
-          return {
-            ...old,
-            messages: [
-              ...(old.messages || []),
-              {
-                id: Date.now(),
-                conversationId,
-                role: "user",
-                content,
-                createdAt: new Date().toISOString(),
-              },
-            ],
-          };
-        },
-      );
+      setError(null);
 
       try {
-        const reply = await streamAetherNotebookChat({
+        const finalReply = await streamAetherNotebookChat({
           conversationId,
           noteId,
-          userMessage: content,
+          companion,
+          userMessage: content.trim(),
           onDelta: (accumulated) => {
             setStreamingContent(accumulated);
           },
         });
 
         await queryClient.invalidateQueries({
-          queryKey: getGetOpenaiConversationQueryKey(conversationId),
+          queryKey: getGetAetherConversationQueryKey(conversationId),
         });
 
-        if (voiceReplyEnabled && reply.trim()) {
-          void speakAetherNotebookReply(reply, "aria");
+        if (autoSpeakReply && finalReply.trim()) {
+          void speakAetherNotebookReply(finalReply, companion);
         }
-      } catch (error) {
-        console.error("Sovereign Aether chat error:", error);
+        return finalReply;
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : "Failed to reach Sovereign Aether");
+        return null;
       } finally {
         setIsStreaming(false);
         setStreamingContent("");
       }
     },
-    [conversationId, noteId, queryClient, voiceReplyEnabled],
+    [conversationId, noteId, autoSpeakReply, companion, queryClient],
   );
 
   return {
     sendMessage,
     isStreaming,
     streamingContent,
+    error,
   };
 }

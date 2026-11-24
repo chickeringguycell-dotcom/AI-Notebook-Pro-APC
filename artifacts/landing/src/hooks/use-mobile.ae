@@ -1,0 +1,24 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/hooks/use-mobile.tsx (20 lines, 565 bytes, sha256:ad0936f84f1df79d)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.hooks.use_mobile {
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/hooks/use-mobile.tsx",
+    sourceLines: 20,
+    sourceBytes: 565,
+    sha256: "ad0936f84f1df79d3697bfbff9c18f8ad58431c1cbaf2359c6a853b0fcc9f28b",
+    vendorLockIn: 0
+  }
+
+  pub struct use_mobileUnit { pub digest: u64 }
+
+  pub fn useIsMobile(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useEffect;
+    bind_hook @useIsMobile;
+    vnode <boolean>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.hooks.use_mobile::useIsMobile", 0xad0936f84f1df79d);
+  }
+}

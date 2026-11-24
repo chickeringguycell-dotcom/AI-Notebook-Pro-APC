@@ -27,6 +27,7 @@ export interface ImageTarget {
 export interface RichEditorHandle {
   getText: () => string;
   insertText: (text: string) => void;
+  setHtmlContent: (html: string) => void;
   insertImage: (src: string) => void;
   deleteImageAt: (pos: number) => void;
   getSearchTextLength: () => number;
@@ -356,7 +357,7 @@ export const RichEditor = forwardRef<RichEditorHandle, RichEditorProps>(
         TaskItem.configure({ nested: true, HTMLAttributes: { class: "task-item" } }),
         Image.configure({
           inline: false,
-          allowBase64: false,
+          allowBase64: true,
           HTMLAttributes: { class: "note-image", draggable: "false" },
         }),
         Placeholder.configure({ placeholder: placeholder ?? "" }),
@@ -472,6 +473,10 @@ export const RichEditor = forwardRef<RichEditorHandle, RichEditorProps>(
         insertText: (text: string) => {
           if (!editor) return;
           editor.chain().focus().insertContent(text).run();
+        },
+        setHtmlContent: (html: string) => {
+          if (!editor) return;
+          editor.commands.setContent(toHtml(html), { emitUpdate: true });
         },
         insertImage: (src: string) => {
           if (!editor) return;

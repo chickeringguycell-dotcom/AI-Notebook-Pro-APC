@@ -1,0 +1,33 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/toast.tsx (128 lines, 4845 bytes, sha256:99f9f4a3e897f71d)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toast {
+  use "@/lib/utils";
+  use "@radix-ui/react-toast";
+  use "class-variance-authority";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/toast.tsx",
+    sourceLines: 128,
+    sourceBytes: 4845,
+    sha256: "99f9f4a3e897f71d89b01c6772b2f5db51b888cecb2c8214fb2c2dbb2b3e6356",
+    vendorLockIn: 0
+  }
+
+  pub struct toastUnit { pub digest: u64 }
+
+  pub fn init_toast(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <ToastPrimitives.Action>;
+    vnode <ToastPrimitives.Close>;
+    vnode <ToastPrimitives.Description>;
+    vnode <ToastPrimitives.Root>;
+    vnode <ToastPrimitives.Title>;
+    vnode <ToastPrimitives.Viewport>;
+    vnode <X>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toast::init_toast", 0x99f9f4a3e897f71d);
+  }
+}

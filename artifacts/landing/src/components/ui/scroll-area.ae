@@ -1,0 +1,30 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/scroll-area.tsx (47 lines, 1642 bytes, sha256:d7d02600effca55d)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.scroll_area {
+  use "@/lib/utils";
+  use "@radix-ui/react-scroll-area";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/scroll-area.tsx",
+    sourceLines: 47,
+    sourceBytes: 1642,
+    sha256: "d7d02600effca55d0dcadce8c09c97ebddda3a19c5fa1d52dc9f6f727b26c6b1",
+    vendorLockIn: 0
+  }
+
+  pub struct scroll_areaUnit { pub digest: u64 }
+
+  pub fn init_scroll_area(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <ScrollAreaPrimitive.Corner>;
+    vnode <ScrollAreaPrimitive.Root>;
+    vnode <ScrollAreaPrimitive.ScrollAreaScrollbar>;
+    vnode <ScrollAreaPrimitive.ScrollAreaThumb>;
+    vnode <ScrollAreaPrimitive.Viewport>;
+    vnode <ScrollBar>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.scroll_area::init_scroll_area", 0xd7d02600effca55d);
+  }
+}

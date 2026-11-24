@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-client-react/src/index.ts (5 lines, 194 bytes, sha256:7974b36e3973a8d0)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.index {
+  use "./custom-fetch";
+  use "./generated/api";
+  use "./generated/api.schemas";
+
+  meta {
+    sourcePath: "lib/api-client-react/src/index.ts",
+    sourceLines: 5,
+    sourceBytes: 194,
+    sha256: "7974b36e3973a8d0c403589bcf8d8aca7547c5c42c4b73924d05f49de18809e5",
+    vendorLockIn: 0
+  }
+
+  pub struct indexUnit { pub digest: u64 }
+
+  pub fn init_index(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.index::init_index", 0x7974b36e3973a8d0);
+  }
+}

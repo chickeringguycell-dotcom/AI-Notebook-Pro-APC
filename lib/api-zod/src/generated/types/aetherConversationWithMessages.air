@@ -1,0 +1,21 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.aetherConversationWithMessages"
+meta !source = "lib/api-zod/src/generated/types/aetherConversationWithMessages.ts"
+meta !lines = "16"
+meta !sha256 = "4b13ec76814c2698634709e0f495033fa6f1f1c1617adc49c2744c935ad5ea27"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.aetherConversationWithMessages {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"4b13ec76814c2698"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_aetherConversationWithMessages(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_aetherConversationWithMessages" : !viper.ctx
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.aetherConversationWithMessages::init_aetherConversationWithMessages", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

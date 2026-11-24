@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: hooks/use-speech-recognition.ts
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.use_speech_recognition {
+  contract use_speech_recognitionContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn useSpeechRecognition() -> Any;
+  }
+}

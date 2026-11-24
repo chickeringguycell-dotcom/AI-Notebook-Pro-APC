@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/ui/toaster.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.toaster {
+  contract toasterContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn Toaster() -> Any;
+  }
+}

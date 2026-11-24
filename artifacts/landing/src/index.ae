@@ -1,0 +1,113 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Stylesheet & Stationery Surface Contract — Rule 64
+// Source Module: artifacts/landing/src/index.css (184 lines, 5859 bytes, sha256:c1e2f475b1f57314)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.index {
+  style_sheet indexSurface {
+    meta {
+      sourceDigest: "c1e2f475b1f57314cb17503d0bc3f98dc9c7292256519f5ecc9d01ccf68497a4",
+      selectorCount: 7,
+      designTokenCount: 91
+    }
+
+    token "--accent" = "43 20% 88%";
+    token "--accent-border" = "hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha)";
+    token "--accent-foreground" = "25 20% 20%";
+    token "--app-font-mono" = "Menlo, monospace";
+    token "--app-font-sans" = "'Inter', sans-serif";
+    token "--app-font-serif" = "'Fraunces', serif";
+    token "--background" = "43 33% 96%";
+    token "--badge-outline" = "rgba(0,0,0, .05)";
+    token "--border" = "43 15% 85%";
+    token "--button-outline" = "rgba(0,0,0, .10)";
+    token "--card" = "43 33% 98%";
+    token "--card-border" = "43 15% 85%";
+    token "--card-foreground" = "25 20% 20%";
+    token "--color-accent" = "hsl(var(--accent))";
+    token "--color-accent-border" = "var(--accent-border)";
+    token "--color-accent-foreground" = "hsl(var(--accent-foreground))";
+    token "--color-background" = "hsl(var(--background))";
+    token "--color-border" = "hsl(var(--border))";
+    token "--color-card" = "hsl(var(--card))";
+    token "--color-card-border" = "hsl(var(--card-border))";
+    token "--color-card-foreground" = "hsl(var(--card-foreground))";
+    token "--color-destructive" = "hsl(var(--destructive))";
+    token "--color-destructive-border" = "var(--destructive-border)";
+    token "--color-destructive-foreground" = "hsl(var(--destructive-foreground))";
+    token "--color-foreground" = "hsl(var(--foreground))";
+    token "--color-input" = "hsl(var(--input))";
+    token "--color-muted" = "hsl(var(--muted))";
+    token "--color-muted-border" = "var(--muted-border)";
+    token "--color-muted-foreground" = "hsl(var(--muted-foreground))";
+    token "--color-popover" = "hsl(var(--popover))";
+    token "--color-popover-border" = "hsl(var(--popover-border))";
+    token "--color-popover-foreground" = "hsl(var(--popover-foreground))";
+    token "--color-primary" = "hsl(var(--primary))";
+    token "--color-primary-border" = "var(--primary-border)";
+    token "--color-primary-foreground" = "hsl(var(--primary-foreground))";
+    token "--color-ring" = "hsl(var(--ring))";
+    token "--color-secondary" = "hsl(var(--secondary))";
+    token "--color-secondary-border" = "var(--secondary-border)";
+    token "--color-secondary-foreground" = "hsl(var(--secondary-foreground))";
+    token "--color-sidebar" = "hsl(var(--sidebar))";
+    token "--color-sidebar-accent" = "hsl(var(--sidebar-accent))";
+    token "--color-sidebar-accent-border" = "var(--sidebar-accent-border)";
+    token "--color-sidebar-accent-foreground" = "hsl(var(--sidebar-accent-foreground))";
+    token "--color-sidebar-border" = "hsl(var(--sidebar-border))";
+    token "--color-sidebar-foreground" = "hsl(var(--sidebar-foreground))";
+    token "--color-sidebar-primary" = "hsl(var(--sidebar-primary))";
+    token "--color-sidebar-primary-border" = "var(--sidebar-primary-border)";
+    token "--color-sidebar-primary-foreground" = "hsl(var(--sidebar-primary-foreground))";
+    token "--color-sidebar-ring" = "hsl(var(--sidebar-ring))";
+    token "--destructive" = "0 60% 50%";
+    token "--destructive-border" = "hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha)";
+    token "--destructive-foreground" = "43 33% 96%";
+    token "--elevate-1" = "rgba(0,0,0, .03)";
+    token "--elevate-2" = "rgba(0,0,0, .08)";
+    token "--font-mono" = "var(--app-font-mono)";
+    token "--font-sans" = "var(--app-font-sans)";
+    token "--font-serif" = "var(--app-font-serif)";
+    token "--foreground" = "25 20% 20%";
+    token "--input" = "43 15% 85%";
+    token "--muted" = "43 20% 88%";
+    token "--muted-border" = "hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha)";
+    token "--muted-foreground" = "25 15% 45%";
+    token "--opaque-button-border-intensity" = "-8";
+    token "--popover" = "43 33% 98%";
+    token "--popover-border" = "43 15% 85%";
+    token "--popover-foreground" = "25 20% 20%";
+    token "--primary" = "25 45% 40%";
+    token "--primary-border" = "hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha)";
+    token "--primary-foreground" = "43 33% 96%";
+    token "--radius" = "0.5rem";
+    token "--radius-lg" = "var(--radius)";
+    token "--radius-md" = "calc(var(--radius) - 2px)";
+    token "--radius-sm" = "calc(var(--radius) - 4px)";
+    token "--radius-xl" = "calc(var(--radius) + 4px)";
+    token "--ring" = "25 35% 45%";
+    token "--secondary" = "43 20% 88%";
+    token "--secondary-border" = "hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha)";
+    token "--secondary-foreground" = "25 20% 20%";
+    token "--shadow-lg" = "0 10px 30px rgba(0,0,0,0.10), 0 4px 10px rgba(0,0,0,0.06)";
+    token "--shadow-md" = "0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04)";
+    token "--shadow-sm" = "0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05)";
+    token "--sidebar" = "43 25% 92%";
+    token "--sidebar-accent" = "43 20% 88%";
+    token "--sidebar-accent-border" = "hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha)";
+    token "--sidebar-accent-foreground" = "25 20% 20%";
+    token "--sidebar-border" = "43 15% 85%";
+    token "--sidebar-foreground" = "25 20% 25%";
+    token "--sidebar-primary" = "25 35% 45%";
+    token "--sidebar-primary-border" = "hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha)";
+    token "--sidebar-primary-foreground" = "43 33% 96%";
+    token "--sidebar-ring" = "25 35% 45%";
+
+    selector ".animate-fade-in-up" -> StyleRuleRef("animate-fade-in-up");
+    selector ".animate-float-up" -> StyleRuleRef("animate-float-up");
+    selector ".com" -> StyleRuleRef("com");
+    selector ".dark" -> StyleRuleRef("dark");
+    selector ".font-serif" -> StyleRuleRef("font-serif");
+    selector ".googleapis" -> StyleRuleRef("googleapis");
+    selector ".lined-paper" -> StyleRuleRef("lined-paper");
+  }
+}

@@ -18,22 +18,22 @@ import type {
 
 import type {
   CreateNoteBody,
-  CreateOpenaiConversationBody,
+  CreateAetherConversationBody,
   ErrorResponse,
   HealthStatus,
   MeResponse,
   Note,
-  OpenaiConversation,
-  OpenaiConversationWithMessages,
-  OpenaiError,
-  OpenaiMessage,
+  AetherConversation,
+  AetherConversationWithMessages,
+  AetherError,
+  AetherMessage,
   PolishTextBody,
   PolishTextResponse,
   RedeemProBody,
   ScanImageBody,
   ScanImageResponse,
-  SendOpenaiMessageBody,
-  SendOpenaiVoiceMessageBody,
+  SendAetherMessageBody,
+  SendAetherVoiceMessageBody,
   StorageError,
   UpdateNoteBody,
   UploadUrlRequest,
@@ -527,29 +527,29 @@ export const useDeleteNote = <
 /**
  * @summary List all conversations
  */
-export const getListOpenaiConversationsUrl = () => {
-  return `/api/openai/conversations`;
+export const getListAetherConversationsUrl = () => {
+  return `/api/aether/conversations`;
 };
 
-export const listOpenaiConversations = async (
+export const listAetherConversations = async (
   options?: RequestInit,
-): Promise<OpenaiConversation[]> => {
-  return customFetch<OpenaiConversation[]>(getListOpenaiConversationsUrl(), {
+): Promise<AetherConversation[]> => {
+  return customFetch<AetherConversation[]>(getListAetherConversationsUrl(), {
     ...options,
     method: "GET",
   });
 };
 
-export const getListOpenaiConversationsQueryKey = () => {
-  return [`/api/openai/conversations`] as const;
+export const getListAetherConversationsQueryKey = () => {
+  return [`/api/aether/conversations`] as const;
 };
 
-export const getListOpenaiConversationsQueryOptions = <
-  TData = Awaited<ReturnType<typeof listOpenaiConversations>>,
+export const getListAetherConversationsQueryOptions = <
+  TData = Awaited<ReturnType<typeof listAetherConversations>>,
   TError = ErrorType<unknown>,
 >(options?: {
   query?: UseQueryOptions<
-    Awaited<ReturnType<typeof listOpenaiConversations>>,
+    Awaited<ReturnType<typeof listAetherConversations>>,
     TError,
     TData
   >;
@@ -558,40 +558,40 @@ export const getListOpenaiConversationsQueryOptions = <
   const { query: queryOptions, request: requestOptions } = options ?? {};
 
   const queryKey =
-    queryOptions?.queryKey ?? getListOpenaiConversationsQueryKey();
+    queryOptions?.queryKey ?? getListAetherConversationsQueryKey();
 
   const queryFn: QueryFunction<
-    Awaited<ReturnType<typeof listOpenaiConversations>>
-  > = ({ signal }) => listOpenaiConversations({ signal, ...requestOptions });
+    Awaited<ReturnType<typeof listAetherConversations>>
+  > = ({ signal }) => listAetherConversations({ signal, ...requestOptions });
 
   return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
-    Awaited<ReturnType<typeof listOpenaiConversations>>,
+    Awaited<ReturnType<typeof listAetherConversations>>,
     TError,
     TData
   > & { queryKey: QueryKey };
 };
 
-export type ListOpenaiConversationsQueryResult = NonNullable<
-  Awaited<ReturnType<typeof listOpenaiConversations>>
+export type ListAetherConversationsQueryResult = NonNullable<
+  Awaited<ReturnType<typeof listAetherConversations>>
 >;
-export type ListOpenaiConversationsQueryError = ErrorType<unknown>;
+export type ListAetherConversationsQueryError = ErrorType<unknown>;
 
 /**
  * @summary List all conversations
  */
 
-export function useListOpenaiConversations<
-  TData = Awaited<ReturnType<typeof listOpenaiConversations>>,
+export function useListAetherConversations<
+  TData = Awaited<ReturnType<typeof listAetherConversations>>,
   TError = ErrorType<unknown>,
 >(options?: {
   query?: UseQueryOptions<
-    Awaited<ReturnType<typeof listOpenaiConversations>>,
+    Awaited<ReturnType<typeof listAetherConversations>>,
     TError,
     TData
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
-  const queryOptions = getListOpenaiConversationsQueryOptions(options);
+  const queryOptions = getListAetherConversationsQueryOptions(options);
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
     queryKey: QueryKey;
@@ -603,40 +603,40 @@ export function useListOpenaiConversations<
 /**
  * @summary Create a new conversation
  */
-export const getCreateOpenaiConversationUrl = () => {
-  return `/api/openai/conversations`;
+export const getCreateAetherConversationUrl = () => {
+  return `/api/aether/conversations`;
 };
 
-export const createOpenaiConversation = async (
-  createOpenaiConversationBody: CreateOpenaiConversationBody,
+export const createAetherConversation = async (
+  createAetherConversationBody: CreateAetherConversationBody,
   options?: RequestInit,
-): Promise<OpenaiConversation> => {
-  return customFetch<OpenaiConversation>(getCreateOpenaiConversationUrl(), {
+): Promise<AetherConversation> => {
+  return customFetch<AetherConversation>(getCreateAetherConversationUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(createOpenaiConversationBody),
+    body: JSON.stringify(createAetherConversationBody),
   });
 };
 
-export const getCreateOpenaiConversationMutationOptions = <
+export const getCreateAetherConversationMutationOptions = <
   TError = ErrorType<unknown>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof createOpenaiConversation>>,
+    Awaited<ReturnType<typeof createAetherConversation>>,
     TError,
-    { data: BodyType<CreateOpenaiConversationBody> },
+    { data: BodyType<CreateAetherConversationBody> },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationOptions<
-  Awaited<ReturnType<typeof createOpenaiConversation>>,
+  Awaited<ReturnType<typeof createAetherConversation>>,
   TError,
-  { data: BodyType<CreateOpenaiConversationBody> },
+  { data: BodyType<CreateAetherConversationBody> },
   TContext
 > => {
-  const mutationKey = ["createOpenaiConversation"];
+  const mutationKey = ["createAetherConversation"];
   const { mutation: mutationOptions, request: requestOptions } = options
     ? options.mutation &&
       "mutationKey" in options.mutation &&
@@ -646,60 +646,60 @@ export const getCreateOpenaiConversationMutationOptions = <
     : { mutation: { mutationKey }, request: undefined };
 
   const mutationFn: MutationFunction<
-    Awaited<ReturnType<typeof createOpenaiConversation>>,
-    { data: BodyType<CreateOpenaiConversationBody> }
+    Awaited<ReturnType<typeof createAetherConversation>>,
+    { data: BodyType<CreateAetherConversationBody> }
   > = (props) => {
     const { data } = props ?? {};
 
-    return createOpenaiConversation(data, requestOptions);
+    return createAetherConversation(data, requestOptions);
   };
 
   return { mutationFn, ...mutationOptions };
 };
 
-export type CreateOpenaiConversationMutationResult = NonNullable<
-  Awaited<ReturnType<typeof createOpenaiConversation>>
+export type CreateAetherConversationMutationResult = NonNullable<
+  Awaited<ReturnType<typeof createAetherConversation>>
 >;
-export type CreateOpenaiConversationMutationBody =
-  BodyType<CreateOpenaiConversationBody>;
-export type CreateOpenaiConversationMutationError = ErrorType<unknown>;
+export type CreateAetherConversationMutationBody =
+  BodyType<CreateAetherConversationBody>;
+export type CreateAetherConversationMutationError = ErrorType<unknown>;
 
 /**
  * @summary Create a new conversation
  */
-export const useCreateOpenaiConversation = <
+export const useCreateAetherConversation = <
   TError = ErrorType<unknown>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof createOpenaiConversation>>,
+    Awaited<ReturnType<typeof createAetherConversation>>,
     TError,
-    { data: BodyType<CreateOpenaiConversationBody> },
+    { data: BodyType<CreateAetherConversationBody> },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationResult<
-  Awaited<ReturnType<typeof createOpenaiConversation>>,
+  Awaited<ReturnType<typeof createAetherConversation>>,
   TError,
-  { data: BodyType<CreateOpenaiConversationBody> },
+  { data: BodyType<CreateAetherConversationBody> },
   TContext
 > => {
-  return useMutation(getCreateOpenaiConversationMutationOptions(options));
+  return useMutation(getCreateAetherConversationMutationOptions(options));
 };
 
 /**
  * @summary Get conversation with messages
  */
-export const getGetOpenaiConversationUrl = (id: number) => {
-  return `/api/openai/conversations/${id}`;
+export const getGetAetherConversationUrl = (id: number) => {
+  return `/api/aether/conversations/${id}`;
 };
 
-export const getOpenaiConversation = async (
+export const getAetherConversation = async (
   id: number,
   options?: RequestInit,
-): Promise<OpenaiConversationWithMessages> => {
-  return customFetch<OpenaiConversationWithMessages>(
-    getGetOpenaiConversationUrl(id),
+): Promise<AetherConversationWithMessages> => {
+  return customFetch<AetherConversationWithMessages>(
+    getGetAetherConversationUrl(id),
     {
       ...options,
       method: "GET",
@@ -707,18 +707,18 @@ export const getOpenaiConversation = async (
   );
 };
 
-export const getGetOpenaiConversationQueryKey = (id: number) => {
-  return [`/api/openai/conversations/${id}`] as const;
+export const getGetAetherConversationQueryKey = (id: number) => {
+  return [`/api/aether/conversations/${id}`] as const;
 };
 
-export const getGetOpenaiConversationQueryOptions = <
-  TData = Awaited<ReturnType<typeof getOpenaiConversation>>,
-  TError = ErrorType<OpenaiError>,
+export const getGetAetherConversationQueryOptions = <
+  TData = Awaited<ReturnType<typeof getAetherConversation>>,
+  TError = ErrorType<AetherError>,
 >(
   id: number,
   options?: {
     query?: UseQueryOptions<
-      Awaited<ReturnType<typeof getOpenaiConversation>>,
+      Awaited<ReturnType<typeof getAetherConversation>>,
       TError,
       TData
     >;
@@ -728,11 +728,11 @@ export const getGetOpenaiConversationQueryOptions = <
   const { query: queryOptions, request: requestOptions } = options ?? {};
 
   const queryKey =
-    queryOptions?.queryKey ?? getGetOpenaiConversationQueryKey(id);
+    queryOptions?.queryKey ?? getGetAetherConversationQueryKey(id);
 
   const queryFn: QueryFunction<
-    Awaited<ReturnType<typeof getOpenaiConversation>>
-  > = ({ signal }) => getOpenaiConversation(id, { signal, ...requestOptions });
+    Awaited<ReturnType<typeof getAetherConversation>>
+  > = ({ signal }) => getAetherConversation(id, { signal, ...requestOptions });
 
   return {
     queryKey,
@@ -740,36 +740,36 @@ export const getGetOpenaiConversationQueryOptions = <
     enabled: !!id,
     ...queryOptions,
   } as UseQueryOptions<
-    Awaited<ReturnType<typeof getOpenaiConversation>>,
+    Awaited<ReturnType<typeof getAetherConversation>>,
     TError,
     TData
   > & { queryKey: QueryKey };
 };
 
-export type GetOpenaiConversationQueryResult = NonNullable<
-  Awaited<ReturnType<typeof getOpenaiConversation>>
+export type GetAetherConversationQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getAetherConversation>>
 >;
-export type GetOpenaiConversationQueryError = ErrorType<OpenaiError>;
+export type GetAetherConversationQueryError = ErrorType<AetherError>;
 
 /**
  * @summary Get conversation with messages
  */
 
-export function useGetOpenaiConversation<
-  TData = Awaited<ReturnType<typeof getOpenaiConversation>>,
-  TError = ErrorType<OpenaiError>,
+export function useGetAetherConversation<
+  TData = Awaited<ReturnType<typeof getAetherConversation>>,
+  TError = ErrorType<AetherError>,
 >(
   id: number,
   options?: {
     query?: UseQueryOptions<
-      Awaited<ReturnType<typeof getOpenaiConversation>>,
+      Awaited<ReturnType<typeof getAetherConversation>>,
       TError,
       TData
     >;
     request?: SecondParameter<typeof customFetch>;
   },
 ): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
-  const queryOptions = getGetOpenaiConversationQueryOptions(id, options);
+  const queryOptions = getGetAetherConversationQueryOptions(id, options);
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
     queryKey: QueryKey;
@@ -781,38 +781,38 @@ export function useGetOpenaiConversation<
 /**
  * @summary Delete a conversation
  */
-export const getDeleteOpenaiConversationUrl = (id: number) => {
-  return `/api/openai/conversations/${id}`;
+export const getDeleteAetherConversationUrl = (id: number) => {
+  return `/api/aether/conversations/${id}`;
 };
 
-export const deleteOpenaiConversation = async (
+export const deleteAetherConversation = async (
   id: number,
   options?: RequestInit,
 ): Promise<void> => {
-  return customFetch<void>(getDeleteOpenaiConversationUrl(id), {
+  return customFetch<void>(getDeleteAetherConversationUrl(id), {
     ...options,
     method: "DELETE",
   });
 };
 
-export const getDeleteOpenaiConversationMutationOptions = <
-  TError = ErrorType<OpenaiError>,
+export const getDeleteAetherConversationMutationOptions = <
+  TError = ErrorType<AetherError>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof deleteOpenaiConversation>>,
+    Awaited<ReturnType<typeof deleteAetherConversation>>,
     TError,
     { id: number },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationOptions<
-  Awaited<ReturnType<typeof deleteOpenaiConversation>>,
+  Awaited<ReturnType<typeof deleteAetherConversation>>,
   TError,
   { id: number },
   TContext
 > => {
-  const mutationKey = ["deleteOpenaiConversation"];
+  const mutationKey = ["deleteAetherConversation"];
   const { mutation: mutationOptions, request: requestOptions } = options
     ? options.mutation &&
       "mutationKey" in options.mutation &&
@@ -822,75 +822,75 @@ export const getDeleteOpenaiConversationMutationOptions = <
     : { mutation: { mutationKey }, request: undefined };
 
   const mutationFn: MutationFunction<
-    Awaited<ReturnType<typeof deleteOpenaiConversation>>,
+    Awaited<ReturnType<typeof deleteAetherConversation>>,
     { id: number }
   > = (props) => {
     const { id } = props ?? {};
 
-    return deleteOpenaiConversation(id, requestOptions);
+    return deleteAetherConversation(id, requestOptions);
   };
 
   return { mutationFn, ...mutationOptions };
 };
 
-export type DeleteOpenaiConversationMutationResult = NonNullable<
-  Awaited<ReturnType<typeof deleteOpenaiConversation>>
+export type DeleteAetherConversationMutationResult = NonNullable<
+  Awaited<ReturnType<typeof deleteAetherConversation>>
 >;
 
-export type DeleteOpenaiConversationMutationError = ErrorType<OpenaiError>;
+export type DeleteAetherConversationMutationError = ErrorType<AetherError>;
 
 /**
  * @summary Delete a conversation
  */
-export const useDeleteOpenaiConversation = <
-  TError = ErrorType<OpenaiError>,
+export const useDeleteAetherConversation = <
+  TError = ErrorType<AetherError>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof deleteOpenaiConversation>>,
+    Awaited<ReturnType<typeof deleteAetherConversation>>,
     TError,
     { id: number },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationResult<
-  Awaited<ReturnType<typeof deleteOpenaiConversation>>,
+  Awaited<ReturnType<typeof deleteAetherConversation>>,
   TError,
   { id: number },
   TContext
 > => {
-  return useMutation(getDeleteOpenaiConversationMutationOptions(options));
+  return useMutation(getDeleteAetherConversationMutationOptions(options));
 };
 
 /**
  * @summary List messages in a conversation
  */
-export const getListOpenaiMessagesUrl = (id: number) => {
-  return `/api/openai/conversations/${id}/messages`;
+export const getListAetherMessagesUrl = (id: number) => {
+  return `/api/aether/conversations/${id}/messages`;
 };
 
-export const listOpenaiMessages = async (
+export const listAetherMessages = async (
   id: number,
   options?: RequestInit,
-): Promise<OpenaiMessage[]> => {
-  return customFetch<OpenaiMessage[]>(getListOpenaiMessagesUrl(id), {
+): Promise<AetherMessage[]> => {
+  return customFetch<AetherMessage[]>(getListAetherMessagesUrl(id), {
     ...options,
     method: "GET",
   });
 };
 
-export const getListOpenaiMessagesQueryKey = (id: number) => {
-  return [`/api/openai/conversations/${id}/messages`] as const;
+export const getListAetherMessagesQueryKey = (id: number) => {
+  return [`/api/aether/conversations/${id}/messages`] as const;
 };
 
-export const getListOpenaiMessagesQueryOptions = <
-  TData = Awaited<ReturnType<typeof listOpenaiMessages>>,
+export const getListAetherMessagesQueryOptions = <
+  TData = Awaited<ReturnType<typeof listAetherMessages>>,
   TError = ErrorType<unknown>,
 >(
   id: number,
   options?: {
     query?: UseQueryOptions<
-      Awaited<ReturnType<typeof listOpenaiMessages>>,
+      Awaited<ReturnType<typeof listAetherMessages>>,
       TError,
       TData
     >;
@@ -899,11 +899,11 @@ export const getListOpenaiMessagesQueryOptions = <
 ) => {
   const { query: queryOptions, request: requestOptions } = options ?? {};
 
-  const queryKey = queryOptions?.queryKey ?? getListOpenaiMessagesQueryKey(id);
+  const queryKey = queryOptions?.queryKey ?? getListAetherMessagesQueryKey(id);
 
   const queryFn: QueryFunction<
-    Awaited<ReturnType<typeof listOpenaiMessages>>
-  > = ({ signal }) => listOpenaiMessages(id, { signal, ...requestOptions });
+    Awaited<ReturnType<typeof listAetherMessages>>
+  > = ({ signal }) => listAetherMessages(id, { signal, ...requestOptions });
 
   return {
     queryKey,
@@ -911,36 +911,36 @@ export const getListOpenaiMessagesQueryOptions = <
     enabled: !!id,
     ...queryOptions,
   } as UseQueryOptions<
-    Awaited<ReturnType<typeof listOpenaiMessages>>,
+    Awaited<ReturnType<typeof listAetherMessages>>,
     TError,
     TData
   > & { queryKey: QueryKey };
 };
 
-export type ListOpenaiMessagesQueryResult = NonNullable<
-  Awaited<ReturnType<typeof listOpenaiMessages>>
+export type ListAetherMessagesQueryResult = NonNullable<
+  Awaited<ReturnType<typeof listAetherMessages>>
 >;
-export type ListOpenaiMessagesQueryError = ErrorType<unknown>;
+export type ListAetherMessagesQueryError = ErrorType<unknown>;
 
 /**
  * @summary List messages in a conversation
  */
 
-export function useListOpenaiMessages<
-  TData = Awaited<ReturnType<typeof listOpenaiMessages>>,
+export function useListAetherMessages<
+  TData = Awaited<ReturnType<typeof listAetherMessages>>,
   TError = ErrorType<unknown>,
 >(
   id: number,
   options?: {
     query?: UseQueryOptions<
-      Awaited<ReturnType<typeof listOpenaiMessages>>,
+      Awaited<ReturnType<typeof listAetherMessages>>,
       TError,
       TData
     >;
     request?: SecondParameter<typeof customFetch>;
   },
 ): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
-  const queryOptions = getListOpenaiMessagesQueryOptions(id, options);
+  const queryOptions = getListAetherMessagesQueryOptions(id, options);
 
   const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
     queryKey: QueryKey;
@@ -952,41 +952,41 @@ export function useListOpenaiMessages<
 /**
  * @summary Send a text message and receive a streaming text response
  */
-export const getSendOpenaiMessageUrl = (id: number) => {
-  return `/api/openai/conversations/${id}/messages`;
+export const getSendAetherMessageUrl = (id: number) => {
+  return `/api/aether/conversations/${id}/messages`;
 };
 
-export const sendOpenaiMessage = async (
+export const sendAetherMessage = async (
   id: number,
-  sendOpenaiMessageBody: SendOpenaiMessageBody,
+  sendAetherMessageBody: SendAetherMessageBody,
   options?: RequestInit,
 ): Promise<unknown> => {
-  return customFetch<unknown>(getSendOpenaiMessageUrl(id), {
+  return customFetch<unknown>(getSendAetherMessageUrl(id), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(sendOpenaiMessageBody),
+    body: JSON.stringify(sendAetherMessageBody),
   });
 };
 
-export const getSendOpenaiMessageMutationOptions = <
+export const getSendAetherMessageMutationOptions = <
   TError = ErrorType<unknown>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof sendOpenaiMessage>>,
+    Awaited<ReturnType<typeof sendAetherMessage>>,
     TError,
-    { id: number; data: BodyType<SendOpenaiMessageBody> },
+    { id: number; data: BodyType<SendAetherMessageBody> },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationOptions<
-  Awaited<ReturnType<typeof sendOpenaiMessage>>,
+  Awaited<ReturnType<typeof sendAetherMessage>>,
   TError,
-  { id: number; data: BodyType<SendOpenaiMessageBody> },
+  { id: number; data: BodyType<SendAetherMessageBody> },
   TContext
 > => {
-  const mutationKey = ["sendOpenaiMessage"];
+  const mutationKey = ["sendAetherMessage"];
   const { mutation: mutationOptions, request: requestOptions } = options
     ? options.mutation &&
       "mutationKey" in options.mutation &&
@@ -996,44 +996,44 @@ export const getSendOpenaiMessageMutationOptions = <
     : { mutation: { mutationKey }, request: undefined };
 
   const mutationFn: MutationFunction<
-    Awaited<ReturnType<typeof sendOpenaiMessage>>,
-    { id: number; data: BodyType<SendOpenaiMessageBody> }
+    Awaited<ReturnType<typeof sendAetherMessage>>,
+    { id: number; data: BodyType<SendAetherMessageBody> }
   > = (props) => {
     const { id, data } = props ?? {};
 
-    return sendOpenaiMessage(id, data, requestOptions);
+    return sendAetherMessage(id, data, requestOptions);
   };
 
   return { mutationFn, ...mutationOptions };
 };
 
-export type SendOpenaiMessageMutationResult = NonNullable<
-  Awaited<ReturnType<typeof sendOpenaiMessage>>
+export type SendAetherMessageMutationResult = NonNullable<
+  Awaited<ReturnType<typeof sendAetherMessage>>
 >;
-export type SendOpenaiMessageMutationBody = BodyType<SendOpenaiMessageBody>;
-export type SendOpenaiMessageMutationError = ErrorType<unknown>;
+export type SendAetherMessageMutationBody = BodyType<SendAetherMessageBody>;
+export type SendAetherMessageMutationError = ErrorType<unknown>;
 
 /**
  * @summary Send a text message and receive a streaming text response
  */
-export const useSendOpenaiMessage = <
+export const useSendAetherMessage = <
   TError = ErrorType<unknown>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof sendOpenaiMessage>>,
+    Awaited<ReturnType<typeof sendAetherMessage>>,
     TError,
-    { id: number; data: BodyType<SendOpenaiMessageBody> },
+    { id: number; data: BodyType<SendAetherMessageBody> },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationResult<
-  Awaited<ReturnType<typeof sendOpenaiMessage>>,
+  Awaited<ReturnType<typeof sendAetherMessage>>,
   TError,
-  { id: number; data: BodyType<SendOpenaiMessageBody> },
+  { id: number; data: BodyType<SendAetherMessageBody> },
   TContext
 > => {
-  return useMutation(getSendOpenaiMessageMutationOptions(options));
+  return useMutation(getSendAetherMessageMutationOptions(options));
 };
 
 /**
@@ -1041,7 +1041,7 @@ export const useSendOpenaiMessage = <
  * @summary Extract text from a photo using vision OCR
  */
 export const getScanImageTextUrl = () => {
-  return `/api/openai/scan-image`;
+  return `/api/aether/scan-image`;
 };
 
 export const scanImageText = async (
@@ -1057,7 +1057,7 @@ export const scanImageText = async (
 };
 
 export const getScanImageTextMutationOptions = <
-  TError = ErrorType<OpenaiError>,
+  TError = ErrorType<AetherError>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
@@ -1098,13 +1098,13 @@ export type ScanImageTextMutationResult = NonNullable<
   Awaited<ReturnType<typeof scanImageText>>
 >;
 export type ScanImageTextMutationBody = BodyType<ScanImageBody>;
-export type ScanImageTextMutationError = ErrorType<OpenaiError>;
+export type ScanImageTextMutationError = ErrorType<AetherError>;
 
 /**
  * @summary Extract text from a photo using vision OCR
  */
 export const useScanImageText = <
-  TError = ErrorType<OpenaiError>,
+  TError = ErrorType<AetherError>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
@@ -1128,7 +1128,7 @@ export const useScanImageText = <
  * @summary Clean up dictated text — fix obvious mishearings and add punctuation
  */
 export const getPolishTextUrl = () => {
-  return `/api/openai/polish-text`;
+  return `/api/aether/polish-text`;
 };
 
 export const polishText = async (
@@ -1144,7 +1144,7 @@ export const polishText = async (
 };
 
 export const getPolishTextMutationOptions = <
-  TError = ErrorType<OpenaiError>,
+  TError = ErrorType<AetherError>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
@@ -1185,13 +1185,13 @@ export type PolishTextMutationResult = NonNullable<
   Awaited<ReturnType<typeof polishText>>
 >;
 export type PolishTextMutationBody = BodyType<PolishTextBody>;
-export type PolishTextMutationError = ErrorType<OpenaiError>;
+export type PolishTextMutationError = ErrorType<AetherError>;
 
 /**
  * @summary Clean up dictated text — fix obvious mishearings and add punctuation
  */
 export const usePolishText = <
-  TError = ErrorType<OpenaiError>,
+  TError = ErrorType<AetherError>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
@@ -1213,41 +1213,41 @@ export const usePolishText = <
 /**
  * @summary Send audio and receive a streaming voice response
  */
-export const getSendOpenaiVoiceMessageUrl = (id: number) => {
-  return `/api/openai/conversations/${id}/voice-messages`;
+export const getSendAetherVoiceMessageUrl = (id: number) => {
+  return `/api/aether/conversations/${id}/voice-messages`;
 };
 
-export const sendOpenaiVoiceMessage = async (
+export const sendAetherVoiceMessage = async (
   id: number,
-  sendOpenaiVoiceMessageBody: SendOpenaiVoiceMessageBody,
+  sendAetherVoiceMessageBody: SendAetherVoiceMessageBody,
   options?: RequestInit,
 ): Promise<unknown> => {
-  return customFetch<unknown>(getSendOpenaiVoiceMessageUrl(id), {
+  return customFetch<unknown>(getSendAetherVoiceMessageUrl(id), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(sendOpenaiVoiceMessageBody),
+    body: JSON.stringify(sendAetherVoiceMessageBody),
   });
 };
 
-export const getSendOpenaiVoiceMessageMutationOptions = <
+export const getSendAetherVoiceMessageMutationOptions = <
   TError = ErrorType<unknown>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof sendOpenaiVoiceMessage>>,
+    Awaited<ReturnType<typeof sendAetherVoiceMessage>>,
     TError,
-    { id: number; data: BodyType<SendOpenaiVoiceMessageBody> },
+    { id: number; data: BodyType<SendAetherVoiceMessageBody> },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationOptions<
-  Awaited<ReturnType<typeof sendOpenaiVoiceMessage>>,
+  Awaited<ReturnType<typeof sendAetherVoiceMessage>>,
   TError,
-  { id: number; data: BodyType<SendOpenaiVoiceMessageBody> },
+  { id: number; data: BodyType<SendAetherVoiceMessageBody> },
   TContext
 > => {
-  const mutationKey = ["sendOpenaiVoiceMessage"];
+  const mutationKey = ["sendAetherVoiceMessage"];
   const { mutation: mutationOptions, request: requestOptions } = options
     ? options.mutation &&
       "mutationKey" in options.mutation &&
@@ -1257,45 +1257,45 @@ export const getSendOpenaiVoiceMessageMutationOptions = <
     : { mutation: { mutationKey }, request: undefined };
 
   const mutationFn: MutationFunction<
-    Awaited<ReturnType<typeof sendOpenaiVoiceMessage>>,
-    { id: number; data: BodyType<SendOpenaiVoiceMessageBody> }
+    Awaited<ReturnType<typeof sendAetherVoiceMessage>>,
+    { id: number; data: BodyType<SendAetherVoiceMessageBody> }
   > = (props) => {
     const { id, data } = props ?? {};
 
-    return sendOpenaiVoiceMessage(id, data, requestOptions);
+    return sendAetherVoiceMessage(id, data, requestOptions);
   };
 
   return { mutationFn, ...mutationOptions };
 };
 
-export type SendOpenaiVoiceMessageMutationResult = NonNullable<
-  Awaited<ReturnType<typeof sendOpenaiVoiceMessage>>
+export type SendAetherVoiceMessageMutationResult = NonNullable<
+  Awaited<ReturnType<typeof sendAetherVoiceMessage>>
 >;
-export type SendOpenaiVoiceMessageMutationBody =
-  BodyType<SendOpenaiVoiceMessageBody>;
-export type SendOpenaiVoiceMessageMutationError = ErrorType<unknown>;
+export type SendAetherVoiceMessageMutationBody =
+  BodyType<SendAetherVoiceMessageBody>;
+export type SendAetherVoiceMessageMutationError = ErrorType<unknown>;
 
 /**
  * @summary Send audio and receive a streaming voice response
  */
-export const useSendOpenaiVoiceMessage = <
+export const useSendAetherVoiceMessage = <
   TError = ErrorType<unknown>,
   TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
-    Awaited<ReturnType<typeof sendOpenaiVoiceMessage>>,
+    Awaited<ReturnType<typeof sendAetherVoiceMessage>>,
     TError,
-    { id: number; data: BodyType<SendOpenaiVoiceMessageBody> },
+    { id: number; data: BodyType<SendAetherVoiceMessageBody> },
     TContext
   >;
   request?: SecondParameter<typeof customFetch>;
 }): UseMutationResult<
-  Awaited<ReturnType<typeof sendOpenaiVoiceMessage>>,
+  Awaited<ReturnType<typeof sendAetherVoiceMessage>>,
   TError,
-  { id: number; data: BodyType<SendOpenaiVoiceMessageBody> },
+  { id: number; data: BodyType<SendAetherVoiceMessageBody> },
   TContext
 > => {
-  return useMutation(getSendOpenaiVoiceMessageMutationOptions(options));
+  return useMutation(getSendAetherVoiceMessageMutationOptions(options));
 };
 
 /**

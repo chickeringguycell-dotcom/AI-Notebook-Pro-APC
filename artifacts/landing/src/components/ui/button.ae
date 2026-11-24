@@ -1,0 +1,27 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/button.tsx (66 lines, 2401 bytes, sha256:797fde2b40582258)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.button {
+  use "@/lib/utils";
+  use "@radix-ui/react-slot";
+  use "class-variance-authority";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/button.tsx",
+    sourceLines: 66,
+    sourceBytes: 2401,
+    sha256: "797fde2b40582258fe895bae41c75f32be3df7b8db9e29ae9330c5e5d9cf74ad",
+    vendorLockIn: 0
+  }
+
+  pub struct buttonUnit { pub digest: u64 }
+
+  pub fn init_button(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Comp>;
+    vnode <HTMLButtonElement>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.button::init_button", 0x797fde2b40582258);
+  }
+}

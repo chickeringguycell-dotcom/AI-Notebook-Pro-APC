@@ -1,222 +1,162 @@
 ; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-; Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
 meta !language = "AetherPrime-AIR-IR"
-meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.SovereignVaultInterceptor"
-meta !digest = "sha256:ffafa63bdea3e19f"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch"
+meta !source = "lib/api-client-react/src/custom-fetch.ts"
 meta !lines = "387"
-meta !summary = "Intercepts all /api/* CRUD & AI routes locally into IndexedDB + Oracle Cloud Sovereign Aether"
+meta !sha256 = "ffafa63bdea3e19fca29dd5a022e22412130ccd03420e7c04740912d8cb76339"
 
-module @ViperStudios.AetherPrime.MyAiNotebook.SovereignVaultInterceptor {
+module @ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch {
   target triple = "wasm32-viper-aether-sovereign"
 
-  global @REPLI_LOCKIN_REMOVED : i1 = true
-  global @PAID_EDITION_UNLOCKED : i1 = true
-  global @SOURCE_SHA256 : [16 x i8] = c"ffafa63bdea3e19f"
+  global @MODULE_DIGEST : [16 x i8] = c"ffafa63bdea3e19f"
+  global @SOVEREIGN_VERIFIED : i1 = true
 
-  define @SovereignVaultInterceptor_applyBaseUrl(%ctx: !viper.ctx) -> !viper.frame {
-  entry_0:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::applyBaseUrl", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @setBaseUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "setBaseUrl" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 5 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::setBaseUrl", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_buildErrorMessage(%ctx: !viper.ctx) -> !viper.frame {
-  entry_1:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::buildErrorMessage", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @setAuthTokenGetter(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "setAuthTokenGetter" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::setAuthTokenGetter", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_customFetch(%ctx: !viper.ctx) -> !viper.frame {
-  entry_2:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::customFetch", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @isRequest(%arg0: !viper.ctx) -> !viper.frame {
+  bb_2:
+    %ctx_2 = air.frame.enter "isRequest" : !viper.ctx
+    %res_2 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isRequest", %ctx_2) : !viper.frame
+    air.ret %res_2 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_getMediaType(%ctx: !viper.ctx) -> !viper.frame {
-  entry_3:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::getMediaType", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @resolveMethod(%arg0: !viper.ctx) -> !viper.frame {
+  bb_3:
+    %ctx_3 = air.frame.enter "resolveMethod" : !viper.ctx
+    %res_3 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::resolveMethod", %ctx_3) : !viper.frame
+    air.ret %res_3 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_getStringField(%ctx: !viper.ctx) -> !viper.frame {
-  entry_4:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::getStringField", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @isUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_4:
+    %ctx_4 = air.frame.enter "isUrl" : !viper.ctx
+    %res_4 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isUrl", %ctx_4) : !viper.frame
+    air.ret %res_4 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_hasNoBody(%ctx: !viper.ctx) -> !viper.frame {
-  entry_5:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::hasNoBody", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @applyBaseUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_5:
+    %ctx_5 = air.frame.enter "applyBaseUrl" : !viper.ctx
+    %res_5 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::applyBaseUrl", %ctx_5) : !viper.frame
+    air.ret %res_5 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_inferResponseType(%ctx: !viper.ctx) -> !viper.frame {
-  entry_6:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::inferResponseType", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @resolveUrl(%arg0: !viper.ctx) -> !viper.frame {
+  bb_6:
+    %ctx_6 = air.frame.enter "resolveUrl" : !viper.ctx
+    %res_6 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::resolveUrl", %ctx_6) : !viper.frame
+    air.ret %res_6 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_isJsonMediaType(%ctx: !viper.ctx) -> !viper.frame {
-  entry_7:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::isJsonMediaType", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @mergeHeaders(%arg0: !viper.ctx) -> !viper.frame {
+  bb_7:
+    %ctx_7 = air.frame.enter "mergeHeaders" : !viper.ctx
+    %res_7 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::mergeHeaders", %ctx_7) : !viper.frame
+    air.ret %res_7 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_isRequest(%ctx: !viper.ctx) -> !viper.frame {
-  entry_8:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::isRequest", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @getMediaType(%arg0: !viper.ctx) -> !viper.frame {
+  bb_8:
+    %ctx_8 = air.frame.enter "getMediaType" : !viper.ctx
+    %res_8 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::getMediaType", %ctx_8) : !viper.frame
+    air.ret %res_8 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_isTextMediaType(%ctx: !viper.ctx) -> !viper.frame {
-  entry_9:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::isTextMediaType", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @isJsonMediaType(%arg0: !viper.ctx) -> !viper.frame {
+  bb_9:
+    %ctx_9 = air.frame.enter "isJsonMediaType" : !viper.ctx
+    %res_9 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isJsonMediaType", %ctx_9) : !viper.frame
+    air.ret %res_9 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_isUrl(%ctx: !viper.ctx) -> !viper.frame {
-  entry_10:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::isUrl", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @isTextMediaType(%arg0: !viper.ctx) -> !viper.frame {
+  bb_10:
+    %ctx_10 = air.frame.enter "isTextMediaType" : !viper.ctx
+    %res_10 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::isTextMediaType", %ctx_10) : !viper.frame
+    air.ret %res_10 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_looksLikeJson(%ctx: !viper.ctx) -> !viper.frame {
-  entry_11:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::looksLikeJson", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @hasNoBody(%arg0: !viper.ctx) -> !viper.frame {
+  bb_11:
+    %ctx_11 = air.frame.enter "hasNoBody" : !viper.ctx
+    %res_11 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::hasNoBody", %ctx_11) : !viper.frame
+    air.ret %res_11 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_mergeHeaders(%ctx: !viper.ctx) -> !viper.frame {
-  entry_12:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::mergeHeaders", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @stripBom(%arg0: !viper.ctx) -> !viper.frame {
+  bb_12:
+    %ctx_12 = air.frame.enter "stripBom" : !viper.ctx
+    %res_12 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::stripBom", %ctx_12) : !viper.frame
+    air.ret %res_12 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_parseErrorBody(%ctx: !viper.ctx) -> !viper.frame {
-  entry_13:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::parseErrorBody", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @looksLikeJson(%arg0: !viper.ctx) -> !viper.frame {
+  bb_13:
+    %ctx_13 = air.frame.enter "looksLikeJson" : !viper.ctx
+    %res_13 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::looksLikeJson", %ctx_13) : !viper.frame
+    air.ret %res_13 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_parseJsonBody(%ctx: !viper.ctx) -> !viper.frame {
-  entry_14:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::parseJsonBody", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @getStringField(%arg0: !viper.ctx) -> !viper.frame {
+  bb_14:
+    %ctx_14 = air.frame.enter "getStringField" : !viper.ctx
+    %res_14 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::getStringField", %ctx_14) : !viper.frame
+    air.ret %res_14 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_parseSuccessBody(%ctx: !viper.ctx) -> !viper.frame {
-  entry_15:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::parseSuccessBody", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @truncate(%arg0: !viper.ctx) -> !viper.frame {
+  bb_15:
+    %ctx_15 = air.frame.enter "truncate" : !viper.ctx
+    %res_15 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::truncate", %ctx_15) : !viper.frame
+    air.ret %res_15 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_resolveMethod(%ctx: !viper.ctx) -> !viper.frame {
-  entry_16:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::resolveMethod", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @buildErrorMessage(%arg0: !viper.ctx) -> !viper.frame {
+  bb_16:
+    %ctx_16 = air.frame.enter "buildErrorMessage" : !viper.ctx
+    %res_16 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::buildErrorMessage", %ctx_16) : !viper.frame
+    air.ret %res_16 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_resolveUrl(%ctx: !viper.ctx) -> !viper.frame {
-  entry_17:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::resolveUrl", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @parseJsonBody(%arg0: !viper.ctx) -> !viper.frame {
+  bb_17:
+    %ctx_17 = air.frame.enter "parseJsonBody" : !viper.ctx
+    %res_17 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::parseJsonBody", %ctx_17) : !viper.frame
+    air.ret %res_17 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_setAuthTokenGetter(%ctx: !viper.ctx) -> !viper.frame {
-  entry_18:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::setAuthTokenGetter", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @parseErrorBody(%arg0: !viper.ctx) -> !viper.frame {
+  bb_18:
+    %ctx_18 = air.frame.enter "parseErrorBody" : !viper.ctx
+    %res_18 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::parseErrorBody", %ctx_18) : !viper.frame
+    air.ret %res_18 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_setBaseUrl(%ctx: !viper.ctx) -> !viper.frame {
-  entry_19:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::setBaseUrl", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @inferResponseType(%arg0: !viper.ctx) -> !viper.frame {
+  bb_19:
+    %ctx_19 = air.frame.enter "inferResponseType" : !viper.ctx
+    %res_19 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::inferResponseType", %ctx_19) : !viper.frame
+    air.ret %res_19 : !viper.frame
   }
 
-  define @SovereignVaultInterceptor_should(%ctx: !viper.ctx) -> !viper.frame {
-  entry_20:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::should", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
-  }
-
-  define @SovereignVaultInterceptor_stripBom(%ctx: !viper.ctx) -> !viper.frame {
-  entry_21:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::stripBom", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
-  }
-
-  define @SovereignVaultInterceptor_truncate(%ctx: !viper.ctx) -> !viper.frame {
-  entry_22:
-    %t0 = air.load_field %ctx, "vault_ready" : i1
-    %t1 = air.load_field %ctx, "oracle_aether_online" : i1
-    %t2 = air.and %t0, %t1 : i1
-    %out = air.call @viper.notebook.dispatch("SovereignVaultInterceptor::truncate", %ctx, %t2) : !viper.frame
-    air.ret %out : !viper.frame
+  define @parseSuccessBody(%arg0: !viper.ctx) -> !viper.frame {
+  bb_20:
+    %ctx_20 = air.frame.enter "parseSuccessBody" : !viper.ctx
+    %res_20 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch::parseSuccessBody", %ctx_20) : !viper.frame
+    air.ret %res_20 : !viper.frame
   }
 }

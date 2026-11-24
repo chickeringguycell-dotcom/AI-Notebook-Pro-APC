@@ -1,49 +1,20 @@
-// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
-// Built with AetherPrime (.ae) & AIR IR (.air) — Permanent Studio Rule 64
-// Sovereign Module: StationeryPersonaEngine
-// Source Digest: sha256:eb0a185739207d1a (553 lines)
-// Architectural Contract: 28-theme stationery selector including 20 custom framed & 4-way precision-cut sheets + Classic Lined default
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/notepad/paper-picker.tsx
 
-namespace ViperStudios.AetherPrime.MyAiNotebook.StationeryPersonaEngine {
-
-  meta {
-    product: "My AI Notebook: Voice & Notes (com.ainotebook.mobile)",
-    architecture: "Sovereign-OnDevice-IndexedDB + Oracle-Cloud-24x7-Aether",
-    replitDependencies: 0,
-    thirdPartyLockIn: 0,
-    sourceDigest: "eb0a185739207d1a",
-    sourceLines: 553
-  }
-
-  pub const FONTS: SymbolRef = SymbolRef("FONTS");
-  pub const INK_COLORS: SymbolRef = SymbolRef("INK_COLORS");
-  pub const LINE_STYLES: SymbolRef = SymbolRef("LINE_STYLES");
-  pub const THEMES: SymbolRef = SymbolRef("THEMES");
-
-  struct FontDef { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct FontPickerProps { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct InkColorDef { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct InkColorPickerProps { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct LineStyle { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct PaperPickerProps { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct PaperTheme { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-  struct ThemeDef { sovereign_tag: u64, revision: u32, payload_hash: [u8; 32] }
-
-  pub const SOVEREIGN_ENDPOINTS: &[str] = &[
-    "indexeddb://viper_my_ai_notebook_vault_v1",
-  ];
-
-  contract StationeryPersonaEnginePipeline {
-    pub fn FontPicker(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn InkColorPicker(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn PaperPicker(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-    pub fn ThemeSwatch(ctx: &mut SovereignNotebookContext) -> Result<SignalFrame, SovereignFault>;
-
-    pub fn verifySovereignInvariants(state: &SovereignNotebookContext) -> bool {
-      assert!(state.replitAiDisconnected == true);
-      assert!(state.oracleAetherConnected == true);
-      assert!(state.uiLayoutPreserved == true);
-      return state.integrityDigest == 0xeb0a185739207d1a;
-    }
+namespace ViperStudios.AetherPrime.MyAiNotebook.paper_picker {
+  contract paper_pickerContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn PaperTheme() -> Any;
+    fn LineStyle() -> Any;
+    fn THEMES() -> Any;
+    fn InkColorDef() -> Any;
+    fn INK_COLORS() -> Any;
+    fn LINE_STYLES() -> Any;
+    fn FontDef() -> Any;
+    fn FONTS() -> Any;
+    fn PaperPicker() -> Any;
+    fn InkColorPicker() -> Any;
+    fn FontPicker() -> Any;
   }
 }

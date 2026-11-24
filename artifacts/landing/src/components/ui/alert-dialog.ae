@@ -1,0 +1,35 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/alert-dialog.tsx (140 lines, 4419 bytes, sha256:311bede35f785d7b)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.alert_dialog {
+  use "@/components/ui/button";
+  use "@/lib/utils";
+  use "@radix-ui/react-alert-dialog";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/alert-dialog.tsx",
+    sourceLines: 140,
+    sourceBytes: 4419,
+    sha256: "311bede35f785d7b1ecd7398986757e26409d1049352a94ccf83586b8603c92d",
+    vendorLockIn: 0
+  }
+
+  pub struct alert_dialogUnit { pub digest: u64 }
+
+  pub fn init_alert_dialog(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <AlertDialogOverlay>;
+    vnode <AlertDialogPortal>;
+    vnode <AlertDialogPrimitive.Action>;
+    vnode <AlertDialogPrimitive.Cancel>;
+    vnode <AlertDialogPrimitive.Content>;
+    vnode <AlertDialogPrimitive.Description>;
+    vnode <AlertDialogPrimitive.Overlay>;
+    vnode <AlertDialogPrimitive.Title>;
+    vnode <HTMLDivElement>;
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.alert_dialog::init_alert_dialog", 0x311bede35f785d7b);
+  }
+}

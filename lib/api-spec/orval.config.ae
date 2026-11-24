@@ -1,0 +1,22 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-spec/orval.config.ts (73 lines, 1803 bytes, sha256:9f90e6a59cbea548)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_spec.orval_config {
+  use "orval";
+  use "path";
+
+  meta {
+    sourcePath: "lib/api-spec/orval.config.ts",
+    sourceLines: 73,
+    sourceBytes: 1803,
+    sha256: "9f90e6a59cbea54853c714932f8fc87cead1224a3ab1066fd825aeaefde2aa4c",
+    vendorLockIn: 0
+  }
+
+  pub struct orval_configUnit { pub digest: u64 }
+
+  pub fn init_orval_config(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_spec.orval_config::init_orval_config", 0x9f90e6a59cbea548);
+  }
+}

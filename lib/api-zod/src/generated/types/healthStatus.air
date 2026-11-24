@@ -1,0 +1,21 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.healthStatus"
+meta !source = "lib/api-zod/src/generated/types/healthStatus.ts"
+meta !lines = "12"
+meta !sha256 = "ca592aaa48679661e10b65327a0f9f6c6dd42ecb8172a2efe1c8231d56009f4f"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.healthStatus {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"ca592aaa48679661"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @init_healthStatus(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "init_healthStatus" : !viper.ctx
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.healthStatus::init_healthStatus", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

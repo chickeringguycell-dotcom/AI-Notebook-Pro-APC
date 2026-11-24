@@ -1,0 +1,12 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/notepad/rich-editor.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.rich_editor {
+  contract rich_editorContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn ImageTarget() -> Any;
+    fn RichEditorHandle() -> Any;
+    fn RichEditor() -> Any;
+  }
+}

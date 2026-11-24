@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: locales/ar.ts
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.ar {
+  contract arContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn renderModule() -> Any;
+  }
+}

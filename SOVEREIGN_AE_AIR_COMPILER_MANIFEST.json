@@ -1,0 +1,1640 @@
+{
+  "product": "My AI Notebook: Voice & Notes",
+  "applicationId": "com.ainotebook.mobile",
+  "rule64Compliant": true,
+  "totalModules": 204,
+  "modules": [
+    {
+      "source": "artifacts/landing/vite.config.ts",
+      "ae": "artifacts/landing/vite.config.ae",
+      "air": "artifacts/landing/vite.config.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.vite_config",
+      "lines": 21,
+      "sha256": "6a55f12000e51d4371bd8452211034870fa5e6f077c8297607e07a71c733e1a3"
+    },
+    {
+      "source": "artifacts/landing/src/App.tsx",
+      "ae": "artifacts/landing/src/App.ae",
+      "air": "artifacts/landing/src/App.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App",
+      "lines": 39,
+      "sha256": "2688c6f9186e51be4af606a4c99ddcf7dc0ab7c13be5716c2cd83210e5ef1790"
+    },
+    {
+      "source": "artifacts/landing/src/index.css",
+      "ae": "artifacts/landing/src/index.ae",
+      "air": "artifacts/landing/src/index.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.index",
+      "lines": 184,
+      "sha256": "c1e2f475b1f57314cb17503d0bc3f98dc9c7292256519f5ecc9d01ccf68497a4"
+    },
+    {
+      "source": "artifacts/landing/src/main.tsx",
+      "ae": "artifacts/landing/src/main.ae",
+      "air": "artifacts/landing/src/main.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.main",
+      "lines": 6,
+      "sha256": "29946f51942fba11605c7595fd82b50b0d7e50148e0194fd356dacbc958f18ec"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/accordion.tsx",
+      "ae": "artifacts/landing/src/components/ui/accordion.ae",
+      "air": "artifacts/landing/src/components/ui/accordion.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.accordion",
+      "lines": 56,
+      "sha256": "dcbfb3243a26096fc3e5f54039ccb5c4c23d9bb79a4d5846b4be75bf912f07d9"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/alert-dialog.tsx",
+      "ae": "artifacts/landing/src/components/ui/alert-dialog.ae",
+      "air": "artifacts/landing/src/components/ui/alert-dialog.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.alert_dialog",
+      "lines": 140,
+      "sha256": "311bede35f785d7b1ecd7398986757e26409d1049352a94ccf83586b8603c92d"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/alert.tsx",
+      "ae": "artifacts/landing/src/components/ui/alert.ae",
+      "air": "artifacts/landing/src/components/ui/alert.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.alert",
+      "lines": 60,
+      "sha256": "5950ac01377e7eedc94b00eb3fee678745e4cc1a72b5343867f0733d07db6660"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/aspect-ratio.tsx",
+      "ae": "artifacts/landing/src/components/ui/aspect-ratio.ae",
+      "air": "artifacts/landing/src/components/ui/aspect-ratio.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.aspect_ratio",
+      "lines": 6,
+      "sha256": "08b0aa0b05efc573c7d63363c03e83d4b101bfeb54140764e96ddea30659cfcc"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/avatar.tsx",
+      "ae": "artifacts/landing/src/components/ui/avatar.ae",
+      "air": "artifacts/landing/src/components/ui/avatar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.avatar",
+      "lines": 51,
+      "sha256": "e78b35ed76c67d8ff50603fbe0dfa4fe600097bd860d89e65beea3e16683dad8"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/badge.tsx",
+      "ae": "artifacts/landing/src/components/ui/badge.ae",
+      "air": "artifacts/landing/src/components/ui/badge.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.badge",
+      "lines": 44,
+      "sha256": "c473f3377c5b08a0484e0d0376de5db4f9072eeb3b3bf7c746a08ce263a5579d"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/breadcrumb.tsx",
+      "ae": "artifacts/landing/src/components/ui/breadcrumb.ae",
+      "air": "artifacts/landing/src/components/ui/breadcrumb.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.breadcrumb",
+      "lines": 116,
+      "sha256": "c3d3dcb0d82fc5e91d8830bac7fead905686fe876f1f42c3ed872bb0a6b6584e"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/button-group.tsx",
+      "ae": "artifacts/landing/src/components/ui/button-group.ae",
+      "air": "artifacts/landing/src/components/ui/button-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.button_group",
+      "lines": 84,
+      "sha256": "e3716d270e9ef6457b5cd29464ae00194abc8093c08ebf726c9204d7a69231d9"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/button.tsx",
+      "ae": "artifacts/landing/src/components/ui/button.ae",
+      "air": "artifacts/landing/src/components/ui/button.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.button",
+      "lines": 66,
+      "sha256": "797fde2b40582258fe895bae41c75f32be3df7b8db9e29ae9330c5e5d9cf74ad"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/calendar.tsx",
+      "ae": "artifacts/landing/src/components/ui/calendar.ae",
+      "air": "artifacts/landing/src/components/ui/calendar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.calendar",
+      "lines": 214,
+      "sha256": "787a19c855cf2b826942d25440b63150c45094154c6a40e95abdb4109298b8b4"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/card.tsx",
+      "ae": "artifacts/landing/src/components/ui/card.ae",
+      "air": "artifacts/landing/src/components/ui/card.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.card",
+      "lines": 77,
+      "sha256": "525c4bb2c051987be64df0e92e1d90174912b219bf541e24ffbc4a3406de49e8"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/carousel.tsx",
+      "ae": "artifacts/landing/src/components/ui/carousel.ae",
+      "air": "artifacts/landing/src/components/ui/carousel.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.carousel",
+      "lines": 261,
+      "sha256": "5a4ff73c804e86c873382da80c453f1399006326ef042fb984c24162ec86666e"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/chart.tsx",
+      "ae": "artifacts/landing/src/components/ui/chart.ae",
+      "air": "artifacts/landing/src/components/ui/chart.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart",
+      "lines": 368,
+      "sha256": "b40d1236f168c746b228adec6bc4e9d196ea362a7910878f161d3c359a013b89"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/checkbox.tsx",
+      "ae": "artifacts/landing/src/components/ui/checkbox.ae",
+      "air": "artifacts/landing/src/components/ui/checkbox.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.checkbox",
+      "lines": 29,
+      "sha256": "ac389a574651c8bedffc10f80674c5fc2f02ab81291a5f4ad9c587d1f775fdce"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/collapsible.tsx",
+      "ae": "artifacts/landing/src/components/ui/collapsible.ae",
+      "air": "artifacts/landing/src/components/ui/collapsible.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.collapsible",
+      "lines": 12,
+      "sha256": "f4cdd104de29928bfcd40b865c7d08eed9157a537fbb8b5e6d0921f02b63cc04"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/command.tsx",
+      "ae": "artifacts/landing/src/components/ui/command.ae",
+      "air": "artifacts/landing/src/components/ui/command.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.command",
+      "lines": 154,
+      "sha256": "5a57ebc119f2357b097098d22865d45de8fda623ee88fe98b99999838c13633b"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/context-menu.tsx",
+      "ae": "artifacts/landing/src/components/ui/context-menu.ae",
+      "air": "artifacts/landing/src/components/ui/context-menu.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.context_menu",
+      "lines": 199,
+      "sha256": "5369fc82c51df067aec2934f5e711aaf9e3f745ed7baadd7ba4b77397dee2a1b"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/dialog.tsx",
+      "ae": "artifacts/landing/src/components/ui/dialog.ae",
+      "air": "artifacts/landing/src/components/ui/dialog.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.dialog",
+      "lines": 121,
+      "sha256": "f9c982ed8114c253c6ca738043d3f455e89c6d65569e90c9415776d6b4d6be14"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/drawer.tsx",
+      "ae": "artifacts/landing/src/components/ui/drawer.ae",
+      "air": "artifacts/landing/src/components/ui/drawer.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.drawer",
+      "lines": 117,
+      "sha256": "47ff6248307a4ac09bf7e00181a2a29f9f846691092e04cad03e15d749bc249b"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/dropdown-menu.tsx",
+      "ae": "artifacts/landing/src/components/ui/dropdown-menu.ae",
+      "air": "artifacts/landing/src/components/ui/dropdown-menu.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.dropdown_menu",
+      "lines": 202,
+      "sha256": "dc109123ecd59af01d07aa9f3a8e8a7085bd3f337388c5369799ab1ce6c2d45f"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/empty.tsx",
+      "ae": "artifacts/landing/src/components/ui/empty.ae",
+      "air": "artifacts/landing/src/components/ui/empty.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty",
+      "lines": 105,
+      "sha256": "9f975582a0290dbc7ce6efa3b36b376a4c3f07863026c3b74c1e73cb0023acb8"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/field.tsx",
+      "ae": "artifacts/landing/src/components/ui/field.ae",
+      "air": "artifacts/landing/src/components/ui/field.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.field",
+      "lines": 245,
+      "sha256": "e463611ab049c5e9b1c61691d239e05970ead7b577a191b3f80aa6f8ffccada9"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/form.tsx",
+      "ae": "artifacts/landing/src/components/ui/form.ae",
+      "air": "artifacts/landing/src/components/ui/form.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.form",
+      "lines": 177,
+      "sha256": "d50adf86568f76246f0f319c9e1e858627475563f6c1e38f5df7d4ee23958559"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/hover-card.tsx",
+      "ae": "artifacts/landing/src/components/ui/hover-card.ae",
+      "air": "artifacts/landing/src/components/ui/hover-card.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.hover_card",
+      "lines": 28,
+      "sha256": "00f9086b1412843e04e01d31d2fab00a25d65d789d1a382e41f01b1f3c167c3b"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/input-group.tsx",
+      "ae": "artifacts/landing/src/components/ui/input-group.ae",
+      "air": "artifacts/landing/src/components/ui/input-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_group",
+      "lines": 169,
+      "sha256": "e9dad28bc940ca29714312d6c75d83bfe63f0cf7f9a384d2a2969a00a1d79700"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/input-otp.tsx",
+      "ae": "artifacts/landing/src/components/ui/input-otp.ae",
+      "air": "artifacts/landing/src/components/ui/input-otp.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input_otp",
+      "lines": 70,
+      "sha256": "7c4799e3597f2780c09a39a1391b921fa16eaedd0476457492af734f58e2ec98"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/input.tsx",
+      "ae": "artifacts/landing/src/components/ui/input.ae",
+      "air": "artifacts/landing/src/components/ui/input.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.input",
+      "lines": 23,
+      "sha256": "6299a6a387dc55e528aec4342deaea0b83f1ea3a365c135a31a18ee55334f441"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/item.tsx",
+      "ae": "artifacts/landing/src/components/ui/item.ae",
+      "air": "artifacts/landing/src/components/ui/item.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item",
+      "lines": 194,
+      "sha256": "90983640aa7cfef8217422347d8e14825cf55137c76369decacf440767f03188"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/kbd.tsx",
+      "ae": "artifacts/landing/src/components/ui/kbd.ae",
+      "air": "artifacts/landing/src/components/ui/kbd.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd",
+      "lines": 29,
+      "sha256": "0c025e7736d435f563bfb44105e562629672799eb1f35cbf194148d06cd1a9f7"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/label.tsx",
+      "ae": "artifacts/landing/src/components/ui/label.ae",
+      "air": "artifacts/landing/src/components/ui/label.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.label",
+      "lines": 27,
+      "sha256": "2eac8fbb04002c42b0fbc4062d20d131e421796eaf65c37d2049e29e42ecbc5a"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/menubar.tsx",
+      "ae": "artifacts/landing/src/components/ui/menubar.ae",
+      "air": "artifacts/landing/src/components/ui/menubar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.menubar",
+      "lines": 255,
+      "sha256": "def61eb2c47c9ec319423471f4ca20045e99549958211cacf832e4ede769e484"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/navigation-menu.tsx",
+      "ae": "artifacts/landing/src/components/ui/navigation-menu.ae",
+      "air": "artifacts/landing/src/components/ui/navigation-menu.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.navigation_menu",
+      "lines": 129,
+      "sha256": "a06d96a582ac207ffcd38445d773c05e841d646efb185b5e9b65f73e5bd388c7"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/pagination.tsx",
+      "ae": "artifacts/landing/src/components/ui/pagination.ae",
+      "air": "artifacts/landing/src/components/ui/pagination.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.pagination",
+      "lines": 118,
+      "sha256": "9506dbd19ddd0c2810d1c9668a3f01606e39d9bf33ddc43329523c03bf629012"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/popover.tsx",
+      "ae": "artifacts/landing/src/components/ui/popover.ae",
+      "air": "artifacts/landing/src/components/ui/popover.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.popover",
+      "lines": 32,
+      "sha256": "04cf38bf94abd3fe1b51e90227e6e235ca74776f6fc6af718bfc149e7424f582"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/progress.tsx",
+      "ae": "artifacts/landing/src/components/ui/progress.ae",
+      "air": "artifacts/landing/src/components/ui/progress.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.progress",
+      "lines": 29,
+      "sha256": "6b3b4b69a1cb361076174892e9a96e1a09020307616965ef89f2f7e2495b57a9"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/radio-group.tsx",
+      "ae": "artifacts/landing/src/components/ui/radio-group.ae",
+      "air": "artifacts/landing/src/components/ui/radio-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.radio_group",
+      "lines": 43,
+      "sha256": "9ba7808b7404cdf2159c81883a39290033bc4308f2978eb80797c92b87421301"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/resizable.tsx",
+      "ae": "artifacts/landing/src/components/ui/resizable.ae",
+      "air": "artifacts/landing/src/components/ui/resizable.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.resizable",
+      "lines": 46,
+      "sha256": "70d1e35a5fb0897af7063cdd841d8ed636e1c332ef7ea6469f0f175a5a93dddf"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/scroll-area.tsx",
+      "ae": "artifacts/landing/src/components/ui/scroll-area.ae",
+      "air": "artifacts/landing/src/components/ui/scroll-area.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.scroll_area",
+      "lines": 47,
+      "sha256": "d7d02600effca55d0dcadce8c09c97ebddda3a19c5fa1d52dc9f6f727b26c6b1"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/select.tsx",
+      "ae": "artifacts/landing/src/components/ui/select.ae",
+      "air": "artifacts/landing/src/components/ui/select.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.select",
+      "lines": 160,
+      "sha256": "3d93ae07a8f3fe121ba60f4439e26bd7859f247eb8bfcafcf4b4a8a069888eec"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/separator.tsx",
+      "ae": "artifacts/landing/src/components/ui/separator.ae",
+      "air": "artifacts/landing/src/components/ui/separator.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.separator",
+      "lines": 30,
+      "sha256": "c956c4cca4b8442fa9314d6079b9f975e1ee39d5804aaf2966990f6258ac342a"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/sheet.tsx",
+      "ae": "artifacts/landing/src/components/ui/sheet.ae",
+      "air": "artifacts/landing/src/components/ui/sheet.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sheet",
+      "lines": 141,
+      "sha256": "363f8e06aa5b53c6475f445117f60fa9294be79e9e4f1f5bf70886800188124e"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/sidebar.tsx",
+      "ae": "artifacts/landing/src/components/ui/sidebar.ae",
+      "air": "artifacts/landing/src/components/ui/sidebar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar",
+      "lines": 728,
+      "sha256": "b023ff6245be1930e152a18c6aaa2b6dd1a11df7b05fcf41bbe483968bfb1c39"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/skeleton.tsx",
+      "ae": "artifacts/landing/src/components/ui/skeleton.ae",
+      "air": "artifacts/landing/src/components/ui/skeleton.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.skeleton",
+      "lines": 16,
+      "sha256": "87608e7cc815ad3d88e0b9de6c402bb37b58ea1b38636cf69709da1baff6e334"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/slider.tsx",
+      "ae": "artifacts/landing/src/components/ui/slider.ae",
+      "air": "artifacts/landing/src/components/ui/slider.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.slider",
+      "lines": 27,
+      "sha256": "234e38fef59169bd02d8f5b56ca02e5ec13a0bd6846c328927b924e1299f7fb0"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/sonner.tsx",
+      "ae": "artifacts/landing/src/components/ui/sonner.ae",
+      "air": "artifacts/landing/src/components/ui/sonner.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sonner",
+      "lines": 32,
+      "sha256": "771ab8637d27384c3ed030ba3be01a07b90c791c294eae06646250f8e81bc49e"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/spinner.tsx",
+      "ae": "artifacts/landing/src/components/ui/spinner.ae",
+      "air": "artifacts/landing/src/components/ui/spinner.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.spinner",
+      "lines": 17,
+      "sha256": "3e6e6e8d37fb4069f8e43e55318f8db06fbc36e6c8be0096da3c9337c1c798b9"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/switch.tsx",
+      "ae": "artifacts/landing/src/components/ui/switch.ae",
+      "air": "artifacts/landing/src/components/ui/switch.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.switch",
+      "lines": 28,
+      "sha256": "ba5867cd3145af1290edd80bb56d4b6d61c6331aa8ef96ae0b85487f4499feaf"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/table.tsx",
+      "ae": "artifacts/landing/src/components/ui/table.ae",
+      "air": "artifacts/landing/src/components/ui/table.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.table",
+      "lines": 121,
+      "sha256": "a4a6972c2d47d465d7f02c1dc4a6cbfeda7a97e46479c1b0cebdaf26bf9b497a"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/tabs.tsx",
+      "ae": "artifacts/landing/src/components/ui/tabs.ae",
+      "air": "artifacts/landing/src/components/ui/tabs.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.tabs",
+      "lines": 54,
+      "sha256": "6f74706bc6b53f9e4bcebb5e7ab8743b616aef181edc7758b8ee905f9b2fdcd7"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/textarea.tsx",
+      "ae": "artifacts/landing/src/components/ui/textarea.ae",
+      "air": "artifacts/landing/src/components/ui/textarea.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.textarea",
+      "lines": 23,
+      "sha256": "ec7c92aaed80f6923a7caa4bfe4eead395b50a7001504fd7fbb0b9381804dae9"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/toast.tsx",
+      "ae": "artifacts/landing/src/components/ui/toast.ae",
+      "air": "artifacts/landing/src/components/ui/toast.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toast",
+      "lines": 128,
+      "sha256": "99f9f4a3e897f71d89b01c6772b2f5db51b888cecb2c8214fb2c2dbb2b3e6356"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/toaster.tsx",
+      "ae": "artifacts/landing/src/components/ui/toaster.ae",
+      "air": "artifacts/landing/src/components/ui/toaster.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toaster",
+      "lines": 34,
+      "sha256": "1348f1a1f9820e2f1394b93cecc156a7e22f03636ab9270753985549aae2be74"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/toggle-group.tsx",
+      "ae": "artifacts/landing/src/components/ui/toggle-group.ae",
+      "air": "artifacts/landing/src/components/ui/toggle-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toggle_group",
+      "lines": 62,
+      "sha256": "dba95ead40d163af6959198ded9853a2cc9282b2cb534980f99937a65edf4e2d"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/toggle.tsx",
+      "ae": "artifacts/landing/src/components/ui/toggle.ae",
+      "air": "artifacts/landing/src/components/ui/toggle.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toggle",
+      "lines": 44,
+      "sha256": "955fa1bb97505b7a8bba3f7cff1991035a9afa0e1113f5d598147e6369dbf44b"
+    },
+    {
+      "source": "artifacts/landing/src/components/ui/tooltip.tsx",
+      "ae": "artifacts/landing/src/components/ui/tooltip.ae",
+      "air": "artifacts/landing/src/components/ui/tooltip.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.tooltip",
+      "lines": 33,
+      "sha256": "ce6afa34fb9dae51053a863b4c3f7c6e55f3da23b00149f31a8e4402bc963be0"
+    },
+    {
+      "source": "artifacts/landing/src/hooks/use-mobile.tsx",
+      "ae": "artifacts/landing/src/hooks/use-mobile.ae",
+      "air": "artifacts/landing/src/hooks/use-mobile.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.hooks.use_mobile",
+      "lines": 20,
+      "sha256": "ad0936f84f1df79d3697bfbff9c18f8ad58431c1cbaf2359c6a853b0fcc9f28b"
+    },
+    {
+      "source": "artifacts/landing/src/hooks/use-toast.ts",
+      "ae": "artifacts/landing/src/hooks/use-toast.ae",
+      "air": "artifacts/landing/src/hooks/use-toast.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.hooks.use_toast",
+      "lines": 192,
+      "sha256": "5aab0623ee24bddf9420c259a23a06996292e38ea70eccbac2715516f6d01a0b"
+    },
+    {
+      "source": "artifacts/landing/src/lib/analytics.ts",
+      "ae": "artifacts/landing/src/lib/analytics.ae",
+      "air": "artifacts/landing/src/lib/analytics.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics",
+      "lines": 49,
+      "sha256": "78e1de348c7e8f077c73ce397447b13a098a4757b1ad2e371984c443d4c71229"
+    },
+    {
+      "source": "artifacts/landing/src/lib/utils.ts",
+      "ae": "artifacts/landing/src/lib/utils.ae",
+      "air": "artifacts/landing/src/lib/utils.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.utils",
+      "lines": 7,
+      "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+    },
+    {
+      "source": "artifacts/landing/src/pages/landing-page.tsx",
+      "ae": "artifacts/landing/src/pages/landing-page.ae",
+      "air": "artifacts/landing/src/pages/landing-page.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.landing_page",
+      "lines": 441,
+      "sha256": "4b60983442bdc31d0569407d8e3abc81a4fcd7951c5a8cdf24a38eadc7e3bda2"
+    },
+    {
+      "source": "artifacts/landing/src/pages/not-found.tsx",
+      "ae": "artifacts/landing/src/pages/not-found.ae",
+      "air": "artifacts/landing/src/pages/not-found.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.not_found",
+      "lines": 22,
+      "sha256": "718a41bd05a163d1db32480aba013f5fe754894e656b6542a8e4b302275b172e"
+    },
+    {
+      "source": "artifacts/notepad/vite.config.ts",
+      "ae": "artifacts/notepad/vite.config.ae",
+      "air": "artifacts/notepad/vite.config.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.vite_config",
+      "lines": 92,
+      "sha256": "0cc2ed78eb6708bb1708dd317370b2f763e5010ed40dce90aae9f9b504be6bb4"
+    },
+    {
+      "source": "artifacts/notepad/src/App.tsx",
+      "ae": "artifacts/notepad/src/App.ae",
+      "air": "artifacts/notepad/src/App.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.App",
+      "lines": 99,
+      "sha256": "edc0be8d651f594bf9e30a5c58af5bfa5a1e74ab14c01692cf82c33229da82f7"
+    },
+    {
+      "source": "artifacts/notepad/src/index.css",
+      "ae": "artifacts/notepad/src/index.ae",
+      "air": "artifacts/notepad/src/index.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.index",
+      "lines": 901,
+      "sha256": "c65c21a60a2ccb3f88a963a5a86628a315283b46f38026da733bfedf78574491"
+    },
+    {
+      "source": "artifacts/notepad/src/main.tsx",
+      "ae": "artifacts/notepad/src/main.ae",
+      "air": "artifacts/notepad/src/main.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.main",
+      "lines": 6,
+      "sha256": "29946f51942fba11605c7595fd82b50b0d7e50148e0194fd356dacbc958f18ec"
+    },
+    {
+      "source": "artifacts/notepad/src/components/language-selector.tsx",
+      "ae": "artifacts/notepad/src/components/language-selector.ae",
+      "air": "artifacts/notepad/src/components/language-selector.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.language_selector",
+      "lines": 122,
+      "sha256": "34aa660a4bdeb7783c402a40587755b02000e60e939785dfee22e6033296c7a3"
+    },
+    {
+      "source": "artifacts/notepad/src/components/pro-gate-modal.tsx",
+      "ae": "artifacts/notepad/src/components/pro-gate-modal.ae",
+      "air": "artifacts/notepad/src/components/pro-gate-modal.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.pro_gate_modal",
+      "lines": 137,
+      "sha256": "365e04432e372febcf827073934c510297cf3c8628bbeb3827c52a26c9158510"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ship-animation.tsx",
+      "ae": "artifacts/notepad/src/components/ship-animation.ae",
+      "air": "artifacts/notepad/src/components/ship-animation.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ship_animation",
+      "lines": 174,
+      "sha256": "8fb103ab95c2305105e12ce9eae32c4264ac14b76ffbb2ddf66f20fdcfcf27bc"
+    },
+    {
+      "source": "artifacts/notepad/src/components/notepad/ai-panel.tsx",
+      "ae": "artifacts/notepad/src/components/notepad/ai-panel.ae",
+      "air": "artifacts/notepad/src/components/notepad/ai-panel.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.notepad.ai_panel",
+      "lines": 290,
+      "sha256": "6f7f17a4dbce335909d6cf80d2f6776ce91f531e7c04cd146e94b153cbdbea9e"
+    },
+    {
+      "source": "artifacts/notepad/src/components/notepad/editor.tsx",
+      "ae": "artifacts/notepad/src/components/notepad/editor.ae",
+      "air": "artifacts/notepad/src/components/notepad/editor.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.notepad.editor",
+      "lines": 826,
+      "sha256": "06d070d089ad09570918cd6f6e6808bf80bbae982c160495b4254e8b01df03c4"
+    },
+    {
+      "source": "artifacts/notepad/src/components/notepad/paper-picker.tsx",
+      "ae": "artifacts/notepad/src/components/notepad/paper-picker.ae",
+      "air": "artifacts/notepad/src/components/notepad/paper-picker.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.notepad.paper_picker",
+      "lines": 553,
+      "sha256": "eb0a185739207d1afa3f86de1ead5b5feabc21ce1f1af281b8bff353e006a0e3"
+    },
+    {
+      "source": "artifacts/notepad/src/components/notepad/photo-lightbox.tsx",
+      "ae": "artifacts/notepad/src/components/notepad/photo-lightbox.ae",
+      "air": "artifacts/notepad/src/components/notepad/photo-lightbox.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.notepad.photo_lightbox",
+      "lines": 118,
+      "sha256": "f652ab0b9871855f90f2f3044306fc1cdfab04dea5b48e5df02865b8ab77c3b8"
+    },
+    {
+      "source": "artifacts/notepad/src/components/notepad/rich-editor.tsx",
+      "ae": "artifacts/notepad/src/components/notepad/rich-editor.ae",
+      "air": "artifacts/notepad/src/components/notepad/rich-editor.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.notepad.rich_editor",
+      "lines": 551,
+      "sha256": "f09b1e419497db8dc53b6a0f7f711db7bd59c9a2caae1566278111f309db3f4a"
+    },
+    {
+      "source": "artifacts/notepad/src/components/notepad/sidebar.tsx",
+      "ae": "artifacts/notepad/src/components/notepad/sidebar.ae",
+      "air": "artifacts/notepad/src/components/notepad/sidebar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.notepad.sidebar",
+      "lines": 897,
+      "sha256": "224c204e9853e0ac9a3d1a8a898cf41c9b88cf535756f10559d3430a6ad37475"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/accordion.tsx",
+      "ae": "artifacts/notepad/src/components/ui/accordion.ae",
+      "air": "artifacts/notepad/src/components/ui/accordion.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.accordion",
+      "lines": 56,
+      "sha256": "dcbfb3243a26096fc3e5f54039ccb5c4c23d9bb79a4d5846b4be75bf912f07d9"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/alert-dialog.tsx",
+      "ae": "artifacts/notepad/src/components/ui/alert-dialog.ae",
+      "air": "artifacts/notepad/src/components/ui/alert-dialog.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.alert_dialog",
+      "lines": 140,
+      "sha256": "311bede35f785d7b1ecd7398986757e26409d1049352a94ccf83586b8603c92d"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/alert.tsx",
+      "ae": "artifacts/notepad/src/components/ui/alert.ae",
+      "air": "artifacts/notepad/src/components/ui/alert.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.alert",
+      "lines": 60,
+      "sha256": "5950ac01377e7eedc94b00eb3fee678745e4cc1a72b5343867f0733d07db6660"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/aspect-ratio.tsx",
+      "ae": "artifacts/notepad/src/components/ui/aspect-ratio.ae",
+      "air": "artifacts/notepad/src/components/ui/aspect-ratio.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.aspect_ratio",
+      "lines": 6,
+      "sha256": "08b0aa0b05efc573c7d63363c03e83d4b101bfeb54140764e96ddea30659cfcc"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/avatar.tsx",
+      "ae": "artifacts/notepad/src/components/ui/avatar.ae",
+      "air": "artifacts/notepad/src/components/ui/avatar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.avatar",
+      "lines": 51,
+      "sha256": "e78b35ed76c67d8ff50603fbe0dfa4fe600097bd860d89e65beea3e16683dad8"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/badge.tsx",
+      "ae": "artifacts/notepad/src/components/ui/badge.ae",
+      "air": "artifacts/notepad/src/components/ui/badge.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.badge",
+      "lines": 44,
+      "sha256": "c473f3377c5b08a0484e0d0376de5db4f9072eeb3b3bf7c746a08ce263a5579d"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/breadcrumb.tsx",
+      "ae": "artifacts/notepad/src/components/ui/breadcrumb.ae",
+      "air": "artifacts/notepad/src/components/ui/breadcrumb.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.breadcrumb",
+      "lines": 116,
+      "sha256": "c3d3dcb0d82fc5e91d8830bac7fead905686fe876f1f42c3ed872bb0a6b6584e"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/button-group.tsx",
+      "ae": "artifacts/notepad/src/components/ui/button-group.ae",
+      "air": "artifacts/notepad/src/components/ui/button-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.button_group",
+      "lines": 84,
+      "sha256": "e3716d270e9ef6457b5cd29464ae00194abc8093c08ebf726c9204d7a69231d9"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/button.tsx",
+      "ae": "artifacts/notepad/src/components/ui/button.ae",
+      "air": "artifacts/notepad/src/components/ui/button.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.button",
+      "lines": 66,
+      "sha256": "797fde2b40582258fe895bae41c75f32be3df7b8db9e29ae9330c5e5d9cf74ad"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/calendar.tsx",
+      "ae": "artifacts/notepad/src/components/ui/calendar.ae",
+      "air": "artifacts/notepad/src/components/ui/calendar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.calendar",
+      "lines": 214,
+      "sha256": "787a19c855cf2b826942d25440b63150c45094154c6a40e95abdb4109298b8b4"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/card.tsx",
+      "ae": "artifacts/notepad/src/components/ui/card.ae",
+      "air": "artifacts/notepad/src/components/ui/card.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.card",
+      "lines": 77,
+      "sha256": "525c4bb2c051987be64df0e92e1d90174912b219bf541e24ffbc4a3406de49e8"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/carousel.tsx",
+      "ae": "artifacts/notepad/src/components/ui/carousel.ae",
+      "air": "artifacts/notepad/src/components/ui/carousel.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.carousel",
+      "lines": 261,
+      "sha256": "5a4ff73c804e86c873382da80c453f1399006326ef042fb984c24162ec86666e"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/chart.tsx",
+      "ae": "artifacts/notepad/src/components/ui/chart.ae",
+      "air": "artifacts/notepad/src/components/ui/chart.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.chart",
+      "lines": 368,
+      "sha256": "b40d1236f168c746b228adec6bc4e9d196ea362a7910878f161d3c359a013b89"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/checkbox.tsx",
+      "ae": "artifacts/notepad/src/components/ui/checkbox.ae",
+      "air": "artifacts/notepad/src/components/ui/checkbox.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.checkbox",
+      "lines": 29,
+      "sha256": "ac389a574651c8bedffc10f80674c5fc2f02ab81291a5f4ad9c587d1f775fdce"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/collapsible.tsx",
+      "ae": "artifacts/notepad/src/components/ui/collapsible.ae",
+      "air": "artifacts/notepad/src/components/ui/collapsible.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.collapsible",
+      "lines": 12,
+      "sha256": "f4cdd104de29928bfcd40b865c7d08eed9157a537fbb8b5e6d0921f02b63cc04"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/command.tsx",
+      "ae": "artifacts/notepad/src/components/ui/command.ae",
+      "air": "artifacts/notepad/src/components/ui/command.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.command",
+      "lines": 154,
+      "sha256": "5a57ebc119f2357b097098d22865d45de8fda623ee88fe98b99999838c13633b"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/context-menu.tsx",
+      "ae": "artifacts/notepad/src/components/ui/context-menu.ae",
+      "air": "artifacts/notepad/src/components/ui/context-menu.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.context_menu",
+      "lines": 199,
+      "sha256": "5369fc82c51df067aec2934f5e711aaf9e3f745ed7baadd7ba4b77397dee2a1b"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/dialog.tsx",
+      "ae": "artifacts/notepad/src/components/ui/dialog.ae",
+      "air": "artifacts/notepad/src/components/ui/dialog.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.dialog",
+      "lines": 121,
+      "sha256": "f9c982ed8114c253c6ca738043d3f455e89c6d65569e90c9415776d6b4d6be14"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/drawer.tsx",
+      "ae": "artifacts/notepad/src/components/ui/drawer.ae",
+      "air": "artifacts/notepad/src/components/ui/drawer.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.drawer",
+      "lines": 117,
+      "sha256": "47ff6248307a4ac09bf7e00181a2a29f9f846691092e04cad03e15d749bc249b"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/dropdown-menu.tsx",
+      "ae": "artifacts/notepad/src/components/ui/dropdown-menu.ae",
+      "air": "artifacts/notepad/src/components/ui/dropdown-menu.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.dropdown_menu",
+      "lines": 202,
+      "sha256": "dc109123ecd59af01d07aa9f3a8e8a7085bd3f337388c5369799ab1ce6c2d45f"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/empty.tsx",
+      "ae": "artifacts/notepad/src/components/ui/empty.ae",
+      "air": "artifacts/notepad/src/components/ui/empty.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.empty",
+      "lines": 105,
+      "sha256": "9f975582a0290dbc7ce6efa3b36b376a4c3f07863026c3b74c1e73cb0023acb8"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/field.tsx",
+      "ae": "artifacts/notepad/src/components/ui/field.ae",
+      "air": "artifacts/notepad/src/components/ui/field.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.field",
+      "lines": 245,
+      "sha256": "e463611ab049c5e9b1c61691d239e05970ead7b577a191b3f80aa6f8ffccada9"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/form.tsx",
+      "ae": "artifacts/notepad/src/components/ui/form.ae",
+      "air": "artifacts/notepad/src/components/ui/form.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.form",
+      "lines": 177,
+      "sha256": "d50adf86568f76246f0f319c9e1e858627475563f6c1e38f5df7d4ee23958559"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/hover-card.tsx",
+      "ae": "artifacts/notepad/src/components/ui/hover-card.ae",
+      "air": "artifacts/notepad/src/components/ui/hover-card.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.hover_card",
+      "lines": 28,
+      "sha256": "00f9086b1412843e04e01d31d2fab00a25d65d789d1a382e41f01b1f3c167c3b"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/input-group.tsx",
+      "ae": "artifacts/notepad/src/components/ui/input-group.ae",
+      "air": "artifacts/notepad/src/components/ui/input-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.input_group",
+      "lines": 169,
+      "sha256": "e9dad28bc940ca29714312d6c75d83bfe63f0cf7f9a384d2a2969a00a1d79700"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/input-otp.tsx",
+      "ae": "artifacts/notepad/src/components/ui/input-otp.ae",
+      "air": "artifacts/notepad/src/components/ui/input-otp.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.input_otp",
+      "lines": 70,
+      "sha256": "7c4799e3597f2780c09a39a1391b921fa16eaedd0476457492af734f58e2ec98"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/input.tsx",
+      "ae": "artifacts/notepad/src/components/ui/input.ae",
+      "air": "artifacts/notepad/src/components/ui/input.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.input",
+      "lines": 23,
+      "sha256": "6299a6a387dc55e528aec4342deaea0b83f1ea3a365c135a31a18ee55334f441"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/item.tsx",
+      "ae": "artifacts/notepad/src/components/ui/item.ae",
+      "air": "artifacts/notepad/src/components/ui/item.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.item",
+      "lines": 194,
+      "sha256": "90983640aa7cfef8217422347d8e14825cf55137c76369decacf440767f03188"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/kbd.tsx",
+      "ae": "artifacts/notepad/src/components/ui/kbd.ae",
+      "air": "artifacts/notepad/src/components/ui/kbd.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.kbd",
+      "lines": 29,
+      "sha256": "0c025e7736d435f563bfb44105e562629672799eb1f35cbf194148d06cd1a9f7"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/label.tsx",
+      "ae": "artifacts/notepad/src/components/ui/label.ae",
+      "air": "artifacts/notepad/src/components/ui/label.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.label",
+      "lines": 27,
+      "sha256": "2eac8fbb04002c42b0fbc4062d20d131e421796eaf65c37d2049e29e42ecbc5a"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/menubar.tsx",
+      "ae": "artifacts/notepad/src/components/ui/menubar.ae",
+      "air": "artifacts/notepad/src/components/ui/menubar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.menubar",
+      "lines": 255,
+      "sha256": "def61eb2c47c9ec319423471f4ca20045e99549958211cacf832e4ede769e484"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/navigation-menu.tsx",
+      "ae": "artifacts/notepad/src/components/ui/navigation-menu.ae",
+      "air": "artifacts/notepad/src/components/ui/navigation-menu.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.navigation_menu",
+      "lines": 129,
+      "sha256": "a06d96a582ac207ffcd38445d773c05e841d646efb185b5e9b65f73e5bd388c7"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/pagination.tsx",
+      "ae": "artifacts/notepad/src/components/ui/pagination.ae",
+      "air": "artifacts/notepad/src/components/ui/pagination.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.pagination",
+      "lines": 118,
+      "sha256": "9506dbd19ddd0c2810d1c9668a3f01606e39d9bf33ddc43329523c03bf629012"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/popover.tsx",
+      "ae": "artifacts/notepad/src/components/ui/popover.ae",
+      "air": "artifacts/notepad/src/components/ui/popover.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.popover",
+      "lines": 32,
+      "sha256": "04cf38bf94abd3fe1b51e90227e6e235ca74776f6fc6af718bfc149e7424f582"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/progress.tsx",
+      "ae": "artifacts/notepad/src/components/ui/progress.ae",
+      "air": "artifacts/notepad/src/components/ui/progress.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.progress",
+      "lines": 29,
+      "sha256": "6b3b4b69a1cb361076174892e9a96e1a09020307616965ef89f2f7e2495b57a9"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/radio-group.tsx",
+      "ae": "artifacts/notepad/src/components/ui/radio-group.ae",
+      "air": "artifacts/notepad/src/components/ui/radio-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.radio_group",
+      "lines": 43,
+      "sha256": "9ba7808b7404cdf2159c81883a39290033bc4308f2978eb80797c92b87421301"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/resizable.tsx",
+      "ae": "artifacts/notepad/src/components/ui/resizable.ae",
+      "air": "artifacts/notepad/src/components/ui/resizable.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.resizable",
+      "lines": 46,
+      "sha256": "70d1e35a5fb0897af7063cdd841d8ed636e1c332ef7ea6469f0f175a5a93dddf"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/scroll-area.tsx",
+      "ae": "artifacts/notepad/src/components/ui/scroll-area.ae",
+      "air": "artifacts/notepad/src/components/ui/scroll-area.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.scroll_area",
+      "lines": 47,
+      "sha256": "d7d02600effca55d0dcadce8c09c97ebddda3a19c5fa1d52dc9f6f727b26c6b1"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/select.tsx",
+      "ae": "artifacts/notepad/src/components/ui/select.ae",
+      "air": "artifacts/notepad/src/components/ui/select.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.select",
+      "lines": 160,
+      "sha256": "3d93ae07a8f3fe121ba60f4439e26bd7859f247eb8bfcafcf4b4a8a069888eec"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/separator.tsx",
+      "ae": "artifacts/notepad/src/components/ui/separator.ae",
+      "air": "artifacts/notepad/src/components/ui/separator.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.separator",
+      "lines": 30,
+      "sha256": "c956c4cca4b8442fa9314d6079b9f975e1ee39d5804aaf2966990f6258ac342a"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/sheet.tsx",
+      "ae": "artifacts/notepad/src/components/ui/sheet.ae",
+      "air": "artifacts/notepad/src/components/ui/sheet.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.sheet",
+      "lines": 141,
+      "sha256": "363f8e06aa5b53c6475f445117f60fa9294be79e9e4f1f5bf70886800188124e"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/sidebar.tsx",
+      "ae": "artifacts/notepad/src/components/ui/sidebar.ae",
+      "air": "artifacts/notepad/src/components/ui/sidebar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.sidebar",
+      "lines": 728,
+      "sha256": "b023ff6245be1930e152a18c6aaa2b6dd1a11df7b05fcf41bbe483968bfb1c39"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/skeleton.tsx",
+      "ae": "artifacts/notepad/src/components/ui/skeleton.ae",
+      "air": "artifacts/notepad/src/components/ui/skeleton.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.skeleton",
+      "lines": 16,
+      "sha256": "87608e7cc815ad3d88e0b9de6c402bb37b58ea1b38636cf69709da1baff6e334"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/slider.tsx",
+      "ae": "artifacts/notepad/src/components/ui/slider.ae",
+      "air": "artifacts/notepad/src/components/ui/slider.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.slider",
+      "lines": 27,
+      "sha256": "234e38fef59169bd02d8f5b56ca02e5ec13a0bd6846c328927b924e1299f7fb0"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/sonner.tsx",
+      "ae": "artifacts/notepad/src/components/ui/sonner.ae",
+      "air": "artifacts/notepad/src/components/ui/sonner.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.sonner",
+      "lines": 32,
+      "sha256": "771ab8637d27384c3ed030ba3be01a07b90c791c294eae06646250f8e81bc49e"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/spinner.tsx",
+      "ae": "artifacts/notepad/src/components/ui/spinner.ae",
+      "air": "artifacts/notepad/src/components/ui/spinner.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.spinner",
+      "lines": 17,
+      "sha256": "3e6e6e8d37fb4069f8e43e55318f8db06fbc36e6c8be0096da3c9337c1c798b9"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/switch.tsx",
+      "ae": "artifacts/notepad/src/components/ui/switch.ae",
+      "air": "artifacts/notepad/src/components/ui/switch.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.switch",
+      "lines": 28,
+      "sha256": "ba5867cd3145af1290edd80bb56d4b6d61c6331aa8ef96ae0b85487f4499feaf"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/table.tsx",
+      "ae": "artifacts/notepad/src/components/ui/table.ae",
+      "air": "artifacts/notepad/src/components/ui/table.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.table",
+      "lines": 121,
+      "sha256": "a4a6972c2d47d465d7f02c1dc4a6cbfeda7a97e46479c1b0cebdaf26bf9b497a"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/tabs.tsx",
+      "ae": "artifacts/notepad/src/components/ui/tabs.ae",
+      "air": "artifacts/notepad/src/components/ui/tabs.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.tabs",
+      "lines": 54,
+      "sha256": "6f74706bc6b53f9e4bcebb5e7ab8743b616aef181edc7758b8ee905f9b2fdcd7"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/textarea.tsx",
+      "ae": "artifacts/notepad/src/components/ui/textarea.ae",
+      "air": "artifacts/notepad/src/components/ui/textarea.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.textarea",
+      "lines": 23,
+      "sha256": "ec7c92aaed80f6923a7caa4bfe4eead395b50a7001504fd7fbb0b9381804dae9"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/toast.tsx",
+      "ae": "artifacts/notepad/src/components/ui/toast.ae",
+      "air": "artifacts/notepad/src/components/ui/toast.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.toast",
+      "lines": 128,
+      "sha256": "99f9f4a3e897f71d89b01c6772b2f5db51b888cecb2c8214fb2c2dbb2b3e6356"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/toaster.tsx",
+      "ae": "artifacts/notepad/src/components/ui/toaster.ae",
+      "air": "artifacts/notepad/src/components/ui/toaster.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.toaster",
+      "lines": 34,
+      "sha256": "1348f1a1f9820e2f1394b93cecc156a7e22f03636ab9270753985549aae2be74"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/toggle-group.tsx",
+      "ae": "artifacts/notepad/src/components/ui/toggle-group.ae",
+      "air": "artifacts/notepad/src/components/ui/toggle-group.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.toggle_group",
+      "lines": 62,
+      "sha256": "dba95ead40d163af6959198ded9853a2cc9282b2cb534980f99937a65edf4e2d"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/toggle.tsx",
+      "ae": "artifacts/notepad/src/components/ui/toggle.ae",
+      "air": "artifacts/notepad/src/components/ui/toggle.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.toggle",
+      "lines": 44,
+      "sha256": "955fa1bb97505b7a8bba3f7cff1991035a9afa0e1113f5d598147e6369dbf44b"
+    },
+    {
+      "source": "artifacts/notepad/src/components/ui/tooltip.tsx",
+      "ae": "artifacts/notepad/src/components/ui/tooltip.ae",
+      "air": "artifacts/notepad/src/components/ui/tooltip.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.components.ui.tooltip",
+      "lines": 33,
+      "sha256": "ce6afa34fb9dae51053a863b4c3f7c6e55f3da23b00149f31a8e4402bc963be0"
+    },
+    {
+      "source": "artifacts/notepad/src/contexts/language-context.tsx",
+      "ae": "artifacts/notepad/src/contexts/language-context.ae",
+      "air": "artifacts/notepad/src/contexts/language-context.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.contexts.language_context",
+      "lines": 114,
+      "sha256": "987955b547b735d5b8eee800ed115c5a8c16e18b696dfeef773451ff858619f6"
+    },
+    {
+      "source": "artifacts/notepad/src/hooks/use-ai-chat.ts",
+      "ae": "artifacts/notepad/src/hooks/use-ai-chat.ae",
+      "air": "artifacts/notepad/src/hooks/use-ai-chat.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.hooks.use_ai_chat",
+      "lines": 80,
+      "sha256": "7effbc880c204a1942e998fea9ec1752ae0010095579e9e79dad3c8d00102cc0"
+    },
+    {
+      "source": "artifacts/notepad/src/hooks/use-debounce.ts",
+      "ae": "artifacts/notepad/src/hooks/use-debounce.ae",
+      "air": "artifacts/notepad/src/hooks/use-debounce.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.hooks.use_debounce",
+      "lines": 18,
+      "sha256": "56258cd9b4f7f25cc50b19321214fe1a29bd318e36232de0aabc08a7e334a418"
+    },
+    {
+      "source": "artifacts/notepad/src/hooks/use-mobile.tsx",
+      "ae": "artifacts/notepad/src/hooks/use-mobile.ae",
+      "air": "artifacts/notepad/src/hooks/use-mobile.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.hooks.use_mobile",
+      "lines": 20,
+      "sha256": "ad0936f84f1df79d3697bfbff9c18f8ad58431c1cbaf2359c6a853b0fcc9f28b"
+    },
+    {
+      "source": "artifacts/notepad/src/hooks/use-pro-status.ts",
+      "ae": "artifacts/notepad/src/hooks/use-pro-status.ae",
+      "air": "artifacts/notepad/src/hooks/use-pro-status.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.hooks.use_pro_status",
+      "lines": 33,
+      "sha256": "7296e2193e564b66def47b77ce1f52ccc35bead0c3b82ad3612049c90d5cbb82"
+    },
+    {
+      "source": "artifacts/notepad/src/hooks/use-pwa-install.ts",
+      "ae": "artifacts/notepad/src/hooks/use-pwa-install.ae",
+      "air": "artifacts/notepad/src/hooks/use-pwa-install.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.hooks.use_pwa_install",
+      "lines": 63,
+      "sha256": "fd67cd1fdbe453f30c7c9dcde73200180dc6fd7daa764316b21de5703adb3187"
+    },
+    {
+      "source": "artifacts/notepad/src/hooks/use-speech-recognition.ts",
+      "ae": "artifacts/notepad/src/hooks/use-speech-recognition.ae",
+      "air": "artifacts/notepad/src/hooks/use-speech-recognition.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.hooks.use_speech_recognition",
+      "lines": 72,
+      "sha256": "99876e5d9d403fc9c75f7e3fe91992b79518acea22561427cfb93467e331bd31"
+    },
+    {
+      "source": "artifacts/notepad/src/hooks/use-toast.ts",
+      "ae": "artifacts/notepad/src/hooks/use-toast.ae",
+      "air": "artifacts/notepad/src/hooks/use-toast.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.hooks.use_toast",
+      "lines": 192,
+      "sha256": "5aab0623ee24bddf9420c259a23a06996292e38ea70eccbac2715516f6d01a0b"
+    },
+    {
+      "source": "artifacts/notepad/src/lib/analytics.ts",
+      "ae": "artifacts/notepad/src/lib/analytics.ae",
+      "air": "artifacts/notepad/src/lib/analytics.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.lib.analytics",
+      "lines": 50,
+      "sha256": "bb163f3b9b8aa1096bd506b0f6982ec2beb2b01860d2bacca26ce0188c11dd01"
+    },
+    {
+      "source": "artifacts/notepad/src/lib/notes-io.ts",
+      "ae": "artifacts/notepad/src/lib/notes-io.ae",
+      "air": "artifacts/notepad/src/lib/notes-io.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.lib.notes_io",
+      "lines": 180,
+      "sha256": "1c5b0a3d4e56ce532bcfcbbac67549fb1212a240d8cdf372865712423ab52444"
+    },
+    {
+      "source": "artifacts/notepad/src/lib/sovereign-aether-runtime.ts",
+      "ae": "artifacts/notepad/src/lib/sovereign-aether-runtime.ae",
+      "air": "artifacts/notepad/src/lib/sovereign-aether-runtime.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.lib.sovereign_aether_runtime",
+      "lines": 597,
+      "sha256": "dc6adfa250edd7137364e135be63794f315a022a96c9210b9724b991d00aa03c"
+    },
+    {
+      "source": "artifacts/notepad/src/lib/upload-photo.ts",
+      "ae": "artifacts/notepad/src/lib/upload-photo.ae",
+      "air": "artifacts/notepad/src/lib/upload-photo.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.lib.upload_photo",
+      "lines": 15,
+      "sha256": "585d8fbcbecd4593495a3f6818131a4335d4141a6c7892835c51105b35fa3917"
+    },
+    {
+      "source": "artifacts/notepad/src/lib/utils.ts",
+      "ae": "artifacts/notepad/src/lib/utils.ae",
+      "air": "artifacts/notepad/src/lib/utils.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.lib.utils",
+      "lines": 7,
+      "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/ar.ts",
+      "ae": "artifacts/notepad/src/locales/ar.ae",
+      "air": "artifacts/notepad/src/locales/ar.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.ar",
+      "lines": 48,
+      "sha256": "ef4af86ac9f3e871ffa59072064d18c52da9471e9ca21505d7aa84d2c4c17258"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/bn.ts",
+      "ae": "artifacts/notepad/src/locales/bn.ae",
+      "air": "artifacts/notepad/src/locales/bn.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.bn",
+      "lines": 48,
+      "sha256": "902c1b69a58912747eda8b67b6750b1d2c648cfe5ced0b9918f7229b427aa800"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/da.ts",
+      "ae": "artifacts/notepad/src/locales/da.ae",
+      "air": "artifacts/notepad/src/locales/da.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.da",
+      "lines": 48,
+      "sha256": "6a026ac9e093d497cc0ed8707df149e9f56e6232acbb84e7939f68112656c726"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/de.ts",
+      "ae": "artifacts/notepad/src/locales/de.ae",
+      "air": "artifacts/notepad/src/locales/de.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.de",
+      "lines": 48,
+      "sha256": "ae30bdbe95e9425934175af7b8d510ab37d853dae67cf4d6a3c0d70d3c3680ad"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/en.ts",
+      "ae": "artifacts/notepad/src/locales/en.ae",
+      "air": "artifacts/notepad/src/locales/en.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.en",
+      "lines": 47,
+      "sha256": "f5b8bbb561baaf95e120a134c9f926a6a1d7bfe14590ea1fbdf27dcc73072f0e"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/es.ts",
+      "ae": "artifacts/notepad/src/locales/es.ae",
+      "air": "artifacts/notepad/src/locales/es.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.es",
+      "lines": 47,
+      "sha256": "ebe18f9453001994bf04c5ebdb8cf25286d2371a067c22238cfbf0f039ed8433"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/fil.ts",
+      "ae": "artifacts/notepad/src/locales/fil.ae",
+      "air": "artifacts/notepad/src/locales/fil.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.fil",
+      "lines": 48,
+      "sha256": "0ad9c9ddc1d9e94c5fe2dca2a01ecbf39e8cafd9341428c1c1935286d39b3b6a"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/fr.ts",
+      "ae": "artifacts/notepad/src/locales/fr.ae",
+      "air": "artifacts/notepad/src/locales/fr.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.fr",
+      "lines": 47,
+      "sha256": "2df101c1be317d1c34054b11e68cbc4fa8ae16d1d12d618b1434da3d96fe4a49"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/hi.ts",
+      "ae": "artifacts/notepad/src/locales/hi.ae",
+      "air": "artifacts/notepad/src/locales/hi.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.hi",
+      "lines": 48,
+      "sha256": "538fad7fbcd22584558cb079162066dc6430c115ef7cce98ec231be897b6ac5b"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/id.ts",
+      "ae": "artifacts/notepad/src/locales/id.ae",
+      "air": "artifacts/notepad/src/locales/id.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.id",
+      "lines": 48,
+      "sha256": "e3bc57acd970d150ef11193f105660103881786ef6870a20a770f01c16eb03e3"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/it.ts",
+      "ae": "artifacts/notepad/src/locales/it.ae",
+      "air": "artifacts/notepad/src/locales/it.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.it",
+      "lines": 48,
+      "sha256": "881db6481144928f16222147afc9974cdf2178f82d7a654d8e0153220ba06a26"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/ja.ts",
+      "ae": "artifacts/notepad/src/locales/ja.ae",
+      "air": "artifacts/notepad/src/locales/ja.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.ja",
+      "lines": 48,
+      "sha256": "66fccbd5596570a00fbc3125a18884598a9b2c3efa73bae56088baa5d9cb5734"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/ko.ts",
+      "ae": "artifacts/notepad/src/locales/ko.ae",
+      "air": "artifacts/notepad/src/locales/ko.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.ko",
+      "lines": 48,
+      "sha256": "cbc6f47eeb62ceec3afd33a2b5b9709982c15057763b779b74ea03c4a98052f6"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/ms.ts",
+      "ae": "artifacts/notepad/src/locales/ms.ae",
+      "air": "artifacts/notepad/src/locales/ms.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.ms",
+      "lines": 48,
+      "sha256": "c4bfbe402093fda764193c8372f1d82c29924d7bf9f863ec86148fb074bd21f3"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/nl.ts",
+      "ae": "artifacts/notepad/src/locales/nl.ae",
+      "air": "artifacts/notepad/src/locales/nl.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.nl",
+      "lines": 48,
+      "sha256": "96b4f05d060d932e5c4097f12497ce6e6167e3ce710f34dd1ad040364037a5d9"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/no.ts",
+      "ae": "artifacts/notepad/src/locales/no.ae",
+      "air": "artifacts/notepad/src/locales/no.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.no",
+      "lines": 48,
+      "sha256": "7254f19686d6b4618cab43f1e4fc31a74f443973ba2158495c3db55671f159aa"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/pl.ts",
+      "ae": "artifacts/notepad/src/locales/pl.ae",
+      "air": "artifacts/notepad/src/locales/pl.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.pl",
+      "lines": 48,
+      "sha256": "81665a3617a3a629c3475a54ce59d9ed692a89e7158fa87160299e887498851d"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/pt.ts",
+      "ae": "artifacts/notepad/src/locales/pt.ae",
+      "air": "artifacts/notepad/src/locales/pt.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.pt",
+      "lines": 47,
+      "sha256": "f40d74421cb3ce15c928d9b51494d55f2a953d5f492321f51ca509fb9fe755ed"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/ru.ts",
+      "ae": "artifacts/notepad/src/locales/ru.ae",
+      "air": "artifacts/notepad/src/locales/ru.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.ru",
+      "lines": 47,
+      "sha256": "ced3ffd736918e8c902e98b721b44bc69982f3b48ca8a0d42831a3d8db5d71de"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/sv.ts",
+      "ae": "artifacts/notepad/src/locales/sv.ae",
+      "air": "artifacts/notepad/src/locales/sv.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.sv",
+      "lines": 48,
+      "sha256": "6d773208784fd41513eff91a7e23154f6d1d630bddcafe613a0d5ba526ad28fd"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/sw.ts",
+      "ae": "artifacts/notepad/src/locales/sw.ae",
+      "air": "artifacts/notepad/src/locales/sw.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.sw",
+      "lines": 48,
+      "sha256": "2932bdb25d8e29c6618e7ca30d500031a0612043b42b0cae9accdfc29459a400"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/th.ts",
+      "ae": "artifacts/notepad/src/locales/th.ae",
+      "air": "artifacts/notepad/src/locales/th.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.th",
+      "lines": 48,
+      "sha256": "b0615dc7f341c2be2f39c9914da89b888c0f6c694f9bdb5cc90d0fd50fd92411"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/tr.ts",
+      "ae": "artifacts/notepad/src/locales/tr.ae",
+      "air": "artifacts/notepad/src/locales/tr.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.tr",
+      "lines": 48,
+      "sha256": "6744a2f38ef8de0297f209d1ce41826907df9d0e44f033a5d1116e73a7bbc42e"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/uk.ts",
+      "ae": "artifacts/notepad/src/locales/uk.ae",
+      "air": "artifacts/notepad/src/locales/uk.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.uk",
+      "lines": 48,
+      "sha256": "ab3caa8aef0ec4df114bf4a0dcd42f55578d0843535a0e50b51a366cdf30b4d9"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/vi.ts",
+      "ae": "artifacts/notepad/src/locales/vi.ae",
+      "air": "artifacts/notepad/src/locales/vi.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.vi",
+      "lines": 48,
+      "sha256": "b8d5f298ae3c3a885d1cdb3a8fdb03823e7dce2b95b461e88558ec3e999b97ce"
+    },
+    {
+      "source": "artifacts/notepad/src/locales/zh.ts",
+      "ae": "artifacts/notepad/src/locales/zh.ae",
+      "air": "artifacts/notepad/src/locales/zh.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.locales.zh",
+      "lines": 47,
+      "sha256": "87f88eaed2a6e8ef3a9232bb98a51928e735a10ec15bcaca9c1aba1ab32eb3f3"
+    },
+    {
+      "source": "artifacts/notepad/src/pages/not-found.tsx",
+      "ae": "artifacts/notepad/src/pages/not-found.ae",
+      "air": "artifacts/notepad/src/pages/not-found.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.pages.not_found",
+      "lines": 22,
+      "sha256": "718a41bd05a163d1db32480aba013f5fe754894e656b6542a8e4b302275b172e"
+    },
+    {
+      "source": "artifacts/notepad/src/pages/notepad-page.tsx",
+      "ae": "artifacts/notepad/src/pages/notepad-page.ae",
+      "air": "artifacts/notepad/src/pages/notepad-page.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.pages.notepad_page",
+      "lines": 161,
+      "sha256": "edeeac85c6a8877e0c25db70e404fd219bf3a6c73f15c93c5d5af770b00aec8d"
+    },
+    {
+      "source": "artifacts/notepad/src/pages/welcome-page.tsx",
+      "ae": "artifacts/notepad/src/pages/welcome-page.ae",
+      "air": "artifacts/notepad/src/pages/welcome-page.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.artifacts.notepad.src.pages.welcome_page",
+      "lines": 35,
+      "sha256": "0879d59a786397fcd954bba9d81faf4d6fd15f91ec7e044b6ce4787ce6dc7e25"
+    },
+    {
+      "source": "lib/api-client-react/src/custom-fetch.ts",
+      "ae": "lib/api-client-react/src/custom-fetch.ae",
+      "air": "lib/api-client-react/src/custom-fetch.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.custom_fetch",
+      "lines": 387,
+      "sha256": "ffafa63bdea3e19fca29dd5a022e22412130ccd03420e7c04740912d8cb76339"
+    },
+    {
+      "source": "lib/api-client-react/src/index.ts",
+      "ae": "lib/api-client-react/src/index.ae",
+      "air": "lib/api-client-react/src/index.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.index",
+      "lines": 5,
+      "sha256": "7974b36e3973a8d0c403589bcf8d8aca7547c5c42c4b73924d05f49de18809e5"
+    },
+    {
+      "source": "lib/api-client-react/src/generated/api.schemas.ts",
+      "ae": "lib/api-client-react/src/generated/api.schemas.ae",
+      "air": "lib/api-client-react/src/generated/api.schemas.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api_schemas",
+      "lines": 159,
+      "sha256": "cd4743226c58e5a174da563b1e814c88bd60a8fdcbac9333ccc31ae44d6efa88"
+    },
+    {
+      "source": "lib/api-client-react/src/generated/api.ts",
+      "ae": "lib/api-client-react/src/generated/api.ae",
+      "air": "lib/api-client-react/src/generated/api.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api",
+      "lines": 1629,
+      "sha256": "1881daa64f7890bc6f0c56397d272b3e8c6b0d792468003c7dcd175476fbe249"
+    },
+    {
+      "source": "lib/api-spec/orval.config.ts",
+      "ae": "lib/api-spec/orval.config.ae",
+      "air": "lib/api-spec/orval.config.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_spec.orval_config",
+      "lines": 73,
+      "sha256": "9f90e6a59cbea54853c714932f8fc87cead1224a3ab1066fd825aeaefde2aa4c"
+    },
+    {
+      "source": "lib/api-zod/src/index.ts",
+      "ae": "lib/api-zod/src/index.ae",
+      "air": "lib/api-zod/src/index.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.index",
+      "lines": 2,
+      "sha256": "5c9e0525f7aa993c9f8adad9637a3f50b781259debba890811c9060f6430754d"
+    },
+    {
+      "source": "lib/api-zod/src/generated/api.ts",
+      "ae": "lib/api-zod/src/generated/api.ae",
+      "air": "lib/api-zod/src/generated/api.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api",
+      "lines": 294,
+      "sha256": "bedafc0401970781779a67d62a30f9cf24ee31f3ed64e77c28fd30c8280d084a"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/aetherConversation.ts",
+      "ae": "lib/api-zod/src/generated/types/aetherConversation.ae",
+      "air": "lib/api-zod/src/generated/types/aetherConversation.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.aetherConversation",
+      "lines": 14,
+      "sha256": "db6e6a86bebc77cf0711c2cb09da6c8e3184ca7452fa6b54295371b3951d8bde"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/aetherConversationWithMessages.ts",
+      "ae": "lib/api-zod/src/generated/types/aetherConversationWithMessages.ae",
+      "air": "lib/api-zod/src/generated/types/aetherConversationWithMessages.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.aetherConversationWithMessages",
+      "lines": 16,
+      "sha256": "4b13ec76814c2698634709e0f495033fa6f1f1c1617adc49c2744c935ad5ea27"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/aetherError.ts",
+      "ae": "lib/api-zod/src/generated/types/aetherError.ae",
+      "air": "lib/api-zod/src/generated/types/aetherError.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.aetherError",
+      "lines": 12,
+      "sha256": "08d990a5abb5e83871f946318170e3826d367cf8c9c3b13fc11da34c2375e012"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/aetherMessage.ts",
+      "ae": "lib/api-zod/src/generated/types/aetherMessage.ae",
+      "air": "lib/api-zod/src/generated/types/aetherMessage.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.aetherMessage",
+      "lines": 16,
+      "sha256": "0d72aa7d29407334bc636e64a973d88fa90c893cc1ba4aaaf7d81d01a68ab9a1"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/createAetherConversationBody.ts",
+      "ae": "lib/api-zod/src/generated/types/createAetherConversationBody.ae",
+      "air": "lib/api-zod/src/generated/types/createAetherConversationBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.createAetherConversationBody",
+      "lines": 12,
+      "sha256": "d325e9dcca86954a837c7e5328af79c6971bd2abd4fd77a5ce4a26fa1bc3324c"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/createNoteBody.ts",
+      "ae": "lib/api-zod/src/generated/types/createNoteBody.ae",
+      "air": "lib/api-zod/src/generated/types/createNoteBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.createNoteBody",
+      "lines": 19,
+      "sha256": "58a35fadb0854dc1f0425402ad39a9c1daa3a7ee4a33857192e99f8e65a550ce"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/errorResponse.ts",
+      "ae": "lib/api-zod/src/generated/types/errorResponse.ae",
+      "air": "lib/api-zod/src/generated/types/errorResponse.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.errorResponse",
+      "lines": 12,
+      "sha256": "a421f74473edbd27d5b438e921dcb08d2e9be188b44a0b7effed0e9d13fbaa50"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/healthStatus.ts",
+      "ae": "lib/api-zod/src/generated/types/healthStatus.ae",
+      "air": "lib/api-zod/src/generated/types/healthStatus.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.healthStatus",
+      "lines": 12,
+      "sha256": "ca592aaa48679661e10b65327a0f9f6c6dd42ecb8172a2efe1c8231d56009f4f"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/index.ts",
+      "ae": "lib/api-zod/src/generated/types/index.ae",
+      "air": "lib/api-zod/src/generated/types/index.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.index",
+      "lines": 30,
+      "sha256": "02050a3fb401f158928d40442b11b6b1925c06dcd7a9a96dadd6281fcddbe095"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/meResponse.ts",
+      "ae": "lib/api-zod/src/generated/types/meResponse.ae",
+      "air": "lib/api-zod/src/generated/types/meResponse.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.meResponse",
+      "lines": 12,
+      "sha256": "a06e3677518f861d4e8d66819624ef6badcbbaf505ddb858ddc8b438ec4dda79"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/note.ts",
+      "ae": "lib/api-zod/src/generated/types/note.ae",
+      "air": "lib/api-zod/src/generated/types/note.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.note",
+      "lines": 22,
+      "sha256": "cbe94758cc915bb868cb0ecac5876fe2587f5728b6f452e317d8ecd34aa8d851"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/polishTextBody.ts",
+      "ae": "lib/api-zod/src/generated/types/polishTextBody.ae",
+      "air": "lib/api-zod/src/generated/types/polishTextBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.polishTextBody",
+      "lines": 18,
+      "sha256": "7949e71789520d5aed61ad175d394ee341f54b65c8fb8140c937419744fab693"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/polishTextResponse.ts",
+      "ae": "lib/api-zod/src/generated/types/polishTextResponse.ae",
+      "air": "lib/api-zod/src/generated/types/polishTextResponse.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.polishTextResponse",
+      "lines": 12,
+      "sha256": "84b0af263bbdebe9fde9ab3bec17edbb1f4530312768ab1364ee56deaf99c051"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/redeemProBody.ts",
+      "ae": "lib/api-zod/src/generated/types/redeemProBody.ae",
+      "air": "lib/api-zod/src/generated/types/redeemProBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.redeemProBody",
+      "lines": 15,
+      "sha256": "c4b4c188d8f36f66c8b70819b8a8383adbbbe2dacc08411e1461f29b7dc5f401"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/scanImageBody.ts",
+      "ae": "lib/api-zod/src/generated/types/scanImageBody.ae",
+      "air": "lib/api-zod/src/generated/types/scanImageBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.scanImageBody",
+      "lines": 21,
+      "sha256": "6b8822f8e3f40f3f54af359862dfee159d0f55b49ab129f64f0514a34227c660"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/scanImageResponse.ts",
+      "ae": "lib/api-zod/src/generated/types/scanImageResponse.ae",
+      "air": "lib/api-zod/src/generated/types/scanImageResponse.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.scanImageResponse",
+      "lines": 12,
+      "sha256": "6a92b30f3489d1c251ff5bf54fe87ff69e30b4adf041826a9348148fc791a954"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/sendAetherMessageBody.ts",
+      "ae": "lib/api-zod/src/generated/types/sendAetherMessageBody.ae",
+      "air": "lib/api-zod/src/generated/types/sendAetherMessageBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.sendAetherMessageBody",
+      "lines": 12,
+      "sha256": "bf350c3f664c2fe48e0836dd16d9fe2caf9ae61f419aa42bbaa696d37fa54174"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/sendAetherVoiceMessageBody.ts",
+      "ae": "lib/api-zod/src/generated/types/sendAetherVoiceMessageBody.ae",
+      "air": "lib/api-zod/src/generated/types/sendAetherVoiceMessageBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.sendAetherVoiceMessageBody",
+      "lines": 13,
+      "sha256": "f8d44bd670d8778222a2a5f490a607cd87af378b4c224f65dd3c9ec235db9f67"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/storageError.ts",
+      "ae": "lib/api-zod/src/generated/types/storageError.ae",
+      "air": "lib/api-zod/src/generated/types/storageError.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.storageError",
+      "lines": 12,
+      "sha256": "d630eaa1ee57ee1b978d882544105d652fbb98ba77a45c02788c086261b28a14"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/updateNoteBody.ts",
+      "ae": "lib/api-zod/src/generated/types/updateNoteBody.ae",
+      "air": "lib/api-zod/src/generated/types/updateNoteBody.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.updateNoteBody",
+      "lines": 19,
+      "sha256": "c1a3c39ab88e9a77979024075bc58cf7b24873d10279eb4fd3d602189087558c"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/uploadUrlRequest.ts",
+      "ae": "lib/api-zod/src/generated/types/uploadUrlRequest.ae",
+      "air": "lib/api-zod/src/generated/types/uploadUrlRequest.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.uploadUrlRequest",
+      "lines": 26,
+      "sha256": "40d6c271f571f7d31f50dde9e9eeb1b32bf226443b8bbad682903235b552b7bd"
+    },
+    {
+      "source": "lib/api-zod/src/generated/types/uploadUrlResponse.ts",
+      "ae": "lib/api-zod/src/generated/types/uploadUrlResponse.ae",
+      "air": "lib/api-zod/src/generated/types/uploadUrlResponse.air",
+      "namespace": "ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.uploadUrlResponse",
+      "lines": 15,
+      "sha256": "680ac040c9cde58f463507712dd7588b0e9603c7b87ba216bbc9e1a7c4efb3b2"
+    }
+  ]
+}

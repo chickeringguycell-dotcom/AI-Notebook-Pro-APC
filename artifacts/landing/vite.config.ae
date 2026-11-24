@@ -1,0 +1,24 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/vite.config.ts (21 lines, 513 bytes, sha256:6a55f12000e51d43)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.vite_config {
+  use "@tailwindcss/vite";
+  use "@vitejs/plugin-react";
+  use "path";
+  use "vite";
+
+  meta {
+    sourcePath: "artifacts/landing/vite.config.ts",
+    sourceLines: 21,
+    sourceBytes: 513,
+    sha256: "6a55f12000e51d4371bd8452211034870fa5e6f077c8297607e07a71c733e1a3",
+    vendorLockIn: 0
+  }
+
+  pub struct vite_configUnit { pub digest: u64 }
+
+  pub fn init_vite_config(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.vite_config::init_vite_config", 0x6a55f12000e51d43);
+  }
+}

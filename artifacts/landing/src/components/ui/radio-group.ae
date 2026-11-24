@@ -1,0 +1,29 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/radio-group.tsx (43 lines, 1410 bytes, sha256:9ba7808b7404cdf2)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.radio_group {
+  use "@/lib/utils";
+  use "@radix-ui/react-radio-group";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/radio-group.tsx",
+    sourceLines: 43,
+    sourceBytes: 1410,
+    sha256: "9ba7808b7404cdf2159c81883a39290033bc4308f2978eb80797c92b87421301",
+    vendorLockIn: 0
+  }
+
+  pub struct radio_groupUnit { pub digest: u64 }
+
+  pub fn init_radio_group(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Circle>;
+    vnode <RadioGroupPrimitive.Indicator>;
+    vnode <RadioGroupPrimitive.Item>;
+    vnode <RadioGroupPrimitive.Root>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.radio_group::init_radio_group", 0x9ba7808b7404cdf2);
+  }
+}

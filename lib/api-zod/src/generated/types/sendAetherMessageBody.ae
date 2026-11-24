@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/types/sendAetherMessageBody.ts (12 lines, 189 bytes, sha256:bf350c3f664c2fe4)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.sendAetherMessageBody {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/types/sendAetherMessageBody.ts",
+    sourceLines: 12,
+    sourceBytes: 189,
+    sha256: "bf350c3f664c2fe48e0836dd16d9fe2caf9ae61f419aa42bbaa696d37fa54174",
+    vendorLockIn: 0
+  }
+
+  pub struct SendAetherMessageBody {
+    pub content: AetherType<"string">,
+  }
+
+  pub fn init_sendAetherMessageBody(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.sendAetherMessageBody::init_sendAetherMessageBody", 0xbf350c3f664c2fe4);
+  }
+}

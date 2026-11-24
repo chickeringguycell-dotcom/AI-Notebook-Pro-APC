@@ -1,0 +1,62 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/pages/landing-page.tsx (441 lines, 18019 bytes, sha256:4b60983442bdc31d)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.landing_page {
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/pages/landing-page.tsx",
+    sourceLines: 441,
+    sourceBytes: 18019,
+    sha256: "4b60983442bdc31d0569407d8e3abc81a4fcd7951c5a8cdf24a38eadc7e3bda2",
+    vendorLockIn: 0
+  }
+
+  pub struct MockupLine {
+    pub text: AetherType<"string">,
+    pub style: AetherType<"LineStyle">,
+  }
+
+  pub type LineStyle = SovereignTypeExpr<"'normal' | 'dim'">;
+
+  pub fn NotepadMockup(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    state langIdx -> mutator setLangIdx;
+    state visible -> mutator setVisible;
+    bind_hook @useEffect;
+    bind_hook @useState;
+    vnode <Check>;
+    vnode <Globe>;
+    vnode <Map>;
+    vnode <Mic>;
+    vnode <NotepadMockup>;
+    vnode <Set>;
+    vnode <Sparkles>;
+    vnode <a>;
+    vnode <div>;
+    vnode <f.icon>;
+    vnode <footer>;
+    vnode <h1>;
+    vnode <h2>;
+    vnode <h3>;
+    vnode <li>;
+    vnode <nav>;
+    vnode <p>;
+    vnode <section>;
+    vnode <span>;
+    vnode <string>;
+    vnode <strong>;
+    vnode <style>;
+    vnode <ul>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.landing_page::NotepadMockup", 0x4b60983442bdc31d);
+  }
+
+  pub fn LandingPage(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.landing_page::LandingPage", 0x4b60983442bdc31d);
+  }
+
+  pub fn ref(/* id: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.landing_page::ref", 0x4b60983442bdc31d);
+  }
+}

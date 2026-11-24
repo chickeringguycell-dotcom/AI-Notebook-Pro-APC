@@ -1,0 +1,36 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/table.tsx (121 lines, 2859 bytes, sha256:a4a6972c2d47d465)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.table {
+  use "@/lib/utils";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/table.tsx",
+    sourceLines: 121,
+    sourceBytes: 2859,
+    sha256: "a4a6972c2d47d465d7f02c1dc4a6cbfeda7a97e46479c1b0cebdaf26bf9b497a",
+    vendorLockIn: 0
+  }
+
+  pub struct tableUnit { pub digest: u64 }
+
+  pub fn init_table(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <HTMLTableCaptionElement>;
+    vnode <HTMLTableCellElement>;
+    vnode <HTMLTableElement>;
+    vnode <HTMLTableRowElement>;
+    vnode <HTMLTableSectionElement>;
+    vnode <caption>;
+    vnode <div>;
+    vnode <table>;
+    vnode <tbody>;
+    vnode <td>;
+    vnode <tfoot>;
+    vnode <th>;
+    vnode <thead>;
+    vnode <tr>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.table::init_table", 0xa4a6972c2d47d465);
+  }
+}

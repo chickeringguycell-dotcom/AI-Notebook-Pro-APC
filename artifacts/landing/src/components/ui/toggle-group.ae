@@ -1,0 +1,30 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/toggle-group.tsx (62 lines, 1753 bytes, sha256:dba95ead40d163af)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toggle_group {
+  use "@/components/ui/toggle";
+  use "@/lib/utils";
+  use "@radix-ui/react-toggle-group";
+  use "class-variance-authority";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/toggle-group.tsx",
+    sourceLines: 62,
+    sourceBytes: 1753,
+    sha256: "dba95ead40d163af6959198ded9853a2cc9282b2cb534980f99937a65edf4e2d",
+    vendorLockIn: 0
+  }
+
+  pub struct toggle_groupUnit { pub digest: u64 }
+
+  pub fn init_toggle_group(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useContext;
+    vnode <ToggleGroupContext.Provider>;
+    vnode <ToggleGroupPrimitive.Item>;
+    vnode <ToggleGroupPrimitive.Root>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.toggle_group::init_toggle_group", 0xdba95ead40d163af);
+  }
+}

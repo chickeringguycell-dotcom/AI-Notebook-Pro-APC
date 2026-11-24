@@ -1,0 +1,26 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/kbd.tsx (29 lines, 862 bytes, sha256:0c025e7736d435f5)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd {
+  use "@/lib/utils";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/kbd.tsx",
+    sourceLines: 29,
+    sourceBytes: 862,
+    sha256: "0c025e7736d435f563bfb44105e562629672799eb1f35cbf194148d06cd1a9f7",
+    vendorLockIn: 0
+  }
+
+  pub struct kbdUnit { pub digest: u64 }
+
+  pub fn Kbd(/* { className, ...props }: React.ComponentProps<'kbd'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <kbd>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd::Kbd", 0x0c025e7736d435f5);
+  }
+
+  pub fn KbdGroup(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.kbd::KbdGroup", 0x0c025e7736d435f5);
+  }
+}

@@ -1,0 +1,33 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart"
+meta !source = "artifacts/landing/src/components/ui/chart.tsx"
+meta !lines = "368"
+meta !sha256 = "b40d1236f168c746b228adec6bc4e9d196ea362a7910878f161d3c359a013b89"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"b40d1236f168c746"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @useChart(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "useChart" : !viper.ctx
+    %hk_0 = air.hook.invoke @useChart(%ctx_0) : !viper.val
+    %hk_1 = air.hook.invoke @useContext(%ctx_0) : !viper.val
+    %hk_2 = air.hook.invoke @useId(%ctx_0) : !viper.val
+    %hk_3 = air.hook.invoke @useMemo(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 12 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart::useChart", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @getPayloadConfigFromPayload(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "getPayloadConfigFromPayload" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.chart::getPayloadConfigFromPayload", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+}

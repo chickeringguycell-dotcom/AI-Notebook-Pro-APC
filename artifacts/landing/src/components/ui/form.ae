@@ -1,0 +1,45 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/form.tsx (177 lines, 4175 bytes, sha256:d50adf86568f7624)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.form {
+  use "@/components/ui/label";
+  use "@/lib/utils";
+  use "@radix-ui/react-label";
+  use "@radix-ui/react-slot";
+  use "react";
+  use "react-hook-form";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/form.tsx",
+    sourceLines: 177,
+    sourceBytes: 4175,
+    sha256: "d50adf86568f76246f0f319c9e1e858627475563f6c1e38f5df7d4ee23958559",
+    vendorLockIn: 0
+  }
+
+  pub struct formUnit { pub digest: u64 }
+
+  pub fn init_form(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useContext;
+    bind_hook @useFormContext;
+    bind_hook @useFormField;
+    bind_hook @useId;
+    vnode <Controller>;
+    vnode <FormField>;
+    vnode <FormFieldContext.Provider>;
+    vnode <FormFieldContextValue>;
+    vnode <FormItem>;
+    vnode <FormItemContext.Provider>;
+    vnode <FormItemContextValue>;
+    vnode <HTMLDivElement>;
+    vnode <HTMLParagraphElement>;
+    vnode <Label>;
+    vnode <Slot>;
+    vnode <TFieldValues>;
+    vnode <div>;
+    vnode <p>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.form::init_form", 0xd50adf86568f7624);
+  }
+}

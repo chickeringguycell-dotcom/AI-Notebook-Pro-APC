@@ -1,0 +1,31 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/accordion.tsx (56 lines, 2001 bytes, sha256:dcbfb3243a26096f)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.accordion {
+  use "@/lib/utils";
+  use "@radix-ui/react-accordion";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/accordion.tsx",
+    sourceLines: 56,
+    sourceBytes: 2001,
+    sha256: "dcbfb3243a26096fc3e5f54039ccb5c4c23d9bb79a4d5846b4be75bf912f07d9",
+    vendorLockIn: 0
+  }
+
+  pub struct accordionUnit { pub digest: u64 }
+
+  pub fn init_accordion(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <AccordionPrimitive.Content>;
+    vnode <AccordionPrimitive.Header>;
+    vnode <AccordionPrimitive.Item>;
+    vnode <AccordionPrimitive.Trigger>;
+    vnode <ChevronDown>;
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.accordion::init_accordion", 0xdcbfb3243a26096f);
+  }
+}

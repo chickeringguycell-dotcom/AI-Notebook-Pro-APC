@@ -1,0 +1,65 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/api.ts (294 lines, 7097 bytes, sha256:bedafc0401970781)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api {
+  use "zod";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/api.ts",
+    sourceLines: 294,
+    sourceBytes: 7097,
+    sha256: "bedafc0401970781779a67d62a30f9cf24ee31f3ed64e77c28fd30c8280d084a",
+    vendorLockIn: 0
+  }
+
+  pub struct apiUnit { pub digest: u64 }
+
+  pub fn HealthCheckResponse(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::HealthCheckResponse", 0xbedafc0401970781);
+  }
+
+  pub fn ListNotesResponseItem(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListNotesResponseItem", 0xbedafc0401970781);
+  }
+
+  pub fn ListNotesResponse(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListNotesResponse", 0xbedafc0401970781);
+  }
+
+  pub fn CreateNoteBody(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::CreateNoteBody", 0xbedafc0401970781);
+  }
+
+  pub fn GetNoteParams(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::GetNoteParams", 0xbedafc0401970781);
+  }
+
+  pub fn GetNoteResponse(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::GetNoteResponse", 0xbedafc0401970781);
+  }
+
+  pub fn UpdateNoteParams(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::UpdateNoteParams", 0xbedafc0401970781);
+  }
+
+  pub fn UpdateNoteBody(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::UpdateNoteBody", 0xbedafc0401970781);
+  }
+
+  pub fn UpdateNoteResponse(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::UpdateNoteResponse", 0xbedafc0401970781);
+  }
+
+  pub fn DeleteNoteParams(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::DeleteNoteParams", 0xbedafc0401970781);
+  }
+
+  pub fn ListAetherConversationsResponseItem(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListAetherConversationsResponseItem", 0xbedafc0401970781);
+  }
+
+  pub fn ListAetherConversationsResponse(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.api::ListAetherConversationsResponse", 0xbedafc0401970781);
+  }
+}

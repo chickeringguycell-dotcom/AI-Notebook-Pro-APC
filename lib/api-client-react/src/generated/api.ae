@@ -1,0 +1,197 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-client-react/src/generated/api.ts (1629 lines, 44671 bytes, sha256:1881daa64f7890bc)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api {
+  use "../custom-fetch";
+  use "./api.schemas";
+  use "@tanstack/react-query";
+
+  meta {
+    sourcePath: "lib/api-client-react/src/generated/api.ts",
+    sourceLines: 1629,
+    sourceBytes: 44671,
+    sha256: "1881daa64f7890bc6f0c56397d272b3e8c6b0d792468003c7dcd175476fbe249",
+    vendorLockIn: 0
+  }
+
+  pub type HealthCheckQueryResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof healthCheck>> >">;
+
+  pub type HealthCheckQueryError = SovereignTypeExpr<"ErrorType<unknown>">;
+
+  pub type ListNotesQueryResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof listNotes>> >">;
+
+  pub type ListNotesQueryError = SovereignTypeExpr<"ErrorType<unknown>">;
+
+  pub type CreateNoteMutationResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof createNote>> >">;
+
+  pub type CreateNoteMutationBody = SovereignTypeExpr<"BodyType<CreateNoteBody>">;
+
+  pub type CreateNoteMutationError = SovereignTypeExpr<"ErrorType<unknown>">;
+
+  pub type GetNoteQueryResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof getNote>> >">;
+
+  pub type GetNoteQueryError = SovereignTypeExpr<"ErrorType<ErrorResponse>">;
+
+  pub type UpdateNoteMutationResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof updateNote>> >">;
+
+  pub type UpdateNoteMutationBody = SovereignTypeExpr<"BodyType<UpdateNoteBody>">;
+
+  pub type UpdateNoteMutationError = SovereignTypeExpr<"ErrorType<ErrorResponse>">;
+
+  pub type DeleteNoteMutationResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof deleteNote>> >">;
+
+  pub type DeleteNoteMutationError = SovereignTypeExpr<"ErrorType<ErrorResponse>">;
+
+  pub type ListAetherConversationsQueryResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof listAetherConversations>> >">;
+
+  pub type ListAetherConversationsQueryError = SovereignTypeExpr<"ErrorType<unknown>">;
+
+  pub type CreateAetherConversationMutationResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof createAetherConversation>> >">;
+
+  pub type CreateAetherConversationMutationBody = SovereignTypeExpr<"BodyType<CreateAetherConversationBody>">;
+
+  pub type CreateAetherConversationMutationError = SovereignTypeExpr<"ErrorType<unknown>">;
+
+  pub type GetAetherConversationQueryResult = SovereignTypeExpr<"NonNullable< Awaited<ReturnType<typeof getAetherConversation>> >">;
+
+  pub fn getHealthCheckUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useMutation;
+    bind_hook @useQuery;
+    vnode <AetherConversation>;
+    vnode <AetherConversationWithMessages>;
+    vnode <AetherError>;
+    vnode <AetherMessage>;
+    vnode <Awaited>;
+    vnode <Blob>;
+    vnode <CreateAetherConversationBody>;
+    vnode <CreateNoteBody>;
+    vnode <ErrorResponse>;
+    vnode <HealthStatus>;
+    vnode <MeResponse>;
+    vnode <Note>;
+    vnode <O>;
+    vnode <PolishTextBody>;
+    vnode <PolishTextResponse>;
+    vnode <RedeemProBody>;
+    vnode <ReturnType>;
+    vnode <ScanImageBody>;
+    vnode <ScanImageResponse>;
+    vnode <SendAetherMessageBody>;
+    vnode <SendAetherVoiceMessageBody>;
+    vnode <StorageError>;
+    vnode <T>;
+    vnode <TData>;
+    vnode <UpdateNoteBody>;
+    vnode <UploadUrlRequest>;
+    vnode <UploadUrlResponse>;
+    vnode <infer>;
+    vnode <typeof>;
+    vnode <unknown>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getHealthCheckUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getHealthCheckQueryKey(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getHealthCheckQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getListNotesUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListNotesUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getListNotesQueryKey(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListNotesQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getCreateNoteUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getCreateNoteUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetNoteUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetNoteUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetNoteQueryKey(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetNoteQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getUpdateNoteUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getUpdateNoteUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getDeleteNoteUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getDeleteNoteUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getListAetherConversationsUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherConversationsUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getListAetherConversationsQueryKey(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherConversationsQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getCreateAetherConversationUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getCreateAetherConversationUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetAetherConversationUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetAetherConversationUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetAetherConversationQueryKey(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetAetherConversationQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getDeleteAetherConversationUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getDeleteAetherConversationUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getListAetherMessagesUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherMessagesUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getListAetherMessagesQueryKey(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getListAetherMessagesQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getSendAetherMessageUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getSendAetherMessageUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getScanImageTextUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getScanImageTextUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getPolishTextUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getPolishTextUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getSendAetherVoiceMessageUrl(/* id: number */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getSendAetherVoiceMessageUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getRequestUploadUrlUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getRequestUploadUrlUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetStorageObjectUrl(/* objectPath: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetStorageObjectUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetStorageObjectQueryKey(/* objectPath: string */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetStorageObjectQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetMeUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetMeUrl", 0x1881daa64f7890bc);
+  }
+
+  pub fn getGetMeQueryKey(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getGetMeQueryKey", 0x1881daa64f7890bc);
+  }
+
+  pub fn getRedeemProUrl(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_client_react.src.generated.api::getRedeemProUrl", 0x1881daa64f7890bc);
+  }
+}

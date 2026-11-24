@@ -1,0 +1,39 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/calendar.tsx (214 lines, 7569 bytes, sha256:787a19c855cf2b82)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.calendar {
+  use "@/components/ui/button";
+  use "@/lib/utils";
+  use "lucide-react";
+  use "react";
+  use "react-day-picker";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/calendar.tsx",
+    sourceLines: 214,
+    sourceBytes: 7569,
+    sha256: "787a19c855cf2b826942d25440b63150c45094154c6a40e95abdb4109298b8b4",
+    vendorLockIn: 0
+  }
+
+  pub struct calendarUnit { pub digest: u64 }
+
+  pub fn Calendar(/* { className, classNames, showOutsideDays = true, captionLayout = 'label', buttonVariant =  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useEffect;
+    vnode <Button>;
+    vnode <ChevronDownIcon>;
+    vnode <ChevronLeftIcon>;
+    vnode <ChevronRightIcon>;
+    vnode <DayPicker>;
+    vnode <HTMLButtonElement>;
+    vnode <div>;
+    vnode <td>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.calendar::Calendar", 0x787a19c855cf2b82);
+  }
+
+  pub fn CalendarDayButton(/* { className, day, modifiers, ...props }: React.ComponentProps<typeof DayButton> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.calendar::CalendarDayButton", 0x787a19c855cf2b82);
+  }
+}

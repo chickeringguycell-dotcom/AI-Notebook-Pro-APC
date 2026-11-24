@@ -437,12 +437,12 @@
 /* Top-heavy header illustrations get extra top padding so note title sits cleanly in the ruled zone */
 @media (min-width: 768px) {
   .paper-theme-christus-temple > div { padding-top: 340px !important; padding-bottom: 125px !important; }
-  .paper-theme-shepherd-lambs > div  { padding-top: 290px !important; padding-bottom: 150px !important; }
-  .paper-theme-risen-savior-olive > div { padding-top: 290px !important; padding-bottom: 110px !important; }
-  .paper-theme-salt-lake-temple > div   { padding-top: 300px !important; padding-bottom: 110px !important; }
-  .paper-theme-bom-lily-sunrise > div   { padding-top: 110px !important; padding-bottom: 250px !important; }
-  .paper-theme-bom-temple-hill > div    { padding-top: 86px !important;  padding-bottom: 240px !important; }
-  .paper-theme-pioneer-wagon > div      { padding-top: 82px !important;  padding-bottom: 230px !important; }
+  .paper-theme-shepherd-lambs > div  { padding-top: 342px !important; padding-bottom: 150px !important; }
+  .paper-theme-risen-savior-olive > div { padding-top: 295px !important; padding-bottom: 110px !important; }
+  .paper-theme-salt-lake-temple > div   { padding-top: 305px !important; padding-bottom: 110px !important; }
+  .paper-theme-bom-lily-sunrise > div   { padding-top: 110px !important; padding-bottom: 265px !important; }
+  .paper-theme-bom-temple-hill > div    { padding-top: 86px !important;  padding-bottom: 245px !important; }
+  .paper-theme-pioneer-wagon > div      { padding-top: 82px !important;  padding-bottom: 235px !important; }
   .paper-theme-scriptures-lantern > div { padding-top: 64px !important;  padding-left: 175px !important; padding-bottom: 260px !important; }
   .paper-theme-kawaii-kitty-rainbow > div { padding-top: 128px !important; padding-bottom: 215px !important; }
   .paper-theme-peach-ribbon-hibiscus > div { padding-top: 118px !important; padding-bottom: 195px !important; }
@@ -452,40 +452,40 @@
 }
 
 @media (max-width: 767px) {
-  .paper-theme-christus-temple > div { padding-top: 220px !important; padding-bottom: 90px !important; }
-  .paper-theme-shepherd-lambs > div  { padding-top: 190px !important; padding-bottom: 105px !important; }
-  .paper-theme-risen-savior-olive > div { padding-top: 185px !important; padding-bottom: 80px !important; }
-  .paper-theme-salt-lake-temple > div   { padding-top: 190px !important; padding-bottom: 80px !important; }
-  .paper-theme-bom-lily-sunrise > div   { padding-top: 76px !important;  padding-bottom: 175px !important; }
-  .paper-theme-bom-temple-hill > div    { padding-top: 64px !important;  padding-bottom: 170px !important; }
-  .paper-theme-pioneer-wagon > div      { padding-top: 60px !important;  padding-bottom: 165px !important; }
+  .paper-theme-christus-temple > div { padding-top: 225px !important; padding-bottom: 95px !important; }
+  .paper-theme-shepherd-lambs > div  { padding-top: 225px !important; padding-bottom: 110px !important; }
+  .paper-theme-risen-savior-olive > div { padding-top: 190px !important; padding-bottom: 85px !important; }
+  .paper-theme-salt-lake-temple > div   { padding-top: 195px !important; padding-bottom: 85px !important; }
+  .paper-theme-bom-lily-sunrise > div   { padding-top: 76px !important;  padding-bottom: 185px !important; }
+  .paper-theme-bom-temple-hill > div    { padding-top: 64px !important;  padding-bottom: 175px !important; }
+  .paper-theme-pioneer-wagon > div      { padding-top: 60px !important;  padding-bottom: 170px !important; }
   .paper-theme-scriptures-lantern > div { padding-top: 48px !important;  padding-left: 96px !important; padding-bottom: 185px !important; }
+  .paper-theme-kawaii-kitty-rainbow > div { padding-top: 86px !important;  padding-bottom: 155px !important; }
 }
 
-/* 19 pre-lined sheets already have painted lines in the artwork -> --paper-rule: transparent prevents double-line clash! */
-.paper-theme-bom-lily-sunrise       { --sheet-fill: #f7f3ec; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/bom-lily-sunrise.jpg"); }
-.paper-theme-christus-temple        { --sheet-fill: #faf4ea; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/christus-temple.jpg"); }
-.paper-theme-shepherd-lambs         { --sheet-fill: #faf4eb; --paper-rule: transparent; --paper-ink: #261b10; --sheet-image: url("/themes/shepherd-lambs.jpg"); }
-/* scriptures-lantern has clean unlined parchment in center -> uses warm sepia CSS rules! */
-.paper-theme-scriptures-lantern     { --sheet-fill: #f6efe2; --paper-rule: rgba(168, 134, 82, 0.36); --paper-ink: #281b0d; --sheet-image: url("/themes/scriptures-lantern.jpg"); }
-.paper-theme-risen-savior-olive     { --sheet-fill: #fbf5ec; --paper-rule: transparent; --paper-ink: #261b10; --sheet-image: url("/themes/risen-savior-olive.jpg"); }
-.paper-theme-salt-lake-temple       { --sheet-fill: #fbf5ec; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/salt-lake-temple.jpg"); }
-.paper-theme-pioneer-wagon          { --sheet-fill: #faf3e8; --paper-rule: transparent; --paper-ink: #281c10; --sheet-image: url("/themes/pioneer-wagon.jpg"); }
-.paper-theme-bom-temple-hill        { --sheet-fill: #f8f3ec; --paper-rule: transparent; --paper-ink: #241a0e; --sheet-image: url("/themes/bom-temple-hill.jpg"); }
+/* All 19 de-lined illustrated sheets now use crisp, dynamic 32px CSS rules locked 1:1 to text line-height! */
+.paper-theme-bom-lily-sunrise       { --sheet-fill: #f7f3ec; --paper-rule: rgba(178, 146, 86, 0.42);  --paper-ink: #241a0e; --sheet-image: url("/themes/bom-lily-sunrise.jpg?v=4"); }
+.paper-theme-christus-temple        { --sheet-fill: #faf4ea; --paper-rule: rgba(178, 146, 86, 0.42);  --paper-ink: #241a0e; --sheet-image: url("/themes/christus-temple.jpg?v=4"); }
+.paper-theme-shepherd-lambs         { --sheet-fill: #faf4eb; --paper-rule: rgba(178, 146, 86, 0.42);  --paper-ink: #261b10; --sheet-image: url("/themes/shepherd-lambs.jpg?v=4"); }
+.paper-theme-scriptures-lantern     { --sheet-fill: #f6efe2; --paper-rule: rgba(168, 134, 82, 0.40);  --paper-ink: #281b0d; --sheet-image: url("/themes/scriptures-lantern.jpg?v=4"); }
+.paper-theme-risen-savior-olive     { --sheet-fill: #fbf5ec; --paper-rule: rgba(178, 146, 86, 0.42);  --paper-ink: #261b10; --sheet-image: url("/themes/risen-savior-olive.jpg?v=4"); }
+.paper-theme-salt-lake-temple       { --sheet-fill: #fbf5ec; --paper-rule: rgba(178, 146, 86, 0.42);  --paper-ink: #241a0e; --sheet-image: url("/themes/salt-lake-temple.jpg?v=4"); }
+.paper-theme-pioneer-wagon          { --sheet-fill: #faf3e8; --paper-rule: rgba(178, 146, 86, 0.42);  --paper-ink: #281c10; --sheet-image: url("/themes/pioneer-wagon.jpg?v=4"); }
+.paper-theme-bom-temple-hill        { --sheet-fill: #f8f3ec; --paper-rule: rgba(178, 146, 86, 0.42);  --paper-ink: #241a0e; --sheet-image: url("/themes/bom-temple-hill.jpg?v=4"); }
 
-.paper-theme-blush-peony-frame      { --sheet-fill: #fdf4f6; --paper-rule: transparent; --paper-ink: #3a1f28; --sheet-image: url("/themes/blush-peony-frame.jpg"); }
-.paper-theme-sage-gold-leaves       { --sheet-fill: #fcf9f2; --paper-rule: transparent; --paper-ink: #242e1e; --sheet-image: url("/themes/sage-gold-leaves.jpg"); }
-.paper-theme-lavender-blossom-frame { --sheet-fill: #f8f2fc; --paper-rule: transparent; --paper-ink: #2c1b42; --sheet-image: url("/themes/lavender-blossom-frame.jpg"); }
-.paper-theme-peach-ribbon-hibiscus  { --sheet-fill: #fdf7ef; --paper-rule: transparent; --paper-ink: #362118; --sheet-image: url("/themes/peach-ribbon-hibiscus.jpg"); }
-.paper-theme-vintage-hummingbird    { --sheet-fill: #f7ecd4; --paper-rule: transparent; --paper-ink: #2f1f0e; --sheet-image: url("/themes/vintage-hummingbird.jpg"); }
-.paper-theme-tropical-seashell      { --sheet-fill: #eefafe; --paper-rule: transparent; --paper-ink: #102d3d; --sheet-image: url("/themes/tropical-seashell.jpg"); }
-.paper-theme-kawaii-kitty-rainbow   { --sheet-fill: #fdf2fb; --paper-rule: transparent; --paper-ink: #381b44; --sheet-image: url("/themes/kawaii-kitty-rainbow.jpg"); }
-.paper-theme-anime-sakura-moon      { --sheet-fill: #fbf2fc; --paper-rule: transparent; --paper-ink: #2f1840; --sheet-image: url("/themes/anime-sakura-moon.jpg"); }
+.paper-theme-blush-peony-frame      { --sheet-fill: #fdf4f6; --paper-rule: rgba(205, 142, 158, 0.42); --paper-ink: #3a1f28; --sheet-image: url("/themes/blush-peony-frame.jpg?v=4"); }
+.paper-theme-sage-gold-leaves       { --sheet-fill: #fcf9f2; --paper-rule: rgba(155, 148, 112, 0.40); --paper-ink: #242e1e; --sheet-image: url("/themes/sage-gold-leaves.jpg?v=4"); }
+.paper-theme-lavender-blossom-frame { --sheet-fill: #f8f2fc; --paper-rule: rgba(165, 134, 198, 0.42); --paper-ink: #2c1b42; --sheet-image: url("/themes/lavender-blossom-frame.jpg?v=4"); }
+.paper-theme-peach-ribbon-hibiscus  { --sheet-fill: #fdf7ef; --paper-rule: rgba(196, 152, 126, 0.42); --paper-ink: #362118; --sheet-image: url("/themes/peach-ribbon-hibiscus.jpg?v=4"); }
+.paper-theme-vintage-hummingbird    { --sheet-fill: #f7ecd4; --paper-rule: rgba(168, 132, 82, 0.42);  --paper-ink: #2f1f0e; --sheet-image: url("/themes/vintage-hummingbird.jpg?v=4"); }
+.paper-theme-tropical-seashell      { --sheet-fill: #eefafe; --paper-rule: rgba(98, 172, 198, 0.42);  --paper-ink: #102d3d; --sheet-image: url("/themes/tropical-seashell.jpg?v=4"); }
+.paper-theme-kawaii-kitty-rainbow   { --sheet-fill: #fdf2fb; --paper-rule: rgba(198, 148, 208, 0.42); --paper-ink: #381b44; --sheet-image: url("/themes/kawaii-kitty-rainbow.jpg?v=4"); }
+.paper-theme-anime-sakura-moon      { --sheet-fill: #fbf2fc; --paper-rule: rgba(194, 142, 206, 0.42); --paper-ink: #2f1840; --sheet-image: url("/themes/anime-sakura-moon.jpg?v=4"); }
 
-.paper-theme-obsidian-gold-crest    { --sheet-fill: #f8eedc; --paper-rule: transparent; --paper-ink: #241a0c; --sheet-image: url("/themes/obsidian-gold-crest.jpg"); }
-.paper-theme-mountain-river-pines   { --sheet-fill: #faf3e3; --paper-rule: transparent; --paper-ink: #1c291c; --sheet-image: url("/themes/mountain-river-pines.jpg"); }
-.paper-theme-cyberpunk-neon-hex     { --sheet-fill: #f3eefc; --paper-rule: transparent; --paper-ink: #1a1436; --sheet-image: url("/themes/cyberpunk-neon-hex.jpg"); }
-.paper-theme-gothic-silver-skull    { --sheet-fill: #eceef2; --paper-rule: transparent; --paper-ink: #16181e; --sheet-image: url("/themes/gothic-silver-skull.jpg"); }
+.paper-theme-obsidian-gold-crest    { --sheet-fill: #f8eedc; --paper-rule: rgba(176, 140, 76, 0.42);  --paper-ink: #241a0c; --sheet-image: url("/themes/obsidian-gold-crest.jpg?v=4"); }
+.paper-theme-mountain-river-pines   { --sheet-fill: #faf3e3; --paper-rule: rgba(148, 132, 98, 0.40);  --paper-ink: #1c291c; --sheet-image: url("/themes/mountain-river-pines.jpg?v=4"); }
+.paper-theme-cyberpunk-neon-hex     { --sheet-fill: #f3eefc; --paper-rule: rgba(132, 114, 212, 0.42); --paper-ink: #1a1436; --sheet-image: url("/themes/cyberpunk-neon-hex.jpg?v=4"); }
+.paper-theme-gothic-silver-skull    { --sheet-fill: #eceef2; --paper-rule: rgba(128, 134, 146, 0.42); --paper-ink: #16181e; --sheet-image: url("/themes/gothic-silver-skull.jpg?v=4"); }
 
 /* ─── 13 Newly Uploaded Unlined-Center Framed Stationeries (8 Cyber/PCB + 5 Nautical/Explorer/Gothic) ─── */
 .paper-theme-circuit-cpu-blue,
@@ -597,23 +597,23 @@
   border-color: color-mix(in srgb, var(--paper-ink, #2a2118) 22%, transparent) !important;
 }
 
-.paper-theme-circuit-cpu-blue        { --sheet-fill: #121a26; --paper-rule: rgba(64, 165, 255, 0.34);  --paper-ink: #eef6ff; --sheet-image: url("/themes/circuit-cpu-blue.jpg"); }
-.paper-theme-circuit-cpu-gold        { --sheet-fill: #191610; --paper-rule: rgba(235, 182, 58, 0.34);  --paper-ink: #fff8e6; --sheet-image: url("/themes/circuit-cpu-gold.jpg"); }
-.paper-theme-circuit-cpu-green       { --sheet-fill: #101c13; --paper-rule: rgba(60, 215, 98, 0.32);   --paper-ink: #ecfff0; --sheet-image: url("/themes/circuit-cpu-green.jpg"); }
-.paper-theme-circuit-cpu-red         { --sheet-fill: #1d1112; --paper-rule: rgba(235, 72, 72, 0.34);   --paper-ink: #fff0f0; --sheet-image: url("/themes/circuit-cpu-red.jpg"); }
+.paper-theme-circuit-cpu-blue        { --sheet-fill: #121a26; --paper-rule: rgba(64, 165, 255, 0.34);  --paper-ink: #eef6ff; --sheet-image: url("/themes/circuit-cpu-blue.jpg?v=4"); }
+.paper-theme-circuit-cpu-gold        { --sheet-fill: #191610; --paper-rule: rgba(235, 182, 58, 0.34);  --paper-ink: #fff8e6; --sheet-image: url("/themes/circuit-cpu-gold.jpg?v=4"); }
+.paper-theme-circuit-cpu-green       { --sheet-fill: #101c13; --paper-rule: rgba(60, 215, 98, 0.32);   --paper-ink: #ecfff0; --sheet-image: url("/themes/circuit-cpu-green.jpg?v=4"); }
+.paper-theme-circuit-cpu-red         { --sheet-fill: #1d1112; --paper-rule: rgba(235, 72, 72, 0.34);   --paper-ink: #fff0f0; --sheet-image: url("/themes/circuit-cpu-red.jpg?v=4"); }
 
-.paper-theme-circuit-paper-blue      { --sheet-fill: #faf5ea; --paper-rule: rgba(74, 136, 198, 0.36);  --paper-ink: #16263b; --sheet-image: url("/themes/circuit-paper-blue.jpg"); }
-.paper-theme-circuit-paper-purple    { --sheet-fill: #faf2e4; --paper-rule: rgba(140, 98, 184, 0.36);  --paper-ink: #241638; --sheet-image: url("/themes/circuit-paper-purple.jpg"); }
-.paper-theme-circuit-paper-green     { --sheet-fill: #f5f4ea; --paper-rule: rgba(76, 140, 100, 0.36);  --paper-ink: #162a1c; --sheet-image: url("/themes/circuit-paper-green.jpg"); }
-.paper-theme-circuit-paper-amber     { --sheet-fill: #fbf0df; --paper-rule: rgba(184, 130, 56, 0.36);  --paper-ink: #2c1b08; --sheet-image: url("/themes/circuit-paper-amber.jpg"); }
+.paper-theme-circuit-paper-blue      { --sheet-fill: #faf5ea; --paper-rule: rgba(74, 136, 198, 0.36);  --paper-ink: #16263b; --sheet-image: url("/themes/circuit-paper-blue.jpg?v=4"); }
+.paper-theme-circuit-paper-purple    { --sheet-fill: #faf2e4; --paper-rule: rgba(140, 98, 184, 0.36);  --paper-ink: #241638; --sheet-image: url("/themes/circuit-paper-purple.jpg?v=4"); }
+.paper-theme-circuit-paper-green     { --sheet-fill: #f5f4ea; --paper-rule: rgba(76, 140, 100, 0.36);  --paper-ink: #162a1c; --sheet-image: url("/themes/circuit-paper-green.jpg?v=4"); }
+.paper-theme-circuit-paper-amber     { --sheet-fill: #fbf0df; --paper-rule: rgba(184, 130, 56, 0.36);  --paper-ink: #2c1b08; --sheet-image: url("/themes/circuit-paper-amber.jpg?v=4"); }
 
-.paper-theme-lily-blue-morpho        { --sheet-fill: #fffdf9; --paper-rule: rgba(186, 156, 98, 0.34);  --paper-ink: #262018; --sheet-image: url("/themes/lily-blue-morpho.jpg"); }
-.paper-theme-lily-monarch-gold       { --sheet-fill: #faf9f4; --paper-rule: rgba(178, 152, 92, 0.34);  --paper-ink: #242118; --sheet-image: url("/themes/lily-monarch-gold.jpg"); }
-.paper-theme-sunset-sailboats        { --sheet-fill: #f9f3ea; --paper-rule: rgba(125, 158, 192, 0.36); --paper-ink: #1d2838; --sheet-image: url("/themes/sunset-sailboats.jpg"); }
-.paper-theme-lakeside-lantern        { --sheet-fill: #f4eadc; --paper-rule: rgba(168, 134, 88, 0.36);  --paper-ink: #281c10; --sheet-image: url("/themes/lakeside-lantern.jpg"); }
-.paper-theme-compass-voyage          { --sheet-fill: #f7eedf; --paper-rule: rgba(164, 136, 92, 0.36);  --paper-ink: #281d10; --sheet-image: url("/themes/compass-voyage.jpg"); }
-.paper-theme-northstar-valley        { --sheet-fill: #f8f1e4; --paper-rule: rgba(164, 142, 102, 0.36); --paper-ink: #241d12; --sheet-image: url("/themes/northstar-valley.jpg"); }
-.paper-theme-desert-skulls-parchment { --sheet-fill: #f3e7d2; --paper-rule: rgba(158, 132, 92, 0.36);  --paper-ink: #2b1f12; --sheet-image: url("/themes/desert-skulls-parchment.jpg"); }
+.paper-theme-lily-blue-morpho        { --sheet-fill: #fffdf9; --paper-rule: rgba(186, 156, 98, 0.34);  --paper-ink: #262018; --sheet-image: url("/themes/lily-blue-morpho.jpg?v=4"); }
+.paper-theme-lily-monarch-gold       { --sheet-fill: #faf9f4; --paper-rule: rgba(178, 152, 92, 0.34);  --paper-ink: #242118; --sheet-image: url("/themes/lily-monarch-gold.jpg?v=4"); }
+.paper-theme-sunset-sailboats        { --sheet-fill: #f9f3ea; --paper-rule: rgba(125, 158, 192, 0.36); --paper-ink: #1d2838; --sheet-image: url("/themes/sunset-sailboats.jpg?v=4"); }
+.paper-theme-lakeside-lantern        { --sheet-fill: #f4eadc; --paper-rule: rgba(168, 134, 88, 0.36);  --paper-ink: #281c10; --sheet-image: url("/themes/lakeside-lantern.jpg?v=4"); }
+.paper-theme-compass-voyage          { --sheet-fill: #f7eedf; --paper-rule: rgba(164, 136, 92, 0.36);  --paper-ink: #281d10; --sheet-image: url("/themes/compass-voyage.jpg?v=4"); }
+.paper-theme-northstar-valley        { --sheet-fill: #f8f1e4; --paper-rule: rgba(164, 142, 102, 0.36); --paper-ink: #241d12; --sheet-image: url("/themes/northstar-valley.jpg?v=4"); }
+.paper-theme-desert-skulls-parchment { --sheet-fill: #f3e7d2; --paper-rule: rgba(158, 132, 92, 0.36);  --paper-ink: #2b1f12; --sheet-image: url("/themes/desert-skulls-parchment.jpg?v=4"); }
 
 /* ─── Full-bleed Textured Themes & Legacy Compatibility ─── */
 .paper-theme-blush-peony,
@@ -633,18 +633,18 @@
   background-position: center center;
 }
 
-.paper-theme-blush-peony     { --paper-bg: #fcf8f3; --paper-rule: rgba(205, 145, 158, 0.36); --paper-ink: #361f25; background-image: linear-gradient(rgba(255, 252, 248, 0.16), rgba(255, 252, 248, 0.16)), url("/themes/blush-peony.jpg"); }
-.paper-theme-sakura-washi    { --paper-bg: #f9f3ea; --paper-rule: rgba(205, 155, 168, 0.36); --paper-ink: #352126; background-image: linear-gradient(rgba(255, 252, 247, 0.14), rgba(255, 252, 247, 0.14)), url("/themes/sakura-washi.jpg"); }
-.paper-theme-lavender        { --paper-bg: #f7f4fb; --paper-rule: rgba(145, 115, 190, 0.36); --paper-ink: #2b1d45; background-image: linear-gradient(rgba(252, 250, 255, 0.22), rgba(252, 250, 255, 0.22)), url("/themes/lavender-botanical.jpg"); }
-.paper-theme-wildflower      { --paper-bg: #f8f6ef; --paper-rule: rgba(135, 165, 138, 0.38); --paper-ink: #252e22; background-image: linear-gradient(rgba(252, 250, 244, 0.20), rgba(252, 250, 244, 0.20)), url("/themes/wildflower-meadow.jpg"); }
-.paper-theme-watercolor      { --paper-bg: #fcfafd; --paper-rule: rgba(125, 150, 195, 0.36); --paper-ink: #26243b; background-image: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), url("/themes/pastel-watercolor.jpg"); }
-.paper-theme-rosegold-marble { --paper-bg: #faf8f6; --paper-rule: rgba(195, 155, 142, 0.38); --paper-ink: #2b201e; background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url("/themes/rosegold-marble.jpg"); }
-.paper-theme-leather         { --paper-bg: #291b12; --paper-rule: rgba(225, 185, 125, 0.34); --paper-ink: #f7ecd8; background-image: linear-gradient(rgba(18, 11, 7, 0.36), rgba(18, 11, 7, 0.36)), url("/themes/saddle-leather.jpg"); }
-.paper-theme-parchment       { --paper-bg: #ead3a8; --paper-rule: rgba(130, 88, 44, 0.36);   --paper-ink: #2b1a0c; background-image: linear-gradient(rgba(250, 236, 206, 0.22), rgba(250, 236, 206, 0.22)), url("/themes/nautical-parchment.jpg"); }
-.paper-theme-mahogany        { --paper-bg: #24130a; --paper-rule: rgba(218, 178, 108, 0.35); --paper-ink: #f8eedb; background-image: linear-gradient(rgba(16, 8, 4, 0.44), rgba(16, 8, 4, 0.44)), url("/themes/mahogany-brass.jpg"); }
-.paper-theme-titanium        { --paper-bg: #15181e; --paper-rule: rgba(130, 170, 208, 0.32); --paper-ink: #ecf2f9; background-image: linear-gradient(rgba(10, 12, 16, 0.26), rgba(10, 12, 16, 0.26)), url("/themes/brushed-titanium.jpg"); }
-.paper-theme-midnight        { --paper-bg: #0b101d; --paper-rule: rgba(135, 175, 232, 0.30); --paper-ink: #eef4fd; background-image: linear-gradient(rgba(6, 10, 20, 0.24), rgba(6, 10, 20, 0.24)), url("/themes/starfield-cosmos.jpg"); }
-.paper-theme-nordic-forest   { --paper-bg: #f2f4ee; --paper-rule: rgba(108, 145, 124, 0.36); --paper-ink: #1a2c22; background-image: linear-gradient(rgba(248, 250, 245, 0.24), rgba(248, 250, 245, 0.24)), url("/themes/nordic-forest.jpg"); }
+.paper-theme-blush-peony     { --paper-bg: #fcf8f3; --paper-rule: rgba(205, 145, 158, 0.36); --paper-ink: #361f25; background-image: linear-gradient(rgba(255, 252, 248, 0.16), rgba(255, 252, 248, 0.16)), url("/themes/blush-peony.jpg?v=4"); }
+.paper-theme-sakura-washi    { --paper-bg: #f9f3ea; --paper-rule: rgba(205, 155, 168, 0.36); --paper-ink: #352126; background-image: linear-gradient(rgba(255, 252, 247, 0.14), rgba(255, 252, 247, 0.14)), url("/themes/sakura-washi.jpg?v=4"); }
+.paper-theme-lavender        { --paper-bg: #f7f4fb; --paper-rule: rgba(145, 115, 190, 0.36); --paper-ink: #2b1d45; background-image: linear-gradient(rgba(252, 250, 255, 0.22), rgba(252, 250, 255, 0.22)), url("/themes/lavender-botanical.jpg?v=4"); }
+.paper-theme-wildflower      { --paper-bg: #f8f6ef; --paper-rule: rgba(135, 165, 138, 0.38); --paper-ink: #252e22; background-image: linear-gradient(rgba(252, 250, 244, 0.20), rgba(252, 250, 244, 0.20)), url("/themes/wildflower-meadow.jpg?v=4"); }
+.paper-theme-watercolor      { --paper-bg: #fcfafd; --paper-rule: rgba(125, 150, 195, 0.36); --paper-ink: #26243b; background-image: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), url("/themes/pastel-watercolor.jpg?v=4"); }
+.paper-theme-rosegold-marble { --paper-bg: #faf8f6; --paper-rule: rgba(195, 155, 142, 0.38); --paper-ink: #2b201e; background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), url("/themes/rosegold-marble.jpg?v=4"); }
+.paper-theme-leather         { --paper-bg: #291b12; --paper-rule: rgba(225, 185, 125, 0.34); --paper-ink: #f7ecd8; background-image: linear-gradient(rgba(18, 11, 7, 0.36), rgba(18, 11, 7, 0.36)), url("/themes/saddle-leather.jpg?v=4"); }
+.paper-theme-parchment       { --paper-bg: #ead3a8; --paper-rule: rgba(130, 88, 44, 0.36);   --paper-ink: #2b1a0c; background-image: linear-gradient(rgba(250, 236, 206, 0.22), rgba(250, 236, 206, 0.22)), url("/themes/nautical-parchment.jpg?v=4"); }
+.paper-theme-mahogany        { --paper-bg: #24130a; --paper-rule: rgba(218, 178, 108, 0.35); --paper-ink: #f8eedb; background-image: linear-gradient(rgba(16, 8, 4, 0.44), rgba(16, 8, 4, 0.44)), url("/themes/mahogany-brass.jpg?v=4"); }
+.paper-theme-titanium        { --paper-bg: #15181e; --paper-rule: rgba(130, 170, 208, 0.32); --paper-ink: #ecf2f9; background-image: linear-gradient(rgba(10, 12, 16, 0.26), rgba(10, 12, 16, 0.26)), url("/themes/brushed-titanium.jpg?v=4"); }
+.paper-theme-midnight        { --paper-bg: #0b101d; --paper-rule: rgba(135, 175, 232, 0.30); --paper-ink: #eef4fd; background-image: linear-gradient(rgba(6, 10, 20, 0.24), rgba(6, 10, 20, 0.24)), url("/themes/starfield-cosmos.jpg?v=4"); }
+.paper-theme-nordic-forest   { --paper-bg: #f2f4ee; --paper-rule: rgba(108, 145, 124, 0.36); --paper-ink: #1a2c22; background-image: linear-gradient(rgba(248, 250, 245, 0.24), rgba(248, 250, 245, 0.24)), url("/themes/nordic-forest.jpg?v=4"); }
 
 .paper-theme-rose { --paper-bg: #fbeef0; --paper-rule: rgba(200, 100, 130, 0.35); --paper-ink: #4a1f2e; }
 .paper-theme-mint { --paper-bg: #ebf6f0; --paper-rule: rgba(60, 150, 120, 0.35); --paper-ink: #1a3a2e; }
@@ -654,7 +654,7 @@
   --paper-bg: #fdf9f1;
   --paper-rule: rgba(170, 140, 110, 0.3);
   --paper-ink: #3a2818;
-  background-image: url("/themes/lily-spray-sage.svg");
+  background-image: url("/themes/lily-spray-sage.svg?v=4");
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 320px 320px;
@@ -675,19 +675,19 @@
   background-position: center center;
   background-attachment: local;
 }
-.paper-theme-circuit         { --paper-bg: #0a1830; background-image: linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url("/themes/circuit-board.jpg"); }
-.paper-theme-circuit-corners { --paper-bg: #0c2848; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-corners.jpg"); }
-.paper-theme-circuit-burst   { --paper-bg: #06122a; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-burst.jpg"); }
-.paper-theme-circuit-hex     { --paper-bg: #0a1c34; background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("/themes/circuit-hex.jpg"); }
-.paper-theme-circuit-aura    { --paper-bg: #06122a; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-aura.jpg"); }
-.paper-theme-circuit-frame   { --paper-bg: #0c2848; background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("/themes/circuit-frame.jpg"); }
-.paper-theme-circuit-stars   { --paper-bg: #0a1830; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-stars.jpg"); }
+.paper-theme-circuit         { --paper-bg: #0a1830; background-image: linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url("/themes/circuit-board.jpg?v=4"); }
+.paper-theme-circuit-corners { --paper-bg: #0c2848; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-corners.jpg?v=4"); }
+.paper-theme-circuit-burst   { --paper-bg: #06122a; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-burst.jpg?v=4"); }
+.paper-theme-circuit-hex     { --paper-bg: #0a1c34; background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("/themes/circuit-hex.jpg?v=4"); }
+.paper-theme-circuit-aura    { --paper-bg: #06122a; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-aura.jpg?v=4"); }
+.paper-theme-circuit-frame   { --paper-bg: #0c2848; background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("/themes/circuit-frame.jpg?v=4"); }
+.paper-theme-circuit-stars   { --paper-bg: #0a1830; background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url("/themes/circuit-stars.jpg?v=4"); }
 
 .paper-theme-lily-gold-corner {
   --paper-bg: #fbf4e2;
   --paper-rule: rgba(160, 120, 60, 0.3);
   --paper-ink: #3a2a14;
-  background-image: url("/themes/lily-spray-gold.svg");
+  background-image: url("/themes/lily-spray-gold.svg?v=4");
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 320px 320px;
@@ -698,7 +698,7 @@
   --paper-bg: #fbf4e2;
   --paper-rule: rgba(160, 120, 60, 0.3);
   --paper-ink: #3a2a14;
-  background-image: url("/themes/lily-vine-gold.svg"), url("/themes/lily-vine-gold.svg");
+  background-image: url("/themes/lily-vine-gold.svg?v=4"), url("/themes/lily-vine-gold.svg?v=4");
   background-repeat: no-repeat, no-repeat;
   background-position: left top, right top;
   background-size: 80px 100%, 80px 100%;
@@ -709,25 +709,48 @@
   --paper-bg: #fdf9f1;
   --paper-rule: rgba(170, 140, 110, 0.3);
   --paper-ink: #3a2818;
-  background-image: url("/themes/lily-vine-sage.svg"), url("/themes/lily-vine-sage.svg");
+  background-image: url("/themes/lily-vine-sage.svg?v=4"), url("/themes/lily-vine-sage.svg?v=4");
   background-repeat: no-repeat, no-repeat;
   background-position: left top, right top;
   background-size: 80px 100%, 80px 100%;
   background-attachment: local;
 }
 
-/* ── Editor text + ink color follow theme ── */
+/* ── Editor text + ink + custom font + alignment follow theme ── */
 .paper-page .note-lines,
+.paper-page .tiptap-content,
+.paper-page .tiptap-content *,
 .paper-page input[type="text"] {
   color: var(--paper-ink) !important;
   caret-color: var(--paper-ink);
 }
+.paper-page[data-custom-font="true"] input[type="text"],
+.paper-page[data-custom-font="true"] .tiptap-content,
+.paper-page[data-custom-font="true"] .tiptap-content * {
+  font-family: var(--note-font) !important;
+}
+.paper-page[data-text-align="left"] .tiptap-content,
+.paper-page[data-text-align="left"] .tiptap-content p,
+.paper-page[data-text-align="left"] .tiptap-content li {
+  text-align: left !important;
+}
+.paper-page[data-text-align="center"] .tiptap-content,
+.paper-page[data-text-align="center"] .tiptap-content p,
+.paper-page[data-text-align="center"] .tiptap-content li {
+  text-align: center !important;
+}
+.paper-page[data-text-align="right"] .tiptap-content,
+.paper-page[data-text-align="right"] .tiptap-content p,
+.paper-page[data-text-align="right"] .tiptap-content li {
+  text-align: right !important;
+}
+
 .paper-page input[type="text"]::placeholder,
 .paper-page .note-lines::placeholder {
   color: color-mix(in srgb, var(--paper-ink) 35%, transparent) !important;
 }
 
-/* ── Line style patterns (drawn on the textarea) ── */
+/* ── Strict 32.0px Between-The-Lines Lock (Zero Line Crossing Across All 9 Fonts!) ── */
 .line-style-lined {
   background-image:
     repeating-linear-gradient(
@@ -738,8 +761,9 @@
       var(--paper-rule, #a8c4d8) 32px
     );
   background-attachment: local;
+  background-position: 0 0;
   line-height: 32px !important;
-  padding-top: 4px !important;
+  padding-top: 2px !important;
 }
 
 .line-style-dotted {
@@ -753,16 +777,15 @@
   background-attachment: local;
   background-position: 0 28px;
   line-height: 32px !important;
-  padding-top: 4px !important;
+  padding-top: 2px !important;
 }
 
 .line-style-blank {
   background-image: none;
   line-height: 32px !important;
-  padding-top: 4px !important;
+  padding-top: 2px !important;
 }
 
-/* Backwards compat — old .note-lines class still works as "lined classic" */
 .note-lines:not([class*="line-style-"]) {
   background-image:
     repeating-linear-gradient(
@@ -774,10 +797,23 @@
     );
   background-attachment: local;
   line-height: 32px !important;
-  padding-top: 4px !important;
+  padding-top: 2px !important;
 }
 
-/* ── Inline photos inside the rich editor ── */
+.note-lines .tiptap-content,
+.note-lines .tiptap-content p,
+.note-lines .tiptap-content li,
+.note-lines .tiptap-content ul,
+.note-lines .tiptap-content ol,
+.note-lines .tiptap-content blockquote {
+  line-height: 32px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ── Inline photos & Bullet / Numbered / Checklist Styling inside RichEditor ── */
 .tiptap-content {
   outline: none;
 }
@@ -788,6 +824,28 @@
   height: 0;
   pointer-events: none;
 }
+
+/* Restore visible Bullets (disc) and Numbered (decimal) lists with inline <p> so text NEVER drops below the marker! */
+.tiptap-content ul:not(.task-list) {
+  list-style-type: disc !important;
+  list-style-position: inside !important;
+  padding-left: 0.25rem !important;
+}
+.tiptap-content ol {
+  list-style-type: decimal !important;
+  list-style-position: inside !important;
+  padding-left: 0.25rem !important;
+}
+.tiptap-content ul:not(.task-list) > li > p,
+.tiptap-content ol > li > p {
+  display: inline !important;
+}
+.tiptap-content ul:not(.task-list) > li::marker,
+.tiptap-content ol > li::marker {
+  color: var(--paper-ink, #2a2118) !important;
+  font-weight: 600;
+}
+
 .note-image {
   display: block;
   max-width: 100%;
@@ -821,32 +879,37 @@
   outline-offset: 2px;
 }
 
-/* Checklist (task list) styling */
+/* Checklist (task list) styling — locked to 32px line height */
 .tiptap-content ul.task-list {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 .tiptap-content ul.task-list li.task-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
-  margin: 4px 0;
+  margin: 0 !important;
+  min-height: 32px;
 }
 .tiptap-content ul.task-list li.task-item > label {
   flex: 0 0 auto;
-  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin: 0;
   user-select: none;
 }
 .tiptap-content ul.task-list li.task-item > label > input[type="checkbox"] {
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: #6366f1;
+  accent-color: #7c5c3e;
 }
 .tiptap-content ul.task-list li.task-item > div {
   flex: 1 1 auto;
   min-width: 0;
+  line-height: 32px !important;
 }
 .tiptap-content ul.task-list li.task-item[data-checked="true"] > div {
   text-decoration: line-through;

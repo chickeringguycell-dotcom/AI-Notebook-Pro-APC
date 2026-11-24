@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/notepad/onboarding-dialog.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.onboarding_dialog {
+  contract onboarding_dialogContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn FirstLaunchOnboardingDialog() -> Any;
+  }
+}

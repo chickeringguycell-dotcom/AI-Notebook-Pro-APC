@@ -1,0 +1,28 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/pages/not-found.tsx (22 lines, 711 bytes, sha256:718a41bd05a163d1)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.not_found {
+  use "@/components/ui/card";
+  use "lucide-react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/pages/not-found.tsx",
+    sourceLines: 22,
+    sourceBytes: 711,
+    sha256: "718a41bd05a163d1db32480aba013f5fe754894e656b6542a8e4b302275b172e",
+    vendorLockIn: 0
+  }
+
+  pub struct not_foundUnit { pub digest: u64 }
+
+  pub fn NotFound(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <AlertCircle>;
+    vnode <Card>;
+    vnode <CardContent>;
+    vnode <div>;
+    vnode <h1>;
+    vnode <p>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.pages.not_found::NotFound", 0x718a41bd05a163d1);
+  }
+}

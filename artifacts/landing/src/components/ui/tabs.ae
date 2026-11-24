@@ -1,0 +1,27 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/tabs.tsx (54 lines, 1877 bytes, sha256:6f74706bc6b53f9e)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.tabs {
+  use "@/lib/utils";
+  use "@radix-ui/react-tabs";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/tabs.tsx",
+    sourceLines: 54,
+    sourceBytes: 1877,
+    sha256: "6f74706bc6b53f9e4bcebb5e7ab8743b616aef181edc7758b8ee905f9b2fdcd7",
+    vendorLockIn: 0
+  }
+
+  pub struct tabsUnit { pub digest: u64 }
+
+  pub fn init_tabs(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <TabsPrimitive.Content>;
+    vnode <TabsPrimitive.List>;
+    vnode <TabsPrimitive.Trigger>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.tabs::init_tabs", 0x6f74706bc6b53f9e);
+  }
+}

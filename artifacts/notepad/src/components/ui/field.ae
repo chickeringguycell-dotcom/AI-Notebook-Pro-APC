@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: components/ui/field.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.field {
+  contract fieldContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn renderModule() -> Any;
+  }
+}

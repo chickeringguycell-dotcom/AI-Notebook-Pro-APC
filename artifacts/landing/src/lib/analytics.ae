@@ -1,0 +1,26 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/lib/analytics.ts (49 lines, 1262 bytes, sha256:78e1de348c7e8f07)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "artifacts/landing/src/lib/analytics.ts",
+    sourceLines: 49,
+    sourceBytes: 1262,
+    sha256: "78e1de348c7e8f077c73ce397447b13a098a4757b1ad2e371984c443d4c71229",
+    vendorLockIn: 0
+  }
+
+  pub struct analyticsUnit { pub digest: u64 }
+
+  pub fn getVisitorId(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <string>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics::getVisitorId", 0x78e1de348c7e8f07);
+  }
+
+  pub fn track(/* eventType: string, metadata?: Record<string, unknown>, */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics::track", 0x78e1de348c7e8f07);
+  }
+}

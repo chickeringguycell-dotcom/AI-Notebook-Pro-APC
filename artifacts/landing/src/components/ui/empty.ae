@@ -1,0 +1,44 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/empty.tsx (105 lines, 2396 bytes, sha256:9f975582a0290dbc)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty {
+  use "@/lib/utils";
+  use "class-variance-authority";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/empty.tsx",
+    sourceLines: 105,
+    sourceBytes: 2396,
+    sha256: "9f975582a0290dbc7ce6efa3b36b376a4c3f07863026c3b74c1e73cb0023acb8",
+    vendorLockIn: 0
+  }
+
+  pub struct emptyUnit { pub digest: u64 }
+
+  pub fn Empty(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty::Empty", 0x9f975582a0290dbc);
+  }
+
+  pub fn EmptyHeader(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty::EmptyHeader", 0x9f975582a0290dbc);
+  }
+
+  pub fn EmptyMedia(/* { className, variant = 'default', ...props }: React.ComponentProps<'div'> & VariantProps<t */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty::EmptyMedia", 0x9f975582a0290dbc);
+  }
+
+  pub fn EmptyTitle(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty::EmptyTitle", 0x9f975582a0290dbc);
+  }
+
+  pub fn EmptyDescription(/* { className, ...props }: React.ComponentProps<'p'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty::EmptyDescription", 0x9f975582a0290dbc);
+  }
+
+  pub fn EmptyContent(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.empty::EmptyContent", 0x9f975582a0290dbc);
+  }
+}

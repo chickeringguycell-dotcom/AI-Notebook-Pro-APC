@@ -1,0 +1,21 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/collapsible.tsx (12 lines, 329 bytes, sha256:f4cdd104de29928b)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.collapsible {
+  use "@radix-ui/react-collapsible";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/collapsible.tsx",
+    sourceLines: 12,
+    sourceBytes: 329,
+    sha256: "f4cdd104de29928bfcd40b865c7d08eed9157a537fbb8b5e6d0921f02b63cc04",
+    vendorLockIn: 0
+  }
+
+  pub struct collapsibleUnit { pub digest: u64 }
+
+  pub fn init_collapsible(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.collapsible::init_collapsible", 0xf4cdd104de29928b);
+  }
+}

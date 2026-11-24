@@ -1,0 +1,26 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/switch.tsx (28 lines, 1148 bytes, sha256:ba5867cd3145af12)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.switch {
+  use "@/lib/utils";
+  use "@radix-ui/react-switch";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/switch.tsx",
+    sourceLines: 28,
+    sourceBytes: 1148,
+    sha256: "ba5867cd3145af1290edd80bb56d4b6d61c6331aa8ef96ae0b85487f4499feaf",
+    vendorLockIn: 0
+  }
+
+  pub struct switchUnit { pub digest: u64 }
+
+  pub fn init_switch(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <SwitchPrimitives.Root>;
+    vnode <SwitchPrimitives.Thumb>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.switch::init_switch", 0xba5867cd3145af12);
+  }
+}

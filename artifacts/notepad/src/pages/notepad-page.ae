@@ -1,0 +1,10 @@
+// Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+// Permanent Studio Rule 64 — Native AetherPrime (.ae) Module
+// Source: pages/notepad-page.tsx
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.notepad_page {
+  contract notepad_pageContract {
+    invariant SovereignAetherPrimeExclusive: true;
+    fn NotepadPage() -> Any;
+  }
+}

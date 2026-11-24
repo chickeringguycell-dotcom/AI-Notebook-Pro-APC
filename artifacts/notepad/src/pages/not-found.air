@@ -1,0 +1,13 @@
+; Copyright © 2026 Viper Studios Technologies. All Rights Reserved.
+; Permanent Studio Rule 64 — Native AIR IR (.air) SSA Module
+
+module @ViperStudios.AetherPrime.MyAiNotebook.not_found {
+  meta !language = "AetherPrime-AIR-IR"
+  meta !source = "pages/not-found.tsx"
+
+  func @entry_not_found() -> !air.status {
+  entry():
+    %ok = air.constant 0 : !air.status
+    air.return %ok : !air.status
+  }
+}

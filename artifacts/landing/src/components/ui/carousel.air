@@ -1,0 +1,28 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.carousel"
+meta !source = "artifacts/landing/src/components/ui/carousel.tsx"
+meta !lines = "261"
+meta !sha256 = "5a4ff73c804e86c873382da80c453f1399006326ef042fb984c24162ec86666e"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.carousel {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"5a4ff73c804e86c8"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @useCarousel(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "useCarousel" : !viper.ctx
+    %hk_0 = air.hook.invoke @useCallback(%ctx_0) : !viper.val
+    %hk_1 = air.hook.invoke @useCarousel(%ctx_0) : !viper.val
+    %hk_2 = air.hook.invoke @useContext(%ctx_0) : !viper.val
+    %hk_3 = air.hook.invoke @useEffect(%ctx_0) : !viper.val
+    %hk_4 = air.hook.invoke @useEmblaCarousel(%ctx_0) : !viper.val
+    %hk_5 = air.hook.invoke @useState(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 10 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.carousel::useCarousel", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+}

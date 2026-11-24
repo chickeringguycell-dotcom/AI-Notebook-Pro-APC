@@ -1,0 +1,25 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/sonner.tsx (32 lines, 894 bytes, sha256:771ab8637d27384c)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sonner {
+  use "next-themes";
+  use "sonner";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/sonner.tsx",
+    sourceLines: 32,
+    sourceBytes: 894,
+    sha256: "771ab8637d27384c3ed030ba3be01a07b90c791c294eae06646250f8e81bc49e",
+    vendorLockIn: 0
+  }
+
+  pub struct sonnerUnit { pub digest: u64 }
+
+  pub fn init_sonner(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useTheme;
+    vnode <Sonner>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sonner::init_sonner", 0x771ab8637d27384c);
+  }
+}

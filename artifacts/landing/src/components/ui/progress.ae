@@ -1,0 +1,26 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/progress.tsx (29 lines, 792 bytes, sha256:6b3b4b69a1cb3610)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.progress {
+  use "@/lib/utils";
+  use "@radix-ui/react-progress";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/progress.tsx",
+    sourceLines: 29,
+    sourceBytes: 792,
+    sha256: "6b3b4b69a1cb361076174892e9a96e1a09020307616965ef89f2f7e2495b57a9",
+    vendorLockIn: 0
+  }
+
+  pub struct progressUnit { pub digest: u64 }
+
+  pub fn init_progress(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <ProgressPrimitive.Indicator>;
+    vnode <ProgressPrimitive.Root>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.progress::init_progress", 0x6b3b4b69a1cb3610);
+  }
+}

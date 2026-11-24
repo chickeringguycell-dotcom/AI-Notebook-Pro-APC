@@ -12,8 +12,8 @@ tags:
     description: Health operations
   - name: notes
     description: Note pad operations
-  - name: openai
-    description: OpenAI AI chat, image, and audio operations
+  - name: aether
+    description: Aether AI chat, image, and audio operations
   - name: storage
     description: Object storage upload and serving endpoints
   - name: account
@@ -135,10 +135,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /openai/conversations:
+  /aether/conversations:
     get:
-      operationId: listOpenaiConversations
-      tags: [openai]
+      operationId: listAetherConversations
+      tags: [aether]
       summary: List all conversations
       responses:
         "200":
@@ -148,28 +148,28 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/OpenaiConversation"
+                  $ref: "#/components/schemas/AetherConversation"
     post:
-      operationId: createOpenaiConversation
-      tags: [openai]
+      operationId: createAetherConversation
+      tags: [aether]
       summary: Create a new conversation
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateOpenaiConversationBody"
+              $ref: "#/components/schemas/CreateAetherConversationBody"
       responses:
         "201":
           description: Created conversation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OpenaiConversation"
-  /openai/conversations/{id}:
+                $ref: "#/components/schemas/AetherConversation"
+  /aether/conversations/{id}:
     get:
-      operationId: getOpenaiConversation
-      tags: [openai]
+      operationId: getAetherConversation
+      tags: [aether]
       summary: Get conversation with messages
       parameters:
         - name: id
@@ -183,16 +183,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OpenaiConversationWithMessages"
+                $ref: "#/components/schemas/AetherConversationWithMessages"
         "404":
           description: Not found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OpenaiError"
+                $ref: "#/components/schemas/AetherError"
     delete:
-      operationId: deleteOpenaiConversation
-      tags: [openai]
+      operationId: deleteAetherConversation
+      tags: [aether]
       summary: Delete a conversation
       parameters:
         - name: id
@@ -208,11 +208,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OpenaiError"
-  /openai/conversations/{id}/messages:
+                $ref: "#/components/schemas/AetherError"
+  /aether/conversations/{id}/messages:
     get:
-      operationId: listOpenaiMessages
-      tags: [openai]
+      operationId: listAetherMessages
+      tags: [aether]
       summary: List messages in a conversation
       parameters:
         - name: id
@@ -228,10 +228,10 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/OpenaiMessage"
+                  $ref: "#/components/schemas/AetherMessage"
     post:
-      operationId: sendOpenaiMessage
-      tags: [openai]
+      operationId: sendAetherMessage
+      tags: [aether]
       summary: Send a text message and receive a streaming text response
       parameters:
         - name: id
@@ -244,16 +244,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SendOpenaiMessageBody"
+              $ref: "#/components/schemas/SendAetherMessageBody"
       responses:
         "200":
           description: SSE stream of assistant text chunks
           content:
             text/event-stream: {}
-  /openai/scan-image:
+  /aether/scan-image:
     post:
       operationId: scanImageText
-      tags: [openai]
+      tags: [aether]
       summary: Extract text from a photo using vision OCR
       description: Accepts a base64-encoded image and returns the extracted plain text.
       requestBody:
@@ -274,17 +274,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenaiError'
+                $ref: '#/components/schemas/AetherError'
         '500':
           description: Recognition failed
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenaiError'
-  /openai/polish-text:
+                $ref: '#/components/schemas/AetherError'
+  /aether/polish-text:
     post:
       operationId: polishText
-      tags: [openai]
+      tags: [aether]
       summary: Clean up dictated text — fix obvious mishearings and add punctuation
       description: Takes raw dictated text and returns a cleaned version with proper punctuation, capitalization, and sensible word corrections. Preserves the user's voice and meaning.
       requestBody:
@@ -305,17 +305,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenaiError'
+                $ref: '#/components/schemas/AetherError'
         '500':
           description: Polish failed
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenaiError'
-  /openai/conversations/{id}/voice-messages:
+                $ref: '#/components/schemas/AetherError'
+  /aether/conversations/{id}/voice-messages:
     post:
-      operationId: sendOpenaiVoiceMessage
-      tags: [openai]
+      operationId: sendAetherVoiceMessage
+      tags: [aether]
       summary: Send audio and receive a streaming voice response
       parameters:
         - name: id
@@ -328,7 +328,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SendOpenaiVoiceMessageBody"
+              $ref: "#/components/schemas/SendAetherVoiceMessageBody"
       responses:
         "200":
           description: SSE stream of transcript and audio chunks
@@ -532,7 +532,7 @@ components:
           type: string
       required:
         - error
-    OpenaiConversation:
+    AetherConversation:
       type: object
       properties:
         id:
@@ -546,7 +546,7 @@ components:
         - id
         - title
         - createdAt
-    OpenaiMessage:
+    AetherMessage:
       type: object
       properties:
         id:
@@ -566,14 +566,14 @@ components:
         - role
         - content
         - createdAt
-    CreateOpenaiConversationBody:
+    CreateAetherConversationBody:
       type: object
       properties:
         title:
           type: string
       required:
         - title
-    SendOpenaiMessageBody:
+    SendAetherMessageBody:
       type: object
       properties:
         content:
@@ -615,7 +615,7 @@ components:
       properties:
         text:
           type: string
-    SendOpenaiVoiceMessageBody:
+    SendAetherVoiceMessageBody:
       type: object
       properties:
         audio:
@@ -623,7 +623,7 @@ components:
           description: Base64-encoded audio data
       required:
         - audio
-    OpenaiConversationWithMessages:
+    AetherConversationWithMessages:
       type: object
       properties:
         id:
@@ -636,13 +636,13 @@ components:
         messages:
           type: array
           items:
-            $ref: "#/components/schemas/OpenaiMessage"
+            $ref: "#/components/schemas/AetherMessage"
       required:
         - id
         - title
         - createdAt
         - messages
-    OpenaiError:
+    AetherError:
       type: object
       properties:
         error:

@@ -49,13 +49,13 @@ export interface ErrorResponse {
   error: string;
 }
 
-export interface OpenaiConversation {
+export interface AetherConversation {
   id: number;
   title: string;
   createdAt: string;
 }
 
-export interface OpenaiMessage {
+export interface AetherMessage {
   id: number;
   conversationId: number;
   role: string;
@@ -63,11 +63,11 @@ export interface OpenaiMessage {
   createdAt: string;
 }
 
-export interface CreateOpenaiConversationBody {
+export interface CreateAetherConversationBody {
   title: string;
 }
 
-export interface SendOpenaiMessageBody {
+export interface SendAetherMessageBody {
   content: string;
 }
 
@@ -102,19 +102,19 @@ export interface PolishTextResponse {
   text: string;
 }
 
-export interface SendOpenaiVoiceMessageBody {
+export interface SendAetherVoiceMessageBody {
   /** Base64-encoded audio data */
   audio: string;
 }
 
-export interface OpenaiConversationWithMessages {
+export interface AetherConversationWithMessages {
   id: number;
   title: string;
   createdAt: string;
-  messages: OpenaiMessage[];
+  messages: AetherMessage[];
 }
 
-export interface OpenaiError {
+export interface AetherError {
   error: string;
 }
 

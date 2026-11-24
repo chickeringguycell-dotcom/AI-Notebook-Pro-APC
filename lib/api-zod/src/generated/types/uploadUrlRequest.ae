@@ -1,0 +1,25 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: lib/api-zod/src/generated/types/uploadUrlRequest.ts (26 lines, 386 bytes, sha256:40d6c271f571f7d3)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.uploadUrlRequest {
+  use "viper://core/runtime";
+
+  meta {
+    sourcePath: "lib/api-zod/src/generated/types/uploadUrlRequest.ts",
+    sourceLines: 26,
+    sourceBytes: 386,
+    sha256: "40d6c271f571f7d31f50dde9e9eeb1b32bf226443b8bbad682903235b552b7bd",
+    vendorLockIn: 0
+  }
+
+  pub struct UploadUrlRequest {
+    pub name: AetherType<"string">,
+    pub size: AetherType<"number">,
+    pub contentType: AetherType<"string">,
+  }
+
+  pub fn init_uploadUrlRequest(/* ctx: SovereignContext */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.lib.api_zod.src.generated.types.uploadUrlRequest::init_uploadUrlRequest", 0x40d6c271f571f7d3);
+  }
+}

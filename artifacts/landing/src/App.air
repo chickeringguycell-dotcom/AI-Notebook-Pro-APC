@@ -1,0 +1,30 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App"
+meta !source = "artifacts/landing/src/App.tsx"
+meta !lines = "39"
+meta !sha256 = "2688c6f9186e51be4af606a4c99ddcf7dc0ab7c13be5716c2cd83210e5ef1790"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"2688c6f9186e51be"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @Router(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "Router" : !viper.ctx
+    %hk_0 = air.hook.invoke @useEffect(%ctx_0) : !viper.val
+    %vdom_0 = air.vdom.mount %ctx_0, 7 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App::Router", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @App(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "App" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.App::App", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+}

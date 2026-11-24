@@ -1,0 +1,66 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/item.tsx (194 lines, 4494 bytes, sha256:90983640aa7cfef8)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item {
+  use "@/components/ui/separator";
+  use "@/lib/utils";
+  use "@radix-ui/react-slot";
+  use "class-variance-authority";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/item.tsx",
+    sourceLines: 194,
+    sourceBytes: 4494,
+    sha256: "90983640aa7cfef8217422347d8e14825cf55137c76369decacf440767f03188",
+    vendorLockIn: 0
+  }
+
+  pub struct itemUnit { pub digest: u64 }
+
+  pub fn ItemGroup(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <Comp>;
+    vnode <Separator>;
+    vnode <div>;
+    vnode <p>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemGroup", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemSeparator(/* { className, ...props }: React.ComponentProps<typeof Separator> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemSeparator", 0x90983640aa7cfef8);
+  }
+
+  pub fn Item(/* { className, variant = 'default', size = 'default', asChild = false, ...props }: React.Com */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::Item", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemMedia(/* { className, variant = 'default', ...props }: React.ComponentProps<'div'> & VariantProps<t */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemMedia", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemContent(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemContent", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemTitle(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemTitle", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemDescription(/* { className, ...props }: React.ComponentProps<'p'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemDescription", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemActions(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemActions", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemHeader(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemHeader", 0x90983640aa7cfef8);
+  }
+
+  pub fn ItemFooter(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.item::ItemFooter", 0x90983640aa7cfef8);
+  }
+}

@@ -1,0 +1,26 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/badge.tsx (44 lines, 1567 bytes, sha256:c473f3377c5b08a0)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.badge {
+  use "@/lib/utils";
+  use "class-variance-authority";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/badge.tsx",
+    sourceLines: 44,
+    sourceBytes: 1567,
+    sha256: "c473f3377c5b08a0484e0d0376de5db4f9072eeb3b3bf7c746a08ce263a5579d",
+    vendorLockIn: 0
+  }
+
+  pub struct badgeUnit { pub digest: u64 }
+
+  pub fn Badge(/* { className, variant, ...props }: BadgeProps */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    vnode <HTMLDivElement>;
+    vnode <div>;
+    vnode <typeof>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.badge::Badge", 0xc473f3377c5b08a0);
+  }
+}

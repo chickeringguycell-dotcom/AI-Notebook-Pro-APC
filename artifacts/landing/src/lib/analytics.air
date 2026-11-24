@@ -1,0 +1,29 @@
+; Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+; Native Aether Intermediate Representation (AIR IR) — Permanent Studio Rule 64
+meta !language = "AetherPrime-AIR-IR"
+meta !module = "@ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics"
+meta !source = "artifacts/landing/src/lib/analytics.ts"
+meta !lines = "49"
+meta !sha256 = "78e1de348c7e8f077c73ce397447b13a098a4757b1ad2e371984c443d4c71229"
+
+module @ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics {
+  target triple = "wasm32-viper-aether-sovereign"
+
+  global @MODULE_DIGEST : [16 x i8] = c"78e1de348c7e8f07"
+  global @SOVEREIGN_VERIFIED : i1 = true
+
+  define @getVisitorId(%arg0: !viper.ctx) -> !viper.frame {
+  bb_0:
+    %ctx_0 = air.frame.enter "getVisitorId" : !viper.ctx
+    %vdom_0 = air.vdom.mount %ctx_0, 1 : !viper.vnode
+    %res_0 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics::getVisitorId", %ctx_0) : !viper.frame
+    air.ret %res_0 : !viper.frame
+  }
+
+  define @track(%arg0: !viper.ctx) -> !viper.frame {
+  bb_1:
+    %ctx_1 = air.frame.enter "track" : !viper.ctx
+    %res_1 = air.call @viper.sovereign.exec("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.lib.analytics::track", %ctx_1) : !viper.frame
+    air.ret %res_1 : !viper.frame
+  }
+}

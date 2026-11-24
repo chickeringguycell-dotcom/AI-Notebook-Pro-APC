@@ -1,5 +1,5 @@
 import { useLocation } from "wouter";
-import { Plus, Trash2, FolderOpen, X, Globe, Lock, ChevronRight, Hash, Pin, PinOff, Download, Upload, Pencil } from "lucide-react";
+import { Plus, Trash2, FolderOpen, X, Globe, Lock, ChevronRight, Hash, Pin, PinOff, Download, Upload, Pencil, MoreVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLang, LANGUAGES } from "@/contexts/language-context";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -33,6 +33,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { SettingsBugButton } from "@/components/notepad/settings-bug-dialog";
 function AccountBlock() {
   return (
     <div className="px-3 py-2 border-t border-sidebar-border">
@@ -543,11 +544,79 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                       </span>
                     </button>
                     {/* Action icons — inline, sleek, dark, always visible */}
+                    {/* Three-dots (⋮) menu right where Guy marked + Pin + Add Subsection */}
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          onClick={(e) => e.stopPropagation()}
+                          title={`Options for ${section}`}
+                          aria-label={`Options for ${section}`}
+                          className="ml-1 flex items-center justify-center h-7 w-7 rounded-md text-sidebar-foreground/60 hover:text-foreground hover:bg-sidebar-accent transition-colors shrink-0"
+                          data-testid={`button-menu-section-${section}`}
+                        >
+                          <MoreVertical className="h-3.5 w-3.5" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="w-48 p-1.5"
+                        align="start"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {section !== "General" && (
+                          <button
+                            type="button"
+                            onClick={() => openSectionRename(section)}
+                            className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-foreground hover:bg-accent text-left transition-colors"
+                            data-testid={`menu-rename-section-${section}`}
+                          >
+                            <Pencil className="h-3.5 w-3.5 text-muted-foreground" />
+                            Rename Section
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => handleOpenNewNote(section)}
+                          className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-foreground hover:bg-accent text-left transition-colors"
+                          data-testid={`menu-new-subsection-${section}`}
+                        >
+                          <Plus className="h-3.5 w-3.5 text-muted-foreground" />
+                          New Subsection
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (!isPro) { setProGateOpen(true); return; }
+                            setShowSectionInput(true);
+                            setNewSectionInput("");
+                          }}
+                          className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-foreground hover:bg-accent text-left transition-colors"
+                          data-testid={`menu-new-section-from-${section}`}
+                        >
+                          <FolderOpen className="h-3.5 w-3.5 text-muted-foreground" />
+                          New Section
+                        </button>
+                        {section !== "General" && (
+                          <>
+                            <div className="my-1 h-px bg-border" />
+                            <button
+                              type="button"
+                              onClick={() => setSectionToDelete(section)}
+                              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-destructive hover:bg-destructive/10 text-left transition-colors"
+                              data-testid={`menu-delete-section-${section}`}
+                            >
+                              <Trash2 className="h-3.5 w-3.5" />
+                              Delete Section
+                            </button>
+                          </>
+                        )}
+                      </PopoverContent>
+                    </Popover>
                     <button
                       onClick={(e) => { e.stopPropagation(); toggleSectionPin(section); }}
                       title={pinnedSections.has(section) ? `Unpin ${section} section` : `Pin ${section} section to top`}
                       aria-label={pinnedSections.has(section) ? `Unpin ${section}` : `Pin ${section} to top`}
-                      className={`ml-1 flex items-center justify-center h-7 w-7 rounded-md transition-colors shrink-0 ${
+                      className={`flex items-center justify-center h-7 w-7 rounded-md transition-colors shrink-0 ${
                         pinnedSections.has(section)
                           ? "text-primary hover:bg-primary/10"
                           : "text-sidebar-foreground/40 hover:text-primary hover:bg-sidebar-accent"
@@ -558,24 +627,12 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                     </button>
                     <button
                       onClick={(e) => { e.stopPropagation(); handleOpenNewNote(section); }}
-                      title={`New note in ${section}`}
-                      aria-label={`Add new note in ${section}`}
+                      title={`New subsection in ${section}`}
+                      aria-label={`Add new subsection in ${section}`}
                       className="flex items-center justify-center h-7 w-7 rounded-md text-sidebar-foreground hover:bg-sidebar-accent active:bg-sidebar-accent/80 transition-colors shrink-0"
                     >
                       <Plus className="h-4 w-4" strokeWidth={2.75} />
                     </button>
-                    {section !== "General" ? (
-                      <button
-                        onClick={(e) => { e.stopPropagation(); setSectionToDelete(section); }}
-                        title={`Delete ${section} section`}
-                        aria-label={`Delete ${section} section`}
-                        className="flex items-center justify-center h-7 w-7 rounded-md text-sidebar-foreground/80 hover:text-destructive hover:bg-destructive/10 active:bg-destructive/15 transition-colors shrink-0"
-                      >
-                        <Trash2 className="h-4 w-4" strokeWidth={2.25} />
-                      </button>
-                    ) : (
-                      <div className="h-7 w-7 shrink-0" aria-hidden="true" />
-                    )}
                   </div>
 
                   {/* Notes under this section */}
@@ -622,35 +679,64 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="absolute right-14 top-1/2 -translate-y-1/2 opacity-100 md:opacity-0 md:group-hover/note:opacity-100 h-6 w-6 text-sidebar-foreground/70 hover:text-primary hover:bg-primary/10"
-                            onClick={(e) => { e.stopPropagation(); openRename(note); }}
-                            title="Rename or move to a section"
-                            data-testid={`button-edit-${note.id}`}
-                          >
-                            <Pencil className="h-3 w-3" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
                             className={`absolute right-7 top-1/2 -translate-y-1/2 h-6 w-6 ${
                               isPinned
                                 ? "opacity-100 text-primary hover:bg-primary/10"
                                 : "opacity-100 md:opacity-0 md:group-hover/note:opacity-100 text-sidebar-foreground/70 hover:text-primary hover:bg-primary/10"
                             }`}
                             onClick={(e) => { e.stopPropagation(); handleTogglePin(note); }}
-                            title={isPinned ? "Unpin note" : "Pin note to top"}
+                            title={isPinned ? "Unpin subsection" : "Pin subsection to top"}
                             data-testid={`button-pin-${note.id}`}
                           >
                             {isPinned ? <PinOff className="h-3 w-3" /> : <Pin className="h-3 w-3" />}
                           </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="absolute right-0.5 top-1/2 -translate-y-1/2 opacity-100 md:opacity-0 md:group-hover/note:opacity-100 h-6 w-6 text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
-                            onClick={(e) => { e.stopPropagation(); setNoteToDelete(note.id); }}
-                          >
-                            <Trash2 className="h-3 w-3" />
-                          </Button>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="absolute right-0.5 top-1/2 -translate-y-1/2 h-6 w-6 text-sidebar-foreground/70 hover:text-foreground hover:bg-sidebar-accent"
+                                onClick={(e) => e.stopPropagation()}
+                                title="Subsection options"
+                                data-testid={`button-menu-note-${note.id}`}
+                              >
+                                <MoreVertical className="h-3.5 w-3.5" />
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              className="w-48 p-1.5"
+                              align="end"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <button
+                                type="button"
+                                onClick={() => openRename(note)}
+                                className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-foreground hover:bg-accent text-left transition-colors"
+                                data-testid={`menu-rename-note-${note.id}`}
+                              >
+                                <Pencil className="h-3.5 w-3.5 text-muted-foreground" />
+                                Rename Subsection
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleOpenNewNote(section)}
+                                className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-foreground hover:bg-accent text-left transition-colors"
+                              >
+                                <Plus className="h-3.5 w-3.5 text-muted-foreground" />
+                                New Subsection
+                              </button>
+                              <div className="my-1 h-px bg-border" />
+                              <button
+                                type="button"
+                                onClick={() => setNoteToDelete(note.id)}
+                                className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-destructive hover:bg-destructive/10 text-left transition-colors"
+                                data-testid={`menu-delete-note-${note.id}`}
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                                Delete
+                              </button>
+                            </PopoverContent>
+                          </Popover>
                         </div>
                         );
                       })}
@@ -669,10 +755,11 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
                 setShowSectionInput(true);
                 setNewSectionInput("");
               }}
-              className="flex items-center gap-2 text-xs text-sidebar-foreground/40 hover:text-primary transition-colors py-1"
+              className="flex items-center gap-2 text-xs text-sidebar-foreground/60 hover:text-primary transition-colors py-1 font-medium"
+              data-testid="button-new-folder"
             >
               {isPro ? <Plus className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5" />}
-              {t.labelYourTab}
+              New Section
               {!isPro && (
                 <span className="px-1 py-px rounded text-[9px] bg-primary/15 text-primary font-bold tracking-wide">PRO</span>
               )}
@@ -713,8 +800,9 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
         </button>
       </div>
 
-      {/* Language Switcher */}
-      <div className="px-3 py-2 border-t border-sidebar-border">
+      {/* Language Switcher & Settings / Bug Report */}
+      <div className="px-3 py-2 border-t border-sidebar-border space-y-1">
+        <SettingsBugButton />
         <Popover>
           <PopoverTrigger asChild>
             <button className="flex items-center gap-2 w-full text-left hover:bg-sidebar-accent rounded-lg px-2 py-1.5 transition-colors group">
@@ -732,19 +820,21 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
         </Popover>
       </div>
 
-      {/* New Note Dialog */}
+      {/* New Subsection Dialog */}
       <Dialog open={isNewNoteOpen} onOpenChange={setIsNewNoteOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="font-serif">{t.createNewNote}</DialogTitle>
+            <DialogTitle className="font-serif">
+              New Subsection in "{customCategory.trim() || newCategory || "General"}"
+            </DialogTitle>
           </DialogHeader>
 
           <div className="space-y-4 py-2">
             <div className="space-y-1.5">
-              <Label htmlFor="note-title">{t.titleLabel}</Label>
+              <Label htmlFor="note-title">Subsection Name (e.g., Cherry Pie, Jesus Christ Picture)</Label>
               <Input
                 id="note-title"
-                placeholder={t.noteTitleInput}
+                placeholder="Enter subsection name..."
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleCreateNote()}
@@ -756,7 +846,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsNewNoteOpen(false)}>{t.cancel}</Button>
             <Button onClick={handleCreateNote} disabled={createNote.isPending} data-testid="button-create-note">
-              {t.createNote}
+              Create Subsection
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -766,10 +856,10 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
       <Dialog open={!!sectionToRename} onOpenChange={(open) => !open && setSectionToRename(null)}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="font-serif">Rename section</DialogTitle>
+            <DialogTitle className="font-serif">Rename Section</DialogTitle>
           </DialogHeader>
           <div className="space-y-1.5 py-2">
-            <Label htmlFor="rename-section">Section name</Label>
+            <Label htmlFor="rename-section">Section Name (e.g., Recipes, Religion, Poems)</Label>
             <Input
               id="rename-section"
               value={sectionRenameValue}
@@ -791,15 +881,15 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
         </DialogContent>
       </Dialog>
 
-      {/* Rename Note Dialog */}
+      {/* Rename Subsection Dialog */}
       <Dialog open={!!noteToRename} onOpenChange={(open) => !open && setNoteToRename(null)}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="font-serif">Rename or move note</DialogTitle>
+            <DialogTitle className="font-serif">Rename Subsection or Move to Section</DialogTitle>
           </DialogHeader>
           <div className="space-y-3 py-2">
             <div className="space-y-1.5">
-              <Label htmlFor="rename-title">Title</Label>
+              <Label htmlFor="rename-title">Subsection Name</Label>
               <Input
                 id="rename-title"
                 value={renameValue}
@@ -834,7 +924,7 @@ export function Sidebar({ currentNoteId, onClose }: SidebarProps) {
               <Input
                 value={renameCustomCategory}
                 onChange={(e) => setRenameCustomCategory(e.target.value)}
-                placeholder="Or new section..."
+                placeholder="Or new Section name (e.g., Recipes, Religion)..."
                 className="mt-1.5"
                 data-testid="input-rename-custom-category"
               />

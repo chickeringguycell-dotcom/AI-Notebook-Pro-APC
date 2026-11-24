@@ -1,0 +1,155 @@
+// Copyright (c) 2026 Viper Studios Technologies. All Rights Reserved.
+// Native AetherPrime (.ae) Sovereign Module — Permanent Studio Rule 64
+// Source Module: artifacts/landing/src/components/ui/sidebar.tsx (728 lines, 21846 bytes, sha256:b023ff6245be1930)
+
+namespace ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar {
+  use "@/components/ui/button";
+  use "@/components/ui/input";
+  use "@/components/ui/separator";
+  use "@/components/ui/sheet";
+  use "@/components/ui/skeleton";
+  use "@/components/ui/tooltip";
+  use "@/hooks/use-mobile";
+  use "@/lib/utils";
+  use "@radix-ui/react-slot";
+  use "class-variance-authority";
+  use "lucide-react";
+  use "react";
+
+  meta {
+    sourcePath: "artifacts/landing/src/components/ui/sidebar.tsx",
+    sourceLines: 728,
+    sourceBytes: 21846,
+    sha256: "b023ff6245be1930e152a18c6aaa2b6dd1a11df7b05fcf41bbe483968bfb1c39",
+    vendorLockIn: 0
+  }
+
+  pub type SidebarContextProps = SovereignTypeExpr<"{ state: 'expanded' | 'collapsed' open: boolean setOpen: (open: boolean) => void openMobile: boolean setOpenMobile: (ope">;
+
+  pub fn useSidebar(/*  */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    bind_hook @useCallback;
+    bind_hook @useContext;
+    bind_hook @useEffect;
+    bind_hook @useIsMobile;
+    bind_hook @useMemo;
+    bind_hook @useSidebar;
+    bind_hook @useState;
+    vnode <Button>;
+    vnode <Comp>;
+    vnode <Input>;
+    vnode <PanelLeftIcon>;
+    vnode <Separator>;
+    vnode <Sheet>;
+    vnode <SheetContent>;
+    vnode <SheetDescription>;
+    vnode <SheetHeader>;
+    vnode <SheetTitle>;
+    vnode <SidebarContext.Provider>;
+    vnode <SidebarContextProps>;
+    vnode <Skeleton>;
+    vnode <Tooltip>;
+    vnode <TooltipContent>;
+    vnode <TooltipProvider>;
+    vnode <TooltipTrigger>;
+    vnode <button>;
+    vnode <div>;
+    vnode <li>;
+    vnode <main>;
+    vnode <span>;
+    vnode <typeof>;
+    vnode <ul>;
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::useSidebar", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarProvider(/* { defaultOpen = true, open: openProp, onOpenChange: setOpenProp, className, style, childre */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarProvider", 0xb023ff6245be1930);
+  }
+
+  pub fn Sidebar(/* { side = 'left', variant = 'sidebar', collapsible = 'offcanvas', className, children, ...p */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::Sidebar", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarTrigger(/* { className, onClick, ...props }: React.ComponentProps<typeof Button> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarTrigger", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarRail(/* { className, ...props }: React.ComponentProps<'button'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarRail", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarInset(/* { className, ...props }: React.ComponentProps<'main'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarInset", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarInput(/* { className, ...props }: React.ComponentProps<typeof Input> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarInput", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarHeader(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarHeader", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarFooter(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarFooter", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarSeparator(/* { className, ...props }: React.ComponentProps<typeof Separator> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarSeparator", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarContent(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarContent", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarGroup(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarGroup", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarGroupLabel(/* { className, asChild = false, ...props }: React.ComponentProps<'div'> & { asChild?: boolea */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarGroupLabel", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarGroupAction(/* { className, asChild = false, ...props }: React.ComponentProps<'button'> & { asChild?: boo */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarGroupAction", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarGroupContent(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarGroupContent", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenu(/* { className, ...props }: React.ComponentProps<'ul'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenu", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuItem(/* { className, ...props }: React.ComponentProps<'li'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuItem", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuButton(/* { asChild = false, isActive = false, variant = 'default', size = 'default', tooltip, class */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuButton", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuAction(/* { className, asChild = false, showOnHover = false, ...props }: React.ComponentProps<'butto */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuAction", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuBadge(/* { className, ...props }: React.ComponentProps<'div'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuBadge", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuSkeleton(/* { className, showIcon = false, ...props }: React.ComponentProps<'div'> & { showIcon?: bool */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuSkeleton", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuSub(/* { className, ...props }: React.ComponentProps<'ul'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuSub", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuSubItem(/* { className, ...props }: React.ComponentProps<'li'> */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuSubItem", 0xb023ff6245be1930);
+  }
+
+  pub fn SidebarMenuSubButton(/* { asChild = false, size = 'md', isActive = false, className, ...props }: React.ComponentPr */ ctx: &mut SovereignContext) -> SovereignResult<FrameOut> {
+    return ctx.dispatch("ViperStudios.AetherPrime.MyAiNotebook.artifacts.landing.src.components.ui.sidebar::SidebarMenuSubButton", 0xb023ff6245be1930);
+  }
+}
